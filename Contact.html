@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
 <meta name="robots" content="noindex, nofollow"><!-- staging-noindex -->
-<!-- Google Analytics (GA4) — replace G-XXXXXXXXXX with your real Measurement ID before launch -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- Google Analytics (GA4) with Consent Mode: no analytics cookies until the visitor accepts the cookie banner; not run on localhost -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YX7S1WFSQH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  (function () {
+    var h = window.location.hostname;
+    if (h === 'localhost' || h === '127.0.0.1' || h === '') { window['ga-disable-G-YX7S1WFSQH'] = true; }
+    var c = null; try { c = localStorage.getItem('sg_cookie_consent'); } catch (e) {}
+    gtag('consent', 'default', { analytics_storage: c === 'accepted' ? 'granted' : 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+  })();
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  gtag('config', 'G-YX7S1WFSQH');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -588,12 +594,14 @@ document.addEventListener('click', function(e) {
   if (acceptBtn) {
     acceptBtn.addEventListener('click', function () {
       setConsent('accepted');
+      if (window.gtag) { gtag('consent', 'update', { analytics_storage: 'granted' }); }
       banner.classList.remove('is-visible');
     });
   }
   if (declineBtn) {
     declineBtn.addEventListener('click', function () {
       setConsent('declined');
+      if (window.gtag) { gtag('consent', 'update', { analytics_storage: 'denied' }); }
       banner.classList.remove('is-visible');
     });
   }
