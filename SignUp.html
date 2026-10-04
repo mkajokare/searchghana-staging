@@ -150,7 +150,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="Index.html" class="logo" aria-label="SearchGhana">
+    <a href="index.html" class="logo" aria-label="SearchGhana">
       <span class="search" aria-hidden="true">Search</span>
       <span class="G" aria-hidden="true">G</span>
       <span class="h" aria-hidden="true">h</span>
@@ -254,7 +254,7 @@
     <div class="footer-flag"></div>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="Index.html" class="logo" aria-label="SearchGhana">
+        <a href="index.html" class="logo" aria-label="SearchGhana">
           <span class="search" aria-hidden="true">Search</span>
           <span class="G" aria-hidden="true">G</span>
           <span class="h" aria-hidden="true">h</span>
@@ -423,7 +423,7 @@ document.getElementById('signupForm').addEventListener('submit', async function(
       options: {
         data: { full_name: name },
         // send the confirmation link back to this site's home page (works under a sub-path like /searchghana-staging/)
-        emailRedirectTo: new URL('Index.html', window.location.href).href
+        emailRedirectTo: new URL('index.html', window.location.href).href
       }
     });
 
@@ -446,7 +446,7 @@ async function socialSignIn(provider, btn) {
 
   const { error } = await window.sbClient.auth.signInWithOAuth({
     provider: provider,
-    options: { redirectTo: new URL('Index.html', window.location.href).href },
+    options: { redirectTo: new URL('index.html', window.location.href).href },
   });
 
   if (error) {

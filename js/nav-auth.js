@@ -94,7 +94,7 @@
     if (window.sbClient) {
       try { await window.sbClient.auth.signOut(); } catch (e) { /* fall through to redirect regardless */ }
     }
-    window.location.href = 'Index.html';
+    window.location.href = 'index.html';
   };
 
   /* ── Accessibility: the profile dropdown had no ARIA state at all (a sighted

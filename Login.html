@@ -146,7 +146,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="Index.html" class="logo" aria-label="SearchGhana">
+    <a href="index.html" class="logo" aria-label="SearchGhana">
       <span class="search" aria-hidden="true">Search</span>
       <span class="G" aria-hidden="true">G</span>
       <span class="h" aria-hidden="true">h</span>
@@ -245,7 +245,7 @@
     <div class="footer-flag"></div>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="Index.html" class="logo" aria-label="SearchGhana">
+        <a href="index.html" class="logo" aria-label="SearchGhana">
           <span class="search" aria-hidden="true">Search</span>
           <span class="G" aria-hidden="true">G</span>
           <span class="h" aria-hidden="true">h</span>
@@ -368,7 +368,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
       return;
     }
 
-    window.location.href = 'Index.html';
+    window.location.href = 'index.html';
   }
 });
 
@@ -380,7 +380,7 @@ async function beginMfaChallenge() {
   const totpFactor = factorError ? null : (factorData.totp || []).find(f => f.status === 'verified');
   if (!totpFactor) {
     // Shouldn't happen (aal2 was requested), but fail safe rather than lock the user out.
-    window.location.href = 'Index.html';
+    window.location.href = 'index.html';
     return;
   }
   const { data: challenge, error: challengeError } = await window.sbClient.auth.mfa.challenge({ factorId: totpFactor.id });
@@ -420,7 +420,7 @@ document.getElementById('mfaVerifyBtn')?.addEventListener('click', async functio
     errEl.style.display = 'block';
     return;
   }
-  window.location.href = 'Index.html';
+  window.location.href = 'index.html';
 });
 
 document.getElementById('mfaCancelBtn')?.addEventListener('click', async function () {
@@ -438,7 +438,7 @@ async function socialSignIn(provider, btn) {
 
   const { error } = await window.sbClient.auth.signInWithOAuth({
     provider: provider,
-    options: { redirectTo: new URL('Index.html', window.location.href).href },
+    options: { redirectTo: new URL('index.html', window.location.href).href },
   });
 
   if (error) {
