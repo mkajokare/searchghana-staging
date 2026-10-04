@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow"><!-- staging-noindex -->
+<!-- Google Analytics (GA4) — replace G-XXXXXXXXXX with your real Measurement ID before launch -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SearchGhana | Leading Marketplace for Local Businesses</title>
+<meta name="description" content="Find trusted, verified local businesses across Ghana. Search thousands of listings, read honest reviews and connect with businesses from Accra to Kumasi and beyond.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.searchghana.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SearchGhana">
+<meta property="og:title" content="SearchGhana | Leading Marketplace for Local Businesses">
+<meta property="og:description" content="Find trusted, verified local businesses across Ghana. Search thousands of listings, read honest reviews and connect with businesses from Accra to Kumasi and beyond.">
+<meta property="og:url" content="https://www.searchghana.com/">
+<meta property="og:image" content="https://www.searchghana.com/Icons/Copilot_20260407_222824.png">
+<meta property="og:locale" content="en_GH">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@searchghana">
+<meta name="twitter:title" content="SearchGhana | Leading Marketplace for Local Businesses">
+<meta name="twitter:description" content="Find trusted, verified local businesses across Ghana. Search thousands of listings, read honest reviews and connect with businesses from Accra to Kumasi and beyond.">
+<meta name="twitter:image" content="https://www.searchghana.com/Icons/Copilot_20260407_222824.png">
+<link rel="icon" type="image/png" href="Icons/Copilot_20260407_222824.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-red: #CE1126;
+    --brand-red-dark: #A50D1E;
+    --brand-red-light: #FDEAED;
+    --brand-gold: #FCD116;
+    --brand-gold-dark: #E0B800;
+    --brand-gold-text: #8A6B00;
+    --brand-gold-light: #FFFBE6;
+    --brand-green: #006B3F;
+    --brand-green-light: #E6F4EE;
+    --white: #ffffff;
+    --gray-50: #FAF9F7;
+    --gray-100: #F2F0EB;
+    --gray-200: #E0DDD5;
+    --gray-400: #74706A;
+    --gray-600: #5A5650;
+    --gray-700: #403D38;
+    --gray-800: #2A2723;
+    --gray-900: #1A1816;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+    --shadow-lg: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.6; font-size: 15px; }
+
+  /* FLAG STRIPE */
+  .flag-stripe { height: 5px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); }
+
+  /* NAV */
+  .nav { background: var(--white); border-bottom: 1px solid var(--gray-100); position: sticky; top: 0; z-index: 200; }
+  .nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--brand-green); text-decoration: none; letter-spacing: -0.5px; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+  .logo .search { color: #1A1A1A; }
+  .logo .G { color: var(--brand-red); }
+  .logo .h { color: var(--brand-gold-dark); }
+  .logo .star { color: #1A1A1A; }
+  .logo .n { color: var(--brand-gold-dark); }
+  .logo .a { color: var(--brand-green); }
+  .logo span { color: var(--gray-900); letter-spacing: -0.5px; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; flex: 1; justify-content: center; }
+  .nav-links a { text-decoration: none; color: var(--gray-600); font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); transition: all 0.15s; white-space: nowrap; }
+  .nav-links a:hover { color: var(--gray-900); background: var(--gray-50); }
+  .nav-cta { background: var(--brand-green) !important; color: var(--white) !important; padding: 8px 16px !important; border-radius: var(--radius-md) !important; font-weight: 600 !important; }
+  .nav-cta:hover { opacity: 0.88 !important; }
+
+  /* PROFILE */
+  .nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .profile-wrapper { position: relative; }
+  .profile-btn { display: flex; align-items: center; gap: 8px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 100px; padding: 6px 14px 6px 6px; cursor: pointer; transition: all 0.15s; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gray-800); }
+  .profile-btn:hover { background: var(--gray-100); border-color: var(--gray-400); }
+  .profile-avatar-sm { width: 30px; height: 30px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; }
+  .profile-chevron { font-size: 9px; color: var(--gray-400); transition: transform 0.2s; }
+  .profile-btn.open .profile-chevron { transform: rotate(180deg); }
+
+  /* DROPDOWN */
+  .profile-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; width: 288px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); z-index: 300; overflow: hidden; }
+  .profile-dropdown.open { display: block; animation: dropIn 0.15s ease; }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  .dropdown-header { background: linear-gradient(135deg, var(--brand-red) 0%, #8B0A17 100%); padding: 20px 18px; display: flex; align-items: center; gap: 14px; }
+  .dropdown-avatar-lg { width: 48px; height: 48px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; border: 2px solid rgba(255,255,255,0.3); }
+  .dropdown-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--white); }
+  .dropdown-email { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+  .dropdown-body { padding: 8px; }
+  .menu-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--radius-md); cursor: pointer; transition: background 0.15s; text-decoration: none; color: var(--gray-700); font-size: 14px; font-weight: 500; }
+  .menu-item:hover { background: var(--gray-50); }
+  .menu-item.danger { color: var(--brand-red); }
+  .menu-item.danger:hover { background: var(--brand-red-light); }
+  .menu-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .menu-icon.gold { background: var(--brand-gold-light); }
+  .menu-icon.green { background: var(--brand-green-light); }
+  .menu-icon.red { background: var(--brand-red-light); }
+  .menu-label { flex: 1; }
+  .menu-badge { background: var(--brand-red); color: var(--white); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 100px; }
+  .menu-sep { height: 1px; background: var(--gray-100); margin: 6px 0; }
+
+  /* HERO */
+  .hero { background: #0D0D0D; background-image: radial-gradient(ellipse 90% 60% at 50% -10%, rgba(206,17,38,0.32) 0%, transparent 65%), radial-gradient(ellipse 50% 50% at 90% 95%, rgba(0,107,63,0.18) 0%, transparent 60%); padding: 80px 24px 104px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 4 L46 26 L70 26 L51 40 L58 62 L40 49 L22 62 L29 40 L10 26 L34 26Z' fill='%23ffffff' fill-opacity='0.018'/%3E%3C/svg%3E"); background-size: 80px 80px; }
+  .hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(252,209,22,0.14); color: var(--brand-gold); font-size: 12px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 20px; border: 1px solid rgba(252,209,22,0.28); }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(34px, 6vw, 58px); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 16px; }
+  .hero h1 em { font-style: normal; color: var(--brand-gold); }
+  .hero-sub { color: rgba(255,255,255,0.52); font-size: 17px; font-weight: 300; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+  /* SEARCH */
+  .search-bar { background: var(--white); border-radius: var(--radius-xl); padding: 8px 8px 8px 24px; display: flex; align-items: center; gap: 8px; max-width: 700px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+  .search-fields { display: flex; flex: 1; align-items: center; }
+  .search-field { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .search-field label { font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray-400); }
+  .search-field input { border: none; outline: none; font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--gray-900); background: transparent; width: 100%; }
+  .search-field input::placeholder { color: var(--gray-400); font-weight: 400; }
+  .search-div { width: 1px; height: 36px; background: var(--gray-200); margin: 0 16px; flex-shrink: 0; }
+  .search-btn { background: var(--brand-red); color: var(--white); border: none; border-radius: var(--radius-lg); padding: 14px 28px; font-family: var(--font-display); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.15s; white-space: nowrap; flex-shrink: 0; }
+  .search-btn:hover { background: var(--brand-red-dark); transform: translateY(-1px); }
+
+  .search-suggest { display: none; position: absolute; top: calc(100% + 10px); left: -4px; right: -4px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-md); box-shadow: var(--shadow-md); z-index: 40; overflow: hidden; text-align: left; }
+  .search-suggest.open { display: block; }
+  .search-suggest-group-label { font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--gray-400); padding: 10px 14px 4px; }
+  .search-suggest-item { display: flex; align-items: center; gap: 8px; padding: 9px 14px; font-size: 14px; color: var(--gray-800); cursor: pointer; }
+  .search-suggest-item:hover, .search-suggest-item.active { background: var(--gray-50); }
+  .search-suggest-item .ss-sub { font-size: 12px; color: var(--gray-400); margin-left: auto; }
+  .search-hints { margin-top: 16px; color: rgba(255,255,255,0.38); font-size: 12px; }
+  .search-hints a { color: rgba(255,255,255,0.62); text-decoration: none; margin: 0 6px; transition: color 0.15s; }
+  .search-hints a:hover { color: var(--brand-gold); }
+
+  /* STATS */
+  .stats-strip { background: var(--brand-green); padding: 20px 24px; }
+  .stats-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--brand-gold); letter-spacing: -0.5px; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.68); font-weight: 500; margin-top: 2px; }
+
+  /* SECTIONS */
+  .section { padding: 64px 24px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-header { margin-bottom: 36px; }
+  .section-header h2 { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--gray-900); letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+  .hdot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--brand-gold); flex-shrink: 0; }
+  .section-header p { color: var(--gray-400); margin-top: 6px; font-size: 15px; }
+
+  /* CATEGORIES */
+  .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  .category-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
+  .category-card:hover { border-color: var(--brand-gold); background: var(--brand-gold-light); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .cat-icon { font-size: 28px; display: block; margin-bottom: 10px; line-height: 1; }
+  .cat-name { font-size: 13px; font-weight: 600; color: var(--gray-700); }
+  .cat-count { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+  /* LISTINGS */
+  .listings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .listing-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.2s; }
+  .listing-card:hover { border-color: var(--gray-200); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .listing-card.featured { border-color: var(--brand-gold); border-width: 2px; }
+  .listing-banner { height: 118px; position: relative; }
+  .listing-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 42px; }
+  .feat-badge { position: absolute; top: 10px; left: 10px; background: var(--brand-gold); color: #1A1A1A; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+  .listing-body { padding: 16px; }
+  .listing-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+  .listing-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--gray-900); letter-spacing: -0.2px; line-height: 1.3; }
+  .listing-cat { font-size: 11px; font-weight: 600; color: var(--brand-green); background: var(--brand-green-light); padding: 3px 8px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+  .listing-desc { font-size: 13px; color: var(--gray-600); line-height: 1.5; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .listing-meta { display: flex; align-items: center; gap: 14px; font-size: 12px; color: var(--gray-400); flex-wrap: wrap; }
+  .lm { display: flex; align-items: center; gap: 4px; }
+  .stars { display: inline-flex; gap: 1px; color: #F59E0B; font-size: 13px; }
+  .rnum { font-weight: 600; color: var(--gray-700); font-size: 13px; }
+  .listing-foot { border-top: 1px solid var(--gray-100); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .l-phone { font-size: 13px; font-weight: 600; color: var(--gray-700); text-decoration: none; }
+  .l-phone:hover { color: var(--brand-red); }
+  .btn-view { font-size: 12px; font-weight: 600; color: var(--brand-green); background: var(--brand-green-light); border: none; border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; transition: all 0.15s; text-decoration: none; }
+  .btn-view:hover { background: var(--brand-green); color: var(--white); }
+
+  /* HOW IT WORKS */
+  .how-section { background: var(--gray-50); padding: 64px 24px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 40px; }
+  .step { text-align: center; }
+  .step-num { width: 48px; height: 48px; background: var(--brand-red); color: var(--white); border-radius: 50%; font-family: var(--font-display); font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 4px 14px rgba(206,17,38,0.3); }
+  .step h3 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
+  .step p { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+
+  /* CTA */
+  .cta-banner { background: var(--brand-green); padding: 64px 24px; text-align: center; position: relative; overflow: hidden; }
+  .cta-banner::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 4 L46 26 L70 26 L51 40 L58 62 L40 49 L22 62 L29 40 L10 26 L34 26Z' fill='%23ffffff' fill-opacity='0.04'/%3E%3C/svg%3E"); }
+  .cta-inner { max-width: 580px; margin: 0 auto; position: relative; }
+  .cta-banner h2 { font-family: var(--font-display); font-size: 34px; font-weight: 800; color: var(--white); letter-spacing: -1px; margin-bottom: 12px; }
+  .cta-banner h2 em { font-style: normal; color: var(--brand-gold); }
+  .cta-banner p { color: rgba(255,255,255,0.62); margin-bottom: 32px; font-size: 16px; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-gold { background: var(--brand-gold); color: #1A1A1A; border: none; border-radius: var(--radius-md); padding: 14px 28px; font-family: var(--font-display); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.15s; text-decoration: none; display: inline-block; }
+  .btn-gold:hover { background: var(--brand-gold-dark); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.32); border-radius: var(--radius-md); padding: 14px 28px; font-family: var(--font-display); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.15s; text-decoration: none; display: inline-block; }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.68); }
+
+  /* REVIEWS */
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .review-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); padding: 20px; }
+  .review-stars { color: #F59E0B; font-size: 16px; margin-bottom: 12px; }
+  .review-text { font-size: 14px; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 10px; }
+  .r-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--brand-gold-light); color: #1A1A1A; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; border: 1.5px solid var(--brand-gold); }
+  .r-name { font-size: 13px; font-weight: 600; color: var(--gray-800); }
+  .r-biz { font-size: 11px; color: var(--gray-400); }
+
+  /* FOOTER */
+  .footer { background: #0D0D0D; padding: 56px 24px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-flag { height: 4px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); border-radius: 2px; margin-bottom: 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 40px; margin-bottom: 48px; }
+  .footer-brand .logo { margin-bottom: 12px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 240px; }
+  .footer-col h4 { color: var(--white); font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li + li { margin-top: 8px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.38); text-decoration: none; font-size: 13px; transition: color 0.15s; }
+  .footer-col ul li a:hover { color: var(--brand-gold); }
+  .footer-brand .logo .search { color: var(--white); }
+  .footer-brand .logo .star { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,0.28); }
+  .footer-bottom a { color: rgba(255,255,255,0.38); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--brand-gold); }
+  .footer-links { display: flex; gap: 20px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) { .nav-links { display: none; } }
+  @media (max-width: 600px) {
+    .search-bar { padding: 12px; flex-direction: column; border-radius: var(--radius-lg); }
+    .search-fields { flex-direction: column; width: 100%; }
+    .search-div { width: 100%; height: 1px; margin: 8px 0; }
+    .search-btn { width: 100%; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 400px) { .footer-grid { grid-template-columns: 1fr; } }
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--gray-800); font-size: 22px; line-height: 1; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-hamburger:hover { color: var(--brand-green); }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links.mobile-open { display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-100); box-shadow: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08); padding: 8px 16px 16px; gap: 4px; z-index: 250; }
+    .nav-links.mobile-open li { width: 100%; }
+    .nav-links.mobile-open a { display: block; padding: 12px 10px; }
+    .nav-links.mobile-open .nav-cta { display: block; text-align: center; margin-top: 4px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SearchGhana",
+  "legalName": "SearchGhana Ltd.",
+  "url": "https://www.searchghana.com/",
+  "logo": "https://www.searchghana.com/Icons/Copilot_20260407_222824.png",
+  "description": "Ghana's most trusted business directory, connecting communities with quality businesses across all 16 regions.",
+  "sameAs": [
+    "https://facebook.com/searchghana",
+    "https://twitter.com/searchghana",
+    "https://instagram.com/searchghana",
+    "https://tiktok.com/@searchghana"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SearchGhana",
+  "url": "https://www.searchghana.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.searchghana.com/Browse.html?search={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<style>
+  .skip-link { position: absolute; left: -9999px; top: 0; background: #fff; color: #111; padding: 10px 18px; z-index: 10000; border-radius: 0 0 8px 0; font-family: system-ui, sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .skip-link:focus { left: 0; }
+</style>
+
+<div class="flag-stripe"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="Index.html" class="logo" aria-label="SearchGhana">
+      <span class="search" aria-hidden="true">Search</span>
+      <span class="G" aria-hidden="true">G</span>
+      <span class="h" aria-hidden="true">h</span>
+      <span class="star" aria-hidden="true">★</span>
+      <span class="n" aria-hidden="true">n</span>
+      <span class="a" aria-hidden="true">a</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="Browse.html">Browse</a></li>
+      <li><a href="Deals.html">Deals</a></li>
+      <li><a href="Reviews.html">Reviews</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="AddBusiness.html" class="nav-cta">List your business</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="profile-wrapper">
+        <button class="profile-btn" id="profileBtn" onclick="toggleProfile()">
+          <div class="profile-avatar-sm" id="navAvatarSm">KA</div>
+          <span id="navNameSm">Kwame A.</span>
+          <span class="profile-chevron">▼</span>
+        </button>
+
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-header">
+            <div class="dropdown-avatar-lg" id="navAvatarLg">KA</div>
+            <div>
+              <div class="dropdown-name" id="navDropdownName">Kwame Asante</div>
+              <div class="dropdown-email" id="navDropdownEmail">kwame.asante@gmail.com</div>
+            </div>
+          </div>
+          <div class="dropdown-body">
+            <a href="Profile.html" class="menu-item">
+              <div class="menu-icon">👤</div>
+              <span class="menu-label">My Profile</span>
+            </a>
+            <a href="Profile.html" class="menu-item">
+              <div class="menu-icon gold">🏪</div>
+              <span class="menu-label">My Business Listings</span>
+              <span class="menu-badge">2</span>
+            </a>
+            <a href="Reviews.html" class="menu-item">
+              <div class="menu-icon">⭐</div>
+              <span class="menu-label">My Reviews</span>
+            </a>
+            <a href="Profile.html" class="menu-item">
+              <div class="menu-icon green">🔖</div>
+              <span class="menu-label">Saved Businesses</span>
+            </a>
+            <a href="#" class="menu-item">
+              <div class="menu-icon">🔔</div>
+              <span class="menu-label">Notifications</span>
+              <span class="menu-badge">3</span>
+            </a>
+            <div class="menu-sep"></div>
+            <a href="Profile.html" class="menu-item">
+              <div class="menu-icon">⚙️</div>
+              <span class="menu-label">Account Settings</span>
+            </a>
+            <div class="menu-sep"></div>
+            <a href="#" class="menu-item danger" onclick="navSignOut(); return false;">
+              <div class="menu-icon red">🚪</div>
+              <span class="menu-label">Sign Out</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="Login.html" id="navSignInLink" style="display:none;align-items:center;gap:6px;padding:6px 14px;border:1px solid var(--gray-200);border-radius:100px;font-size:13px;font-weight:600;color:var(--gray-800);text-decoration:none;">Sign in</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileNav()">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="main-content" class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">★ Ghana's #1 business directory</div>
+    <h1>Find trusted businesses <em>across Ghana</em></h1>
+    <p class="hero-sub">Search thousands of verified local businesses, read honest reviews, and connect with ease — from Accra to Kumasi and beyond.</p>
+    <div class="search-bar">
+      <div class="search-fields">
+        <div class="search-field" style="position:relative;">
+          <label>What</label>
+          <input type="text" id="searchWhatInput" placeholder="e.g. chop bar, plumber, pharmacy" aria-label="Search businesses" autocomplete="off">
+          <div class="search-suggest" id="whatSuggest"></div>
+        </div>
+        <div class="search-div"></div>
+        <div class="search-field" style="position:relative;">
+          <label>Where</label>
+          <input type="text" id="searchWhereInput" placeholder="Accra, Kumasi, Tamale..." aria-label="Location" autocomplete="off">
+          <div class="search-suggest" id="whereSuggest"></div>
+        </div>
+      </div>
+      <button class="search-btn">Search</button>
+    </div>
+    <p class="search-hints">
+      Popular:
+      <a href="Browse.html?category=food">Chop Bars</a>
+      <a href="Browse.html?category=electricians">Electricians</a>
+      <a href="Browse.html?category=mobile-money">Mobile Money</a>
+      <a href="Browse.html?category=pharmacies">Pharmacies</a>
+      <a href="Browse.html?category=salons">Salons</a>
+    </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num" id="statBusinesses">&nbsp;</div><div class="stat-label">Businesses listed</div></div>
+    <div class="stat"><div class="stat-num" id="statViews">&nbsp;</div><div class="stat-label">Profile views</div></div>
+    <div class="stat"><div class="stat-num" id="statReviews">&nbsp;</div><div class="stat-label">Published reviews</div></div>
+    <div class="stat"><div class="stat-num">16</div><div class="stat-label">Regions covered</div></div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2><span class="hdot"></span> Browse by category</h2>
+      <p>Find what you need from businesses across all 16 regions of Ghana</p>
+    </div>
+    <div class="categories-grid">
+      <a href="Browse.html?category=food" class="category-card" data-cat="food" data-noun="businesses"><span class="cat-icon">🍲</span><div class="cat-name">Chop Bars &amp; Food</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=plumbers" class="category-card" data-cat="plumbers" data-noun="businesses"><span class="cat-icon">🔧</span><div class="cat-name">Plumbers</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=electricians" class="category-card" data-cat="electricians" data-noun="businesses"><span class="cat-icon">⚡</span><div class="cat-name">Electricians</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=pharmacies" class="category-card" data-cat="pharmacies" data-noun="businesses"><span class="cat-icon">💊</span><div class="cat-name">Pharmacies</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=salons" class="category-card" data-cat="salons" data-noun="businesses"><span class="cat-icon">💇🏾</span><div class="cat-name">Salons &amp; Barbering</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=mobile-money" class="category-card" data-cat="mobile-money" data-noun="agents"><span class="cat-icon">📱</span><div class="cat-name">Mobile Money</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=builders" class="category-card" data-cat="builders" data-noun="businesses"><span class="cat-icon">🏗️</span><div class="cat-name">Builders &amp; Masons</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=transport" class="category-card" data-cat="transport" data-noun="operators"><span class="cat-icon">🚐</span><div class="cat-name">Transport &amp; Taxis</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=clinics" class="category-card" data-cat="clinics" data-noun="facilities"><span class="cat-icon">🏥</span><div class="cat-name">Clinics &amp; Hospitals</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=fashion" class="category-card" data-cat="fashion" data-noun="businesses"><span class="cat-icon">👗</span><div class="cat-name">Fashion &amp; Tailors</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=tutors" class="category-card" data-cat="tutors" data-noun="businesses"><span class="cat-icon">🎓</span><div class="cat-name">Tutors &amp; Schools</div><div class="cat-count">&nbsp;</div></a>
+      <a href="Browse.html?category=printing" class="category-card" data-cat="printing" data-noun="businesses"><span class="cat-icon">🖨️</span><div class="cat-name">Printing &amp; Design</div><div class="cat-count">&nbsp;</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTINGS -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2><span class="hdot"></span> Featured listings</h2>
+      <p>Top-rated businesses across Ghana's cities</p>
+    </div>
+    <div class="listings-grid">
+
+      <div class="listing-card featured">
+        <div class="listing-banner"><div class="listing-placeholder" style="background:#FFF8E1;">🍲</div><div class="feat-badge">Featured</div></div>
+        <div class="listing-body">
+          <div class="listing-head"><div class="listing-name">Auntie Ama's Chop Bar</div><span class="listing-cat">Food &amp; Drink</span></div>
+          <p class="listing-desc">Authentic Ghanaian home cooking — fufu, banku, jollof and light soup. Open daily from 7am. Event catering available.</p>
+          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">4.9</span><span>(408 reviews)</span></span><span class="lm">📍 Osu, Accra</span></div>
+        </div>
+        <div class="listing-foot"><a href="tel:+233245678901" class="l-phone">+233 24 567 8901</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
+      </div>
+
+      <div class="listing-card featured">
+        <div class="listing-banner"><div class="listing-placeholder" style="background:#E8F4FD;">⚡</div><div class="feat-badge">Featured</div></div>
+        <div class="listing-body">
+          <div class="listing-head"><div class="listing-name">Kofi Power Electrical</div><span class="listing-cat">Electrician</span></div>
+          <p class="listing-desc">ECG-certified electricians. Residential wiring, solar installations, generator servicing. 24/7 emergency callouts across Ashanti.</p>
+          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">4.8</span><span>(201 reviews)</span></span><span class="lm">📍 Kumasi, Ashanti</span></div>
+        </div>
+        <div class="listing-foot"><a href="tel:+233201234567" class="l-phone">+233 20 123 4567</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-banner"><div class="listing-placeholder" style="background:#F5F0FD;">👗</div></div>
+        <div class="listing-body">
+          <div class="listing-head"><div class="listing-name">Adwoa Kente &amp; Fashion</div><span class="listing-cat">Fashion</span></div>
+          <p class="listing-desc">Bespoke kente weaving and contemporary African fashion. Bridal, traditional and casual wear. Custom orders and ready-to-wear.</p>
+          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★☆</span><span class="rnum">4.7</span><span>(133 reviews)</span></span><span class="lm">📍 Madina, Accra</span></div>
+        </div>
+        <div class="listing-foot"><a href="tel:+233543210987" class="l-phone">+233 54 321 0987</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-banner"><div class="listing-placeholder" style="background:#E6F4EE;">💊</div></div>
+        <div class="listing-body">
+          <div class="listing-head"><div class="listing-name">Mensah Family Pharmacy</div><span class="listing-cat">Pharmacy</span></div>
+          <p class="listing-desc">FDA-registered community pharmacy. Prescriptions, health screening, over-the-counter medicines. Same-day delivery available.</p>
+          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">4.8</span><span>(87 reviews)</span></span><span class="lm">📍 Takoradi, Western</span></div>
+        </div>
+        <div class="listing-foot"><a href="tel:+233312098765" class="l-phone">+233 31 209 8765</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-banner"><div class="listing-placeholder" style="background:#FDEAED;">🏗️</div></div>
+        <div class="listing-body">
+          <div class="listing-head"><div class="listing-name">Boateng Construction Co.</div><span class="listing-cat">Builder</span></div>
+          <p class="listing-desc">Residential and commercial construction across the Northern Region. Foundations, roofing, tiling. Free site assessments.</p>
+          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★☆</span><span class="rnum">4.5</span><span>(62 reviews)</span></span><span class="lm">📍 Tamale, Northern</span></div>
+        </div>
+        <div class="listing-foot"><a href="tel:+233371123456" class="l-phone">+233 37 112 3456</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-banner"><div class="listing-placeholder" style="background:#FFF8E1;">💇🏾</div></div>
+        <div class="listing-body">
+          <div class="listing-head"><div class="listing-name">Efua's Beauty Lounge</div><span class="listing-cat">Hair &amp; Beauty</span></div>
+          <p class="listing-desc">Natural hair care, braiding, loc maintenance and skin treatments. Appointments and walk-ins welcome. Premium products only.</p>
+          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">4.9</span><span>(276 reviews)</span></span><span class="lm">📍 East Legon, Accra</span></div>
+        </div>
+        <div class="listing-foot"><a href="tel:+233506789012" class="l-phone">+233 50 678 9012</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center;max-width:520px;margin:0 auto;">
+      <h2 style="justify-content:center;"><span class="hdot"></span> How SearchGhana works</h2>
+      <p>Connecting Ghanaians with trusted local businesses — simple and fast</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">1</div><h3>Search your area</h3><p>Type what you're looking for and your region or town. We show you the best nearby businesses.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Compare &amp; review</h3><p>Read verified customer reviews. Check photos, ratings and get quotes from multiple businesses.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Connect instantly</h3><p>Call, WhatsApp or visit directly. No middlemen, no hidden fees — just a straight connection.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Leave a review</h3><p>Help your community by sharing your experience and building trust across Ghana.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2><span class="hdot"></span> What customers are saying</h2>
+      <p>Genuine reviews from across Ghana</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">"Found a reliable electrician in Kumasi through SearchGhana within minutes. He came the same day, fixed my wiring properly and charged a fair price. I will always use this site!"</p>
+        <div class="review-author"><div class="r-avatar">AO</div><div><div class="r-name">Abena Osei</div><div class="r-biz">Re: Kofi Power Electrical</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">"I used SearchGhana to find a tailor for my sister's wedding outfit. The reviews helped me choose and the result was beautiful. Medaase paa!"</p>
+        <div class="review-author"><div class="r-avatar">EK</div><div><div class="r-name">Esi Koomson</div><div class="r-biz">Re: Adwoa Kente &amp; Fashion</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">"As a chop bar owner in Osu, listing my business here brought so many new customers. My orders doubled in just 6 weeks. Every Ghanaian business should be here!"</p>
+        <div class="review-author"><div class="r-avatar">AA</div><div><div class="r-name">Auntie Ama</div><div class="r-biz">Auntie Ama's Chop Bar (owner)</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h2>Own a business in 
+      <em>Ghana?</em></h2>
+    <p>Get discovered by millions of Ghanaians searching for exactly what you offer. Free to list — no contracts, no wahala.</p>
+    <div class="cta-btns">
+      <a href="AddBusiness.html" class="btn-gold">★ List your business free</a>
+      <a href="Browse.html" class="btn-outline">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-flag"></div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="Index.html" class="logo" aria-label="SearchGhana">
+          <span class="search" aria-hidden="true">Search</span>
+          <span class="G" aria-hidden="true">G</span>
+          <span class="h" aria-hidden="true">h</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="n" aria-hidden="true">n</span>
+          <span class="a" aria-hidden="true">a</span>
+        </a>
+        <p>Ghana's most trusted business directory. Connecting communities with quality businesses across all 16 regions.</p>
+      </div>
+      <div class="footer-col">
+        <h4>For businesses</h4>
+        <ul>
+          <li><a href="AddBusiness.html">Add your business</a></li>
+          <li><a href="#">Advertising</a></li>
+          <li><a href="#">Premium listings</a></li>
+          <li><a href="Profile.html">Business dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Browse.html">All categories</a></li>
+          <li><a href="Browse.html">Browse by region</a></li>
+          <li><a href="Deals.html">Deals &amp; offers</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="AboutUs.html">About us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="HelpCenter.html">Help Center</a></li>
+          <li><a href="PrivacyPolicy.html">Privacy policy</a></li>
+          <li><a href="TermsOfService.html">Terms of use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://facebook.com/searchghana">Facebook</a></li>
+          <li><a href="https://twitter.com/searchghana">Twitter</a></li>
+          <li><a href="https://instagram.com/searchghana">Instagram</a></li>
+          <li><a href="https://tiktok.com/@searchghana">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> SearchGhana Ltd. All rights reserved. 🇬🇭</span>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+      <div class="footer-links">
+        <a href="PrivacyPolicy.html">Privacy</a>
+        <a href="TermsOfService.html">Terms</a>
+        <a href="Contact.html">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleProfile() {
+    const btn = document.getElementById('profileBtn');
+    const dd = document.getElementById('profileDropdown');
+    const open = dd.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.profile-wrapper');
+    if (wrapper && !wrapper.contains(e.target)) {
+      document.getElementById('profileDropdown').classList.remove('open');
+      document.getElementById('profileBtn').classList.remove('open');
+    }
+  });
+</script>
+<script>
+  // Mobile nav toggle (hamburger)
+  (function () {
+    var navLinks = document.querySelector('.nav-links');
+    var hamburger = document.getElementById('navHamburger');
+    if (!navLinks || !hamburger) return;
+
+    function closeMobileNav() {
+      navLinks.classList.remove('mobile-open');
+      hamburger.textContent = '☰';
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    window.toggleMobileNav = function () {
+      var isOpen = navLinks.classList.toggle('mobile-open');
+      hamburger.textContent = isOpen ? '✕' : '☰';
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
+    document.addEventListener('click', function (e) {
+      if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMobileNav);
+    });
+  })();
+</script>
+<script>
+// Profile dropdown toggle
+function toggleProfile() {
+  const btn = document.getElementById('profileBtn');
+  const dropdown = document.getElementById('profileDropdown');
+  btn.classList.toggle('open');
+  dropdown.classList.toggle('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  const wrapper = document.querySelector('.profile-wrapper');
+  if (wrapper && !wrapper.contains(e.target)) {
+    document.getElementById('profileBtn')?.classList.remove('open');
+    document.getElementById('profileDropdown')?.classList.remove('open');
+  }
+});
+
+// Search functionality
+function submitHomeSearch() {
+  const what = document.getElementById('searchWhatInput')?.value.trim();
+  const where = document.getElementById('searchWhereInput')?.value.trim();
+  if (what || where) {
+    saveRecentSearch(what, where);
+    window.location.href = `Browse.html?search=${encodeURIComponent(what || '')}&location=${encodeURIComponent(where || '')}`;
+  }
+}
+document.querySelector('.search-btn')?.addEventListener('click', submitHomeSearch);
+
+// Popular search links
+document.querySelectorAll('.search-hints a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = this.getAttribute('href');
+  });
+});
+
+// Listing card click - navigate to business page
+document.querySelectorAll('.listing-card').forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', function(e) {
+    // Don't navigate if clicking buttons
+    if (e.target.closest('.btn-view') || e.target.closest('.l-phone')) return;
+    const link = this.querySelector('a')?.getAttribute('href') || 'Businesses.html';
+    window.location.href = link;
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+});
+
+
+// Add loading state to buttons
+document.querySelectorAll('.btn-gold, .btn-outline, .search-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    if (this.tagName === 'A' && this.getAttribute('href') && !this.getAttribute('href').startsWith('#')) {
+      return; // Let normal link navigation work
+    }
+    if (this.tagName === 'BUTTON' || this.type === 'submit') {
+      this.style.opacity = '0.7';
+      this.style.pointerEvents = 'none';
+      setTimeout(() => {
+        this.style.opacity = '1';
+        this.style.pointerEvents = 'auto';
+      }, 500);
+    }
+  });
+});
+
+// Initialize - add data attributes for tracking
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('SearchGhana.com loaded');
+  
+  // Track page view
+  const pageName = document.title.split('|')[0].trim();
+  // In production, send to analytics
+});
+</script>
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-consent-inner">
+    <p class="cookie-consent-text">
+      We use cookies to run SearchGhana.com and improve your experience. By clicking &quot;Accept&quot;, you agree to our use of cookies as described in our
+      <a href="PrivacyPolicy.html">Privacy Policy</a>.
+    </p>
+    <div class="cookie-consent-actions">
+      <button type="button" id="cookieDecline" class="cookie-btn cookie-btn-outline">Decline</button>
+      <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<style>
+  .cookie-consent {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: var(--gray-900, #1A1816);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
+    padding: 16px 20px;
+    transform: translateY(110%);
+    transition: transform 0.35s ease;
+  }
+  .cookie-consent.is-visible { transform: translateY(0); }
+  .cookie-consent-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cookie-consent-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #F2F0EB;
+    flex: 1 1 320px;
+  }
+  .cookie-consent-text a { color: var(--brand-gold, #FCD116); text-decoration: underline; }
+  .cookie-consent-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .cookie-btn-accept {
+    background: var(--brand-gold, #FCD116);
+    color: var(--gray-900, #1A1816);
+  }
+  .cookie-btn-accept:hover { background: var(--brand-gold-dark, #E0B800); }
+  .cookie-btn-outline {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
+  }
+  .cookie-btn-outline:hover { background: rgba(255,255,255,0.1); }
+  @media (max-width: 560px) {
+    .cookie-consent-inner { flex-direction: column; align-items: stretch; }
+    .cookie-consent-actions { justify-content: flex-end; }
+  }
+</style>
+<script>
+(function () {
+  var STORAGE_KEY = 'sg_cookie_consent';
+  function getConsent() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+  function setConsent(value) {
+    try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+  }
+  var banner = document.getElementById('cookieConsent');
+  if (!banner) return;
+  if (!getConsent()) {
+    window.requestAnimationFrame(function () {
+      banner.classList.add('is-visible');
+    });
+  }
+  var acceptBtn = document.getElementById('cookieAccept');
+  var declineBtn = document.getElementById('cookieDecline');
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function () {
+      setConsent('accepted');
+      banner.classList.remove('is-visible');
+    });
+  }
+  if (declineBtn) {
+    declineBtn.addEventListener('click', function () {
+      setConsent('declined');
+      banner.classList.remove('is-visible');
+    });
+  }
+})();
+</script>
+<!-- End Cookie Consent Banner -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/nav-auth.js"></script>
+<script>
+  /* ---------- Real homepage trust numbers (replaces the fabricated
+     320K/4.2M/890K placeholder stats and per-category counts that used to
+     ship here -- every number below is a live count against the real
+     database, not a made-up figure). A loading placeholder (a blank space)
+     is shown until the real number arrives, rather than ever flashing a
+     fake one. ---------- */
+  function formatCount(n) {
+    if (!Number.isFinite(n)) return '0';
+    if (n >= 10000) return Math.round(n / 1000) + 'K+';
+    if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K+';
+    return String(n);
+  }
+
+  (async function loadHomeStats() {
+    try {
+      const [bizCountRes, rowsRes, reviewCountRes] = await Promise.all([
+        window.sbClient.from('businesses').select('*', { count: 'exact', head: true }),
+        window.sbClient.from('businesses').select('category, view_count'),
+        window.sbClient.from('reviews').select('*', { count: 'exact', head: true }).eq('status', 'published'),
+      ]);
+
+      const statBusinesses = document.getElementById('statBusinesses');
+      if (statBusinesses && !bizCountRes.error) statBusinesses.textContent = formatCount(bizCountRes.count);
+
+      const statReviews = document.getElementById('statReviews');
+      if (statReviews && !reviewCountRes.error) statReviews.textContent = formatCount(reviewCountRes.count);
+
+      const rows = rowsRes.data || [];
+      const statViews = document.getElementById('statViews');
+      if (statViews && !rowsRes.error) {
+        const totalViews = rows.reduce((sum, r) => sum + (r.view_count || 0), 0);
+        statViews.textContent = formatCount(totalViews);
+      }
+
+      if (!rowsRes.error) {
+        const counts = {};
+        rows.forEach(r => { if (r.category) counts[r.category] = (counts[r.category] || 0) + 1; });
+        document.querySelectorAll('.category-card[data-cat]').forEach(card => {
+          const n = counts[card.dataset.cat] || 0;
+          const countEl = card.querySelector('.cat-count');
+          if (countEl) countEl.textContent = `${formatCount(n)} ${card.dataset.noun || 'businesses'}`;
+        });
+      }
+    } catch (e) {
+      // Leave the loading placeholders as-is rather than show a broken or
+      // partially-fake state.
+    }
+  })();
+</script>
+<script>
+  /* ---------- Search-as-you-type autocomplete (What + Where fields) ----------
+     Suggests real business names/categories and real cities/regions from the
+     live directory, plus the visitor's own recent searches (stored locally),
+     instead of the plain text boxes this used to ship with. */
+  const REGION_LABELS = {
+    'greater-accra': 'Greater Accra', 'ashanti': 'Ashanti', 'western': 'Western',
+    'eastern': 'Eastern', 'northern': 'Northern', 'volta': 'Volta', 'central': 'Central',
+    'upper-east': 'Upper East', 'upper-west': 'Upper West', 'bono': 'Bono',
+    'oti': 'Oti', 'ahafo': 'Ahafo', 'bono-east': 'Bono East', 'savannah': 'Savannah',
+    'north-east': 'North East', 'western-north': 'Western North',
+  };
+  const CATEGORY_LABELS = {
+    'food': 'Food & Drink', 'plumbers': 'Plumbers', 'electricians': 'Electricians',
+    'pharmacies': 'Pharmacies', 'salons': 'Salons & Barbering', 'mobile-money': 'Mobile Money',
+    'builders': 'Builders & Masons', 'transport': 'Transport & Taxis', 'fashion': 'Fashion & Tailors',
+    'clinics': 'Clinics & Hospitals', 'hotel': 'Hotel & Guesthouse', 'supermarket': 'Supermarket',
+    'electronics': 'Electronics', 'other': 'Other',
+  };
+  const RECENT_KEY = 'sg_recent_searches';
+
+  let directoryBusinesses = [];
+
+  async function loadDirectoryForSuggestions() {
+    if (!window.sbClient) return;
+    const { data, error } = await window.sbClient
+      .from('businesses')
+      .select('id,name,category,city,region')
+      .eq('status', 'active');
+    if (!error && data) directoryBusinesses = data;
+  }
+
+  function getRecentSearches() {
+    try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]'); } catch (e) { return []; }
+  }
+
+  function saveRecentSearch(what, where) {
+    if (!what && !where) return;
+    try {
+      let recent = getRecentSearches();
+      const entry = { what: what || '', where: where || '' };
+      recent = recent.filter(r => !(r.what === entry.what && r.where === entry.where));
+      recent.unshift(entry);
+      localStorage.setItem(RECENT_KEY, JSON.stringify(recent.slice(0, 6)));
+    } catch (e) { /* localStorage unavailable -- suggestions just skip recents */ }
+  }
+
+  function escapeHtml(str) {
+    return String(str || '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c]));
+  }
+
+  /* ---- "What" field: business names, categories, then recent searches ---- */
+  function buildWhatSuggestions(query) {
+    const q = query.trim().toLowerCase();
+    const groups = [];
+
+    if (!q) {
+      const recents = getRecentSearches().filter(r => r.what);
+      if (recents.length) {
+        groups.push({ label: 'Recent searches', items: recents.map(r => ({ text: r.what, sub: r.where || '', fill: r.what, go: true })) });
+      }
+      return groups;
+    }
+
+    const nameMatches = directoryBusinesses
+      .filter(b => b.name && b.name.toLowerCase().includes(q))
+      .slice(0, 5)
+      .map(b => ({ text: b.name, sub: CATEGORY_LABELS[b.category] || '', fill: b.name, go: true }));
+
+    const catMatches = Object.entries(CATEGORY_LABELS)
+      .filter(([slug, label]) => label.toLowerCase().includes(q))
+      .slice(0, 4)
+      .map(([slug, label]) => ({ text: label, sub: 'Category', fill: label, go: true }));
+
+    if (nameMatches.length) groups.push({ label: 'Businesses', items: nameMatches });
+    if (catMatches.length) groups.push({ label: 'Categories', items: catMatches });
+    return groups;
+  }
+
+  /* ---- "Where" field: real cities + regions from the directory ---- */
+  function buildWhereSuggestions(query) {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+
+    const seen = new Set();
+    const items = [];
+    directoryBusinesses.forEach(b => {
+      const city = b.city;
+      if (city && city.toLowerCase().includes(q) && !seen.has(city)) {
+        seen.add(city);
+        items.push({ text: city, sub: REGION_LABELS[b.region] || '', fill: city, go: true });
+      }
+    });
+    Object.entries(REGION_LABELS).forEach(([slug, label]) => {
+      if (label.toLowerCase().includes(q) && !seen.has(label)) {
+        seen.add(label);
+        items.push({ text: label, sub: 'Region', fill: label, go: true });
+      }
+    });
+
+    return items.length ? [{ label: 'Locations', items: items.slice(0, 6) }] : [];
+  }
+
+  /* ---- Generic dropdown wiring, shared by both fields ---- */
+  function wireSuggestDropdown(input, dropdown, buildFn, onPick) {
+    let activeIndex = -1;
+
+    function render(groups) {
+      const flatItems = [];
+      dropdown.innerHTML = groups.map(g => {
+        const rows = g.items.map(item => {
+          const idx = flatItems.push(item) - 1;
+          return `<div class="search-suggest-item" data-idx="${idx}">${escapeHtml(item.text)}${item.sub ? `<span class="ss-sub">${escapeHtml(item.sub)}</span>` : ''}</div>`;
+        }).join('');
+        return `<div class="search-suggest-group-label">${escapeHtml(g.label)}</div>${rows}`;
+      }).join('');
+      dropdown.__items = flatItems;
+      activeIndex = -1;
+      dropdown.classList.toggle('open', flatItems.length > 0);
+    }
+
+    function updateActive() {
+      Array.from(dropdown.querySelectorAll('.search-suggest-item')).forEach((el, i) => {
+        el.classList.toggle('active', i === activeIndex);
+      });
+    }
+
+    input.addEventListener('input', () => render(buildFn(input.value)));
+    input.addEventListener('focus', () => render(buildFn(input.value)));
+
+    input.addEventListener('keydown', (e) => {
+      const items = dropdown.__items || [];
+      if (e.key === 'ArrowDown') {
+        if (items.length) { e.preventDefault(); activeIndex = Math.min(activeIndex + 1, items.length - 1); updateActive(); }
+      } else if (e.key === 'ArrowUp') {
+        if (items.length) { e.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); updateActive(); }
+      } else if (e.key === 'Enter') {
+        if (activeIndex >= 0 && items[activeIndex]) {
+          e.preventDefault();
+          onPick(items[activeIndex]);
+          dropdown.classList.remove('open');
+        }
+        // otherwise let Enter fall through to submit the search as typed
+      } else if (e.key === 'Escape') {
+        dropdown.classList.remove('open');
+      }
+    });
+
+    dropdown.addEventListener('mousedown', (e) => {
+      const row = e.target.closest('.search-suggest-item');
+      if (!row) return;
+      e.preventDefault();
+      const item = (dropdown.__items || [])[Number(row.dataset.idx)];
+      if (item) onPick(item);
+      dropdown.classList.remove('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target) && e.target !== input) dropdown.classList.remove('open');
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadDirectoryForSuggestions();
+
+    const whatInput = document.getElementById('searchWhatInput');
+    const whereInput = document.getElementById('searchWhereInput');
+    const whatDropdown = document.getElementById('whatSuggest');
+    const whereDropdown = document.getElementById('whereSuggest');
+
+    if (whatInput && whatDropdown) {
+      wireSuggestDropdown(whatInput, whatDropdown, buildWhatSuggestions, (item) => {
+        whatInput.value = item.fill;
+        if (item.go) submitHomeSearch();
+      });
+      whatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !whatDropdown.classList.contains('open')) submitHomeSearch();
+      });
+    }
+    if (whereInput && whereDropdown) {
+      wireSuggestDropdown(whereInput, whereDropdown, buildWhereSuggestions, (item) => {
+        whereInput.value = item.fill;
+      });
+      whereInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !whereDropdown.classList.contains('open')) submitHomeSearch();
+      });
+    }
+  });
+</script>
+</body>
+</html>

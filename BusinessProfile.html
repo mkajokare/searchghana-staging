@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow"><!-- staging-noindex -->
+<!-- Google Analytics (GA4) — replace G-XXXXXXXXXX with your real Measurement ID before launch -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile summary | SearchGhana</title>
+<meta name="description" content="Manage your business profile on SearchGhana: highlights, products, prices, photos, opening times and more.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.searchghana.com/BusinessProfile.html">
+<link rel="icon" type="image/png" href="Icons/Copilot_20260407_222824.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── EXACT DESIGN TOKENS FROM SearchGhana ── */
+  :root {
+    --brand-red: #CE1126; --brand-red-dark: #A50D1E; --brand-red-light: #FDEAED;
+    --brand-gold: #FCD116; --brand-gold-dark: #E0B800; --brand-gold-text: #8A6B00; --brand-gold-light: #FFFBE6;
+    --brand-green: #006B3F; --brand-green-light: #E6F4EE;
+    --white: #ffffff;
+    --gray-50: #FAF9F7; --gray-100: #F2F0EB; --gray-200: #E0DDD5;
+    --gray-400: #74706A; --gray-600: #5A5650; --gray-700: #403D38;
+    --gray-800: #2A2723; --gray-900: #1A1816;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+    --shadow-lg: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08);
+    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); color: var(--gray-800); background: var(--gray-50); line-height: 1.6; font-size: 15px; }
+
+  /* FLAG STRIPE */
+  .flag-stripe { height: 5px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); }
+
+  /* NAV */
+  .nav { background: var(--white); border-bottom: 1px solid var(--gray-100); position: sticky; top: 0; z-index: 200; }
+  .nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--brand-green); text-decoration: none; letter-spacing: -0.5px; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+  .logo .search { color: #1A1A1A; }
+  .logo .G { color: var(--brand-red); }
+  .logo .h { color: var(--brand-gold-dark); }
+  .logo .star { color: #1A1A1A; }
+  .logo .n { color: var(--brand-gold-dark); }
+  .logo .a { color: var(--brand-green); }
+  .logo span { color: var(--gray-900); letter-spacing: -0.5px; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; flex: 1; justify-content: center; }
+  .nav-links a { text-decoration: none; color: var(--gray-600); font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); transition: all 0.15s; white-space: nowrap; }
+  .nav-links a:hover { color: var(--gray-900); background: var(--gray-50); }
+  .nav-cta { background: var(--brand-green) !important; color: var(--white) !important; padding: 8px 16px !important; border-radius: var(--radius-md) !important; font-weight: 600 !important; }
+  .nav-cta:hover { opacity: 0.88 !important; }
+
+  .nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .profile-wrapper { position: relative; }
+  .profile-btn { display: flex; align-items: center; gap: 8px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 100px; padding: 6px 14px 6px 6px; cursor: pointer; transition: all 0.15s; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gray-800); }
+  .profile-btn:hover { background: var(--gray-100); border-color: var(--gray-400); }
+  .profile-avatar-sm { width: 30px; height: 30px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; }
+  .profile-chevron { font-size: 9px; color: var(--gray-400); transition: transform 0.2s; }
+  .profile-btn.open .profile-chevron { transform: rotate(180deg); }
+  .profile-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; width: 288px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); z-index: 300; overflow: hidden; }
+  .profile-dropdown.open { display: block; animation: dropIn 0.15s ease; }
+  @keyframes dropIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+  .dropdown-header { background: linear-gradient(135deg, var(--brand-red) 0%, #8B0A17 100%); padding: 20px 18px; display: flex; align-items: center; gap: 14px; }
+  .dropdown-avatar-lg { width: 48px; height: 48px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; border: 2px solid rgba(255,255,255,0.3); }
+  .dropdown-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--white); }
+  .dropdown-email { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+  .dropdown-body { padding: 8px; }
+  .menu-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--radius-md); cursor: pointer; transition: background 0.15s; text-decoration: none; color: var(--gray-700); font-size: 14px; font-weight: 500; }
+  .menu-item:hover { background: var(--gray-50); }
+  .menu-item.danger { color: var(--brand-red); }
+  .menu-item.danger:hover { background: var(--brand-red-light); }
+  .menu-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .menu-icon.gold { background: var(--brand-gold-light); }
+  .menu-icon.green { background: var(--brand-green-light); }
+  .menu-icon.red { background: var(--brand-red-light); }
+  .menu-label { flex: 1; }
+  .menu-badge { background: var(--brand-red); color: var(--white); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 100px; }
+  .menu-sep { height: 1px; background: var(--gray-100); margin: 6px 0; }
+
+  /* ── BREADCRUMB (same as Profile.html) ── */
+  .breadcrumb-bar { background: var(--white); border-bottom: 1px solid var(--gray-100); padding: 12px 24px; }
+  .breadcrumb-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray-400); }
+  .breadcrumb-inner a { color: var(--brand-red); text-decoration: none; font-weight: 500; }
+  .breadcrumb-inner a:hover { text-decoration: underline; }
+  .bc-sep { font-size: 10px; color: var(--gray-200); }
+
+
+  /* ── SUCCESS TOAST ── */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--brand-green); color: var(--white); padding: 14px 20px; border-radius: var(--radius-md); font-size: 14px; font-weight: 600; box-shadow: var(--shadow-lg); z-index: 999; display: flex; align-items: center; gap: 10px; transform: translateY(80px); opacity: 0; transition: all 0.3s ease; pointer-events: none; }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── FOOTER (same as SearchGhana pages) ── */
+  .footer { background: #0D0D0D; padding: 56px 24px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-flag { height: 4px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); border-radius: 2px; margin-bottom: 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 40px; margin-bottom: 48px; }
+  .footer-brand .logo { margin-bottom: 12px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 240px; }
+  .footer-col h4 { color: var(--white); font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li + li { margin-top: 8px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.38); text-decoration: none; font-size: 13px; transition: color 0.15s; }
+  .footer-col ul li a:hover { color: var(--brand-gold); }
+  .footer-brand .logo .search { color: var(--white); }
+  .footer-brand .logo .star { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,0.28); }
+  .footer-bottom a { color: rgba(255,255,255,0.38); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--brand-gold); }
+  .footer-links { display: flex; gap: 20px; }
+
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--gray-800); font-size: 22px; line-height: 1; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-hamburger:hover { color: var(--brand-green); }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links.mobile-open { display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-100); box-shadow: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08); padding: 8px 16px 16px; gap: 4px; z-index: 250; }
+    .nav-links.mobile-open li { width: 100%; }
+    .nav-links.mobile-open a { display: block; padding: 12px 10px; }
+    .nav-links.mobile-open .nav-cta { display: block; text-align: center; margin-top: 4px; }
+  }
+
+  /* ── PROFILE SUMMARY PAGE ── */
+  .bp-page { max-width: 1200px; margin: 0 auto; padding: 28px 24px 72px; }
+  .bp-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+  .bp-title { font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--gray-900); letter-spacing: -0.5px; line-height: 1.15; }
+  .bp-editing { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--gray-600); flex-wrap: wrap; }
+  .bp-editing label { font-weight: 600; }
+  .bp-select { border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 9px 34px 9px 12px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--gray-900); background: var(--white); min-width: 220px; max-width: 100%; cursor: pointer; }
+  .bp-select:focus { outline: none; border-color: var(--brand-red); box-shadow: 0 0 0 3px rgba(206,17,38,0.08); }
+  .bp-editing-name { font-weight: 700; color: var(--gray-900); }
+  .bp-intro { font-size: 15px; color: var(--gray-600); max-width: 640px; padding-bottom: 14px; margin-bottom: 22px; border-bottom: 3px solid var(--brand-gold); display: inline-block; }
+  .bp-status { display: none; background: var(--brand-gold-light); border: 1px solid var(--brand-gold-dark); color: var(--brand-gold-text); border-radius: var(--radius-md); padding: 10px 14px; font-size: 13px; font-weight: 500; margin-bottom: 18px; }
+  .bp-status.show { display: block; }
+
+  .bp-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+  .bp-col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  .bp-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .bp-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--gray-100); background: linear-gradient(to bottom, var(--white), var(--gray-50)); }
+  .bp-card-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--gray-900); display: flex; align-items: center; gap: 10px; }
+  .bp-card-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: var(--brand-gold-light); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; }
+  .bp-count { font-size: 12px; font-weight: 700; color: var(--gray-600); background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 100px; padding: 3px 11px; white-space: nowrap; }
+  .bp-count.complete { color: var(--brand-green); background: var(--brand-green-light); border-color: rgba(0,107,63,0.25); }
+  .bp-items { list-style: none; }
+  .bp-items li + li { border-top: 1px solid var(--gray-100); }
+  .bp-item { width: 100%; display: flex; align-items: center; gap: 12px; padding: 13px 20px; background: none; border: none; text-align: left; font-family: var(--font-body); font-size: 15px; color: var(--gray-800); cursor: pointer; transition: background 0.15s; }
+  .bp-item:hover { background: var(--gray-50); }
+  .bp-item:focus-visible { outline: 2px solid var(--brand-red); outline-offset: -2px; }
+  .bp-check { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; border: 2px solid var(--gray-200); color: transparent; }
+  .bp-item.done .bp-check { background: var(--brand-green); border-color: var(--brand-green); color: var(--white); }
+  .bp-item-main { flex: 1; min-width: 0; }
+  .bp-item-label { font-weight: 600; color: var(--brand-red); display: block; }
+  .bp-item:hover .bp-item-label { text-decoration: underline; }
+  .bp-item-hint { display: block; font-size: 12px; color: var(--gray-400); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bp-item.done .bp-item-hint { color: var(--gray-600); }
+  .bp-item-arrow { color: var(--gray-400); font-size: 13px; flex-shrink: 0; }
+
+  .bp-preview { background: #0D0D0D; background-image: radial-gradient(ellipse 80% 80% at 100% 0%, rgba(206,17,38,0.3) 0%, transparent 60%); color: var(--white); border-radius: var(--radius-lg); padding: 22px 24px; }
+  .bp-preview h3 { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .bp-preview p { font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 14px; }
+  .bp-progress { height: 8px; background: rgba(255,255,255,0.14); border-radius: 100px; overflow: hidden; margin-bottom: 8px; }
+  .bp-progress > div { height: 100%; width: 0; background: linear-gradient(to right, var(--brand-gold), var(--brand-green)); border-radius: 100px; transition: width 0.4s ease; }
+  .bp-progress-text { font-size: 12px; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
+  .bp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 18px; border-radius: var(--radius-md); font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid transparent; text-decoration: none; transition: all 0.15s; }
+  .bp-btn-primary { background: var(--brand-red); color: var(--white); }
+  .bp-btn-primary:hover:not(:disabled) { background: var(--brand-red-dark); }
+  .bp-btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
+  .bp-btn-gold { background: var(--brand-gold); color: #1A1A1A; }
+  .bp-btn-gold:hover { background: var(--brand-gold-dark); }
+  .bp-btn-ghost { background: var(--white); color: var(--gray-700); border-color: var(--gray-200); }
+  .bp-btn-ghost:hover { background: var(--gray-50); }
+
+  .bp-empty { background: var(--white); border: 1px dashed var(--gray-200); border-radius: var(--radius-lg); padding: 48px 24px; text-align: center; }
+  .bp-empty h2 { font-family: var(--font-display); font-size: 22px; margin-bottom: 8px; }
+  .bp-empty p { color: var(--gray-600); max-width: 460px; margin: 0 auto 18px; }
+  .bp-empty-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .bp-loading { padding: 60px 0; text-align: center; color: var(--gray-400); }
+
+  /* ── EDITOR MODAL ── */
+  .bp-overlay { position: fixed; inset: 0; background: rgba(13,13,13,0.62); z-index: 500; display: none; align-items: flex-start; justify-content: center; padding: 40px 16px; overflow-y: auto; }
+  .bp-overlay.open { display: flex; }
+  .bp-modal { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 100%; max-width: 640px; overflow: hidden; animation: dropIn 0.18s ease; }
+  .bp-modal-head { padding: 18px 22px; border-bottom: 1px solid var(--gray-100); display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .bp-modal-head h2 { font-family: var(--font-display); font-size: 19px; font-weight: 700; color: var(--gray-900); }
+  .bp-modal-help { font-size: 13px; color: var(--gray-600); margin-top: 4px; }
+  .bp-close { background: none; border: none; font-size: 22px; line-height: 1; cursor: pointer; color: var(--gray-400); padding: 2px 6px; border-radius: var(--radius-sm); }
+  .bp-close:hover { color: var(--gray-900); background: var(--gray-100); }
+  .bp-modal-body { padding: 20px 22px; max-height: calc(100vh - 230px); overflow-y: auto; }
+  .bp-modal-foot { padding: 14px 22px; border-top: 1px solid var(--gray-100); background: var(--gray-50); display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+  .bp-error { display: none; flex: 1 1 100%; background: var(--brand-red-light); color: var(--brand-red-dark); border: 1px solid rgba(206,17,38,0.25); border-radius: var(--radius-md); padding: 9px 12px; font-size: 13px; font-weight: 500; }
+  .bp-error.show { display: block; }
+  .bp-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .bp-field:last-child { margin-bottom: 0; }
+  .bp-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bp-label { font-size: 12px; font-weight: 600; color: var(--gray-600); letter-spacing: 0.3px; text-transform: uppercase; }
+  .bp-input, .bp-textarea, .bp-modal select { width: 100%; border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 10px 13px; font-family: var(--font-body); font-size: 14px; color: var(--gray-900); background: var(--white); }
+  .bp-textarea { min-height: 150px; resize: vertical; line-height: 1.5; }
+  .bp-input:focus, .bp-textarea:focus, .bp-modal select:focus { outline: none; border-color: var(--brand-red); box-shadow: 0 0 0 3px rgba(206,17,38,0.08); }
+  .bp-counter { font-size: 12px; color: var(--gray-400); text-align: right; }
+  .bp-listrow { display: flex; gap: 8px; margin-bottom: 8px; }
+  .bp-rm { flex-shrink: 0; width: 38px; border: 1px solid var(--gray-200); background: var(--gray-50); border-radius: var(--radius-md); color: var(--gray-600); cursor: pointer; font-size: 16px; }
+  .bp-rm:hover { background: var(--brand-red-light); color: var(--brand-red); border-color: rgba(206,17,38,0.3); }
+  .bp-add { background: none; border: 1px dashed var(--gray-400); border-radius: var(--radius-md); padding: 8px 14px; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--brand-green); cursor: pointer; margin-top: 4px; }
+  .bp-add:hover:not(:disabled) { background: var(--brand-green-light); }
+  .bp-add:disabled { opacity: 0.5; cursor: not-allowed; }
+  .bp-pricerow { display: grid; grid-template-columns: 1fr 140px 38px; gap: 8px; margin-bottom: 8px; }
+  .bp-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bp-check-opt { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--gray-200); border-radius: var(--radius-md); cursor: pointer; font-size: 14px; font-weight: 500; }
+  .bp-check-opt:has(input:checked) { border-color: var(--brand-green); background: var(--brand-green-light); }
+  .bp-check-opt input { width: 17px; height: 17px; accent-color: var(--brand-green); }
+  .bp-seg { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .bp-seg label { flex: 1 1 140px; display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid var(--gray-200); border-radius: var(--radius-md); cursor: pointer; font-size: 13px; font-weight: 600; }
+  .bp-seg label:has(input:checked) { border-color: var(--brand-red); background: var(--brand-red-light); color: var(--brand-red-dark); }
+  .bp-hours-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .bp-hours-table td { padding: 5px 4px; vertical-align: middle; }
+  .bp-hours-table input[type="time"] { border: 1px solid var(--gray-200); border-radius: var(--radius-sm); padding: 6px 8px; font-family: var(--font-body); font-size: 13px; }
+  .bp-hours-table input[type="time"]:disabled { background: var(--gray-50); color: var(--gray-400); }
+  .bp-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-bottom: 12px; }
+  .bp-photo { position: relative; aspect-ratio: 1; border-radius: var(--radius-md); overflow: hidden; background: var(--gray-100); border: 1px solid var(--gray-200); }
+  .bp-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bp-photo .bp-photo-rm { position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; border-radius: 50%; border: none; background: rgba(13,13,13,0.75); color: #fff; cursor: pointer; font-size: 14px; line-height: 1; }
+  .bp-logo-box { width: 110px; height: 110px; }
+  .bp-sub { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--gray-900); margin: 4px 0 8px; }
+  .bp-note { font-size: 12px; color: var(--gray-400); margin-top: 6px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+  @media (max-width: 900px) {
+    .bp-layout { grid-template-columns: 1fr; }
+    .bp-title { font-size: 25px; }
+  }
+  @media (max-width: 560px) {
+    .bp-page { padding: 20px 16px 56px; }
+    .bp-field-row, .bp-checks { grid-template-columns: 1fr; }
+    .bp-pricerow { grid-template-columns: 1fr 100px 38px; }
+    .bp-overlay { padding: 12px 8px; }
+    .bp-select { min-width: 0; width: 100%; }
+  }
+
+  /* ── small-screen fixes for the shared nav + footer ── */
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .nav-inner { padding: 0 16px; gap: 8px; }
+    .profile-btn { padding: 4px; }
+    .profile-btn #profileNameSm, .profile-btn .profile-chevron { display: none; }
+    .profile-dropdown { width: min(288px, calc(100vw - 32px)); right: -48px; }
+    .footer { padding: 40px 16px 24px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer-links { flex-wrap: wrap; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="flag-stripe"></div>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="Index.html" class="logo" aria-label="SearchGhana">
+      <span class="search" aria-hidden="true">Search</span>
+      <span class="G" aria-hidden="true">G</span>
+      <span class="h" aria-hidden="true">h</span>
+      <span class="star" aria-hidden="true">★</span>
+      <span class="n" aria-hidden="true">n</span>
+      <span class="a" aria-hidden="true">a</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="Browse.html">Browse</a></li>
+      <li><a href="Deals.html">Deals</a></li>
+      <li><a href="Reviews.html">Reviews</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="AddBusiness.html" class="nav-cta">List your business</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="profile-wrapper">
+        <button class="profile-btn" id="profileBtn" onclick="toggleProfile()">
+          <div class="profile-avatar-sm" id="profileAvatarSm">·</div>
+          <span id="profileNameSm">My account</span>
+          <span class="profile-chevron">▼</span>
+        </button>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-header">
+            <div class="dropdown-avatar-lg" id="dropdownAvatarLg">·</div>
+            <div>
+              <div class="dropdown-name" id="dropdownName"></div>
+              <div class="dropdown-email" id="dropdownEmail"></div>
+            </div>
+          </div>
+          <div class="dropdown-body">
+            <a href="Profile.html" class="menu-item"><div class="menu-icon">👤</div><span class="menu-label">My Profile</span></a>
+            <a href="BusinessProfile.html" class="menu-item"><div class="menu-icon gold">🏪</div><span class="menu-label">Business profile summary</span></a>
+            <a href="Deals.html" class="menu-item"><div class="menu-icon green">🏷️</div><span class="menu-label">Deals</span></a>
+            <div class="menu-sep"></div>
+            <a href="#" class="menu-item danger" onclick="signOutUser(); return false;"><div class="menu-icon red">🚪</div><span class="menu-label">Sign Out</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileNav()">☰</button>
+  </div>
+</nav>
+
+<!-- ── BREADCRUMB ── -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <a href="Index.html">Home</a>
+    <span class="bc-sep">›</span>
+    <a href="Profile.html">Profile</a>
+    <span class="bc-sep">›</span>
+    <span>Profile summary</span>
+  </div>
+</div>
+
+<main class="bp-page" id="bpPage">
+  <div class="bp-top">
+    <h1 class="bp-title">Profile summary</h1>
+    <div class="bp-editing" id="bpEditing" style="display:none;"></div>
+  </div>
+  <p class="bp-intro">Keeping your information up to date is really important to your customers. Make sure you update content regularly.</p>
+  <div class="bp-status" id="bpStatus" role="status"></div>
+
+  <div id="bpLoading" class="bp-loading">Loading your business…</div>
+  <div id="bpEmpty" class="bp-empty" style="display:none;">
+    <h2>No business to edit yet</h2>
+    <p>You don't manage a business listing yet. Add a new business, or find your existing listing and claim it, and it will show up here for you to edit.</p>
+    <div class="bp-empty-actions">
+      <a class="bp-btn bp-btn-primary" href="AddBusiness.html">Add your business</a>
+      <a class="bp-btn bp-btn-ghost" href="Browse.html">Find &amp; claim a listing</a>
+    </div>
+  </div>
+
+  <div id="bpGrid" class="bp-layout" style="display:none;">
+    <div class="bp-col" id="bpColLeft"></div>
+    <div class="bp-col" id="bpColRight"></div>
+  </div>
+</main>
+
+<!-- ── EDITOR MODAL ── -->
+<div class="bp-overlay" id="bpOverlay">
+  <div class="bp-modal" role="dialog" aria-modal="true" aria-labelledby="bpModalTitle" id="bpModal">
+    <div class="bp-modal-head">
+      <div>
+        <h2 id="bpModalTitle">Edit</h2>
+        <p class="bp-modal-help" id="bpModalHelp"></p>
+      </div>
+      <button type="button" class="bp-close" id="bpClose" aria-label="Close">×</button>
+    </div>
+    <div class="bp-modal-body" id="bpModalBody"></div>
+    <div class="bp-modal-foot">
+      <div class="bp-error" id="bpError" role="alert"></div>
+      <button type="button" class="bp-btn bp-btn-ghost" id="bpCancel">Cancel</button>
+      <button type="button" class="bp-btn bp-btn-primary" id="bpSave">Save changes</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✓ <span id="toastMsg"></span></div>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-flag"></div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="Index.html" class="logo" aria-label="SearchGhana">
+          <span class="search" aria-hidden="true">Search</span>
+          <span class="G" aria-hidden="true">G</span>
+          <span class="h" aria-hidden="true">h</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="n" aria-hidden="true">n</span>
+          <span class="a" aria-hidden="true">a</span>
+        </a>
+        <p>Ghana's most trusted business directory. Connecting communities with quality businesses across all 16 regions.</p>
+      </div>
+      <div class="footer-col">
+        <h4>For businesses</h4>
+        <ul>
+          <li><a href="AddBusiness.html">Add your business</a></li>
+          <li><a href="#">Advertising</a></li>
+          <li><a href="#">Premium listings</a></li>
+          <li><a href="Profile.html">Business dashboard</a></li>
+          <li><a href="BusinessProfile.html">Profile summary</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Browse.html">All categories</a></li>
+          <li><a href="Browse.html">Browse by region</a></li>
+          <li><a href="Deals.html">Deals &amp; offers</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="AboutUs.html">About us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="HelpCenter.html">Help Center</a></li>
+          <li><a href="PrivacyPolicy.html">Privacy policy</a></li>
+          <li><a href="TermsOfService.html">Terms of use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://facebook.com/searchghana">Facebook</a></li>
+          <li><a href="https://twitter.com/searchghana">Twitter</a></li>
+          <li><a href="https://instagram.com/searchghana">Instagram</a></li>
+          <li><a href="https://tiktok.com/@searchghana">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> SearchGhana Ltd. All rights reserved. 🇬🇭</span>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+      <div class="footer-links">
+        <a href="PrivacyPolicy.html">Privacy</a>
+        <a href="TermsOfService.html">Terms</a>
+        <a href="Contact.html">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/supabase-client.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ═════════════ Profile summary (owner editor) ═════════════ */
+  const REGION_LABELS = {
+    'greater-accra': 'Greater Accra', 'ashanti': 'Ashanti', 'western': 'Western', 'eastern': 'Eastern',
+    'northern': 'Northern', 'volta': 'Volta', 'central': 'Central', 'upper-east': 'Upper East',
+    'upper-west': 'Upper West', 'bono': 'Bono', 'oti': 'Oti', 'ahafo': 'Ahafo',
+    'bono-east': 'Bono East', 'savannah': 'Savannah', 'north-east': 'North East', 'western-north': 'Western North',
+  };
+  // Same category values AddBusiness.html saves.
+  const CATEGORY_OPTIONS = [
+    ['chop-bar', 'Chop Bar & Food'], ['restaurant', 'Restaurant'], ['pharmacy', 'Pharmacy'],
+    ['salon', 'Salon & Barbering'], ['plumber', 'Plumber'], ['electrician', 'Electrician'],
+    ['mobile-money', 'Mobile Money'], ['transport', 'Transport & Taxis'], ['hotel', 'Hotel & Guesthouse'],
+    ['supermarket', 'Supermarket'], ['electronics', 'Electronics'], ['other', 'Other'],
+  ];
+  const PAYMENT_OPTIONS = [
+    ['cash', '💵 Cash'], ['momo', '📱 Mobile Money'], ['card', '💳 Card'], ['bank_transfer', '🏦 Bank Transfer'],
+  ];
+  const SOCIAL_NETWORKS = [
+    ['facebook', 'Facebook'], ['instagram', 'Instagram'], ['x', 'X (Twitter)'],
+    ['tiktok', 'TikTok'], ['linkedin', 'LinkedIn'], ['youtube', 'YouTube'],
+  ];
+  const HOURS_DAYS = [
+    ['mon', 'Monday'], ['tue', 'Tuesday'], ['wed', 'Wednesday'], ['thu', 'Thursday'],
+    ['fri', 'Friday'], ['sat', 'Saturday'], ['sun', 'Sunday'],
+  ];
+  const MAX_PHOTOS = 20;
+  const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+
+  const arr = v => Array.isArray(v) ? v : [];
+  const hasText = v => typeof v === 'string' && v.trim() !== '';
+  function escapeHtml(str) {
+    return String(str == null ? '' : str).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c]));
+  }
+  function initials(name) {
+    const parts = (name || '').trim().split(/\s+/).filter(Boolean);
+    if (!parts.length) return '?';
+    return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
+  }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+  function trunc(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n - 1) + '…' : s; }
+
+  let currentUser = null;
+  let listings = [];
+  let biz = null;
+
+  /* ── Items: what each row on the dashboard means, how it is "done", how it is edited ── */
+  const ITEMS = {
+    highlights: {
+      label: 'Business highlights', kind: 'list', field: 'highlights', max: 12, maxLen: 200,
+      help: 'Short selling points shown on your listing, e.g. “Free delivery within Accra”.',
+      placeholder: 'e.g. Free delivery within Accra', addLabel: '+ Add a highlight',
+      done: b => arr(b.highlights).length > 0, hint: b => plural(arr(b.highlights).length, 'highlight', 'highlights'),
+    },
+    accreditations: {
+      label: 'Accreditations', kind: 'list', field: 'accreditations', max: 20, maxLen: 200,
+      help: 'Official approvals or registrations your business holds.',
+      placeholder: 'e.g. Registered with the Registrar General', addLabel: '+ Add an accreditation',
+      done: b => arr(b.accreditations).length > 0, hint: b => plural(arr(b.accreditations).length, 'accreditation', 'accreditations'),
+    },
+    awards: {
+      label: 'Awards', kind: 'list', field: 'awards', max: 20, maxLen: 200,
+      help: 'Awards and recognition your business has received.',
+      placeholder: 'e.g. Best Salon, Accra 2025', addLabel: '+ Add an award',
+      done: b => arr(b.awards).length > 0, hint: b => plural(arr(b.awards).length, 'award', 'awards'),
+    },
+    qualifications: {
+      label: 'Qualifications', kind: 'list', field: 'qualifications', max: 20, maxLen: 200,
+      help: 'Training, certificates and qualifications of you or your team.',
+      placeholder: 'e.g. City & Guilds Level 3', addLabel: '+ Add a qualification',
+      done: b => arr(b.qualifications).length > 0, hint: b => plural(arr(b.qualifications).length, 'qualification', 'qualifications'),
+    },
+    associations: {
+      label: 'Associations', kind: 'list', field: 'associations', max: 20, maxLen: 200,
+      help: 'Trade bodies or associations you belong to.',
+      placeholder: 'e.g. Ghana Hairdressers Association', addLabel: '+ Add an association',
+      done: b => arr(b.associations).length > 0, hint: b => plural(arr(b.associations).length, 'association', 'associations'),
+    },
+    description: {
+      label: 'Description', kind: 'textarea', field: 'description', maxLen: 4000,
+      help: 'Tell customers what your business does. This is the main text on your listing.',
+      placeholder: 'Describe your business…',
+      done: b => hasText(b.description), hint: b => hasText(b.description) ? trunc(b.description.trim(), 60) : 'Not added yet',
+    },
+    payments: {
+      label: 'Payment methods', kind: 'payments', field: 'payment_methods',
+      help: 'Choose every way customers can pay you.',
+      done: b => arr(b.payment_methods).length > 0,
+      hint: b => arr(b.payment_methods).length
+        ? arr(b.payment_methods).map(m => (PAYMENT_OPTIONS.find(p => p[0] === m) || [m, m])[1].replace(/^\S+\s/, '')).join(', ')
+        : 'Not added yet',
+    },
+    services: {
+      label: 'Products & services', kind: 'list', field: 'services', max: 60, maxLen: 150,
+      help: 'List the products or services you offer, one per line.',
+      placeholder: 'e.g. Braiding', addLabel: '+ Add a product or service',
+      done: b => arr(b.services).length > 0, hint: b => plural(arr(b.services).length, 'item', 'items'),
+    },
+    prices: {
+      label: 'Prices', kind: 'prices', field: 'prices', max: 50,
+      help: 'Give customers an idea of what things cost. Prices are free text, e.g. “GHS 150” or “from GHS 80”.',
+      done: b => arr(b.prices).length > 0, hint: b => plural(arr(b.prices).length, 'price', 'prices'),
+    },
+    category: {
+      label: 'Categories', kind: 'category', field: 'category',
+      help: 'The category customers browse to find you.',
+      done: b => hasText(b.category),
+      hint: b => (CATEGORY_OPTIONS.find(c => c[0] === b.category) || [0, b.category || 'Not set'])[1],
+    },
+    essentials: {
+      label: 'Essential details', kind: 'essentials',
+      help: 'Your name, phone, address and region. Customers use these to find and contact you.',
+      done: b => hasText(b.name) && hasText(b.phone) && hasText(b.address),
+      hint: b => (hasText(b.phone) && hasText(b.address)) ? trunc(b.phone + ' · ' + b.address, 60) : 'Add your phone number and address',
+    },
+    online: {
+      label: 'Website & online profiles', kind: 'online',
+      help: 'Link to your website and social media pages.',
+      done: b => hasText(b.website) || Object.keys(b.social_links || {}).length > 0,
+      hint: b => {
+        const n = Object.keys(b.social_links || {}).length + (hasText(b.website) ? 1 : 0);
+        return n ? plural(n, 'link', 'links') : 'Not added yet';
+      },
+    },
+    photos: {
+      label: 'Photos & Logos', kind: 'photos',
+      help: 'Upload a logo and photos of your business. JPG, PNG or WebP, up to 5 MB each.',
+      done: b => arr(b.image_urls).length > 0 || hasText(b.logo_url),
+      hint: b => {
+        const p = arr(b.image_urls).length;
+        return (p || hasText(b.logo_url)) ? plural(p, 'photo', 'photos') + (hasText(b.logo_url) ? ' + logo' : '') : 'Not added yet';
+      },
+    },
+    summary: {
+      label: 'Business summary', kind: 'textarea', field: 'business_summary', maxLen: 6000,
+      help: 'A longer story about your business: your history, what makes you different, who you serve.',
+      placeholder: 'Tell your story…',
+      done: b => hasText(b.business_summary), hint: b => hasText(b.business_summary) ? trunc(b.business_summary.trim(), 60) : 'Not added yet',
+    },
+    hours: {
+      label: 'Opening times', kind: 'hours',
+      help: 'Tell customers when you are open.',
+      done: b => !!b.is_24_hours || !!b.hours_by_day || (hasText(b.opening_time) && hasText(b.closing_time)),
+      hint: b => b.is_24_hours ? 'Open 24 hours' : b.hours_by_day ? 'Set for each day' : (hasText(b.opening_time) && hasText(b.closing_time)) ? `${b.opening_time.slice(0, 5)} – ${b.closing_time.slice(0, 5)} every day` : 'Not added yet',
+    },
+    strapline: {
+      label: 'Strapline', kind: 'text', field: 'strapline', maxLen: 160,
+      help: 'A short catchy line that sits under your business name.',
+      placeholder: 'e.g. The best braids in Osu',
+      done: b => hasText(b.strapline), hint: b => hasText(b.strapline) ? trunc(b.strapline.trim(), 60) : 'Not added yet',
+    },
+    areas: {
+      label: 'Areas you serve', kind: 'list', field: 'areas_served', max: 40, maxLen: 100,
+      help: 'Towns or neighbourhoods you cover, e.g. “East Legon”, “Tema”.',
+      placeholder: 'e.g. East Legon', addLabel: '+ Add an area',
+      done: b => arr(b.areas_served).length > 0, hint: b => plural(arr(b.areas_served).length, 'area', 'areas'),
+    },
+  };
+
+  const CARDS_LEFT = [
+    { title: 'Why choose you', icon: '🏆', items: ['highlights', 'accreditations', 'awards', 'qualifications', 'associations'] },
+    { title: 'Contact details', icon: '📞', items: ['essentials', 'online'] },
+    { title: 'Who you are', icon: '🏢', items: ['summary', 'hours', 'strapline', 'areas'] },
+  ];
+  const CARDS_RIGHT = [
+    { title: 'What you offer', icon: '🛍️', items: ['description', 'payments', 'services', 'prices', 'category'] },
+    { title: 'Photos & theme', icon: '📷', items: ['photos'] },
+  ];
+
+  /* ── Dashboard rendering ── */
+  function renderCard(card) {
+    const done = card.items.filter(k => ITEMS[k].done(biz)).length;
+    const complete = done === card.items.length;
+    const rows = card.items.map(k => {
+      const it = ITEMS[k], isDone = it.done(biz);
+      const rawHint = it.hint(biz);
+      const hint = (!isDone && /^0 /.test(rawHint)) ? 'Not added yet' : rawHint;
+      return `<li><button type="button" class="bp-item${isDone ? ' done' : ''}" data-item="${k}">
+        <span class="bp-check" aria-hidden="true">✓</span>
+        <span class="bp-item-main"><span class="bp-item-label">${escapeHtml(it.label)}</span><span class="bp-item-hint">${escapeHtml(hint)}</span></span>
+        <span class="bp-item-arrow" aria-hidden="true">›</span>
+        <span class="sr-only">${isDone ? 'Complete' : 'Not complete'}</span>
+      </button></li>`;
+    }).join('');
+    return `<section class="bp-card" aria-label="${escapeHtml(card.title)}">
+      <div class="bp-card-head">
+        <h2 class="bp-card-title"><span class="bp-card-icon" aria-hidden="true">${card.icon}</span>${escapeHtml(card.title)}</h2>
+        <span class="bp-count${complete ? ' complete' : ''}">${done} of ${card.items.length}</span>
+      </div>
+      <ul class="bp-items">${rows}</ul>
+    </section>`;
+  }
+
+  function renderPreviewCard() {
+    const all = Object.keys(ITEMS);
+    const done = all.filter(k => ITEMS[k].done(biz)).length;
+    const pct = Math.round((done / all.length) * 100);
+    return `<section class="bp-preview" aria-label="Preview your listing">
+      <h3>Preview your listing</h3>
+      <p>See your listing the way customers see it on SearchGhana.</p>
+      <div class="bp-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Profile completeness"><div style="width:${pct}%"></div></div>
+      <div class="bp-progress-text" id="bpProgressText">${done} of ${all.length} sections complete (${pct}%)</div>
+      <a class="bp-btn bp-btn-gold" id="bpPreviewLink" href="Businesses.html?id=${encodeURIComponent(biz.id)}">View public listing →</a>
+    </section>`;
+  }
+
+  function renderDashboard() {
+    document.getElementById('bpLoading').style.display = 'none';
+    document.getElementById('bpEmpty').style.display = 'none';
+    document.getElementById('bpGrid').style.display = '';
+    document.getElementById('bpColLeft').innerHTML = CARDS_LEFT.map(renderCard).join('');
+    document.getElementById('bpColRight').innerHTML = CARDS_RIGHT.map(renderCard).join('') + renderPreviewCard();
+
+    const st = document.getElementById('bpStatus');
+    if (biz.status && !['active', 'approved'].includes(biz.status)) {
+      st.textContent = biz.status === 'rejected'
+        ? 'This listing was rejected, so it is not shown publicly. You can still update it here.'
+        : 'This listing is “' + biz.status + '”. You can edit it now, and your changes will show publicly once it is live.';
+      st.classList.add('show');
+    } else {
+      st.classList.remove('show');
+    }
+  }
+
+  function renderSelector() {
+    const el = document.getElementById('bpEditing');
+    el.style.display = '';
+    if (listings.length > 1) {
+      el.innerHTML = `<label for="bpSelect">You are currently editing:</label>
+        <select class="bp-select" id="bpSelect">${listings.map(l => `<option value="${escapeHtml(l.id)}"${l.id === biz.id ? ' selected' : ''}>${escapeHtml(l.name)}</option>`).join('')}</select>`;
+      document.getElementById('bpSelect').addEventListener('change', e => {
+        const next = listings.find(l => l.id === e.target.value);
+        if (!next) return;
+        biz = next;
+        try { history.replaceState(null, '', '?id=' + encodeURIComponent(biz.id)); } catch (_) {}
+        renderDashboard();
+      });
+    } else {
+      el.innerHTML = `<span>You are currently editing:</span> <span class="bp-editing-name">${escapeHtml(biz.name)}</span>`;
+    }
+  }
+
+  /* ── Editor modal ── */
+  let editing = null;   // { key, item, draft, returnFocus }
+  const overlay = () => document.getElementById('bpOverlay');
+  const modalBody = () => document.getElementById('bpModalBody');
+
+  function showError(msg) {
+    const el = document.getElementById('bpError');
+    el.textContent = msg || '';
+    el.classList.toggle('show', !!msg);
+  }
+
+  function openEditor(key, returnFocus) {
+    const item = ITEMS[key];
+    if (!item || !biz) return;
+    editing = { key, item, draft: null, returnFocus: returnFocus || null, uploading: 0 };
+    document.getElementById('bpModalTitle').textContent = item.label;
+    document.getElementById('bpModalHelp').textContent = item.help || '';
+    showError('');
+    const save = document.getElementById('bpSave');
+    save.disabled = false; save.textContent = 'Save changes';
+    EDITORS[item.kind].open(editing);
+    overlay().classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const first = modalBody().querySelector('input:not([type=hidden]):not([type=file]):not([type=radio]), textarea, select');
+    if (first) first.focus(); else document.getElementById('bpClose').focus();
+  }
+
+  function closeEditor() {
+    overlay().classList.remove('open');
+    document.body.style.overflow = '';
+    const rf = editing && editing.returnFocus;
+    editing = null;
+    if (rf && document.contains(rf)) rf.focus();
+  }
+
+  function friendlySaveError(err) {
+    const msg = (err && (err.message || err.details)) || String(err || '');
+    if (/could not find the function|does not exist|PGRST202|schema cache/i.test(msg)) {
+      return 'Saving isn’t switched on yet. The site administrator needs to run the latest database update (migration 8).';
+    }
+    if (/Not authorized/i.test(msg)) return 'You don’t have permission to edit this business. Please sign in again.';
+    if (/column .* does not exist/i.test(msg)) return 'The database is missing the new profile fields. The administrator needs to run the latest database update.';
+    return msg || 'Could not save. Please try again.';
+  }
+
+  async function savePayload(payload) {
+    const { error } = await window.sbClient.rpc('update_business_profile', { p_business_id: biz.id, p_data: payload });
+    if (error) throw error;
+    // Re-read the row so the page shows exactly what the server stored (it trims and caps values).
+    let fresh = null;
+    try {
+      const res = await window.sbClient.from('businesses').select('*').eq('id', biz.id).maybeSingle();
+      fresh = res && res.data;
+    } catch (_) { /* fall back to local merge */ }
+    Object.assign(biz, fresh || payload);
+  }
+
+  async function onSave() {
+    if (!editing) return;
+    showError('');
+    let payload;
+    try {
+      payload = EDITORS[editing.item.kind].collect(editing);
+    } catch (e) {
+      showError(e.message);
+      return;
+    }
+    if (payload === null) { closeEditor(); return; }   // nothing to save
+    const btn = document.getElementById('bpSave');
+    btn.disabled = true; btn.textContent = 'Saving…';
+    try {
+      await savePayload(payload);
+      const label = editing.item.label;
+      closeEditor();
+      renderSelector();
+      renderDashboard();
+      showToast(label + ' saved');
+    } catch (err) {
+      showError(friendlySaveError(err));
+      btn.disabled = false; btn.textContent = 'Save changes';
+    }
+  }
+
+  /* Each editor: open(state) renders into the modal body and fills state.draft;
+     collect(state) validates and returns the payload for update_business_profile. */
+  const EDITORS = {};
+
+  /* — list of strings — */
+  function listRowsHtml(state) {
+    const it = state.item;
+    return state.draft.map((v, i) => `<div class="bp-listrow">
+      <input type="text" class="bp-input" data-idx="${i}" maxlength="${it.maxLen}" value="${escapeHtml(v)}" placeholder="${escapeHtml(it.placeholder || '')}" aria-label="${escapeHtml(it.label)} ${i + 1}">
+      <button type="button" class="bp-rm" data-rm="${i}" aria-label="Remove ${escapeHtml(it.label)} ${i + 1}">×</button>
+    </div>`).join('');
+  }
+  function renderList(state, focusIdx) {
+    const it = state.item;
+    modalBody().innerHTML = `<div id="bpListRows">${listRowsHtml(state)}</div>
+      <button type="button" class="bp-add" id="bpListAdd"${state.draft.length >= it.max ? ' disabled' : ''}>${escapeHtml(it.addLabel || '+ Add another')}</button>
+      <p class="bp-note">Up to ${it.max} entries, ${it.maxLen} characters each. Blank rows are ignored.</p>`;
+    if (focusIdx != null) {
+      const inp = modalBody().querySelector(`input[data-idx="${focusIdx}"]`);
+      if (inp) inp.focus();
+    }
+  }
+  EDITORS.list = {
+    open(state) {
+      state.draft = arr(biz[state.item.field]).slice();
+      if (!state.draft.length) state.draft.push('');
+      renderList(state);
+    },
+    collect(state) {
+      return { [state.item.field]: state.draft.map(s => s.trim()).filter(Boolean) };
+    },
+  };
+
+  /* — single textarea / text — */
+  EDITORS.textarea = {
+    open(state) {
+      const it = state.item;
+      modalBody().innerHTML = `<div class="bp-field">
+        <label class="bp-label" for="bpTextarea">${escapeHtml(it.label)}</label>
+        <textarea class="bp-textarea" id="bpTextarea" maxlength="${it.maxLen}" placeholder="${escapeHtml(it.placeholder || '')}">${escapeHtml(biz[it.field] || '')}</textarea>
+        <div class="bp-counter"><span id="bpTaCount">0</span> / ${it.maxLen}</div></div>`;
+      const ta = document.getElementById('bpTextarea');
+      const upd = () => { document.getElementById('bpTaCount').textContent = ta.value.length; };
+      ta.addEventListener('input', upd); upd();
+    },
+    collect(state) { return { [state.item.field]: document.getElementById('bpTextarea').value.trim() }; },
+  };
+  EDITORS.text = {
+    open(state) {
+      const it = state.item;
+      modalBody().innerHTML = `<div class="bp-field">
+        <label class="bp-label" for="bpText">${escapeHtml(it.label)}</label>
+        <input type="text" class="bp-input" id="bpText" maxlength="${it.maxLen}" placeholder="${escapeHtml(it.placeholder || '')}" value="${escapeHtml(biz[it.field] || '')}">
+        <div class="bp-counter"><span id="bpTxCount">0</span> / ${it.maxLen}</div></div>`;
+      const inp = document.getElementById('bpText');
+      const upd = () => { document.getElementById('bpTxCount').textContent = inp.value.length; };
+      inp.addEventListener('input', upd); upd();
+    },
+    collect(state) { return { [state.item.field]: document.getElementById('bpText').value.trim() }; },
+  };
+
+  /* — payment methods — */
+  EDITORS.payments = {
+    open() {
+      const have = arr(biz.payment_methods);
+      modalBody().innerHTML = `<div class="bp-checks">${PAYMENT_OPTIONS.map(([v, l]) =>
+        `<label class="bp-check-opt"><input type="checkbox" name="pay" value="${v}"${have.includes(v) ? ' checked' : ''}> ${escapeHtml(l)}</label>`).join('')}</div>`;
+    },
+    collect() {
+      return { payment_methods: [...modalBody().querySelectorAll('input[name="pay"]:checked')].map(i => i.value) };
+    },
+  };
+
+  /* — prices — */
+  function priceRowsHtml(state) {
+    return state.draft.map((r, i) => `<div class="bp-pricerow">
+      <input type="text" class="bp-input" data-pf="name" data-idx="${i}" maxlength="120" value="${escapeHtml(r.name)}" placeholder="e.g. Box braids" aria-label="Item ${i + 1}">
+      <input type="text" class="bp-input" data-pf="price" data-idx="${i}" maxlength="40" value="${escapeHtml(r.price)}" placeholder="e.g. GHS 150" aria-label="Price ${i + 1}">
+      <button type="button" class="bp-rm" data-rm="${i}" aria-label="Remove price ${i + 1}">×</button>
+    </div>`).join('');
+  }
+  function renderPrices(state, focusIdx) {
+    modalBody().innerHTML = `<div id="bpListRows">${priceRowsHtml(state)}</div>
+      <button type="button" class="bp-add" id="bpListAdd"${state.draft.length >= state.item.max ? ' disabled' : ''}>+ Add a price</button>
+      <p class="bp-note">Up to ${state.item.max} prices. Rows without an item name are ignored.</p>`;
+    if (focusIdx != null) {
+      const inp = modalBody().querySelector(`input[data-pf="name"][data-idx="${focusIdx}"]`);
+      if (inp) inp.focus();
+    }
+  }
+  EDITORS.prices = {
+    open(state) {
+      state.draft = arr(biz.prices).map(r => ({ name: String((r && r.name) || ''), price: String((r && r.price) || '') }));
+      if (!state.draft.length) state.draft.push({ name: '', price: '' });
+      renderPrices(state);
+    },
+    collect(state) {
+      return { prices: state.draft.map(r => ({ name: r.name.trim(), price: r.price.trim() })).filter(r => r.name) };
+    },
+  };
+
+  /* — category — */
+  EDITORS.category = {
+    open() {
+      const cur = biz.category || '';
+      const opts = CATEGORY_OPTIONS.slice();
+      if (cur && !opts.some(o => o[0] === cur)) opts.unshift([cur, cur]);
+      modalBody().innerHTML = `<div class="bp-field"><label class="bp-label" for="bpCategory">Category</label>
+        <select id="bpCategory">${opts.map(([v, l]) => `<option value="${escapeHtml(v)}"${v === cur ? ' selected' : ''}>${escapeHtml(l)}</option>`).join('')}</select></div>`;
+    },
+    collect() {
+      const v = document.getElementById('bpCategory').value;
+      if (!v) throw new Error('Please choose a category.');
+      return { category: v };
+    },
+  };
+
+  /* — essential details — */
+  EDITORS.essentials = {
+    open() {
+      const f = (id, label, val, extra) => `<div class="bp-field"><label class="bp-label" for="${id}">${label}</label>
+        <input class="bp-input" id="${id}" value="${escapeHtml(val || '')}" ${extra || ''}></div>`;
+      const cur = biz.region || '';
+      const regionOpts = Object.entries(REGION_LABELS).map(([v, l]) => [v, l + ' Region']);
+      if (cur && !REGION_LABELS[cur]) regionOpts.unshift([cur, cur]);
+      modalBody().innerHTML =
+        f('bpName', 'Business name *', biz.name, 'maxlength="150" required') +
+        `<div class="bp-field-row">${f('bpPhone', 'Phone', biz.phone, 'type="tel" maxlength="40"')}${f('bpWhatsapp', 'WhatsApp', biz.whatsapp, 'type="tel" maxlength="40"')}</div>` +
+        f('bpEmail', 'Email', biz.email, 'type="email" maxlength="200"') +
+        f('bpAddress', 'Address', biz.address, 'maxlength="300"') +
+        `<div class="bp-field-row">${f('bpCity', 'City / town', biz.city, 'maxlength="120"')}${f('bpLandmark', 'Landmark', biz.landmark, 'maxlength="200"')}</div>` +
+        `<div class="bp-field"><label class="bp-label" for="bpRegion">Region</label>
+          <select id="bpRegion">${regionOpts.map(([v, l]) => `<option value="${escapeHtml(v)}"${v === cur ? ' selected' : ''}>${escapeHtml(l)}</option>`).join('')}</select></div>`;
+    },
+    collect() {
+      const v = id => document.getElementById(id).value.trim();
+      if (!v('bpName')) throw new Error('Business name is required.');
+      const email = v('bpEmail');
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('Please enter a valid email address.');
+      return {
+        name: v('bpName'), phone: v('bpPhone'), whatsapp: v('bpWhatsapp'), email,
+        address: v('bpAddress'), city: v('bpCity'), landmark: v('bpLandmark'), region: document.getElementById('bpRegion').value,
+      };
+    },
+  };
+
+  /* — website & online profiles — */
+  function normalizeUrl(v) {
+    v = (v || '').trim();
+    if (!v) return '';
+    if (!/^https?:\/\//i.test(v)) v = 'https://' + v;
+    return v;
+  }
+  EDITORS.online = {
+    open() {
+      const soc = biz.social_links || {};
+      modalBody().innerHTML = `<div class="bp-field"><label class="bp-label" for="bpWebsite">Website</label>
+        <input class="bp-input" id="bpWebsite" maxlength="300" placeholder="https://www.example.com" value="${escapeHtml(biz.website || '')}"></div>
+        <p class="bp-sub">Online profiles</p>` +
+        SOCIAL_NETWORKS.map(([k, l]) => `<div class="bp-field"><label class="bp-label" for="bpSoc_${k}">${l}</label>
+          <input class="bp-input" id="bpSoc_${k}" maxlength="300" placeholder="https://" value="${escapeHtml(soc[k] || '')}"></div>`).join('');
+    },
+    collect() {
+      const website = normalizeUrl(document.getElementById('bpWebsite').value);
+      const social = {};
+      SOCIAL_NETWORKS.forEach(([k]) => {
+        const val = normalizeUrl(document.getElementById('bpSoc_' + k).value);
+        if (val) social[k] = val;
+      });
+      const bad = [website, ...Object.values(social)].find(u => u && !/^https?:\/\/[^\s.]+\.[^\s]+$/.test(u));
+      if (bad) throw new Error('“' + bad + '” doesn’t look like a valid web address.');
+      return { website, social_links: social };
+    },
+  };
+
+  /* — opening times — */
+  function hoursInitial() {
+    const days = {};
+    HOURS_DAYS.forEach(([k]) => {
+      const d = biz.hours_by_day && biz.hours_by_day[k];
+      days[k] = d && !d.closed && d.open && d.close ? { closed: false, open: d.open.slice(0, 5), close: d.close.slice(0, 5) }
+        : (biz.hours_by_day ? { closed: true, open: '09:00', close: '18:00' } : { closed: false, open: '09:00', close: '18:00' });
+    });
+    return days;
+  }
+  function renderHours(state) {
+    const d = state.draft;
+    const dayRows = HOURS_DAYS.map(([k, l]) => `<tr>
+      <td>${l}</td>
+      <td><input type="time" data-day="${k}" data-f="open" value="${d.days[k].open}" ${d.days[k].closed ? 'disabled' : ''} aria-label="${l} opens"></td>
+      <td>–</td>
+      <td><input type="time" data-day="${k}" data-f="close" value="${d.days[k].close}" ${d.days[k].closed ? 'disabled' : ''} aria-label="${l} closes"></td>
+      <td><label><input type="checkbox" data-day="${k}" data-f="closed" ${d.days[k].closed ? 'checked' : ''}> Closed</label></td>
+    </tr>`).join('');
+    modalBody().innerHTML = `<div class="bp-seg" role="radiogroup" aria-label="Opening times type">
+        <label><input type="radio" name="hmode" value="same"${d.mode === 'same' ? ' checked' : ''}> Same every day</label>
+        <label><input type="radio" name="hmode" value="perday"${d.mode === 'perday' ? ' checked' : ''}> Different each day</label>
+        <label><input type="radio" name="hmode" value="24h"${d.mode === '24h' ? ' checked' : ''}> Open 24 hours</label>
+      </div>
+      ${d.mode === 'same' ? `<div class="bp-field-row">
+        <div class="bp-field"><label class="bp-label" for="bpHoursOpen">Opens</label><input type="time" class="bp-input" id="bpHoursOpen" value="${d.open}"></div>
+        <div class="bp-field"><label class="bp-label" for="bpHoursClose">Closes</label><input type="time" class="bp-input" id="bpHoursClose" value="${d.close}"></div></div>` : ''}
+      ${d.mode === 'perday' ? `<table class="bp-hours-table"><tbody>${dayRows}</tbody></table>` : ''}
+      ${d.mode === '24h' ? '<p class="bp-note">Your listing will show “Open 24 hours”.</p>' : ''}`;
+  }
+  EDITORS.hours = {
+    open(state) {
+      state.draft = {
+        mode: biz.is_24_hours ? '24h' : biz.hours_by_day ? 'perday' : 'same',
+        open: hasText(biz.opening_time) ? biz.opening_time.slice(0, 5) : '09:00',
+        close: hasText(biz.closing_time) ? biz.closing_time.slice(0, 5) : '18:00',
+        days: hoursInitial(),
+      };
+      renderHours(state);
+    },
+    collect(state) {
+      const d = state.draft;
+      if (d.mode === '24h') return { is_24_hours: true, hours_by_day: null, opening_time: null, closing_time: null };
+      if (d.mode === 'same') {
+        if (!d.open || !d.close) throw new Error('Please enter both an opening and a closing time.');
+        return { is_24_hours: false, hours_by_day: null, opening_time: d.open, closing_time: d.close };
+      }
+      const byDay = {};
+      HOURS_DAYS.forEach(([k, l]) => {
+        const x = d.days[k];
+        if (x.closed) { byDay[k] = { closed: true }; return; }
+        if (!x.open || !x.close) throw new Error('Please enter opening and closing times for ' + l + ', or mark it closed.');
+        byDay[k] = { closed: false, open: x.open, close: x.close };
+      });
+      return { is_24_hours: false, hours_by_day: byDay, opening_time: null, closing_time: null };
+    },
+  };
+
+  /* — photos & logo — */
+  function renderPhotos(state) {
+    const d = state.draft;
+    const photos = d.images.map((u, i) => `<div class="bp-photo"><img src="${escapeHtml(u)}" alt="Business photo ${i + 1}"><button type="button" class="bp-photo-rm" data-rm-photo="${i}" aria-label="Remove photo ${i + 1}">×</button></div>`).join('');
+    modalBody().innerHTML = `<p class="bp-sub">Logo</p>
+      <div class="bp-photo-grid" style="grid-template-columns:110px;">
+        ${d.logo ? `<div class="bp-photo bp-logo-box"><img src="${escapeHtml(d.logo)}" alt="Logo"><button type="button" class="bp-photo-rm" data-rm-logo="1" aria-label="Remove logo">×</button></div>` : ''}
+      </div>
+      <label class="bp-btn bp-btn-ghost" for="bpLogoFile" style="margin-bottom:18px;">${d.logo ? 'Replace logo' : 'Upload logo'}</label>
+      <input type="file" id="bpLogoFile" class="sr-only" accept="image/*">
+      <p class="bp-sub">Photos <span style="font-weight:400;color:var(--gray-400);">(${d.images.length} of ${MAX_PHOTOS})</span></p>
+      <div class="bp-photo-grid">${photos}</div>
+      <label class="bp-btn bp-btn-ghost" for="bpPhotoFile">+ Add photos</label>
+      <input type="file" id="bpPhotoFile" class="sr-only" accept="image/*" multiple>
+      <p class="bp-note" id="bpUploadNote">${d.uploading ? 'Uploading…' : 'JPG, PNG or WebP, up to 5 MB each.'}</p>`;
+    document.getElementById('bpSave').disabled = d.uploading > 0;
+  }
+  async function uploadOne(file, isLogo) {
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+    const path = `${isLogo ? 'logo-' : ''}${Date.now()}-${Math.random().toString(36).slice(2)}-${safeName}`;
+    const { data, error } = await window.sbClient.storage.from('business-photos').upload(path, file, { cacheControl: '3600', upsert: false });
+    if (error) throw error;
+    const { data: pub } = window.sbClient.storage.from('business-photos').getPublicUrl(data.path);
+    return pub.publicUrl;
+  }
+  async function handleFiles(state, files, isLogo) {
+    const d = state.draft;
+    const list = Array.from(files || []);
+    const problems = [];
+    const ok = [];
+    for (const f of list) {
+      if (!/^image\//.test(f.type)) { problems.push(f.name + ' is not an image'); continue; }
+      if (f.size > MAX_UPLOAD_BYTES) { problems.push(f.name + ' is larger than 5 MB'); continue; }
+      ok.push(f);
+    }
+    const room = isLogo ? 1 : MAX_PHOTOS - d.images.length;
+    if (!isLogo && ok.length > room) problems.push('Only ' + MAX_PHOTOS + ' photos are allowed');
+    const batch = ok.slice(0, Math.max(room, 0));
+    d.uploading += batch.length;
+    renderPhotos(state);
+    for (const f of batch) {
+      try {
+        const url = await uploadOne(f, isLogo);
+        if (editing !== state) return;     // editor was closed meanwhile
+        if (isLogo) d.logo = url; else d.images.push(url);
+      } catch (err) {
+        problems.push('Could not upload ' + f.name);
+      }
+      d.uploading -= 1;
+      if (editing !== state) return;
+      renderPhotos(state);
+    }
+    showError(problems.join('. '));
+  }
+  EDITORS.photos = {
+    open(state) {
+      state.draft = { images: arr(biz.image_urls).slice(), logo: biz.logo_url || '', uploading: 0 };
+      renderPhotos(state);
+    },
+    collect(state) {
+      if (state.draft.uploading > 0) throw new Error('Please wait for uploads to finish.');
+      return { image_urls: state.draft.images, logo_url: state.draft.logo || null };
+    },
+  };
+
+  /* ── Delegated events inside the modal ── */
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.getElementById('bpModalBody');
+
+    body.addEventListener('input', e => {
+      if (!editing) return;
+      const t = e.target;
+      const k = editing.item.kind;
+      if (k === 'list' && t.dataset.idx != null) editing.draft[+t.dataset.idx] = t.value;
+      else if (k === 'prices' && t.dataset.pf) editing.draft[+t.dataset.idx][t.dataset.pf] = t.value;
+      else if (k === 'hours') {
+        const d = editing.draft;
+        if (t.id === 'bpHoursOpen') d.open = t.value;
+        else if (t.id === 'bpHoursClose') d.close = t.value;
+        else if (t.dataset.day && (t.dataset.f === 'open' || t.dataset.f === 'close')) d.days[t.dataset.day][t.dataset.f] = t.value;
+      }
+    });
+
+    body.addEventListener('change', e => {
+      if (!editing) return;
+      const t = e.target;
+      const k = editing.item.kind;
+      if (k === 'hours') {
+        const d = editing.draft;
+        if (t.name === 'hmode') { d.mode = t.value; renderHours(editing); }
+        else if (t.dataset.f === 'closed') { d.days[t.dataset.day].closed = t.checked; renderHours(editing); }
+      } else if (k === 'photos') {
+        if (t.id === 'bpLogoFile') { handleFiles(editing, t.files, true); t.value = ''; }
+        else if (t.id === 'bpPhotoFile') { handleFiles(editing, t.files, false); t.value = ''; }
+      }
+    });
+
+    body.addEventListener('click', e => {
+      if (!editing) return;
+      const k = editing.item.kind;
+      const t = e.target.closest('button');
+      if (!t) return;
+      if (k === 'list') {
+        if (t.id === 'bpListAdd') { editing.draft.push(''); renderList(editing, editing.draft.length - 1); }
+        else if (t.dataset.rm != null) {
+          editing.draft.splice(+t.dataset.rm, 1);
+          if (!editing.draft.length) editing.draft.push('');
+          renderList(editing);
+        }
+      } else if (k === 'prices') {
+        if (t.id === 'bpListAdd') { editing.draft.push({ name: '', price: '' }); renderPrices(editing, editing.draft.length - 1); }
+        else if (t.dataset.rm != null) {
+          editing.draft.splice(+t.dataset.rm, 1);
+          if (!editing.draft.length) editing.draft.push({ name: '', price: '' });
+          renderPrices(editing);
+        }
+      } else if (k === 'photos') {
+        if (t.dataset.rmPhoto != null) { editing.draft.images.splice(+t.dataset.rmPhoto, 1); renderPhotos(editing); }
+        else if (t.dataset.rmLogo != null) { editing.draft.logo = ''; renderPhotos(editing); }
+      }
+    });
+
+    document.getElementById('bpSave').addEventListener('click', onSave);
+    document.getElementById('bpCancel').addEventListener('click', closeEditor);
+    document.getElementById('bpClose').addEventListener('click', closeEditor);
+    document.getElementById('bpOverlay').addEventListener('mousedown', e => { if (e.target.id === 'bpOverlay') closeEditor(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && editing) closeEditor();
+      // keep keyboard focus inside the dialog
+      if (e.key === 'Tab' && editing) {
+        const f = [...document.getElementById('bpModal').querySelectorAll('button:not(:disabled), input:not(:disabled):not(.sr-only), textarea, select, [href]')].filter(el => el.offsetParent !== null);
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    // dashboard rows (delegated so re-rendering keeps working)
+    document.getElementById('bpGrid').addEventListener('click', e => {
+      const btn = e.target.closest('[data-item]');
+      if (btn) openEditor(btn.dataset.item, btn);
+    });
+  });
+
+  /* ── Nav helpers ── */
+  function toggleProfile() {
+    const btn = document.getElementById('profileBtn');
+    const dd = document.getElementById('profileDropdown');
+    const open = dd.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  }
+  document.addEventListener('click', function (e) {
+    const wrapper = document.querySelector('.profile-wrapper');
+    if (wrapper && !wrapper.contains(e.target)) {
+      document.getElementById('profileDropdown').classList.remove('open');
+      document.getElementById('profileBtn').classList.remove('open');
+    }
+  });
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+  async function signOutUser() {
+    await window.sbClient.auth.signOut();
+    window.location.href = 'Login.html';
+  }
+
+  /* ── Boot: require sign-in, then load the businesses this user manages ── */
+  (async function initBusinessProfile() {
+    const { data, error } = await window.sbClient.auth.getUser();
+    if (error || !data || !data.user) { window.location.href = 'Login.html'; return; }
+    currentUser = data.user;
+
+    const meta = currentUser.user_metadata || {};
+    const displayName = meta.display_name || meta.full_name || currentUser.email || '';
+    const first = meta.first_name || displayName.split(' ')[0] || '';
+    const last = meta.last_name || displayName.split(' ').slice(1).join(' ') || '';
+    document.getElementById('profileAvatarSm').textContent = initials(displayName);
+    document.getElementById('dropdownAvatarLg').textContent = initials(displayName);
+    document.getElementById('profileNameSm').textContent = first ? (first + (last ? ' ' + last[0] + '.' : '')) : displayName;
+    document.getElementById('dropdownName').textContent = displayName;
+    document.getElementById('dropdownEmail').textContent = currentUser.email || '';
+
+    const { data: rows, error: loadErr } = await window.sbClient
+      .from('businesses').select('*').eq('claimed_by', currentUser.id).order('created_at', { ascending: false });
+    document.getElementById('bpLoading').style.display = 'none';
+    if (loadErr) {
+      const el = document.getElementById('bpLoading');
+      el.style.display = ''; el.textContent = 'Could not load your businesses: ' + loadErr.message;
+      return;
+    }
+    listings = rows || [];
+    if (!listings.length) { document.getElementById('bpEmpty').style.display = ''; return; }
+
+    const wanted = new URLSearchParams(location.search).get('id');
+    biz = listings.find(l => l.id === wanted) || listings[0];
+    renderSelector();
+    renderDashboard();
+  })();
+
+</script>
+<script>
+  // Mobile nav toggle (hamburger)
+  (function () {
+    var navLinks = document.querySelector('.nav-links');
+    var hamburger = document.getElementById('navHamburger');
+    if (!navLinks || !hamburger) return;
+
+    function closeMobileNav() {
+      navLinks.classList.remove('mobile-open');
+      hamburger.textContent = '☰';
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    window.toggleMobileNav = function () {
+      var isOpen = navLinks.classList.toggle('mobile-open');
+      hamburger.textContent = isOpen ? '✕' : '☰';
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
+    document.addEventListener('click', function (e) {
+      if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMobileNav);
+    });
+  })();
+</script>
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-consent-inner">
+    <p class="cookie-consent-text">
+      We use cookies to run SearchGhana.com and improve your experience. By clicking &quot;Accept&quot;, you agree to our use of cookies as described in our
+      <a href="PrivacyPolicy.html">Privacy Policy</a>.
+    </p>
+    <div class="cookie-consent-actions">
+      <button type="button" id="cookieDecline" class="cookie-btn cookie-btn-outline">Decline</button>
+      <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<style>
+  .cookie-consent {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: var(--gray-900, #1A1816);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
+    padding: 16px 20px;
+    transform: translateY(110%);
+    transition: transform 0.35s ease;
+  }
+  .cookie-consent.is-visible { transform: translateY(0); }
+  .cookie-consent-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cookie-consent-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #F2F0EB;
+    flex: 1 1 320px;
+  }
+  .cookie-consent-text a { color: var(--brand-gold, #FCD116); text-decoration: underline; }
+  .cookie-consent-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .cookie-btn-accept {
+    background: var(--brand-gold, #FCD116);
+    color: var(--gray-900, #1A1816);
+  }
+  .cookie-btn-accept:hover { background: var(--brand-gold-dark, #E0B800); }
+  .cookie-btn-outline {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
+  }
+  .cookie-btn-outline:hover { background: rgba(255,255,255,0.1); }
+  @media (max-width: 560px) {
+    .cookie-consent-inner { flex-direction: column; align-items: stretch; }
+    .cookie-consent-actions { justify-content: flex-end; }
+  }
+</style>
+<script>
+(function () {
+  var STORAGE_KEY = 'sg_cookie_consent';
+  function getConsent() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+  function setConsent(value) {
+    try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+  }
+  var banner = document.getElementById('cookieConsent');
+  if (!banner) return;
+  if (!getConsent()) {
+    window.requestAnimationFrame(function () {
+      banner.classList.add('is-visible');
+    });
+  }
+  var acceptBtn = document.getElementById('cookieAccept');
+  var declineBtn = document.getElementById('cookieDecline');
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function () {
+      setConsent('accepted');
+      banner.classList.remove('is-visible');
+    });
+  }
+  if (declineBtn) {
+    declineBtn.addEventListener('click', function () {
+      setConsent('declined');
+      banner.classList.remove('is-visible');
+    });
+  }
+})();
+</script>
+<!-- End Cookie Consent Banner -->
+</body>
+</html>

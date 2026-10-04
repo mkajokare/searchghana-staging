@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /Login.html
+Disallow: /SignUp.html
+Disallow: /ForgotPassword.html
+Disallow: /ResetPassword.html
+Disallow: /Profile.html
+Disallow: /BusinessProfile.html
+Disallow: /Admin.html
+
+Sitemap: https://www.searchghana.com/sitemap.xml

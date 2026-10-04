@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow"><!-- staging-noindex -->
+<!-- Google Analytics (GA4) — replace G-XXXXXXXXXX with your real Measurement ID before launch -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile | SearchGhana</title>
+<meta name="description" content="Manage your SearchGhana profile, saved businesses, reviews and account settings.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.searchghana.com/Profile.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SearchGhana">
+<meta property="og:title" content="My Profile | SearchGhana">
+<meta property="og:description" content="Manage your SearchGhana profile, saved businesses, reviews and account settings.">
+<meta property="og:url" content="https://www.searchghana.com/Profile.html">
+<meta property="og:image" content="https://www.searchghana.com/Icons/Copilot_20260407_222824.png">
+<meta property="og:locale" content="en_GH">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@searchghana">
+<meta name="twitter:title" content="My Profile | SearchGhana">
+<meta name="twitter:description" content="Manage your SearchGhana profile, saved businesses, reviews and account settings.">
+<meta name="twitter:image" content="https://www.searchghana.com/Icons/Copilot_20260407_222824.png">
+<link rel="icon" type="image/png" href="Icons/Copilot_20260407_222824.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── EXACT DESIGN TOKENS FROM SearchGhana ── */
+  :root {
+    --brand-red: #CE1126; --brand-red-dark: #A50D1E; --brand-red-light: #FDEAED;
+    --brand-gold: #FCD116; --brand-gold-dark: #E0B800; --brand-gold-text: #8A6B00; --brand-gold-light: #FFFBE6;
+    --brand-green: #006B3F; --brand-green-light: #E6F4EE;
+    --white: #ffffff;
+    --gray-50: #FAF9F7; --gray-100: #F2F0EB; --gray-200: #E0DDD5;
+    --gray-400: #74706A; --gray-600: #5A5650; --gray-700: #403D38;
+    --gray-800: #2A2723; --gray-900: #1A1816;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+    --shadow-lg: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08);
+    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); color: var(--gray-800); background: var(--gray-50); line-height: 1.6; font-size: 15px; }
+
+  /* FLAG STRIPE */
+  .flag-stripe { height: 5px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); }
+
+  /* NAV */
+  .nav { background: var(--white); border-bottom: 1px solid var(--gray-100); position: sticky; top: 0; z-index: 200; }
+  .nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--brand-green); text-decoration: none; letter-spacing: -0.5px; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+  .logo .search { color: #1A1A1A; }
+  .logo .G { color: var(--brand-red); }
+  .logo .h { color: var(--brand-gold-dark); }
+  .logo .star { color: #1A1A1A; }
+  .logo .n { color: var(--brand-gold-dark); }
+  .logo .a { color: var(--brand-green); }
+  .logo span { color: var(--gray-900); letter-spacing: -0.5px; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; flex: 1; justify-content: center; }
+  .nav-links a { text-decoration: none; color: var(--gray-600); font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); transition: all 0.15s; white-space: nowrap; }
+  .nav-links a:hover { color: var(--gray-900); background: var(--gray-50); }
+  .nav-cta { background: var(--brand-green) !important; color: var(--white) !important; padding: 8px 16px !important; border-radius: var(--radius-md) !important; font-weight: 600 !important; }
+  .nav-cta:hover { opacity: 0.88 !important; }
+
+  .nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .profile-wrapper { position: relative; }
+  .profile-btn { display: flex; align-items: center; gap: 8px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 100px; padding: 6px 14px 6px 6px; cursor: pointer; transition: all 0.15s; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gray-800); }
+  .profile-btn:hover { background: var(--gray-100); border-color: var(--gray-400); }
+  .profile-avatar-sm { width: 30px; height: 30px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; }
+  .profile-chevron { font-size: 9px; color: var(--gray-400); transition: transform 0.2s; }
+  .profile-btn.open .profile-chevron { transform: rotate(180deg); }
+  .profile-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; width: 288px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); z-index: 300; overflow: hidden; }
+  .profile-dropdown.open { display: block; animation: dropIn 0.15s ease; }
+  @keyframes dropIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+  .dropdown-header { background: linear-gradient(135deg, var(--brand-red) 0%, #8B0A17 100%); padding: 20px 18px; display: flex; align-items: center; gap: 14px; }
+  .dropdown-avatar-lg { width: 48px; height: 48px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; border: 2px solid rgba(255,255,255,0.3); }
+  .dropdown-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--white); }
+  .dropdown-email { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+  .dropdown-body { padding: 8px; }
+  .menu-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--radius-md); cursor: pointer; transition: background 0.15s; text-decoration: none; color: var(--gray-700); font-size: 14px; font-weight: 500; }
+  .menu-item:hover { background: var(--gray-50); }
+  .menu-item.danger { color: var(--brand-red); }
+  .menu-item.danger:hover { background: var(--brand-red-light); }
+  .menu-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .menu-icon.gold { background: var(--brand-gold-light); }
+  .menu-icon.green { background: var(--brand-green-light); }
+  .menu-icon.red { background: var(--brand-red-light); }
+  .menu-label { flex: 1; }
+  .menu-badge { background: var(--brand-red); color: var(--white); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 100px; }
+  .menu-sep { height: 1px; background: var(--gray-100); margin: 6px 0; }
+
+  /* ── BREADCRUMB (same as Profile.html) ── */
+  .breadcrumb-bar { background: var(--white); border-bottom: 1px solid var(--gray-100); padding: 12px 24px; }
+  .breadcrumb-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray-400); }
+  .breadcrumb-inner a { color: var(--brand-red); text-decoration: none; font-weight: 500; }
+  .breadcrumb-inner a:hover { text-decoration: underline; }
+  .bc-sep { font-size: 10px; color: var(--gray-200); }
+
+  /* ── PROFILE HERO BANNER ── */
+  .account-hero { background: #0D0D0D; background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(206,17,38,0.28) 0%, transparent 65%), radial-gradient(ellipse 40% 40% at 90% 95%, rgba(0,107,63,0.15) 0%, transparent 60%); padding: 36px 24px 72px; position: relative; overflow: hidden; }
+  .account-hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 4 L46 26 L70 26 L51 40 L58 62 L40 49 L22 62 L29 40 L10 26 L34 26Z' fill='%23ffffff' fill-opacity='0.018'/%3E%3C/svg%3E"); background-size: 80px 80px; }
+  .account-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; display: flex; align-items: flex-end; gap: 24px; }
+  .account-avatar-wrap { position: relative; flex-shrink: 0; }
+  .account-avatar { width: 96px; height: 96px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-family: var(--font-display); font-size: 36px; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 4px solid rgba(255,255,255,0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .avatar-edit-btn { position: absolute; bottom: 2px; right: 2px; width: 28px; height: 28px; border-radius: 50%; background: var(--white); border: 2px solid var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 13px; cursor: pointer; box-shadow: var(--shadow-sm); transition: all 0.15s; }
+  .avatar-edit-btn:hover { background: var(--brand-gold-light); border-color: var(--brand-gold); }
+  .account-hero-info { flex: 1; padding-bottom: 4px; }
+  .account-hero-name { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--white); letter-spacing: -0.6px; line-height: 1.2; margin-bottom: 6px; }
+  .account-hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .account-hero-meta span { font-size: 13px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 5px; }
+  .account-hero-meta span strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+  .account-hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 100px; }
+  .hero-badge-member { background: rgba(252,209,22,0.18); color: var(--brand-gold); border: 1px solid rgba(252,209,22,0.3); }
+  .hero-badge-verified { background: rgba(0,107,63,0.25); color: #5BE0A0; border: 1px solid rgba(0,107,63,0.4); }
+  .account-hero-actions { display: flex; align-items: flex-end; gap: 10px; padding-bottom: 4px; flex-shrink: 0; }
+  .btn-edit-profile { background: var(--white); color: var(--gray-800); border: none; border-radius: var(--radius-md); padding: 10px 20px; font-family: var(--font-display); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 7px; }
+  .btn-edit-profile:hover { background: var(--brand-gold-light); }
+
+  /* ── STATS BAR ── */
+  .account-stats-bar { background: var(--brand-green); }
+  .account-stats-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; }
+  .account-stat { flex: 1; text-align: center; padding: 18px 12px; border-right: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: background 0.15s; text-decoration: none; }
+  .account-stat:last-child { border-right: none; }
+  .account-stat:hover { background: rgba(255,255,255,0.06); }
+  .account-stat.active { background: rgba(255,255,255,0.1); }
+  .stat-num { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--brand-gold); letter-spacing: -0.5px; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.65); font-weight: 500; margin-top: 2px; }
+
+  /* ── PAGE LAYOUT ── */
+  .page-layout { max-width: 1200px; margin: 0 auto; padding: 28px 24px 64px; display: grid; grid-template-columns: 260px 1fr; gap: 24px; align-items: start; }
+
+  /* ── SIDEBAR NAV ── */
+  .side-nav { display: flex; flex-direction: column; gap: 6px; position: sticky; top: 92px; }
+  .side-nav-section { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-400); padding: 14px 12px 6px; }
+  .side-nav-item { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: var(--radius-md); cursor: pointer; transition: all 0.12s; text-decoration: none; color: var(--gray-700); font-size: 14px; font-weight: 500; border: 1px solid transparent; }
+  .side-nav-item:hover { background: var(--white); border-color: var(--gray-100); color: var(--gray-900); }
+  .side-nav-item.active { background: var(--brand-red-light); color: var(--brand-red); font-weight: 600; border-color: rgba(206,17,38,0.15); }
+  .side-nav-icon { font-size: 17px; width: 20px; text-align: center; flex-shrink: 0; }
+  .side-nav-label { flex: 1; }
+  .side-nav-badge { background: var(--brand-red); color: var(--white); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 100px; }
+  .side-nav-sep { height: 1px; background: var(--gray-100); margin: 8px 0; }
+
+  /* ── SHARED CARD STYLES (same as Profile.html) ── */
+  .card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); overflow: hidden; }
+  .card-header { padding: 18px 22px; border-bottom: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .card-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--gray-900); display: flex; align-items: center; gap: 8px; }
+  .hdot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-gold); flex-shrink: 0; }
+  .card-body { padding: 22px; }
+  .card-link { font-size: 13px; color: var(--brand-red); font-weight: 600; text-decoration: none; }
+  .card-link:hover { text-decoration: underline; }
+  .main-col { display: flex; flex-direction: column; gap: 20px; }
+
+  /* ── FORM STYLES ── */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-grid.full { grid-template-columns: 1fr; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.span2 { grid-column: span 2; }
+  .form-label { font-size: 12px; font-weight: 600; color: var(--gray-600); letter-spacing: 0.3px; text-transform: uppercase; }
+  .form-input { border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 11px 14px; font-family: var(--font-body); font-size: 14px; color: var(--gray-900); background: var(--white); transition: border-color 0.15s; outline: none; width: 100%; }
+  .form-input:focus { border-color: var(--brand-red); box-shadow: 0 0 0 3px rgba(206,17,38,0.08); }
+  .form-input:disabled { background: var(--gray-50); color: var(--gray-400); cursor: not-allowed; }
+  .form-select { border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 11px 14px; font-family: var(--font-body); font-size: 14px; color: var(--gray-900); background: var(--white); outline: none; cursor: pointer; width: 100%; transition: border-color 0.15s; }
+  .form-select:focus { border-color: var(--brand-red); }
+  .form-textarea { border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 11px 14px; font-family: var(--font-body); font-size: 14px; color: var(--gray-900); background: var(--white); outline: none; width: 100%; resize: vertical; min-height: 90px; transition: border-color 0.15s; line-height: 1.6; }
+  .form-textarea:focus { border-color: var(--brand-red); box-shadow: 0 0 0 3px rgba(206,17,38,0.08); }
+  .form-hint { font-size: 12px; color: var(--gray-400); }
+  .form-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px; flex-wrap: wrap; }
+  .btn-save-changes { background: var(--brand-red); color: var(--white); border: none; border-radius: var(--radius-md); padding: 12px 28px; font-family: var(--font-display); font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 8px; }
+  .btn-save-changes:hover { background: var(--brand-red-dark); transform: translateY(-1px); }
+  .btn-cancel { background: var(--white); color: var(--gray-600); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 12px 20px; font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .btn-cancel:hover { background: var(--gray-50); color: var(--gray-900); }
+  .save-hint { font-size: 12px; color: var(--gray-400); }
+
+  /* ── AVATAR UPLOAD SECTION ── */
+  .avatar-upload-row { display: flex; align-items: center; gap: 20px; padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid var(--gray-100); }
+  .avatar-large { width: 72px; height: 72px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-family: var(--font-display); font-size: 26px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .avatar-upload-info { flex: 1; }
+  .avatar-upload-info h4 { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 4px; }
+  .avatar-upload-info p { font-size: 12px; color: var(--gray-400); }
+  .btn-upload { background: var(--gray-50); color: var(--gray-700); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 9px 18px; font-family: var(--font-body); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .btn-upload:hover { background: var(--gray-100); border-color: var(--gray-400); }
+
+  /* ── NOTIFICATION PREFS ── */
+  .notif-list { display: flex; flex-direction: column; gap: 0; }
+  .notif-row { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--gray-100); gap: 20px; }
+  .notif-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .notif-info { flex: 1; }
+  .notif-title { font-size: 14px; font-weight: 600; color: var(--gray-900); margin-bottom: 2px; }
+  .notif-sub { font-size: 12px; color: var(--gray-400); }
+  .notif-toggles { display: flex; gap: 16px; align-items: center; flex-shrink: 0; }
+  .notif-toggle-label { font-size: 11px; color: var(--gray-400); text-align: center; }
+  .notif-toggle-col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .toggle-switch { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-track { position: absolute; inset: 0; background: var(--gray-200); border-radius: 100px; cursor: pointer; transition: background 0.2s; }
+  .toggle-switch input:checked + .toggle-track { background: var(--brand-green); }
+  .toggle-track::after { content: ''; position: absolute; width: 16px; height: 16px; left: 3px; top: 3px; background: var(--white); border-radius: 50%; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+  .toggle-switch input:checked + .toggle-track::after { transform: translateX(18px); }
+
+  /* ── SAVED BUSINESSES ── */
+  .saved-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .saved-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.2s; }
+  .saved-card:hover { border-color: var(--gray-200); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .saved-banner { height: 80px; display: flex; align-items: center; justify-content: center; font-size: 36px; position: relative; }
+  .saved-body { padding: 12px 14px; }
+  .saved-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--gray-900); letter-spacing: -0.2px; margin-bottom: 4px; }
+  .saved-meta { font-size: 12px; color: var(--gray-400); display: flex; align-items: center; gap: 8px; }
+  .saved-stars { color: #F59E0B; font-size: 11px; }
+  .saved-foot { border-top: 1px solid var(--gray-100); padding: 10px 14px; display: flex; gap: 8px; }
+  .saved-btn { flex: 1; background: var(--brand-green-light); color: var(--brand-green); border: none; border-radius: var(--radius-sm); padding: 7px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: var(--font-body); transition: all 0.15s; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+  .saved-btn:hover { background: var(--brand-green); color: var(--white); }
+  .saved-btn.remove { background: var(--gray-50); color: var(--gray-400); }
+  .saved-btn.remove:hover { background: var(--brand-red-light); color: var(--brand-red); }
+
+  /* ── MY REVIEWS ── */
+  .reviews-list { display: flex; flex-direction: column; gap: 0; }
+  .review-item { padding: 20px 0; border-bottom: 1px solid var(--gray-100); }
+  .review-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .review-item:first-child { padding-top: 0; }
+  .review-biz-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .review-biz-thumb { width: 40px; height: 40px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .review-biz-name { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+  .review-biz-cat { font-size: 11px; color: var(--brand-green); background: var(--brand-green-light); padding: 2px 8px; border-radius: 100px; font-weight: 600; display: inline-block; margin-top: 2px; }
+  .review-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .review-stars-row { display: flex; align-items: center; gap: 8px; }
+  .rw-stars { color: #F59E0B; font-size: 14px; }
+  .rw-date { font-size: 12px; color: var(--gray-400); }
+  .review-text { font-size: 14px; color: var(--gray-700); line-height: 1.65; }
+  .review-actions { display: flex; gap: 8px; margin-top: 12px; }
+  .rw-btn { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-sm); padding: 5px 14px; font-size: 12px; font-weight: 600; color: var(--gray-600); cursor: pointer; font-family: var(--font-body); transition: all 0.15s; }
+  .rw-btn:hover { background: var(--gray-100); color: var(--gray-900); }
+  .rw-btn.danger:hover { background: var(--brand-red-light); color: var(--brand-red); border-color: rgba(206,17,38,0.2); }
+
+  /* ── ACTIVITY FEED ── */
+  .activity-list { display: flex; flex-direction: column; gap: 0; }
+  .activity-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--gray-100); align-items: flex-start; }
+  .activity-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .activity-item:first-child { padding-top: 0; }
+  .activity-icon-wrap { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .activity-icon-wrap.red { background: var(--brand-red-light); }
+  .activity-icon-wrap.gold { background: var(--brand-gold-light); }
+  .activity-icon-wrap.green { background: var(--brand-green-light); }
+  .activity-icon-wrap.gray { background: var(--gray-100); }
+  .activity-body { flex: 1; }
+  .activity-text { font-size: 14px; color: var(--gray-800); line-height: 1.5; }
+  .activity-text strong { color: var(--gray-900); font-weight: 600; }
+  .activity-time { font-size: 12px; color: var(--gray-400); margin-top: 3px; }
+
+  /* ── SECURITY SECTION ── */
+  .security-list { display: flex; flex-direction: column; gap: 0; }
+  .security-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--gray-100); flex-wrap: wrap; }
+  .security-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .security-info { flex: 1; }
+  .security-title { font-size: 14px; font-weight: 600; color: var(--gray-900); margin-bottom: 2px; display: flex; align-items: center; gap: 8px; }
+  .security-sub { font-size: 12px; color: var(--gray-400); }
+  .security-status { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 100px; }
+  .status-on { background: var(--brand-green-light); color: var(--brand-green); }
+  .status-off { background: var(--gray-100); color: var(--gray-600); }
+  .status-warn { background: var(--brand-gold-light); color: #92680A; }
+  .btn-security { background: var(--gray-50); color: var(--gray-700); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 8px 16px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font-body); transition: all 0.15s; white-space: nowrap; }
+  .btn-security:hover { background: var(--gray-100); border-color: var(--gray-400); color: var(--gray-900); }
+  .btn-security.red { color: var(--brand-red); border-color: rgba(206,17,38,0.25); background: var(--brand-red-light); }
+  .btn-security.red:hover { background: var(--brand-red); color: var(--white); }
+
+  /* ── DANGER ZONE ── */
+  .danger-zone { border: 1.5px solid rgba(206,17,38,0.25); border-radius: var(--radius-lg); overflow: hidden; }
+  .danger-zone .card-header { background: var(--brand-red-light); border-bottom-color: rgba(206,17,38,0.2); }
+  .danger-zone .card-title { color: var(--brand-red); }
+  .danger-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 22px; border-bottom: 1px solid rgba(206,17,38,0.1); flex-wrap: wrap; }
+  .danger-row:last-child { border-bottom: none; }
+  .danger-info h4 { font-size: 14px; font-weight: 600; color: var(--gray-900); margin-bottom: 2px; }
+  .danger-info p { font-size: 12px; color: var(--gray-400); }
+
+  /* ── EMPTY STATE ── */
+  .empty-state { text-align: center; padding: 48px 24px; }
+  .empty-icon { font-size: 48px; display: block; margin-bottom: 16px; }
+  .empty-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
+  .empty-sub { font-size: 14px; color: var(--gray-400); max-width: 300px; margin: 0 auto 20px; }
+  .btn-empty-cta { background: var(--brand-red); color: var(--white); border: none; border-radius: var(--radius-md); padding: 11px 24px; font-family: var(--font-display); font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.15s; text-decoration: none; display: inline-block; }
+  .btn-empty-cta:hover { background: var(--brand-red-dark); }
+
+  /* ── SUCCESS TOAST ── */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--brand-green); color: var(--white); padding: 14px 20px; border-radius: var(--radius-md); font-size: 14px; font-weight: 600; box-shadow: var(--shadow-lg); z-index: 999; display: flex; align-items: center; gap: 10px; transform: translateY(80px); opacity: 0; transition: all 0.3s ease; pointer-events: none; }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── FOOTER (same as SearchGhana pages) ── */
+  .footer { background: #0D0D0D; padding: 56px 24px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-flag { height: 4px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); border-radius: 2px; margin-bottom: 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 40px; margin-bottom: 48px; }
+  .footer-brand .logo { margin-bottom: 12px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 240px; }
+  .footer-col h4 { color: var(--white); font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li + li { margin-top: 8px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.38); text-decoration: none; font-size: 13px; transition: color 0.15s; }
+  .footer-col ul li a:hover { color: var(--brand-gold); }
+  .footer-brand .logo .search { color: var(--white); }
+  .footer-brand .logo .star { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,0.28); }
+  .footer-bottom a { color: rgba(255,255,255,0.38); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--brand-gold); }
+  .footer-links { display: flex; gap: 20px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .page-layout { grid-template-columns: 1fr; }
+    .side-nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; position: static; }
+    .side-nav-section { display: none; }
+    .side-nav-sep { display: none; }
+    .account-hero-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .account-hero-actions { align-self: flex-start; }
+  }
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.span2 { grid-column: span 1; }
+    .account-stats-inner { flex-wrap: wrap; }
+    .account-stat { flex: 1 0 50%; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .saved-grid { grid-template-columns: 1fr 1fr; }
+    .notif-toggles { gap: 10px; }
+  }
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--gray-800); font-size: 22px; line-height: 1; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-hamburger:hover { color: var(--brand-green); }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links.mobile-open { display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-100); box-shadow: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08); padding: 8px 16px 16px; gap: 4px; z-index: 250; }
+    .nav-links.mobile-open li { width: 100%; }
+    .nav-links.mobile-open a { display: block; padding: 12px 10px; }
+    .nav-links.mobile-open .nav-cta { display: block; text-align: center; margin-top: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="flag-stripe"></div>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="Index.html" class="logo" aria-label="SearchGhana">
+      <span class="search" aria-hidden="true">Search</span>
+      <span class="G" aria-hidden="true">G</span>
+      <span class="h" aria-hidden="true">h</span>
+      <span class="star" aria-hidden="true">★</span>
+      <span class="n" aria-hidden="true">n</span>
+      <span class="a" aria-hidden="true">a</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="Browse.html">Browse</a></li>
+      <li><a href="Deals.html">Deals</a></li>
+      <li><a href="Reviews.html">Reviews</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="AddBusiness.html" class="nav-cta">List your business</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="profile-wrapper">
+        <button class="profile-btn open" id="profileBtn" onclick="toggleProfile()">
+          <div class="profile-avatar-sm" id="profileAvatarSm">KA</div>
+          <span id="profileNameSm">Kwame A.</span>
+          <span class="profile-chevron">▼</span>
+        </button>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-header">
+            <div class="dropdown-avatar-lg" id="dropdownAvatarLg">KA</div>
+            <div>
+              <div class="dropdown-name" id="dropdownName">Kwame Asante</div>
+              <div class="dropdown-email" id="dropdownEmail">kwame.asante@gmail.com</div>
+            </div>
+          </div>
+          <div class="dropdown-body">
+            <a href="Profile.html" class="menu-item"><div class="menu-icon">👤</div><span class="menu-label">My Profile</span></a>
+            <a href="BusinessProfile.html" class="menu-item"><div class="menu-icon gold">🏪</div><span class="menu-label">My Business Listings</span><span class="menu-badge">2</span></a>
+            <a href="#" class="menu-item"><div class="menu-icon">⭐</div><span class="menu-label">My Reviews</span></a>
+            <a href="#" class="menu-item"><div class="menu-icon green">🔖</div><span class="menu-label">Saved Businesses</span></a>
+            <a href="#" class="menu-item"><div class="menu-icon">🔔</div><span class="menu-label">Notifications</span><span class="menu-badge">3</span></a>
+            <div class="menu-sep"></div>
+            <a href="#" class="menu-item"><div class="menu-icon">⚙️</div><span class="menu-label">Account Settings</span></a>
+            <div class="menu-sep"></div>
+            <a href="#" class="menu-item danger" onclick="signOutUser(); return false;"><div class="menu-icon red">🚪</div><span class="menu-label">Sign Out</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileNav()">☰</button>
+  </div>
+</nav>
+
+<!-- ── BREADCRUMB ── -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <a href="Index.html">Home</a>
+    <span class="bc-sep">›</span>
+    <span>My Profile</span>
+  </div>
+</div>
+
+<!-- ── ACCOUNT HERO ── -->
+<div class="account-hero">
+  <div class="account-hero-inner">
+    <div class="account-avatar-wrap">
+      <div class="account-avatar" id="heroAvatar">KA</div>
+      <button class="avatar-edit-btn" title="Change photo" aria-label="Change profile photo">✏️</button>
+    </div>
+    <div class="account-hero-info">
+      <div class="account-hero-name" id="heroName">Kwame Asante</div>
+      <div class="account-hero-meta">
+        <span id="heroLocationLine" style="display:none;">📍 <strong id="heroLocation"></strong></span>
+        <span>📅 Member since <strong id="heroMemberSince">—</strong></span>
+        <span>⭐ <strong id="heroReviewCount">0</strong> reviews written</span>
+        <span>🔖 <strong id="heroSavedCount">0</strong> businesses saved</span>
+      </div>
+      <div class="account-hero-badges">
+        <span class="hero-badge hero-badge-member">★ Member</span>
+        <span class="hero-badge hero-badge-verified">✓ Email verified</span>
+      </div>
+    </div>
+    <div class="account-hero-actions">
+      <button class="btn-edit-profile" onclick="switchSection('personal')">✏️ Edit profile</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── STATS BAR ── -->
+<div class="account-stats-bar">
+  <div class="account-stats-inner">
+    <a class="account-stat" onclick="switchSection('saved')" href="#">
+      <div class="stat-num" id="statSavedCount">0</div>
+      <div class="stat-label">Saved businesses</div>
+    </a>
+    <a class="account-stat" onclick="switchSection('reviews')" href="#">
+      <div class="stat-num" id="statReviewCount">0</div>
+      <div class="stat-label">Reviews written</div>
+    </a>
+    <a class="account-stat" onclick="switchSection('listings')" href="#">
+      <div class="stat-num" id="statListingCount">0</div>
+      <div class="stat-label">Business listings</div>
+    </a>
+    <a class="account-stat" onclick="switchSection('activity')" href="#">
+      <div class="stat-num" id="statActivityCount">0</div>
+      <div class="stat-label">Recent activity</div>
+    </a>
+  </div>
+</div>
+
+<!-- ── PAGE LAYOUT ── -->
+<div class="page-layout">
+
+  <!-- SIDEBAR NAV -->
+  <aside>
+    <nav class="side-nav" id="sideNav">
+      <div class="side-nav-section">Account</div>
+      <a class="side-nav-item active" id="nav-personal" onclick="switchSection('personal')" href="#">
+        <span class="side-nav-icon">👤</span>
+        <span class="side-nav-label">Personal Info</span>
+      </a>
+      <a class="side-nav-item" id="nav-notifications" onclick="switchSection('notifications')" href="#">
+        <span class="side-nav-icon">🔔</span>
+        <span class="side-nav-label">Notifications</span>
+        <span class="side-nav-badge">3</span>
+      </a>
+      <a class="side-nav-item" id="nav-security" onclick="switchSection('security')" href="#">
+        <span class="side-nav-icon">🔒</span>
+        <span class="side-nav-label">Security</span>
+      </a>
+
+      <div class="side-nav-sep"></div>
+      <div class="side-nav-section">Activity</div>
+      <a class="side-nav-item" id="nav-saved" onclick="switchSection('saved')" href="#">
+        <span class="side-nav-icon">🔖</span>
+        <span class="side-nav-label">Saved Businesses</span>
+      </a>
+      <a class="side-nav-item" id="nav-reviews" onclick="switchSection('reviews')" href="#">
+        <span class="side-nav-icon">⭐</span>
+        <span class="side-nav-label">My Reviews</span>
+      </a>
+      <a class="side-nav-item" id="nav-listings" onclick="switchSection('listings')" href="#">
+        <span class="side-nav-icon">🏪</span>
+        <span class="side-nav-label">Business Listings</span>
+        <span class="side-nav-badge" id="navListingBadge" style="display:none;">0</span>
+      </a>
+      <a class="side-nav-item" id="nav-activity" onclick="switchSection('activity')" href="#">
+        <span class="side-nav-icon">📋</span>
+        <span class="side-nav-label">Activity</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-col" id="mainContent">
+
+    <!-- ══ PERSONAL INFO ══ -->
+    <div id="section-personal">
+      <!-- Photo -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><span class="hdot"></span> Profile photo</span>
+        </div>
+        <div class="card-body">
+          <div class="avatar-upload-row">
+            <div class="avatar-large" id="avatarLarge">KA</div>
+            <div class="avatar-upload-info">
+              <h4>Profile picture</h4>
+              <p>Upload a JPG or PNG under 5MB. A clear photo helps businesses and reviewers recognise you.</p>
+            </div>
+            <button class="btn-upload">📷 Upload photo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal details -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><span class="hdot"></span> Personal details</span>
+          <span class="save-hint">Changes save automatically</span>
+        </div>
+        <div class="card-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">First name</label>
+              <input type="text" class="form-input" id="firstName" value="Kwame">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last name</label>
+              <input type="text" class="form-input" id="lastName" value="Asante">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Display name</label>
+              <input type="text" class="form-input" id="displayName" value="Kwame A.">
+              <span class="form-hint">Shown next to your reviews and profile</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone number</label>
+              <input type="tel" class="form-input" id="phoneNumber" value="+233 24 567 8901">
+            </div>
+            <div class="form-group span2">
+              <label class="form-label">Email address</label>
+              <input type="email" class="form-input" id="emailAddress" value="kwame.asante@gmail.com" readonly style="background:var(--gray-50);cursor:not-allowed;">
+              <span class="form-hint">✓ Email verified — <a href="#" style="color:var(--brand-red);">change email</a></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Region</label>
+              <select class="form-select" id="regionSelect">
+                <option>Greater Accra</option>
+                <option>Ashanti</option>
+                <option>Western</option>
+                <option>Eastern</option>
+                <option>Northern</option>
+                <option>Volta</option>
+                <option>Central</option>
+                <option>Upper East</option>
+                <option>Upper West</option>
+                <option>Bono</option>
+                <option>Oti</option>
+                <option>Ahafo</option>
+                <option>Bono East</option>
+                <option>Savannah</option>
+                <option>North East</option>
+                <option>Western North</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">City / Town</label>
+              <input type="text" class="form-input" id="cityTown" value="Osu, Accra">
+            </div>
+            <div class="form-group span2">
+              <label class="form-label">Bio / About you</label>
+              <textarea class="form-textarea" id="bioText">Local foodie and entrepreneur based in Osu. I love exploring new businesses across Accra and sharing honest reviews to help the community.</textarea>
+              <span class="form-hint">0 / 200 characters · Shown on your public profile</span>
+            </div>
+            <div class="form-group span2">
+              <label class="form-label">Preferred language</label>
+              <select class="form-select" id="preferredLanguage" style="max-width:260px;">
+                <option>English</option>
+                <option>Twi</option>
+                <option>Ga</option>
+                <option>Ewe</option>
+                <option>Dagbani</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions" style="margin-top:22px;">
+            <button class="btn-save-changes" id="btnSaveProfile" onclick="saveProfile()">💾 Save changes</button>
+            <button class="btn-cancel" onclick="populateProfileForm()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ NOTIFICATIONS ══ -->
+    <div id="section-notifications" style="display:none;">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><span class="hdot"></span> Notification preferences</span>
+        </div>
+        <div class="card-body" style="padding-bottom:6px;">
+          <div style="display:flex;justify-content:flex-end;gap:32px;margin-bottom:8px;padding-right:4px;">
+            <span style="font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.8px;width:40px;text-align:center;">Email</span>
+            <span style="font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.8px;width:40px;text-align:center;">SMS</span>
+          </div>
+          <div class="notif-list">
+            <div class="notif-row">
+              <div class="notif-info">
+                <div class="notif-title">Review responses</div>
+                <div class="notif-sub">When a business replies to one of your reviews</div>
+              </div>
+              <div class="notif-toggles">
+                <label class="toggle-switch"><input type="checkbox" id="notif_review_responses_email"><span class="toggle-track"></span></label>
+                <label class="toggle-switch"><input type="checkbox" id="notif_review_responses_sms"><span class="toggle-track"></span></label>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="notif-info">
+                <div class="notif-title">Saved business updates</div>
+                <div class="notif-sub">New offers, hours changes or closures for businesses you've saved</div>
+              </div>
+              <div class="notif-toggles">
+                <label class="toggle-switch"><input type="checkbox" id="notif_saved_updates_email"><span class="toggle-track"></span></label>
+                <label class="toggle-switch"><input type="checkbox" id="notif_saved_updates_sms"><span class="toggle-track"></span></label>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="notif-info">
+                <div class="notif-title">New businesses near you</div>
+                <div class="notif-sub">When new businesses are listed in your area</div>
+              </div>
+              <div class="notif-toggles">
+                <label class="toggle-switch"><input type="checkbox" id="notif_new_businesses_email"><span class="toggle-track"></span></label>
+                <label class="toggle-switch"><input type="checkbox" id="notif_new_businesses_sms"><span class="toggle-track"></span></label>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="notif-info">
+                <div class="notif-title">Deals &amp; promotions</div>
+                <div class="notif-sub">Special offers from businesses in your categories of interest</div>
+              </div>
+              <div class="notif-toggles">
+                <label class="toggle-switch"><input type="checkbox" id="notif_deals_email"><span class="toggle-track"></span></label>
+                <label class="toggle-switch"><input type="checkbox" id="notif_deals_sms"><span class="toggle-track"></span></label>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="notif-info">
+                <div class="notif-title">SearchGhana newsletter</div>
+                <div class="notif-sub">Monthly digest of top businesses, tips and community highlights</div>
+              </div>
+              <div class="notif-toggles">
+                <label class="toggle-switch"><input type="checkbox" id="notif_newsletter_email"><span class="toggle-track"></span></label>
+                <label class="toggle-switch"><input type="checkbox" id="notif_newsletter_sms"><span class="toggle-track"></span></label>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="notif-info">
+                <div class="notif-title">Account &amp; security alerts</div>
+                <div class="notif-sub">Logins, password changes and important account activity</div>
+              </div>
+              <div class="notif-toggles">
+                <label class="toggle-switch"><input type="checkbox" id="notif_security_email"><span class="toggle-track"></span></label>
+                <label class="toggle-switch"><input type="checkbox" id="notif_security_sms"><span class="toggle-track"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:16px 22px;border-top:1px solid var(--gray-100);display:flex;justify-content:flex-end;">
+          <button class="btn-save-changes" id="btnSaveNotifPrefs" onclick="saveNotifPrefs()">💾 Save preferences</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SECURITY ══ -->
+    <div id="section-security" style="display:none;">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><span class="hdot"></span> Password &amp; security</span>
+        </div>
+        <div class="card-body">
+          <div class="security-list">
+            <div class="security-row">
+              <div class="security-info">
+                <div class="security-title">Password <span class="security-status status-on">✓ Set</span></div>
+                <div class="security-sub">Choose a new password below</div>
+              </div>
+              <button class="btn-security" id="btnTogglePasswordForm" onclick="togglePasswordForm()">Change password</button>
+            </div>
+            <div id="passwordChangeForm" style="display:none;padding:16px 0 4px;border-top:1px solid var(--gray-100);margin-top:4px;">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">New password</label>
+                  <input type="password" class="form-input" id="newPassword" placeholder="At least 6 characters" autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Confirm new password</label>
+                  <input type="password" class="form-input" id="confirmPassword" placeholder="Re-enter new password" autocomplete="new-password">
+                </div>
+              </div>
+              <div class="form-actions" style="margin-top:16px;">
+                <button class="btn-save-changes" id="btnSavePassword" onclick="savePassword()">💾 Update password</button>
+                <button class="btn-cancel" onclick="togglePasswordForm()">Cancel</button>
+              </div>
+            </div>
+            <div class="security-row">
+              <div class="security-info">
+                <div class="security-title">Two-factor authentication <span class="security-status status-off" id="mfaStatusBadge">Off</span></div>
+                <div class="security-sub" id="mfaStatusSub">Add an extra layer of security using an authenticator app (Google Authenticator, Authy, etc.)</div>
+              </div>
+              <button class="btn-security" id="btnMfaToggle" onclick="toggleMfaFlow()">Enable 2FA</button>
+            </div>
+            <div id="mfaEnrollPanel" style="display:none;padding:16px 0 4px;border-top:1px solid var(--gray-100);margin-top:4px;">
+              <p style="font-size:13px;color:var(--gray-600);margin:0 0 12px;">Scan this QR code with your authenticator app, or enter the setup code manually, then confirm with the 6-digit code it generates.</p>
+              <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;">
+                <img id="mfaQrCode" alt="Two-factor authentication QR code" style="width:160px;height:160px;border:1px solid var(--gray-200);border-radius:8px;background:#fff;">
+                <div style="flex:1;min-width:220px;">
+                  <div class="form-group">
+                    <label class="form-label">Manual setup code</label>
+                    <input type="text" class="form-input" id="mfaSecret" readonly style="font-family:monospace;">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">6-digit code from your app</label>
+                    <input type="text" class="form-input" id="mfaVerifyCode" placeholder="123456" inputmode="numeric" maxlength="6">
+                  </div>
+                  <div id="mfaEnrollError" style="display:none;color:var(--brand-red);font-size:12px;margin-bottom:8px;"></div>
+                  <div class="form-actions" style="margin-top:8px;">
+                    <button class="btn-save-changes" id="btnMfaConfirm" onclick="confirmMfaEnrollment()">Confirm &amp; enable</button>
+                    <button class="btn-cancel" onclick="cancelMfaEnrollment()">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="security-row">
+              <div class="security-info">
+                <div class="security-title">Email verification <span class="security-status status-on">✓ Verified</span></div>
+                <div class="security-sub">kwame.asante@gmail.com is confirmed</div>
+              </div>
+              <button class="btn-security" onclick="showToast('Verification email sent!')">Resend email</button>
+            </div>
+            <div class="security-row">
+              <div class="security-info">
+                <div class="security-title">Phone number <span class="security-status status-warn">⚠ Not verified</span></div>
+                <div class="security-sub">+233 24 567 8901 — verify to enable SMS notifications</div>
+              </div>
+              <button class="btn-security">Verify phone</button>
+            </div>
+            <div class="security-row">
+              <div class="security-info">
+                <div class="security-title">Login activity</div>
+                <div class="security-sub">Last login: Today at 9:14am from Accra, Ghana · Chrome on Windows</div>
+              </div>
+              <button class="btn-security">View all sessions</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="danger-zone card" style="margin-top:0;">
+        <div class="card-header">
+          <span class="card-title" style="color:var(--brand-red);">⚠ Danger zone</span>
+        </div>
+        <div class="danger-row">
+          <div class="danger-info">
+            <h4>Download my data</h4>
+            <p>Export all your reviews, saved businesses and account information as a CSV file</p>
+          </div>
+          <button class="btn-security">Download data</button>
+        </div>
+        <div class="danger-row">
+          <div class="danger-info">
+            <h4>Deactivate account</h4>
+            <p>Temporarily hide your profile and reviews. You can reactivate at any time.</p>
+          </div>
+          <button class="btn-security">Deactivate</button>
+        </div>
+        <div class="danger-row">
+          <div class="danger-info">
+            <h4>Delete account permanently</h4>
+            <p>This will remove all your reviews, saved businesses and profile data. This cannot be undone.</p>
+          </div>
+          <button class="btn-security red">Delete account</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SAVED BUSINESSES ══ -->
+    <div id="section-saved" style="display:none;">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><span class="hdot"></span> Saved businesses</span>
+          <a href="Browse.html" class="card-link">Browse more →</a>
+        </div>
+        <div class="card-body">
+          <div class="saved-grid" id="savedGrid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ MY REVIEWS ══ -->
+    <div id="section-reviews" style="display:none;">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><span class="hdot"></span> My reviews</span>
+          <span style="font-size:13px;color:var(--gray-400);" id="myReviewsCount">0 reviews total</span>
+        </div>
+        <div class="card-body" style="padding-top:0;padding-bottom:0;">
+          <div class="reviews-list" id="myReviewsList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ BUSINESS LISTINGS ══ -->
+    <div id="section-listings" style="display:none;">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><span class="hdot"></span> My business listings</span>
+          <a href="AddBusiness.html" class="card-link">+ Add new listing</a>
+        </div>
+        <div class="card-body" style="padding-top:0;padding-bottom:0;">
+          <div class="reviews-list" id="listingsList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ACTIVITY ══ -->
+    <div id="section-activity" style="display:none;">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><span class="hdot"></span> Recent activity</span>
+        </div>
+        <div class="card-body" style="padding-top:0;padding-bottom:0;">
+          <div class="activity-list" id="activityList"></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /main-col -->
+</div><!-- /page-layout -->
+
+<!-- ── TOAST ── -->
+<div class="toast" id="toast">✓ <span id="toastMsg"></span></div>
+
+<!-- ── FOOTER ── -->
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-flag"></div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="Index.html" class="logo" aria-label="SearchGhana">
+          <span class="search" aria-hidden="true">Search</span>
+          <span class="G" aria-hidden="true">G</span>
+          <span class="h" aria-hidden="true">h</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="n" aria-hidden="true">n</span>
+          <span class="a" aria-hidden="true">a</span>
+        </a>
+        <p>Ghana's most trusted business directory. Connecting communities with quality businesses across all 16 regions.</p>
+      </div>
+      <div class="footer-col">
+        <h4>For businesses</h4>
+        <ul>
+          <li><a href="AddBusiness.html">Add your business</a></li>
+          <li><a href="#">Advertising</a></li>
+          <li><a href="#">Premium listings</a></li>
+          <li><a href="Profile.html">Business dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Browse.html">All categories</a></li>
+          <li><a href="Browse.html">Browse by region</a></li>
+          <li><a href="Deals.html">Deals &amp; offers</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="AboutUs.html">About us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="HelpCenter.html">Help Center</a></li>
+          <li><a href="PrivacyPolicy.html">Privacy policy</a></li>
+          <li><a href="TermsOfService.html">Terms of use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://facebook.com/searchghana">Facebook</a></li>
+          <li><a href="https://twitter.com/searchghana">Twitter</a></li>
+          <li><a href="https://instagram.com/searchghana">Instagram</a></li>
+          <li><a href="https://tiktok.com/@searchghana">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> SearchGhana Ltd. All rights reserved. 🇬🇭</span>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+      <div class="footer-links">
+        <a href="PrivacyPolicy.html">Privacy</a>
+        <a href="TermsOfService.html">Terms</a>
+        <a href="Contact.html">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/supabase-client.js"></script>
+<script>
+  /* ── Region label <-> slug (matches Browse.html's sidebar regions, plus the
+     newer ones AddBusiness.html offers that Browse.html doesn't filter on yet) ── */
+  const REGION_LABELS = {
+    'greater-accra': 'Greater Accra',
+    'ashanti': 'Ashanti',
+    'western': 'Western',
+    'eastern': 'Eastern',
+    'northern': 'Northern',
+    'volta': 'Volta',
+    'central': 'Central',
+    'upper-east': 'Upper East',
+    'upper-west': 'Upper West',
+    'bono': 'Bono',
+    'oti': 'Oti',
+    'ahafo': 'Ahafo',
+    'bono-east': 'Bono East',
+    'savannah': 'Savannah',
+    'north-east': 'North East',
+    'western-north': 'Western North',
+  };
+
+  let currentUser = null;
+
+  function initials(name) {
+    const parts = (name || '').trim().split(/\s+/).filter(Boolean);
+    if (!parts.length) return '?';
+    return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
+  }
+
+  /* ── Populate the page from the signed-in user's data ── */
+  function populateProfileForm() {
+    if (!currentUser) return;
+    const meta = currentUser.user_metadata || {};
+
+    const firstName = meta.first_name || (meta.full_name || '').split(' ')[0] || '';
+    const lastName = meta.last_name || (meta.full_name || '').split(' ').slice(1).join(' ') || '';
+    const displayName = meta.display_name || meta.full_name || currentUser.email;
+
+    document.getElementById('firstName').value = firstName;
+    document.getElementById('lastName').value = lastName;
+    document.getElementById('displayName').value = displayName;
+    document.getElementById('phoneNumber').value = meta.phone || '';
+    document.getElementById('emailAddress').value = currentUser.email || '';
+    document.getElementById('cityTown').value = meta.city || '';
+    document.getElementById('bioText').value = meta.bio || '';
+
+    const regionSelect = document.getElementById('regionSelect');
+    const regionLabel = REGION_LABELS[meta.region] || '';
+    if (regionSelect && regionLabel) regionSelect.value = regionLabel;
+
+    const langSelect = document.getElementById('preferredLanguage');
+    if (langSelect && meta.preferred_language) langSelect.value = meta.preferred_language;
+
+    const initialsText = initials(displayName);
+    document.getElementById('avatarLarge').textContent = initialsText;
+    document.getElementById('profileAvatarSm').textContent = initialsText;
+    document.getElementById('dropdownAvatarLg').textContent = initialsText;
+
+    const shortName = firstName ? `${firstName} ${lastName ? lastName[0] + '.' : ''}`.trim() : displayName;
+    document.getElementById('profileNameSm').textContent = shortName;
+    document.getElementById('dropdownName').textContent = displayName;
+    document.getElementById('dropdownEmail').textContent = currentUser.email || '';
+  }
+
+  /* ── Notification preferences: stored under user_metadata.notif_prefs, same
+     place (and same updateUser merge behaviour) as the rest of the profile
+     fields -- no separate table needed. Defaults below match what this page
+     used to ship as hardcoded checkbox states, so a user who's never saved
+     prefs yet sees the same thing they always did. ── */
+  const NOTIF_KEYS = ['review_responses', 'saved_updates', 'new_businesses', 'deals', 'newsletter', 'security'];
+  const NOTIF_DEFAULTS = {
+    review_responses: { email: true, sms: false },
+    saved_updates: { email: true, sms: true },
+    new_businesses: { email: true, sms: false },
+    deals: { email: false, sms: false },
+    newsletter: { email: true, sms: false },
+    security: { email: true, sms: true },
+  };
+
+  function loadNotifPrefs() {
+    if (!currentUser) return;
+    const saved = (currentUser.user_metadata || {}).notif_prefs || {};
+    NOTIF_KEYS.forEach(key => {
+      const prefs = { ...NOTIF_DEFAULTS[key], ...saved[key] };
+      const emailEl = document.getElementById(`notif_${key}_email`);
+      const smsEl = document.getElementById(`notif_${key}_sms`);
+      if (emailEl) emailEl.checked = !!prefs.email;
+      if (smsEl) smsEl.checked = !!prefs.sms;
+    });
+  }
+
+  async function saveNotifPrefs() {
+    if (!currentUser) return;
+    const btn = document.getElementById('btnSaveNotifPrefs');
+    const prefs = {};
+    NOTIF_KEYS.forEach(key => {
+      prefs[key] = {
+        email: !!document.getElementById(`notif_${key}_email`)?.checked,
+        sms: !!document.getElementById(`notif_${key}_sms`)?.checked,
+      };
+    });
+
+    btn.disabled = true;
+    const originalLabel = btn.textContent;
+    btn.textContent = 'Saving…';
+
+    const { data, error } = await window.sbClient.auth.updateUser({ data: { notif_prefs: prefs } });
+
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+
+    if (error) {
+      alert('Sorry, your notification preferences could not be saved: ' + error.message);
+      return;
+    }
+    if (data?.user) currentUser = data.user;
+    showToast('Notification preferences saved');
+  }
+
+  /* ── Save the Personal details form back to Supabase (stored on the auth user) ── */
+  async function saveProfile() {
+    const btn = document.getElementById('btnSaveProfile');
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const fullName = [firstName, lastName].filter(Boolean).join(' ');
+
+    const regionLabel = document.getElementById('regionSelect')?.value || '';
+    const regionSlug = Object.keys(REGION_LABELS).find(slug => REGION_LABELS[slug] === regionLabel) || null;
+
+    const updates = {
+      first_name: firstName,
+      last_name: lastName,
+      full_name: fullName,
+      display_name: document.getElementById('displayName').value.trim(),
+      phone: document.getElementById('phoneNumber').value.trim(),
+      city: document.getElementById('cityTown').value.trim(),
+      region: regionSlug,
+      bio: document.getElementById('bioText').value.trim(),
+      preferred_language: document.getElementById('preferredLanguage')?.value || '',
+    };
+
+    btn.disabled = true;
+    const originalLabel = btn.textContent;
+    btn.textContent = 'Saving…';
+
+    const { data, error } = await window.sbClient.auth.updateUser({ data: updates });
+
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+
+    if (error) {
+      alert('Sorry, your profile could not be saved: ' + error.message);
+      return;
+    }
+
+    currentUser = data.user;
+    populateProfileForm();
+    showToast('Profile saved successfully');
+  }
+
+  /* ── Password change ── */
+  function togglePasswordForm() {
+    const form = document.getElementById('passwordChangeForm');
+    if (!form) return;
+    const isOpen = form.style.display !== 'none';
+    form.style.display = isOpen ? 'none' : 'block';
+    if (!isOpen) {
+      document.getElementById('newPassword').value = '';
+      document.getElementById('confirmPassword').value = '';
+    }
+  }
+
+  async function savePassword() {
+    const newPassword = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    if (!newPassword || newPassword.length < 6) {
+      alert('Please choose a password that is at least 6 characters long.');
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      alert('Those passwords do not match.');
+      return;
+    }
+
+    const btn = document.getElementById('btnSavePassword');
+    btn.disabled = true;
+    btn.textContent = 'Updating…';
+
+    const { error } = await window.sbClient.auth.updateUser({ password: newPassword });
+
+    btn.disabled = false;
+    btn.textContent = '💾 Update password';
+
+    if (error) {
+      alert('Sorry, your password could not be updated: ' + error.message);
+      return;
+    }
+
+    togglePasswordForm();
+    showToast('Password updated successfully');
+  }
+
+  /* ── Two-factor authentication (real Supabase Auth MFA/TOTP -- the
+     section used to be fully decorative; "Enable 2FA" did nothing).
+     Enrolling here, and the aal1->aal2 challenge enforced in Login.html,
+     both use the same built-in supabase-js auth.mfa API; no separate
+     backend or hand-rolled TOTP implementation needed. ── */
+  let mfaActiveFactorId = null;
+  let mfaPendingFactorId = null;
+
+  async function refreshMfaStatus() {
+    const { data, error } = await window.sbClient.auth.mfa.listFactors();
+    const badge = document.getElementById('mfaStatusBadge');
+    const sub = document.getElementById('mfaStatusSub');
+    const btn = document.getElementById('btnMfaToggle');
+    if (error || !data) return;
+
+    const verified = (data.totp || []).find(f => f.status === 'verified');
+    mfaActiveFactorId = verified ? verified.id : null;
+
+    if (verified) {
+      badge.textContent = '✓ On';
+      badge.className = 'security-status status-on';
+      sub.textContent = 'Enabled -- a 6-digit code from your authenticator app is required at sign-in.';
+      btn.textContent = 'Disable 2FA';
+    } else {
+      badge.textContent = 'Off';
+      badge.className = 'security-status status-off';
+      sub.textContent = 'Add an extra layer of security using an authenticator app (Google Authenticator, Authy, etc.)';
+      btn.textContent = 'Enable 2FA';
+    }
+  }
+
+  async function toggleMfaFlow() {
+    if (mfaActiveFactorId) {
+      if (!confirm('Turn off two-factor authentication? You will only need your password to sign in.')) return;
+      const btn = document.getElementById('btnMfaToggle');
+      btn.disabled = true;
+      const { error } = await window.sbClient.auth.mfa.unenroll({ factorId: mfaActiveFactorId });
+      btn.disabled = false;
+      if (error) {
+        alert('Could not disable two-factor authentication: ' + error.message);
+        return;
+      }
+      await refreshMfaStatus();
+      showToast('Two-factor authentication disabled');
+      return;
+    }
+
+    const btn = document.getElementById('btnMfaToggle');
+    btn.disabled = true;
+    const { data, error } = await window.sbClient.auth.mfa.enroll({ factorType: 'totp' });
+    btn.disabled = false;
+    if (error) {
+      alert('Could not start two-factor setup: ' + error.message);
+      return;
+    }
+
+    mfaPendingFactorId = data.id;
+    document.getElementById('mfaQrCode').src = data.totp.qr_code;
+    document.getElementById('mfaSecret').value = data.totp.secret;
+    document.getElementById('mfaVerifyCode').value = '';
+    document.getElementById('mfaEnrollError').style.display = 'none';
+    document.getElementById('mfaEnrollPanel').style.display = 'block';
+  }
+
+  async function confirmMfaEnrollment() {
+    const code = (document.getElementById('mfaVerifyCode').value || '').trim();
+    const errEl = document.getElementById('mfaEnrollError');
+    if (!/^[0-9]{6}$/.test(code)) {
+      errEl.textContent = 'Enter the 6-digit code from your authenticator app.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    const btn = document.getElementById('btnMfaConfirm');
+    btn.disabled = true;
+    btn.textContent = 'Confirming…';
+
+    const { data: challenge, error: challengeError } = await window.sbClient.auth.mfa.challenge({ factorId: mfaPendingFactorId });
+    if (challengeError) {
+      btn.disabled = false;
+      btn.textContent = 'Confirm & enable';
+      errEl.textContent = challengeError.message;
+      errEl.style.display = 'block';
+      return;
+    }
+
+    const { error: verifyError } = await window.sbClient.auth.mfa.verify({
+      factorId: mfaPendingFactorId,
+      challengeId: challenge.id,
+      code,
+    });
+
+    btn.disabled = false;
+    btn.textContent = 'Confirm & enable';
+
+    if (verifyError) {
+      errEl.textContent = 'Incorrect code. Please try again.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    document.getElementById('mfaEnrollPanel').style.display = 'none';
+    await refreshMfaStatus();
+    showToast('Two-factor authentication enabled');
+  }
+
+  async function cancelMfaEnrollment() {
+    document.getElementById('mfaEnrollPanel').style.display = 'none';
+    if (mfaPendingFactorId) {
+      // Clean up the unverified factor rather than leaving it dangling.
+      await window.sbClient.auth.mfa.unenroll({ factorId: mfaPendingFactorId });
+      mfaPendingFactorId = null;
+    }
+  }
+
+  /* ── Sign out ── */
+  async function signOutUser() {
+    await window.sbClient.auth.signOut();
+    window.location.href = 'Login.html';
+  }
+
+  const CATEGORY_META = {
+    'food': { label: 'Food & Drink', emoji: '🍲', color: '#FFF8E1' },
+    'plumbers': { label: 'Plumbers', emoji: '🔧', color: '#E6F0F4' },
+    'electricians': { label: 'Electricians', emoji: '⚡', color: '#FEF6DD' },
+    'pharmacies': { label: 'Pharmacies', emoji: '💊', color: '#E6F4EE' },
+    'salons': { label: 'Salons & Barbering', emoji: '💇🏾', color: '#FDE9E1' },
+    'mobile-money': { label: 'Mobile Money', emoji: '📱', color: '#E6F4EE' },
+    'builders': { label: 'Builders & Masons', emoji: '🏗️', color: '#F0EAE0' },
+    'transport': { label: 'Transport & Taxis', emoji: '🚐', color: '#E6F0F4' },
+    'fashion': { label: 'Fashion & Tailors', emoji: '👗', color: '#FDEAED' },
+    'clinics': { label: 'Clinics & Hospitals', emoji: '🏥', color: '#FDEAED' },
+    'hotel': { label: 'Hotel & Guesthouse', emoji: '🏨', color: '#E6F0F4' },
+    'supermarket': { label: 'Supermarket', emoji: '🛒', color: '#E6F4EE' },
+    'electronics': { label: 'Electronics', emoji: '🔌', color: '#F0EAE0' },
+    'other': { label: 'Other', emoji: '🏪', color: '#F0F0F0' },
+  };
+  function categoryMeta(cat) {
+    return CATEGORY_META[cat] || { label: cat || 'Business', emoji: '🏪', color: '#F0F0F0' };
+  }
+
+  function escapeHtml(str) {
+    return String(str || '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c]));
+  }
+
+  function timeAgo(dateStr) {
+    const mins = Math.floor((Date.now() - new Date(dateStr).getTime()) / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return `${mins} minute${mins === 1 ? '' : 's'} ago`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours} hour${hours === 1 ? '' : 's'} ago`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days} day${days === 1 ? '' : 's'} ago`;
+    return new Date(dateStr).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function monthYear(dateStr) {
+    if (!dateStr) return '—';
+    return new Date(dateStr).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  }
+
+  /* ── Real saved businesses, business listings (claimed by this user), and
+     a combined activity feed, all sourced from Supabase instead of the
+     hardcoded demo content this page used to ship with. ── */
+  async function loadAccountData() {
+    if (!currentUser) return;
+    const uid = currentUser.id;
+
+    const [savedRes, listingsRes, reviewsRes, claimsRes] = await Promise.all([
+      window.sbClient
+        .from('saved_businesses')
+        .select('created_at, businesses(id, name, category, rating, reviews_count, city, region)')
+        .eq('user_id', uid)
+        .order('created_at', { ascending: false }),
+      window.sbClient
+        .from('businesses')
+        .select('*')
+        .eq('claimed_by', uid)
+        .order('created_at', { ascending: false }),
+      window.sbClient
+        .from('reviews')
+        .select('id, business_id, rating, review_text, status, created_at, businesses(id, name, category)')
+        .eq('user_id', uid)
+        .order('created_at', { ascending: false }),
+      window.sbClient
+        .from('claim_requests')
+        .select('id, status, created_at, businesses(name)')
+        .eq('user_id', uid)
+        .order('created_at', { ascending: false }),
+    ]);
+
+    const saved = savedRes.data || [];
+    const listings = listingsRes.data || [];
+    const reviews = reviewsRes.data || [];
+    const claims = claimsRes.data || [];
+
+    /* -- Hero + stats bar -- */
+    document.getElementById('heroSavedCount').textContent = saved.length;
+    document.getElementById('heroReviewCount').textContent = reviews.length;
+    document.getElementById('heroMemberSince').textContent = monthYear(currentUser.created_at);
+    document.getElementById('statSavedCount').textContent = saved.length;
+    document.getElementById('statReviewCount').textContent = reviews.length;
+    document.getElementById('statListingCount').textContent = listings.length;
+    document.getElementById('statActivityCount').textContent = saved.length + reviews.length + claims.length;
+
+    const meta = currentUser.user_metadata || {};
+    if (meta.city || meta.region) {
+      document.getElementById('heroLocation').textContent = [meta.city, REGION_LABELS[meta.region]].filter(Boolean).join(', ');
+      document.getElementById('heroLocationLine').style.display = '';
+    }
+
+    const navBadge = document.getElementById('navListingBadge');
+    if (listings.length) {
+      navBadge.textContent = listings.length;
+      navBadge.style.display = '';
+    }
+
+    /* -- Saved businesses tab -- */
+    const savedGrid = document.getElementById('savedGrid');
+    if (!saved.length) {
+      savedGrid.innerHTML = `<p style="font-size:14px;color:var(--gray-400);padding:8px 0;">No saved businesses yet. Browse the directory and tap 🔖 Save on any listing.</p>`;
+    } else {
+      savedGrid.innerHTML = saved.filter(s => s.businesses).map(s => {
+        const biz = s.businesses;
+        const cm = categoryMeta(biz.category);
+        const locLine = biz.city ? `${biz.city}, ${REGION_LABELS[biz.region] || biz.region || ''}` : (REGION_LABELS[biz.region] || biz.region || '');
+        const ratingHtml = biz.rating
+          ? `<span class="saved-stars" aria-hidden="true">★★★★★</span> ${Number(biz.rating).toFixed(1)} · ${locLine}`
+          : `New listing · ${locLine}`;
+        return `
+          <div class="saved-card" data-business-id="${biz.id}">
+            <div class="saved-banner" style="background:${cm.color};">${cm.emoji}</div>
+            <div class="saved-body">
+              <div class="saved-name">${escapeHtml(biz.name)}</div>
+              <div class="saved-meta">${ratingHtml}</div>
+            </div>
+            <div class="saved-foot">
+              <a href="Businesses.html?id=${encodeURIComponent(biz.id)}" class="saved-btn">View</a>
+              <button class="saved-btn remove" data-business-id="${biz.id}" onclick="removeSaved(this)">🗑 Remove</button>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* -- Business listings tab (listings this user has claimed) -- */
+    const listingsList = document.getElementById('listingsList');
+    if (!listings.length) {
+      listingsList.innerHTML = `<p style="font-size:14px;color:var(--gray-400);padding:8px 0;">No business listings yet. Claim an existing listing from its profile page, or <a href="AddBusiness.html">add a new business</a>.</p>`;
+    } else {
+      const statusMeta = {
+        active: { label: '✓ Active', cls: 'status-on' },
+        pending: { label: '⏳ Pending review', cls: 'status-warn' },
+        rejected: { label: '✕ Rejected', cls: 'status-off' },
+      };
+      listingsList.innerHTML = listings.map(biz => {
+        const cm = categoryMeta(biz.category);
+        const sm = statusMeta[biz.status] || { label: biz.status || 'Unknown', cls: '' };
+        return `
+          <div class="review-item">
+            <div class="review-biz-row" style="margin-bottom:14px;">
+              <div class="review-biz-thumb" style="background:${cm.color};">${cm.emoji}</div>
+              <div style="flex:1;">
+                <div class="review-biz-name">${escapeHtml(biz.name)}</div>
+                <span class="review-biz-cat">${escapeHtml(cm.label)}</span>
+              </div>
+              <span class="security-status ${sm.cls}" style="flex-shrink:0;">${sm.label}</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;background:var(--gray-50);border-radius:var(--radius-md);padding:14px;margin-bottom:14px;">
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--gray-900);">${biz.reviews_count || 0}</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Reviews</div></div>
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--brand-gold);">${biz.rating ? Number(biz.rating).toFixed(1) + ' ★' : '—'}</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Rating</div></div>
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--gray-900);">${biz.verified ? 'Yes' : 'No'}</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Verified</div></div>
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--gray-900);">${biz.view_count || 0}</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Profile views</div></div>
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--gray-900);">${(biz.phone_click_count || 0) + (biz.whatsapp_click_count || 0)}</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Leads (calls + WhatsApp)</div></div>
+            </div>
+            <div class="review-actions" style="margin-bottom:10px;">
+              <a href="Businesses.html?id=${encodeURIComponent(biz.id)}" class="rw-btn" style="text-decoration:none;">👁 View listing</a>
+              <a href="BusinessProfile.html?id=${encodeURIComponent(biz.id)}" class="rw-btn" style="text-decoration:none;">✏️ Edit profile summary</a>
+            </div>
+            <div class="unanswered-reviews" id="unanswered-${biz.id}" data-business-id="${biz.id}" style="display:none;"></div>
+            <div class="biz-deals-section" id="deals-${biz.id}" data-business-id="${biz.id}" style="border-top:1px solid var(--gray-100);padding-top:12px;margin-top:12px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <span style="font-size:12px;font-weight:700;color:var(--gray-600);">🎁 Deals &amp; offers</span>
+                <button type="button" class="rw-btn deal-add-btn" data-business-id="${biz.id}">+ Add deal</button>
+              </div>
+              <div class="deal-form" id="dealForm-${biz.id}" style="display:none;background:var(--gray-50);border-radius:var(--radius-md);padding:12px;margin-bottom:10px;">
+                <input type="hidden" class="deal-form-editing-id">
+                <div class="form-group" style="margin-bottom:8px;">
+                  <label class="form-label">Title</label>
+                  <input type="text" class="form-input deal-form-title" maxlength="120" placeholder="e.g. 20% off weekday lunch">
+                </div>
+                <div class="form-group" style="margin-bottom:8px;">
+                  <label class="form-label">Discount label</label>
+                  <input type="text" class="form-input deal-form-discount" maxlength="40" placeholder="e.g. 20% OFF">
+                </div>
+                <div class="form-group" style="margin-bottom:8px;">
+                  <label class="form-label">Description</label>
+                  <textarea class="form-textarea deal-form-description" maxlength="500" rows="2" placeholder="What's included?"></textarea>
+                </div>
+                <div class="form-group" style="margin-bottom:8px;">
+                  <label class="form-label">Terms (optional)</label>
+                  <input type="text" class="form-input deal-form-terms" maxlength="200" placeholder="e.g. Dine-in only, valid Mon-Fri">
+                </div>
+                <div class="form-group" style="margin-bottom:10px;">
+                  <label class="form-label">Expires (optional)</label>
+                  <input type="date" class="form-input deal-form-expires">
+                </div>
+                <div style="display:flex;gap:8px;">
+                  <button type="button" class="rw-btn deal-form-save" data-business-id="${biz.id}">Save deal</button>
+                  <button type="button" class="rw-btn deal-form-cancel" data-business-id="${biz.id}">Cancel</button>
+                </div>
+              </div>
+              <div class="deal-list" id="dealList-${biz.id}"><p style="font-size:13px;color:var(--gray-400);">Loading deals…</p></div>
+            </div>
+          </div>`;
+      }).join('');
+      loadUnansweredReviews(listings);
+      loadOwnerDeals(listings);
+    }
+
+    /* -- My Reviews tab -- */
+    const myReviewsList = document.getElementById('myReviewsList');
+    const myReviewsCount = document.getElementById('myReviewsCount');
+    const realReviews = reviews.filter(r => r.businesses);
+    myReviewsCount.textContent = `${realReviews.length} review${realReviews.length === 1 ? '' : 's'} total`;
+    if (!realReviews.length) {
+      myReviewsList.innerHTML = `<p style="font-size:14px;color:var(--gray-400);padding:8px 0;">You haven't written any reviews yet. Find a business you love and leave the first review.</p>`;
+    } else {
+      myReviewsList.innerHTML = realReviews.map(r => {
+        const biz = r.businesses;
+        const cm = categoryMeta(biz.category);
+        const stars = '★★★★★'.slice(0, Math.round(r.rating)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(r.rating));
+        const flaggedTag = r.status === 'flagged'
+          ? `<span style="font-size:11px;color:var(--gray-500);background:var(--gray-100);padding:2px 8px;border-radius:10px;margin-left:8px;">Under review</span>`
+          : '';
+        return `
+          <div class="review-item" data-review-id="${escapeHtml(r.id)}">
+            <div class="review-biz-row">
+              <div class="review-biz-thumb" style="background:${cm.color};">${cm.emoji}</div>
+              <div>
+                <div class="review-biz-name">${escapeHtml(biz.name)}</div>
+                <span class="review-biz-cat">${escapeHtml(cm.label)}</span>
+              </div>
+            </div>
+            <div class="review-top">
+              <div class="review-stars-row"><span class="rw-stars" aria-hidden="true">${stars}</span><span style="font-size:13px;font-weight:700;color:var(--gray-800);margin-left:4px;">${Number(r.rating).toFixed(1)}</span>${flaggedTag}</div>
+              <span class="rw-date">${timeAgo(r.created_at)}</span>
+            </div>
+            <div class="review-text">${escapeHtml(r.review_text || '')}</div>
+            <div class="review-actions">
+              <a href="Businesses.html?id=${encodeURIComponent(biz.id)}#reviews" class="rw-btn" style="text-decoration:none;">✏️ Edit</a>
+              <button class="rw-btn danger" data-review-id="${escapeHtml(r.id)}" onclick="deleteMyReview(this)">🗑 Delete</button>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* -- Activity feed: real reviews + saves + claim requests, merged and sorted -- */
+    const activityItems = [
+      ...reviews.map(r => ({
+        time: r.created_at, icon: '⭐', wrap: 'red',
+        text: `You left a <strong>${r.rating}-star review</strong> for <strong>${escapeHtml(r.businesses?.name || 'a business')}</strong>`,
+      })),
+      ...saved.filter(s => s.businesses).map(s => ({
+        time: s.created_at, icon: '🔖', wrap: 'green',
+        text: `You saved <strong>${escapeHtml(s.businesses.name)}</strong> to your favourites`,
+      })),
+      ...claims.map(c => ({
+        time: c.created_at, icon: '🏪', wrap: c.status === 'approved' ? 'green' : (c.status === 'rejected' ? 'red' : 'gold'),
+        text: c.status === 'approved'
+          ? `Your claim on <strong>${escapeHtml(c.businesses?.name || 'a business')}</strong> was approved`
+          : c.status === 'rejected'
+            ? `Your claim on <strong>${escapeHtml(c.businesses?.name || 'a business')}</strong> wasn't approved`
+            : `You requested to claim <strong>${escapeHtml(c.businesses?.name || 'a business')}</strong>`,
+      })),
+    ].sort((a, b) => new Date(b.time) - new Date(a.time));
+
+    const activityList = document.getElementById('activityList');
+    if (!activityItems.length) {
+      activityList.innerHTML = `<p style="font-size:14px;color:var(--gray-400);padding:8px 0;">No activity yet -- reviews, saves and claim requests will show up here.</p>`;
+    } else {
+      activityList.innerHTML = activityItems.map(item => `
+        <div class="activity-item">
+          <div class="activity-icon-wrap ${item.wrap}">${item.icon}</div>
+          <div class="activity-body">
+            <div class="activity-text">${item.text}</div>
+            <div class="activity-time">${timeAgo(item.time)}</div>
+          </div>
+        </div>`).join('');
+    }
+  }
+
+  /* Reviews needing a reply, for each business the signed-in user owns. A
+     follow-up query (not folded into loadAccountData's main fetch) scoped to
+     just the ids of businesses already resolved as "owned" above -- published
+     reviews only, and only ones with no owner_reply yet. Reuses the exact
+     reply_to_review() security-definer RPC already proven in Businesses.html's
+     owner-reply controls; the server enforces ownership there too, so this
+     client-side "owned" list is just what decides whether to show the UI. */
+  async function loadUnansweredReviews(listings) {
+    if (!listings || !listings.length) return;
+    const bizIds = listings.map(b => b.id);
+    const { data, error } = await window.sbClient
+      .from('reviews')
+      .select('id, business_id, reviewer_name, rating, review_text, created_at')
+      .in('business_id', bizIds)
+      .eq('status', 'published')
+      .is('owner_reply', null)
+      .order('created_at', { ascending: false });
+    if (error || !data || !data.length) return;
+
+    const byBiz = {};
+    data.forEach(r => { (byBiz[r.business_id] = byBiz[r.business_id] || []).push(r); });
+
+    Object.keys(byBiz).forEach(bizId => {
+      const wrap = document.getElementById(`unanswered-${bizId}`);
+      if (!wrap) return;
+      const items = byBiz[bizId];
+      wrap.style.display = '';
+      wrap.innerHTML = `
+        <div style="border-top:1px solid var(--gray-100);padding-top:12px;margin-top:4px;">
+          <div style="font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:8px;">💬 ${items.length} review${items.length === 1 ? '' : 's'} waiting for your reply</div>
+          ${items.map(r => `
+            <div class="unanswered-review-item" data-review-id="${escapeHtml(r.id)}" style="background:var(--gray-50);border-radius:var(--radius-md);padding:10px 12px;margin-bottom:8px;">
+              <div style="font-size:12px;color:var(--gray-700);margin-bottom:4px;"><strong>${escapeHtml(r.reviewer_name || 'A customer')}</strong> · <span aria-hidden="true">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span></div>
+              <div style="font-size:13px;color:var(--gray-800);margin-bottom:8px;">${escapeHtml(r.review_text || '')}</div>
+              <textarea class="unanswered-reply-input" rows="2" maxlength="1000" placeholder="Write a public reply..." style="width:100%;border:1px solid var(--gray-200);border-radius:var(--radius-md);padding:8px 10px;font-family:inherit;font-size:13px;resize:vertical;margin-bottom:6px;"></textarea>
+              <button type="button" class="rw-btn unanswered-reply-submit" data-review-id="${escapeHtml(r.id)}">Post reply</button>
+            </div>
+          `).join('')}
+        </div>`;
+    });
+  }
+
+  /* Deals the signed-in user's businesses are running. Owners see every
+     deal they created (RLS: "Owners can view their own deals"), active or
+     not, so they can reactivate or edit a past offer -- the public Deals.html
+     page separately filters to active, non-expired ones. */
+  let dealsCacheByBiz = {};
+  let ownerBusinessIds = [];
+
+  function dealStatusLabel(d) {
+    if (d.expires_at && new Date(d.expires_at).getTime() <= Date.now()) return 'Expired';
+    return d.active ? 'Active' : 'Deactivated';
+  }
+
+  function renderDealItem(d) {
+    const status = dealStatusLabel(d);
+    const statusColor = status === 'Active' ? 'var(--brand-green)' : (status === 'Expired' ? 'var(--gray-400)' : 'var(--gray-500)');
+    return `
+      <div class="deal-item" data-deal-id="${escapeHtml(d.id)}" style="background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-md);padding:10px 12px;margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+          <div style="min-width:0;">
+            <div style="font-size:13px;font-weight:700;color:var(--gray-900);">${escapeHtml(d.title)}${d.discount_label ? ` <span style="color:var(--brand-red);">· ${escapeHtml(d.discount_label)}</span>` : ''}</div>
+            <div style="font-size:12px;color:${statusColor};margin-top:2px;font-weight:600;">${status}${d.expires_at ? ` · expires ${new Date(d.expires_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}` : ''}</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-shrink:0;">
+            <button type="button" class="rw-btn deal-edit-btn" data-deal-id="${escapeHtml(d.id)}">Edit</button>
+            <button type="button" class="rw-btn deal-toggle-active-btn" data-deal-id="${escapeHtml(d.id)}">${d.active ? 'Deactivate' : 'Reactivate'}</button>
+            <button type="button" class="rw-btn danger deal-delete-btn" data-deal-id="${escapeHtml(d.id)}">Delete</button>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function renderDealsForBusiness(bizId) {
+    const list = document.getElementById(`dealList-${bizId}`);
+    if (!list) return;
+    const deals = dealsCacheByBiz[bizId] || [];
+    list.innerHTML = deals.length
+      ? deals.map(renderDealItem).join('')
+      : `<p style="font-size:13px;color:var(--gray-400);">No deals yet. Add one to attract customers.</p>`;
+  }
+
+  async function loadOwnerDeals(listings) {
+    if (!listings || !listings.length) return;
+    const bizIds = listings.map(b => b.id);
+    const { data, error } = await window.sbClient
+      .from('deals')
+      .select('*')
+      .in('business_id', bizIds)
+      .order('created_at', { ascending: false });
+    if (error) {
+      bizIds.forEach(id => {
+        const list = document.getElementById(`dealList-${id}`);
+        if (list) list.innerHTML = `<p style="font-size:13px;color:var(--gray-400);">Couldn't load deals.</p>`;
+      });
+      return;
+    }
+    ownerBusinessIds = bizIds;
+    dealsCacheByBiz = {};
+    (data || []).forEach(d => { (dealsCacheByBiz[d.business_id] = dealsCacheByBiz[d.business_id] || []).push(d); });
+    bizIds.forEach(renderDealsForBusiness);
+  }
+
+  function resetDealForm(bizId) {
+    const form = document.getElementById(`dealForm-${bizId}`);
+    if (!form) return;
+    form.querySelector('.deal-form-editing-id').value = '';
+    form.querySelector('.deal-form-title').value = '';
+    form.querySelector('.deal-form-discount').value = '';
+    form.querySelector('.deal-form-description').value = '';
+    form.querySelector('.deal-form-terms').value = '';
+    form.querySelector('.deal-form-expires').value = '';
+  }
+
+  function toDateInputValue(isoString) {
+    if (!isoString) return '';
+    return new Date(isoString).toISOString().slice(0, 10);
+  }
+
+  function fromDateInputValue(dateStr) {
+    if (!dateStr) return null;
+    // End-of-day UTC so a deal stays visible through its listed expiry date.
+    return new Date(`${dateStr}T23:59:59Z`).toISOString();
+  }
+
+  document.addEventListener('click', async function (e) {
+    const addBtn = e.target.closest('.deal-add-btn');
+    if (addBtn) {
+      const bizId = addBtn.dataset.businessId;
+      resetDealForm(bizId);
+      const form = document.getElementById(`dealForm-${bizId}`);
+      if (form) form.style.display = '';
+      return;
+    }
+
+    const cancelBtn = e.target.closest('.deal-form-cancel');
+    if (cancelBtn) {
+      const bizId = cancelBtn.dataset.businessId;
+      const form = document.getElementById(`dealForm-${bizId}`);
+      if (form) form.style.display = 'none';
+      resetDealForm(bizId);
+      return;
+    }
+
+    const editBtn = e.target.closest('.deal-edit-btn');
+    if (editBtn) {
+      const dealId = editBtn.dataset.dealId;
+      const allDeals = Object.values(dealsCacheByBiz).flat();
+      const deal = allDeals.find(d => d.id === dealId);
+      if (!deal) return;
+      const bizId = deal.business_id;
+      const form = document.getElementById(`dealForm-${bizId}`);
+      if (!form) return;
+      form.querySelector('.deal-form-editing-id').value = deal.id;
+      form.querySelector('.deal-form-title').value = deal.title || '';
+      form.querySelector('.deal-form-discount').value = deal.discount_label || '';
+      form.querySelector('.deal-form-description').value = deal.description || '';
+      form.querySelector('.deal-form-terms').value = deal.terms || '';
+      form.querySelector('.deal-form-expires').value = toDateInputValue(deal.expires_at);
+      form.style.display = '';
+      return;
+    }
+
+    const saveBtn = e.target.closest('.deal-form-save');
+    if (saveBtn) {
+      const bizId = saveBtn.dataset.businessId;
+      const form = document.getElementById(`dealForm-${bizId}`);
+      if (!form) return;
+      const editingId = form.querySelector('.deal-form-editing-id').value;
+      const title = form.querySelector('.deal-form-title').value.trim();
+      const discount = form.querySelector('.deal-form-discount').value.trim() || null;
+      const description = form.querySelector('.deal-form-description').value.trim() || null;
+      const terms = form.querySelector('.deal-form-terms').value.trim() || null;
+      const expires = fromDateInputValue(form.querySelector('.deal-form-expires').value);
+      if (!title) { alert('Please give the deal a title.'); return; }
+
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving…';
+      const { error } = editingId
+        ? await window.sbClient.rpc('update_deal', { p_deal_id: editingId, p_title: title, p_description: description, p_discount_label: discount, p_terms: terms, p_expires_at: expires })
+        : await window.sbClient.rpc('create_deal', { p_business_id: bizId, p_title: title, p_description: description, p_discount_label: discount, p_terms: terms, p_expires_at: expires });
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Save deal';
+      if (error) { alert("Couldn't save the deal: " + error.message); return; }
+
+      form.style.display = 'none';
+      resetDealForm(bizId);
+      await loadOwnerDeals(ownerBusinessIds.map(id => ({ id })));
+      return;
+    }
+
+    const toggleBtn = e.target.closest('.deal-toggle-active-btn');
+    if (toggleBtn) {
+      const dealId = toggleBtn.dataset.dealId;
+      const allDeals = Object.values(dealsCacheByBiz).flat();
+      const deal = allDeals.find(d => d.id === dealId);
+      if (!deal) return;
+      toggleBtn.disabled = true;
+      const { error } = await window.sbClient.rpc('set_deal_active', { p_deal_id: dealId, p_active: !deal.active });
+      toggleBtn.disabled = false;
+      if (error) { alert("Couldn't update the deal: " + error.message); return; }
+      deal.active = !deal.active;
+      renderDealsForBusiness(deal.business_id);
+      return;
+    }
+
+    const deleteBtn = e.target.closest('.deal-delete-btn');
+    if (deleteBtn) {
+      const dealId = deleteBtn.dataset.dealId;
+      if (!confirm('Delete this deal? This cannot be undone.')) return;
+      const allDeals = Object.values(dealsCacheByBiz).flat();
+      const deal = allDeals.find(d => d.id === dealId);
+      if (!deal) return;
+      deleteBtn.disabled = true;
+      const { error } = await window.sbClient.rpc('delete_deal', { p_deal_id: dealId });
+      if (error) { deleteBtn.disabled = false; alert("Couldn't delete the deal: " + error.message); return; }
+      dealsCacheByBiz[deal.business_id] = (dealsCacheByBiz[deal.business_id] || []).filter(d => d.id !== dealId);
+      renderDealsForBusiness(deal.business_id);
+      return;
+    }
+  });
+
+  /* Delegated so it keeps working after loadUnansweredReviews rewrites the
+     dropzone's innerHTML -- no per-button listener to re-wire. */
+  document.addEventListener('click', async function (e) {
+    const btn = e.target.closest('.unanswered-reply-submit');
+    if (!btn) return;
+    const reviewId = btn.dataset.reviewId;
+    const item = btn.closest('.unanswered-review-item');
+    const textarea = item?.querySelector('.unanswered-reply-input');
+    const reply = (textarea?.value || '').trim();
+    if (!reply) { alert('Please write a reply before posting.'); return; }
+    btn.disabled = true;
+    btn.textContent = 'Posting…';
+    const { error } = await window.sbClient.rpc('reply_to_review', { p_review_id: reviewId, p_reply: reply });
+    if (error) {
+      btn.disabled = false;
+      btn.textContent = 'Post reply';
+      alert('Could not post your reply: ' + error.message);
+      return;
+    }
+    if (item) {
+      item.style.opacity = '0.55';
+      item.innerHTML = `<div style="font-size:13px;color:var(--brand-green);font-weight:700;">✓ Reply posted</div>`;
+    }
+    showToast('Reply posted');
+  });
+
+  async function removeSaved(btn) {
+    const businessId = btn.dataset.businessId;
+    if (!currentUser || !businessId) return;
+    btn.disabled = true;
+    const { error } = await window.sbClient
+      .from('saved_businesses')
+      .delete()
+      .eq('user_id', currentUser.id)
+      .eq('business_id', businessId);
+    btn.disabled = false;
+    if (error) { alert('Could not remove saved business: ' + error.message); return; }
+    showToast('Removed from saved');
+    loadAccountData();
+  }
+
+  async function deleteMyReview(btn) {
+    const reviewId = btn.dataset.reviewId;
+    if (!currentUser || !reviewId) return;
+    if (!confirm('Delete this review? This cannot be undone.')) return;
+    btn.disabled = true;
+    const { error } = await window.sbClient
+      .from('reviews')
+      .delete()
+      .eq('id', reviewId)
+      .eq('user_id', currentUser.id);
+    btn.disabled = false;
+    if (error) { alert('Could not delete review: ' + error.message); return; }
+    showToast('Review deleted');
+    loadAccountData();
+  }
+
+  /* ── Load the signed-in user, or send anonymous visitors to log in ── */
+  (async function initProfile() {
+    const { data, error } = await window.sbClient.auth.getUser();
+
+    if (error || !data?.user) {
+      window.location.href = 'Login.html';
+      return;
+    }
+
+    currentUser = data.user;
+    populateProfileForm();
+
+    const displayName = (currentUser.user_metadata || {}).display_name
+      || (currentUser.user_metadata || {}).full_name
+      || currentUser.email;
+    document.getElementById('heroName').textContent = displayName;
+    document.getElementById('heroAvatar').textContent = initials(displayName);
+
+    loadAccountData();
+    loadNotifPrefs();
+    refreshMfaStatus();
+  })();
+</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Profile dropdown ── */
+  function toggleProfile() {
+    const btn = document.getElementById('profileBtn');
+    const dd = document.getElementById('profileDropdown');
+    const open = dd.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.profile-wrapper');
+    if (wrapper && !wrapper.contains(e.target)) {
+      document.getElementById('profileDropdown').classList.remove('open');
+      document.getElementById('profileBtn').classList.remove('open');
+    }
+  });
+
+  /* ── Section switching ── */
+  const sections = ['personal','notifications','security','saved','reviews','listings','activity'];
+
+  function switchSection(id) {
+    event && event.preventDefault && event.preventDefault();
+
+    sections.forEach(s => {
+      const el = document.getElementById('section-' + s);
+      if (el) el.style.display = s === id ? '' : 'none';
+      const nav = document.getElementById('nav-' + s);
+      if (nav) nav.classList.toggle('active', s === id);
+    });
+
+    // Scroll to top of content on mobile
+    if (window.innerWidth < 900) {
+      document.getElementById('mainContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  /* ── Toast notification ── */
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+</script>
+
+<script>
+  // Mobile nav toggle (hamburger)
+  (function () {
+    var navLinks = document.querySelector('.nav-links');
+    var hamburger = document.getElementById('navHamburger');
+    if (!navLinks || !hamburger) return;
+
+    function closeMobileNav() {
+      navLinks.classList.remove('mobile-open');
+      hamburger.textContent = '☰';
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    window.toggleMobileNav = function () {
+      var isOpen = navLinks.classList.toggle('mobile-open');
+      hamburger.textContent = isOpen ? '✕' : '☰';
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
+    document.addEventListener('click', function (e) {
+      if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMobileNav);
+    });
+  })();
+</script>
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-consent-inner">
+    <p class="cookie-consent-text">
+      We use cookies to run SearchGhana.com and improve your experience. By clicking &quot;Accept&quot;, you agree to our use of cookies as described in our
+      <a href="PrivacyPolicy.html">Privacy Policy</a>.
+    </p>
+    <div class="cookie-consent-actions">
+      <button type="button" id="cookieDecline" class="cookie-btn cookie-btn-outline">Decline</button>
+      <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<style>
+  .cookie-consent {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: var(--gray-900, #1A1816);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
+    padding: 16px 20px;
+    transform: translateY(110%);
+    transition: transform 0.35s ease;
+  }
+  .cookie-consent.is-visible { transform: translateY(0); }
+  .cookie-consent-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cookie-consent-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #F2F0EB;
+    flex: 1 1 320px;
+  }
+  .cookie-consent-text a { color: var(--brand-gold, #FCD116); text-decoration: underline; }
+  .cookie-consent-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .cookie-btn-accept {
+    background: var(--brand-gold, #FCD116);
+    color: var(--gray-900, #1A1816);
+  }
+  .cookie-btn-accept:hover { background: var(--brand-gold-dark, #E0B800); }
+  .cookie-btn-outline {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
+  }
+  .cookie-btn-outline:hover { background: rgba(255,255,255,0.1); }
+  @media (max-width: 560px) {
+    .cookie-consent-inner { flex-direction: column; align-items: stretch; }
+    .cookie-consent-actions { justify-content: flex-end; }
+  }
+</style>
+<script>
+(function () {
+  var STORAGE_KEY = 'sg_cookie_consent';
+  function getConsent() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+  function setConsent(value) {
+    try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+  }
+  var banner = document.getElementById('cookieConsent');
+  if (!banner) return;
+  if (!getConsent()) {
+    window.requestAnimationFrame(function () {
+      banner.classList.add('is-visible');
+    });
+  }
+  var acceptBtn = document.getElementById('cookieAccept');
+  var declineBtn = document.getElementById('cookieDecline');
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function () {
+      setConsent('accepted');
+      banner.classList.remove('is-visible');
+    });
+  }
+  if (declineBtn) {
+    declineBtn.addEventListener('click', function () {
+      setConsent('declined');
+      banner.classList.remove('is-visible');
+    });
+  }
+})();
+</script>
+<!-- End Cookie Consent Banner -->
+</body>
+</html>

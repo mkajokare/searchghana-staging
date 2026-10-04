@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow"><!-- staging-noindex -->
+<!-- Google Analytics (GA4) — replace G-XXXXXXXXXX with your real Measurement ID before launch -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse Businesses Near Me | SearchGhana</title>
+<meta name="description" content="Browse thousands of verified businesses across Ghana by category and region. Filter by rating, location and more to find exactly what you need, from Accra to Kumasi.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.searchghana.com/Browse.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SearchGhana">
+<meta property="og:title" content="Browse Businesses Near Me | SearchGhana">
+<meta property="og:description" content="Browse thousands of verified businesses across Ghana by category and region. Filter by rating, location and more to find exactly what you need, from Accra to Kumasi.">
+<meta property="og:url" content="https://www.searchghana.com/Browse.html">
+<meta property="og:image" content="https://www.searchghana.com/Icons/Copilot_20260407_222824.png">
+<meta property="og:locale" content="en_GH">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@searchghana">
+<meta name="twitter:title" content="Browse Businesses Near Me | SearchGhana">
+<meta name="twitter:description" content="Browse thousands of verified businesses across Ghana by category and region. Filter by rating, location and more to find exactly what you need, from Accra to Kumasi.">
+<meta name="twitter:image" content="https://www.searchghana.com/Icons/Copilot_20260407_222824.png">
+<link rel="icon" type="image/png" href="Icons/Copilot_20260407_222824.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root {
+    --brand-red: #CE1126; --brand-red-dark: #A50D1E; --brand-red-light: #FDEAED;
+    --brand-gold: #FCD116; --brand-gold-dark: #E0B800; --brand-gold-text: #8A6B00; --brand-gold-light: #FFFBE6;
+    --brand-green: #006B3F; --brand-green-light: #E6F4EE;
+    --white: #ffffff;
+    --gray-50: #FAF9F7; --gray-100: #F2F0EB; --gray-200: #E0DDD5;
+    --gray-400: #74706A; --gray-600: #5A5650; --gray-700: #403D38;
+    --gray-800: #2A2723; --gray-900: #1A1816;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+    --shadow-lg: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08);
+    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); color: var(--gray-800); background: var(--gray-50); line-height: 1.6; font-size: 15px; }
+
+  /* FLAG STRIPE */
+  .flag-stripe { height: 5px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); }
+
+  /* NAV */
+  .nav { background: var(--white); border-bottom: 1px solid var(--gray-100); position: sticky; top: 0; z-index: 200; }
+  .nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--brand-green); text-decoration: none; letter-spacing: -0.5px; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+  .logo .search { color: #1A1A1A; }
+  .logo .G { color: var(--brand-red); }
+  .logo .h { color: var(--brand-gold-dark); }
+  .logo .star { color: #1A1A1A; }
+  .logo .n { color: var(--brand-gold-dark); }
+  .logo .a { color: var(--brand-green); }
+  .logo span { color: var(--gray-900); letter-spacing: -0.5px; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; flex: 1; justify-content: center; }
+  .nav-links a { text-decoration: none; color: var(--gray-600); font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); transition: all 0.15s; white-space: nowrap; }
+  .nav-links a:hover { color: var(--gray-900); background: var(--gray-50); }
+  .nav-cta { background: var(--brand-green) !important; color: var(--white) !important; padding: 8px 16px !important; border-radius: var(--radius-md) !important; font-weight: 600 !important; }
+  .nav-cta:hover { opacity: 0.88 !important; }
+  
+  .nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .profile-wrapper { position: relative; }
+  .profile-btn { display: flex; align-items: center; gap: 8px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 100px; padding: 6px 14px 6px 6px; cursor: pointer; transition: all 0.15s; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gray-800); }
+  .profile-btn:hover { background: var(--gray-100); border-color: var(--gray-400); }
+  .profile-avatar-sm { width: 30px; height: 30px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; }
+  .profile-chevron { font-size: 9px; color: var(--gray-400); transition: transform 0.2s; }
+  .profile-btn.open .profile-chevron { transform: rotate(180deg); }
+  .profile-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; width: 288px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); z-index: 300; overflow: hidden; }
+  .profile-dropdown.open { display: block; animation: dropIn 0.15s ease; }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  .dropdown-header { background: linear-gradient(135deg, var(--brand-red) 0%, #8B0A17 100%); padding: 20px 18px; display: flex; align-items: center; gap: 14px; }
+  .dropdown-avatar-lg { width: 48px; height: 48px; border-radius: 50%; background: var(--brand-gold); color: #1A1A1A; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); flex-shrink: 0; border: 2px solid rgba(255,255,255,0.3); }
+  .dropdown-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--white); }
+  .dropdown-email { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+  .dropdown-body { padding: 8px; }
+  .menu-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--radius-md); cursor: pointer; transition: background 0.15s; text-decoration: none; color: var(--gray-700); font-size: 14px; font-weight: 500; }
+  .menu-item:hover { background: var(--gray-50); }
+  .menu-item.danger { color: var(--brand-red); }
+  .menu-item.danger:hover { background: var(--brand-red-light); }
+  .menu-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .menu-icon.gold { background: var(--brand-gold-light); }
+  .menu-icon.green { background: var(--brand-green-light); }
+  .menu-icon.red { background: var(--brand-red-light); }
+  .menu-label { flex: 1; }
+  .menu-badge { background: var(--brand-red); color: var(--white); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 100px; }
+  .menu-sep { height: 1px; background: var(--gray-100); margin: 6px 0; }
+
+  /* ── BROWSE HEADER BAR ── */
+  .browse-header { background: var(--white); border-bottom: 1px solid var(--gray-100); padding: 0 24px; }
+  .browse-header-inner { max-width: 1340px; margin: 0 auto; padding: 20px 0; display: flex; flex-direction: column; gap: 16px; }
+  .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray-400); }
+  .breadcrumb a { color: var(--brand-red); text-decoration: none; font-weight: 500; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb-sep { font-size: 10px; color: var(--gray-200); }
+  .browse-title-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .browse-title { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--gray-900); letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+  .hdot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--brand-gold); flex-shrink: 0; }
+  .browse-count { font-size: 14px; color: var(--gray-400); font-weight: 400; font-family: var(--font-body); }
+
+  /* ── SEARCH BAR (inline) ── */
+  .browse-search { display: flex; gap: 10px; }
+  .bs-wrap { flex: 1; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 10px 16px; display: flex; align-items: center; gap: 10px; max-width: 580px; }
+  .bs-wrap input { border: none; outline: none; background: transparent; font-family: var(--font-body); font-size: 14px; color: var(--gray-900); width: 100%; }
+  .bs-wrap input::placeholder { color: var(--gray-400); }
+  .bs-icon { color: var(--gray-400); font-size: 16px; flex-shrink: 0; }
+  .bs-icon-action { cursor: pointer; transition: color 0.15s; }
+  .bs-icon-action:hover, .bs-icon-action:focus-visible { color: var(--brand-green); }
+  .distance-note { font-size: 12px; color: var(--gray-500); padding: 6px 0 0; }
+  .bs-divider { width: 1px; height: 24px; background: var(--gray-200); flex-shrink: 0; }
+  .browse-search-btn { background: var(--brand-red); color: var(--white); border: none; border-radius: var(--radius-md); padding: 10px 22px; font-family: var(--font-display); font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .browse-search-btn:hover { background: var(--brand-red-dark); }
+
+  .search-suggest { display: none; position: absolute; top: calc(100% + 10px); left: -12px; right: -12px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-md); box-shadow: var(--shadow-md); z-index: 40; overflow: hidden; text-align: left; }
+  .search-suggest.open { display: block; }
+  .search-suggest-group-label { font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--gray-400); padding: 10px 14px 4px; }
+  .search-suggest-item { display: flex; align-items: center; gap: 8px; padding: 9px 14px; font-size: 14px; color: var(--gray-800); cursor: pointer; }
+  .search-suggest-item:hover, .search-suggest-item.active { background: var(--gray-50); }
+  .search-suggest-item .ss-sub { font-size: 12px; color: var(--gray-400); margin-left: auto; }
+
+  /* ── SORT & VIEW TOGGLE ── */
+  .sort-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .sort-left { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gray-600); flex-wrap: wrap; }
+  .active-filters { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .filter-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--brand-red-light); color: var(--brand-red); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 100px; cursor: pointer; border: 1px solid rgba(206,17,38,0.2); }
+  .filter-chip:hover { background: #f5c0c8; }
+  .filter-chip-x { font-size: 14px; line-height: 1; font-weight: 400; }
+  .sort-right { display: flex; align-items: center; gap: 8px; }
+  .sort-select { border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 7px 12px; font-family: var(--font-body); font-size: 13px; color: var(--gray-700); background: var(--white); cursor: pointer; outline: none; }
+  .sort-select:focus { border-color: var(--brand-red); }
+  .view-toggle { display: flex; border: 1px solid var(--gray-200); border-radius: var(--radius-md); overflow: hidden; }
+  .view-btn { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; background: var(--white); border: none; cursor: pointer; color: var(--gray-400); transition: all 0.15s; font-size: 16px; }
+  .view-btn:hover { background: var(--gray-50); color: var(--gray-700); }
+  .view-btn.active { background: var(--brand-red); color: var(--white); }
+
+  /* ── LAYOUT ── */
+  .browse-layout { max-width: 1340px; margin: 0 auto; padding: 28px 24px 64px; display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: start; }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 92px; }
+  .sidebar-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); overflow: hidden; }
+  .sidebar-card-header { padding: 14px 18px; border-bottom: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; }
+  .sidebar-card-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--gray-900); }
+  .sidebar-clear { font-size: 12px; color: var(--brand-red); cursor: pointer; font-weight: 500; background: none; border: none; font-family: var(--font-body); }
+  .sidebar-clear:hover { text-decoration: underline; }
+  .sidebar-card-body { padding: 14px 18px; }
+
+  /* Region pills */
+  .region-grid { display: flex; flex-direction: column; gap: 2px; }
+  .region-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-radius: var(--radius-sm); cursor: pointer; transition: background 0.12s; }
+  .region-item:hover { background: var(--gray-50); }
+  .region-item.active { background: var(--brand-red-light); }
+  .region-item-left { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gray-700); font-weight: 500; }
+  .region-item.active .region-item-left { color: var(--brand-red); font-weight: 600; }
+  .region-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-200); flex-shrink: 0; }
+  .region-item.active .region-dot { background: var(--brand-red); }
+  .region-count { font-size: 11px; color: var(--gray-400); }
+  .region-item.active .region-count { color: var(--brand-red); font-weight: 600; }
+
+  /* Category list */
+  .cat-list { display: flex; flex-direction: column; gap: 2px; }
+  .cat-item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: var(--radius-sm); cursor: pointer; transition: background 0.12s; text-decoration: none; }
+  .cat-item:hover { background: var(--gray-50); }
+  .cat-item.active { background: var(--brand-gold-light); }
+  .cat-emoji { font-size: 17px; width: 24px; text-align: center; flex-shrink: 0; }
+  .cat-item-label { flex: 1; font-size: 13px; color: var(--gray-700); font-weight: 500; }
+  .cat-item.active .cat-item-label { color: var(--gray-900); font-weight: 600; }
+  .cat-item-count { font-size: 11px; color: var(--gray-400); }
+
+  /* Rating filter */
+  .rating-filters { display: flex; flex-direction: column; gap: 6px; }
+  .rating-opt { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 6px 8px; border-radius: var(--radius-sm); transition: background 0.12s; }
+  .rating-opt:hover { background: var(--gray-50); }
+  .rating-opt input[type="checkbox"] { accent-color: var(--brand-red); width: 15px; height: 15px; cursor: pointer; }
+  .rating-stars { color: #F59E0B; font-size: 13px; }
+  .rating-label { font-size: 13px; color: var(--gray-700); }
+
+  /* Verified toggle */
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; }
+  .toggle-label { font-size: 13px; color: var(--gray-700); font-weight: 500; }
+  .toggle-sub { font-size: 11px; color: var(--gray-400); margin-top: 1px; }
+  .toggle-switch { position: relative; width: 42px; height: 24px; flex-shrink: 0; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-track { position: absolute; inset: 0; background: var(--gray-200); border-radius: 100px; cursor: pointer; transition: background 0.2s; }
+  .toggle-switch input:checked + .toggle-track { background: var(--brand-green); }
+  .toggle-track::after { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; background: var(--white); border-radius: 50%; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+  .toggle-switch input:checked + .toggle-track::after { transform: translateX(18px); }
+
+  /* ── RESULTS AREA ── */
+  .results-area { display: flex; flex-direction: column; gap: 16px; }
+
+  /* ── LISTING CARDS (grid view) ── */
+  .listings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .listing-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.2s; cursor: pointer; }
+  .listing-card:hover { border-color: var(--gray-200); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .listing-card.featured { border-color: var(--brand-gold); border-width: 2px; }
+  .listing-banner { height: 112px; position: relative; }
+  .listing-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+  .feat-badge { position: absolute; top: 10px; left: 10px; background: var(--brand-gold); color: #1A1A1A; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+  .verified-badge { position: absolute; top: 10px; right: 10px; background: var(--brand-green); color: var(--white); font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 100px; display: flex; align-items: center; gap: 3px; }
+  .sponsored-badge { position: absolute; top: 10px; left: 10px; background: var(--brand-gold); color: #1A1A1A; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 100px; }
+  .listing-body { padding: 14px 16px; }
+  .listing-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+  .listing-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--gray-900); letter-spacing: -0.2px; line-height: 1.3; }
+  .listing-cat { font-size: 11px; font-weight: 600; color: var(--brand-green); background: var(--brand-green-light); padding: 3px 8px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+  .listing-desc { font-size: 12px; color: var(--gray-600); line-height: 1.5; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .listing-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--gray-400); flex-wrap: wrap; }
+  .lm { display: flex; align-items: center; gap: 4px; }
+  .stars { display: inline-flex; gap: 1px; color: #F59E0B; font-size: 12px; }
+  .rnum { font-weight: 600; color: var(--gray-700); font-size: 12px; }
+  .listing-foot { border-top: 1px solid var(--gray-100); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .l-phone { font-size: 12px; font-weight: 600; color: var(--gray-700); text-decoration: none; display: flex; align-items: center; gap: 5px; }
+  .l-phone:hover { color: var(--brand-red); }
+  .btn-view { font-size: 12px; font-weight: 600; color: var(--brand-green); background: var(--brand-green-light); border: none; border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; transition: all 0.15s; text-decoration: none; }
+  .btn-view:hover { background: var(--brand-green); color: var(--white); }
+
+  /* ── LIST VIEW ── */
+  .listings-list { display: flex; flex-direction: column; gap: 12px; }
+  .listings-map { height: 560px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); position: relative; }
+  .map-note { position: absolute; bottom: 10px; left: 10px; right: 10px; z-index: 1000; background: rgba(255,255,255,0.95); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 8px 12px; font-size: 12px; color: var(--gray-600); text-align: center; pointer-events: none; }
+  .map-popup-name { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+  .map-popup-meta { font-size: 12px; color: var(--gray-600); margin-bottom: 6px; }
+  .map-popup-link { font-size: 12px; font-weight: 600; color: var(--brand-green); text-decoration: none; }
+  .list-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); padding: 18px 20px; display: grid; grid-template-columns: 72px 1fr auto; gap: 16px; align-items: start; transition: all 0.2s; cursor: pointer; }
+  .list-card:hover { border-color: var(--gray-200); box-shadow: var(--shadow-md); }
+  .list-card.featured { border-color: var(--brand-gold); border-width: 2px; }
+  .list-thumb { width: 72px; height: 72px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 30px; flex-shrink: 0; }
+  .list-body { flex: 1; min-width: 0; }
+  .list-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .list-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--gray-900); letter-spacing: -0.3px; }
+  .list-cat { font-size: 11px; font-weight: 600; color: var(--brand-green); background: var(--brand-green-light); padding: 3px 8px; border-radius: 100px; }
+  .list-feat { font-size: 10px; font-weight: 700; color: #1A1A1A; background: var(--brand-gold); padding: 3px 8px; border-radius: 100px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .list-verified { font-size: 10px; font-weight: 700; color: var(--white); background: var(--brand-green); padding: 3px 8px; border-radius: 100px; }
+  .list-sponsored { font-size: 10px; font-weight: 700; color: #1A1A1A; background: var(--brand-gold); padding: 3px 8px; border-radius: 100px; }
+  .list-desc { font-size: 13px; color: var(--gray-600); line-height: 1.5; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .list-meta { display: flex; align-items: center; gap: 16px; font-size: 12px; color: var(--gray-400); flex-wrap: wrap; }
+  .list-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+  .list-phone-btn { background: var(--brand-red-light); color: var(--brand-red); border: none; border-radius: var(--radius-md); padding: 9px 16px; font-family: var(--font-display); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.15s; text-decoration: none; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .list-phone-btn:hover { background: var(--brand-red); color: var(--white); }
+  .list-view-btn { background: var(--brand-green-light); color: var(--brand-green); border: none; border-radius: var(--radius-md); padding: 9px 16px; font-family: var(--font-display); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.15s; text-decoration: none; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .list-view-btn:hover { background: var(--brand-green); color: var(--white); }
+  .list-save { background: none; border: 1px solid var(--gray-200); color: var(--gray-400); border-radius: var(--radius-sm); width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; transition: all 0.15s; }
+  .list-save:hover { border-color: var(--brand-gold); color: var(--brand-gold); background: var(--brand-gold-light); }
+
+  /* ── PAGINATION ── */
+  .pagination { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 0; }
+  .page-btn { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); border: 1px solid var(--gray-200); background: var(--white); font-size: 14px; font-weight: 500; color: var(--gray-700); cursor: pointer; transition: all 0.15s; font-family: var(--font-body); }
+  .page-btn:hover { border-color: var(--brand-red); color: var(--brand-red); background: var(--brand-red-light); }
+  .page-btn.active { background: var(--brand-red); color: var(--white); border-color: var(--brand-red); font-weight: 700; }
+  .page-btn.nav { font-size: 18px; color: var(--gray-400); }
+  .page-btn.nav:hover { color: var(--brand-red); }
+  .page-dots { color: var(--gray-400); font-size: 14px; padding: 0 4px; }
+
+  /* ── NO RESULTS ── */
+  .no-results { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); padding: 48px 24px; text-align: center; display: none; }
+  .no-results-icon { font-size: 48px; margin-bottom: 16px; }
+  .no-results h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
+  .no-results p { font-size: 14px; color: var(--gray-400); }
+
+  /* ── SKELETON LOADER ── */
+  .skeleton-wrap { display: flex; flex-direction: column; gap: 12px; }
+  .skeleton-card { display: flex; gap: 14px; background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); padding: 14px; }
+  .skeleton-thumb { width: 96px; height: 96px; border-radius: var(--radius-md); flex-shrink: 0; }
+  .skeleton-lines { flex: 1; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+  .skeleton-line { height: 12px; border-radius: 4px; }
+  .skeleton-line.w30 { width: 30%; }
+  .skeleton-line.w90 { width: 90%; }
+  .skeleton-line.w50 { width: 50%; }
+  .skeleton-thumb, .skeleton-line {
+    background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 37%, var(--gray-100) 63%);
+    background-size: 400% 100%;
+    animation: skeleton-shimmer 1.4s ease infinite;
+  }
+  @keyframes skeleton-shimmer { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton-thumb, .skeleton-line { animation: none; }
+  }
+
+  /* ── PROMO BANNER ── */
+  .promo-banner { background: linear-gradient(135deg, #0D0D0D 0%, #1a0a0f 100%); border-radius: var(--radius-lg); padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; overflow: hidden; position: relative; }
+  .promo-banner::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 3 L34 19 L52 19 L38 30 L43 46 L30 37 L17 46 L22 30 L8 19 L26 19Z' fill='%23ffffff' fill-opacity='0.025'/%3E%3C/svg%3E"); }
+  .promo-text { position: relative; }
+  .promo-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--brand-gold); margin-bottom: 6px; }
+  .promo-title { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.3px; margin-bottom: 4px; }
+  .promo-sub { font-size: 13px; color: rgba(255,255,255,0.5); }
+  .promo-btn { background: var(--brand-gold); color: #1A1A1A; border: none; border-radius: var(--radius-md); padding: 12px 22px; font-family: var(--font-display); font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.15s; white-space: nowrap; text-decoration: none; position: relative; flex-shrink: 0; }
+  .promo-btn:hover { background: var(--brand-gold-dark); }
+
+  /* ── FOOTER ── */
+  .footer { background: #0D0D0D; padding: 56px 24px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-flag { height: 4px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); border-radius: 2px; margin-bottom: 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 40px; margin-bottom: 48px; }
+  .footer-brand .logo { margin-bottom: 12px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 240px; }
+  .footer-col h4 { color: var(--white); font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li + li { margin-top: 8px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.38); text-decoration: none; font-size: 13px; transition: color 0.15s; }
+  .footer-col ul li a:hover { color: var(--brand-gold); }
+  .footer-brand .logo .search { color: var(--white); }
+  .footer-brand .logo .star { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,0.28); }
+  .footer-bottom a { color: rgba(255,255,255,0.38); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--brand-gold); }
+  .footer-links { display: flex; gap: 20px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .browse-layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .browse-header-inner { gap: 12px; }
+    .browse-search { flex-direction: column; }
+    .list-card { grid-template-columns: 56px 1fr; }
+    .list-actions { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 400px) { .footer-grid { grid-template-columns: 1fr; } }
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--gray-800); font-size: 22px; line-height: 1; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-hamburger:hover { color: var(--brand-green); }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links.mobile-open { display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-100); box-shadow: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08); padding: 8px 16px 16px; gap: 4px; z-index: 250; }
+    .nav-links.mobile-open li { width: 100%; }
+    .nav-links.mobile-open a { display: block; padding: 12px 10px; }
+    .nav-links.mobile-open .nav-cta { display: block; text-align: center; margin-top: 4px; }
+  }
+  /* Real search/filter results */
+  .empty-state { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 64px 24px; background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-lg); gap: 6px; }
+  .empty-state-icon { font-size: 40px; margin-bottom: 8px; }
+  .empty-state-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--gray-900); }
+  .empty-state-sub { font-size: 14px; color: var(--gray-600); max-width: 380px; line-height: 1.5; }
+  .empty-state-btn { margin-top: 12px; background: var(--brand-green); color: var(--white); border: none; border-radius: var(--radius-md); padding: 10px 20px; font-family: var(--font-display); font-size: 13px; font-weight: 700; cursor: pointer; }
+  .empty-state-btn:hover { opacity: 0.9; }
+  .pagination { display: none; }
+</style>
+<script type="application/ld+json" id="browseJsonLd">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Businesses on SearchGhana",
+  "itemListElement": []
+}
+</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<style>
+  .skip-link { position: absolute; left: -9999px; top: 0; background: #fff; color: #111; padding: 10px 18px; z-index: 10000; border-radius: 0 0 8px 0; font-family: system-ui, sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .skip-link:focus { left: 0; }
+</style>
+
+<div class="flag-stripe"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="Index.html" class="logo" aria-label="SearchGhana">
+      <span class="search" aria-hidden="true">Search</span>
+      <span class="G" aria-hidden="true">G</span>
+      <span class="h" aria-hidden="true">h</span>
+      <span class="star" aria-hidden="true">★</span>
+      <span class="n" aria-hidden="true">n</span>
+      <span class="a" aria-hidden="true">a</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="Browse.html" class="active">Browse</a></li>
+      <li><a href="Deals.html">Deals</a></li>
+      <li><a href="Reviews.html">Reviews</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="AddBusiness.html" class="nav-cta">List your business</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="profile-wrapper">
+        <button class="profile-btn" id="profileBtn" onclick="toggleProfile()">
+          <div class="profile-avatar-sm" id="navAvatarSm">KA</div>
+          <span id="navNameSm">Kwame A.</span>
+          <span class="profile-chevron">▼</span>
+        </button>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-header">
+            <div class="dropdown-avatar-lg" id="navAvatarLg">KA</div>
+            <div>
+              <div class="dropdown-name" id="navDropdownName">Kwame Asante</div>
+              <div class="dropdown-email" id="navDropdownEmail">kwame.asante@gmail.com</div>
+            </div>
+          </div>
+          <div class="dropdown-body">
+            <a href="Profile.html" class="menu-item"><div class="menu-icon">👤</div><span class="menu-label">My Profile</span></a>
+            <a href="Profile.html" class="menu-item"><div class="menu-icon gold">🏪</div><span class="menu-label">My Business Listings</span><span class="menu-badge">2</span></a>
+            <a href="Reviews.html" class="menu-item"><div class="menu-icon">⭐</div><span class="menu-label">My Reviews</span></a>
+            <a href="Profile.html" class="menu-item"><div class="menu-icon green">🔖</div><span class="menu-label">Saved Businesses</span></a>
+            <a href="#" class="menu-item"><div class="menu-icon">🔔</div><span class="menu-label">Notifications</span><span class="menu-badge">3</span></a>
+            <div class="menu-sep"></div>
+            <a href="Profile.html" class="menu-item"><div class="menu-icon">⚙️</div><span class="menu-label">Account Settings</span></a>
+            <div class="menu-sep"></div>
+            <a href="#" class="menu-item danger" onclick="navSignOut(); return false;"><div class="menu-icon red">🚪</div><span class="menu-label">Sign Out</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="Login.html" id="navSignInLink" style="display:none;align-items:center;gap:6px;padding:6px 14px;border:1px solid var(--gray-200);border-radius:100px;font-size:13px;font-weight:600;color:var(--gray-800);text-decoration:none;">Sign in</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileNav()">☰</button>
+  </div>
+</nav>
+
+<!-- BROWSE HEADER -->
+<div id="main-content" class="browse-header">
+  <div class="browse-header-inner">
+    <div class="breadcrumb">
+      <a href="Index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Browse</span>
+      <span class="breadcrumb-sep">›</span>
+      <span id="breadcrumbCat" style="display:none;">Food &amp; Drink</span>
+    </div>
+    <div class="browse-title-row">
+      <div class="browse-title">
+        <span class="hdot"></span>
+        Browse Businesses
+        <span class="browse-count">— 8 results</span>
+      </div>
+    </div>
+    <div class="browse-search">
+      <div class="bs-wrap">
+        <span class="bs-icon">🔍</span>
+        <span style="position:relative;flex:1;">
+          <input type="text" placeholder='Search "chop bar", "plumber", "pharmacy"...' id="searchInput" aria-label="Search businesses" autocomplete="off">
+          <div class="search-suggest" id="browseWhatSuggest"></div>
+        </span>
+        <span class="bs-divider"></span>
+        <span class="bs-icon bs-icon-action" id="useLocationBtn" role="button" tabindex="0" aria-label="Use my location" title="Use my location" onclick="useMyLocation()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();useMyLocation();}">📍</span>
+        <span style="position:relative;max-width:140px;flex-shrink:0;">
+          <input type="text" placeholder="Accra, Kumasi, Tamale..." style="max-width:140px;" id="locationInput" aria-label="Location" autocomplete="off">
+          <div class="search-suggest" id="browseWhereSuggest"></div>
+        </span>
+      </div>
+      <button class="browse-search-btn" type="button">Search</button>
+    </div>
+    <div class="sort-row">
+      <div class="sort-left">
+        <span style="color:var(--gray-400);font-size:13px;">Filters:</span>
+        <div class="active-filters" id="activeFilters"></div>
+        <button onclick="clearAllFilters()" style="font-size:12px;color:var(--gray-400);background:none;border:none;cursor:pointer;font-family:var(--font-body);padding:2px 4px;display:none;" id="clearAllBtn">Clear all</button>
+      </div>
+      <div class="sort-right">
+        <select class="sort-select" id="sortSelect" onchange="render()">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="rating">Highest rated</option>
+          <option value="reviews">Most reviewed</option>
+          <option value="newest">Newest</option>
+          <option value="az">A – Z</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn" id="gridBtn" onclick="setView('grid')" title="Grid view" aria-label="Grid view" aria-pressed="false">⊞</button>
+          <button class="view-btn active" id="listBtn" onclick="setView('list')" title="List view" aria-label="List view" aria-pressed="true">☰</button>
+          <button class="view-btn" id="mapBtn" onclick="setView('map')" title="Map view" aria-label="Map view" aria-pressed="false">🗺️</button>
+        </div>
+      </div>
+    </div>
+    <div class="distance-note" id="distanceNote" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="browse-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Region filter -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <span class="sidebar-card-title">Region</span>
+        <button class="sidebar-clear" onclick="clearRegion()">Clear</button>
+      </div>
+      <div class="sidebar-card-body" style="padding:10px 12px;">
+        <div class="region-grid">
+          <div class="region-item" data-region="greater-accra" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Greater Accra</div>
+            <span class="region-count">8</span>
+          </div>
+          <div class="region-item" data-region="ashanti" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Ashanti</div>
+            <span class="region-count">0</span>
+          </div>
+          <div class="region-item" data-region="western" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Western</div>
+            <span class="region-count">0</span>
+          </div>
+          <div class="region-item" data-region="northern" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Northern</div>
+            <span class="region-count">0</span>
+          </div>
+          <div class="region-item" data-region="eastern" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Eastern</div>
+            <span class="region-count">0</span>
+          </div>
+          <div class="region-item" data-region="volta" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Volta</div>
+            <span class="region-count">0</span>
+          </div>
+          <div class="region-item" data-region="central" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Central</div>
+            <span class="region-count">0</span>
+          </div>
+          <div class="region-item" data-region="upper-east" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Upper East</div>
+            <span class="region-count">0</span>
+          </div>
+          <div class="region-item" data-region="upper-west" onclick="selectRegion(this)" role="button" tabindex="0">
+            <div class="region-item-left"><span class="region-dot"></span>Upper West</div>
+            <span class="region-count">0</span>
+          </div>
+          <div class="region-extra-group" id="regionExtraGroup" style="display:none;">
+            <div class="region-item" data-region="ahafo" onclick="selectRegion(this)" role="button" tabindex="0">
+              <div class="region-item-left"><span class="region-dot"></span>Ahafo</div>
+              <span class="region-count">0</span>
+            </div>
+            <div class="region-item" data-region="bono" onclick="selectRegion(this)" role="button" tabindex="0">
+              <div class="region-item-left"><span class="region-dot"></span>Bono</div>
+              <span class="region-count">0</span>
+            </div>
+            <div class="region-item" data-region="bono-east" onclick="selectRegion(this)" role="button" tabindex="0">
+              <div class="region-item-left"><span class="region-dot"></span>Bono East</div>
+              <span class="region-count">0</span>
+            </div>
+            <div class="region-item" data-region="north-east" onclick="selectRegion(this)" role="button" tabindex="0">
+              <div class="region-item-left"><span class="region-dot"></span>North East</div>
+              <span class="region-count">0</span>
+            </div>
+            <div class="region-item" data-region="oti" onclick="selectRegion(this)" role="button" tabindex="0">
+              <div class="region-item-left"><span class="region-dot"></span>Oti</div>
+              <span class="region-count">0</span>
+            </div>
+            <div class="region-item" data-region="savannah" onclick="selectRegion(this)" role="button" tabindex="0">
+              <div class="region-item-left"><span class="region-dot"></span>Savannah</div>
+              <span class="region-count">0</span>
+            </div>
+            <div class="region-item" data-region="western-north" onclick="selectRegion(this)" role="button" tabindex="0">
+              <div class="region-item-left"><span class="region-dot"></span>Western North</div>
+              <span class="region-count">0</span>
+            </div>
+          </div>
+          <div class="region-item" id="regionToggleBtn" onclick="toggleAllRegions(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="regionExtraGroup" style="color:var(--brand-red);">
+            <div class="region-item-left" style="color:var(--brand-red);font-weight:600;"><span id="regionToggleLabel">+ Show all 16 regions</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category filter -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <span class="sidebar-card-title">Category</span>
+        <button class="sidebar-clear" onclick="clearCategory()">Clear</button>
+      </div>
+      <div class="sidebar-card-body" style="padding:10px 12px;">
+        <div class="cat-list">
+          <a href="#" class="cat-item" data-cat="food" onclick="selectCat(event,this)"><span class="cat-emoji">🍲</span><span class="cat-item-label">Food &amp; Drink</span><span class="cat-item-count">8</span></a>
+          <a href="#" class="cat-item" data-cat="plumbers" onclick="selectCat(event,this)"><span class="cat-emoji">🔧</span><span class="cat-item-label">Plumbers</span><span class="cat-item-count">0</span></a>
+          <a href="#" class="cat-item" data-cat="electricians" onclick="selectCat(event,this)"><span class="cat-emoji">⚡</span><span class="cat-item-label">Electricians</span><span class="cat-item-count">0</span></a>
+          <a href="#" class="cat-item" data-cat="pharmacies" onclick="selectCat(event,this)"><span class="cat-emoji">💊</span><span class="cat-item-label">Pharmacies</span><span class="cat-item-count">0</span></a>
+          <a href="#" class="cat-item" data-cat="salons" onclick="selectCat(event,this)"><span class="cat-emoji">💇🏾</span><span class="cat-item-label">Salons &amp; Barbering</span><span class="cat-item-count">0</span></a>
+          <a href="#" class="cat-item" data-cat="mobile-money" onclick="selectCat(event,this)"><span class="cat-emoji">📱</span><span class="cat-item-label">Mobile Money</span><span class="cat-item-count">0</span></a>
+          <a href="#" class="cat-item" data-cat="builders" onclick="selectCat(event,this)"><span class="cat-emoji">🏗️</span><span class="cat-item-label">Builders &amp; Masons</span><span class="cat-item-count">0</span></a>
+          <a href="#" class="cat-item" data-cat="transport" onclick="selectCat(event,this)"><span class="cat-emoji">🚐</span><span class="cat-item-label">Transport &amp; Taxis</span><span class="cat-item-count">0</span></a>
+          <a href="#" class="cat-item" data-cat="fashion" onclick="selectCat(event,this)"><span class="cat-emoji">👗</span><span class="cat-item-label">Fashion &amp; Tailors</span><span class="cat-item-count">0</span></a>
+          <a href="#" class="cat-item" data-cat="clinics" onclick="selectCat(event,this)"><span class="cat-emoji">🏥</span><span class="cat-item-label">Clinics &amp; Hospitals</span><span class="cat-item-count">0</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating filter -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <span class="sidebar-card-title">Minimum Rating</span>
+        <button class="sidebar-clear" onclick="clearRating()">Clear</button>
+      </div>
+      <div class="sidebar-card-body">
+        <div class="rating-filters">
+          <label class="rating-opt"><input type="checkbox" data-tier="5" onchange="render()"><span class="rating-stars" aria-hidden="true">★★★★★</span><span class="rating-label">5 stars</span></label>
+          <label class="rating-opt"><input type="checkbox" data-tier="4" onchange="render()"><span class="rating-stars" aria-hidden="true">★★★★☆</span><span class="rating-label">4+ stars</span></label>
+          <label class="rating-opt"><input type="checkbox" data-tier="3" onchange="render()"><span class="rating-stars" aria-hidden="true">★★★☆☆</span><span class="rating-label">3+ stars</span></label>
+          <label class="rating-opt"><input type="checkbox" data-tier="2" onchange="render()"><span class="rating-stars" aria-hidden="true">★★☆☆☆</span><span class="rating-label">2+ stars</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toggles -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <span class="sidebar-card-title">More filters</span>
+      </div>
+      <div class="sidebar-card-body" style="display:flex;flex-direction:column;gap:14px;">
+        <div class="toggle-row">
+          <div><div class="toggle-label">Verified businesses</div><div class="toggle-sub">FDA / professional body registered</div></div>
+          <label class="toggle-switch"><input type="checkbox" data-toggle="verified" onchange="render()"><span class="toggle-track"></span></label>
+        </div>
+        <div class="toggle-row">
+          <div><div class="toggle-label">Open now</div><div class="toggle-sub">Currently trading</div></div>
+          <label class="toggle-switch"><input type="checkbox" data-toggle="open" onchange="render()"><span class="toggle-track"></span></label>
+        </div>
+        <div class="toggle-row">
+          <div><div class="toggle-label">Has photos</div><div class="toggle-sub">Profile includes images</div></div>
+          <label class="toggle-switch"><input type="checkbox" data-toggle="photos" onchange="render()"><span class="toggle-track"></span></label>
+        </div>
+        <div class="toggle-row">
+          <div><div class="toggle-label">Accepts mobile money</div><div class="toggle-sub">MTN, Vodafone, AirtelTigo</div></div>
+          <label class="toggle-switch"><input type="checkbox" data-toggle="momo" onchange="render()"><span class="toggle-track"></span></label>
+        </div>
+        <div class="toggle-row">
+          <div><div class="toggle-label">Has videos</div><div class="toggle-sub">Profile includes a video</div></div>
+          <label class="toggle-switch"><input type="checkbox" data-toggle="videos" onchange="render()"><span class="toggle-track"></span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promo banner -->
+    <div class="promo-banner">
+      <div class="promo-text">
+        <div class="promo-tag">★ For business owners</div>
+        <div class="promo-title">Get noticed by more customers</div>
+        <div class="promo-sub">Feature your listing at the top of search results</div>
+      </div>
+      <a href="#" class="promo-btn">Boost listing →</a>
+    </div>
+
+  </aside>
+
+  <!-- RESULTS -->
+  <div class="results-area">
+
+    <!-- SKELETON LOADER (shown until the first render() pass completes) -->
+    <div class="skeleton-wrap" id="skeletonLoader" aria-hidden="true">
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-lines"><div class="skeleton-line w30"></div><div class="skeleton-line w90"></div><div class="skeleton-line w50"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-lines"><div class="skeleton-line w30"></div><div class="skeleton-line w90"></div><div class="skeleton-line w50"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-lines"><div class="skeleton-line w30"></div><div class="skeleton-line w90"></div><div class="skeleton-line w50"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-lines"><div class="skeleton-line w30"></div><div class="skeleton-line w90"></div><div class="skeleton-line w50"></div></div></div>
+    </div>
+    <noscript><style>#skeletonLoader{display:none!important;} #listView{display:flex!important;}</style></noscript>
+
+    <!-- GRID VIEW (hidden by default) -->
+    <div class="listings-grid" id="gridView" style="display:none;">
+    </div>
+
+    <!-- LIST VIEW (default) -->
+    <div class="listings-list" id="listView" style="display:none;">
+    </div>
+
+    <!-- MAP VIEW (Leaflet + OpenStreetMap, no API key -- a pin for every result that has
+         coordinates; businesses added before this shipped simply have no pin yet) -->
+    <div class="listings-map" id="mapView" style="display:none;"></div>
+
+    <!-- EMPTY STATE (shown when filters/search match nothing) -->
+    <div class="empty-state" id="emptyState" role="status" aria-live="polite">
+      <div class="empty-state-icon" aria-hidden="true">🔍</div>
+      <div class="empty-state-title">No businesses match your filters</div>
+      <div class="empty-state-sub">Try clearing a filter or searching for something else — SearchGhana's directory is still growing in this area.</div>
+      <button class="empty-state-btn" onclick="clearAllFilters()">Clear all filters</button>
+    </div>
+
+    <!-- PAGINATION (built dynamically by renderPagination(), hidden when everything fits on one page) -->
+    <div class="pagination" id="pagination" style="display:none;"></div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-flag"></div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="Index.html" class="logo" aria-label="SearchGhana">
+          <span class="search" aria-hidden="true">Search</span>
+          <span class="G" aria-hidden="true">G</span>
+          <span class="h" aria-hidden="true">h</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="n" aria-hidden="true">n</span>
+          <span class="a" aria-hidden="true">a</span>
+        </a>
+        <p>Ghana's most trusted business directory. Connecting communities with quality businesses across all 16 regions.</p>
+      </div>
+      <div class="footer-col">
+        <h4>For businesses</h4>
+        <ul>
+          <li><a href="AddBusiness.html">Add your business</a></li>
+          <li><a href="#">Advertising</a></li>
+          <li><a href="#">Premium listings</a></li>
+          <li><a href="Profile.html">Business dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Browse.html">All categories</a></li>
+          <li><a href="Browse.html">Browse by region</a></li>
+          <li><a href="Deals.html">Deals &amp; offers</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="AboutUs.html">About us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="HelpCenter.html">Help Center</a></li>
+          <li><a href="PrivacyPolicy.html">Privacy policy</a></li>
+          <li><a href="TermsOfService.html">Terms of use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://facebook.com/searchghana">Facebook</a></li>
+          <li><a href="https://twitter.com/searchghana">Twitter</a></li>
+          <li><a href="https://instagram.com/searchghana">Instagram</a></li>
+          <li><a href="https://tiktok.com/@searchghana">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> SearchGhana Ltd. All rights reserved. 🇬🇭</span>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+      <div class="footer-links">
+        <a href="PrivacyPolicy.html">Privacy</a>
+        <a href="TermsOfService.html">Terms</a>
+        <a href="Contact.html">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/nav-auth.js"></script>
+<script>
+  /* ---------- Profile dropdown ---------- */
+  function toggleProfile() {
+    const btn = document.getElementById('profileBtn');
+    const dd = document.getElementById('profileDropdown');
+    const open = dd.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  }
+  document.addEventListener('click', function (e) {
+    const wrapper = document.querySelector('.profile-wrapper');
+    if (wrapper && !wrapper.contains(e.target)) {
+      document.getElementById('profileDropdown')?.classList.remove('open');
+      document.getElementById('profileBtn')?.classList.remove('open');
+    }
+  });
+
+  /* ---------- View toggle (grid/list) ---------- */
+  let currentView = 'list';
+  const PAGE_SIZE = 12;
+  let currentPage = 1;
+  let lastFilterSig = null;
+  let allBusinesses = [];
+  let currentUserId = null;
+  let savedBusinessIds = new Set();
+  let userGeo = null;
+
+  /* ---------- "Use my location": real geolocation + distance sort,
+     using the lat/lng every business now carries. A failed/denied/timed-out
+     attempt just tells the user plainly and changes nothing else -- same
+     honest-missing-data handling as the rest of the site. ---------- */
+  function haversineKm(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) ** 2;
+    return R * 2 * Math.asin(Math.sqrt(a));
+  }
+
+  async function reverseGeocodeLabel(lat, lng) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    try {
+      const resp = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&zoom=14&lat=${lat}&lon=${lng}`,
+        { signal: controller.signal, headers: { Accept: 'application/json' } }
+      );
+      if (!resp.ok) return '';
+      const data = await resp.json();
+      const addr = data.address || {};
+      return addr.suburb || addr.neighbourhood || addr.city || addr.town || addr.village || addr.county || '';
+    } catch (e) {
+      return '';
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  function useMyLocation() {
+    const icon = document.getElementById('useLocationBtn');
+    if (!navigator.geolocation) {
+      alert("Your browser doesn't support location access, so this can't look up where you are.");
+      return;
+    }
+    if (icon) icon.textContent = '⏳';
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        userGeo = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+
+        const sortSelect = document.getElementById('sortSelect');
+        if (sortSelect && !sortSelect.querySelector('option[value="distance"]')) {
+          const opt = document.createElement('option');
+          opt.value = 'distance';
+          opt.textContent = 'Nearest to me';
+          sortSelect.insertBefore(opt, sortSelect.children[1] || null);
+        }
+        if (sortSelect) sortSelect.value = 'distance';
+
+        // The resolved place name is shown as a hint only (placeholder + title),
+        // never written into the location input's actual value -- that field
+        // also drives a text filter, and this button's job is proximity
+        // *sorting*, not silently hiding every business whose address text
+        // doesn't happen to contain the same micro-neighbourhood name.
+        const label = await reverseGeocodeLabel(userGeo.lat, userGeo.lng);
+        const locationInput = document.getElementById('locationInput');
+        if (label && locationInput && !locationInput.value.trim()) {
+          locationInput.placeholder = `Near ${label}`;
+        }
+        if (icon) icon.title = label ? `Using your location (near ${label})` : 'Using your location';
+
+        if (icon) icon.textContent = '📍';
+        render();
+      },
+      (err) => {
+        if (icon) icon.textContent = '📍';
+        let msg = "Couldn't get your location.";
+        if (err.code === err.PERMISSION_DENIED) msg = "Location access was denied, so results can't be sorted by distance.";
+        else if (err.code === err.POSITION_UNAVAILABLE) msg = "Your location isn't available right now.";
+        else if (err.code === err.TIMEOUT) msg = "Getting your location took too long. Please try again.";
+        alert(msg);
+      },
+      { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 }
+    );
+  }
+
+  async function getCurrentUser() {
+    const { data: { session } } = await window.sbClient.auth.getSession();
+    currentUserId = (session && session.user) ? session.user.id : null;
+    return currentUserId;
+  }
+
+  async function loadSavedIds() {
+    savedBusinessIds = new Set();
+    if (!currentUserId) return;
+    const { data, error } = await window.sbClient
+      .from('saved_businesses')
+      .select('business_id')
+      .eq('user_id', currentUserId);
+    if (!error && data) {
+      data.forEach(row => savedBusinessIds.add(row.business_id));
+    }
+  }
+  function setView(mode) {
+    currentView = mode;
+    const gridBtn = document.getElementById('gridBtn');
+    const listBtn = document.getElementById('listBtn');
+    const mapBtn = document.getElementById('mapBtn');
+    gridBtn.classList.toggle('active', mode === 'grid');
+    listBtn.classList.toggle('active', mode === 'list');
+    if (mapBtn) mapBtn.classList.toggle('active', mode === 'map');
+    gridBtn.setAttribute('aria-pressed', mode === 'grid' ? 'true' : 'false');
+    listBtn.setAttribute('aria-pressed', mode === 'list' ? 'true' : 'false');
+    if (mapBtn) mapBtn.setAttribute('aria-pressed', mode === 'map' ? 'true' : 'false');
+    render();
+  }
+
+  /* ---------- Region / category selection ---------- */
+  function selectRegion(el) {
+    const wasActive = el.classList.contains('active');
+    document.querySelectorAll('.region-item').forEach(r => r.classList.remove('active'));
+    if (!wasActive && el.dataset.region !== 'all') el.classList.add('active');
+    render();
+  }
+  function clearRegion() {
+    document.querySelectorAll('.region-item').forEach(r => r.classList.remove('active'));
+    render();
+  }
+  function toggleAllRegions(btn) {
+    const group = document.getElementById('regionExtraGroup');
+    const label = document.getElementById('regionToggleLabel');
+    const expanded = group.style.display !== 'none';
+    group.style.display = expanded ? 'none' : '';
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    label.textContent = expanded ? '+ Show all 16 regions' : '- Show less';
+  }
+  function selectCat(e, el) {
+    e.preventDefault();
+    const wasActive = el.classList.contains('active');
+    document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
+    if (!wasActive) el.classList.add('active');
+    render();
+  }
+  function clearCategory() {
+    document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
+    render();
+  }
+
+  /* ---------- Sidebar counts: reflect the businesses actually listed, ----------
+     not a static placeholder number. Counts come from the canonical card set
+     (#gridView .listing-card) so grid/list duplicates aren't double-counted. */
+  function updateFilterCounts() {
+    const cards = document.querySelectorAll('#gridView .listing-card');
+    const regionCounts = {};
+    const catCounts = {};
+    cards.forEach(card => {
+      const region = card.dataset.region;
+      const cat = card.dataset.cat;
+      if (region) regionCounts[region] = (regionCounts[region] || 0) + 1;
+      if (cat) catCounts[cat] = (catCounts[cat] || 0) + 1;
+    });
+    document.querySelectorAll('.region-item[data-region]').forEach(item => {
+      if (item.dataset.region === 'all') return;
+      const countEl = item.querySelector('.region-count');
+      if (countEl) countEl.textContent = (regionCounts[item.dataset.region] || 0).toLocaleString();
+    });
+    document.querySelectorAll('.cat-item[data-cat]').forEach(item => {
+      const countEl = item.querySelector('.cat-item-count');
+      if (countEl) countEl.textContent = (catCounts[item.dataset.cat] || 0).toLocaleString();
+    });
+  }
+  function clearRating() {
+    document.querySelectorAll('.rating-opt input').forEach(cb => { cb.checked = false; });
+    render();
+  }
+
+  /* ---------- Clear everything ---------- */
+  function clearAllFilters() {
+    document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.region-item').forEach(r => r.classList.remove('active'));
+    document.querySelectorAll('[data-toggle]').forEach(t => { t.checked = false; });
+    document.querySelectorAll('.rating-opt input').forEach(cb => { cb.checked = false; });
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) searchInput.value = '';
+    const locationInput = document.getElementById('locationInput');
+    if (locationInput) locationInput.value = '';
+    render();
+  }
+
+  /* ---------- Search ---------- */
+  const RECENT_KEY = 'sg_recent_searches';
+
+  function getRecentSearches() {
+    try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]'); } catch (e) { return []; }
+  }
+
+  function saveRecentSearch() {
+    const what = (document.getElementById('searchInput')?.value || '').trim();
+    const where = (document.getElementById('locationInput')?.value || '').trim();
+    if (!what && !where) return;
+    try {
+      let recent = getRecentSearches();
+      const entry = { what, where };
+      recent = recent.filter(r => !(r.what === entry.what && r.where === entry.where));
+      recent.unshift(entry);
+      localStorage.setItem(RECENT_KEY, JSON.stringify(recent.slice(0, 6)));
+    } catch (e) { /* localStorage unavailable -- suggestions just skip recents */ }
+  }
+
+  function runSearch() {
+    saveRecentSearch();
+    render();
+  }
+
+  document.querySelector('.browse-search-btn')?.addEventListener('click', runSearch);
+  document.getElementById('searchInput')?.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') runSearch();
+  });
+  document.getElementById('locationInput')?.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') runSearch();
+  });
+
+  /* ---------- Search-as-you-type autocomplete, built from the live directory already
+     loaded into allBusinesses, plus this visitor's recent searches. ---------- */
+  function buildBrowseWhatSuggestions(query) {
+    const q = query.trim().toLowerCase();
+    const groups = [];
+
+    if (!q) {
+      const recents = getRecentSearches().filter(r => r.what);
+      if (recents.length) {
+        groups.push({ label: 'Recent searches', items: recents.map(r => ({ text: r.what, sub: r.where || '', fill: r.what, go: true })) });
+      }
+      return groups;
+    }
+
+    const nameMatches = allBusinesses
+      .filter(b => b.name && b.name.toLowerCase().includes(q))
+      .slice(0, 5)
+      .map(b => ({ text: b.name, sub: categoryMeta(b.category).label, fill: b.name, go: true }));
+
+    const catMatches = Object.entries(CATEGORY_META)
+      .filter(([slug, meta]) => meta.label.toLowerCase().includes(q))
+      .slice(0, 4)
+      .map(([slug, meta]) => ({ text: meta.label, sub: 'Category', fill: meta.label, go: true }));
+
+    if (nameMatches.length) groups.push({ label: 'Businesses', items: nameMatches });
+    if (catMatches.length) groups.push({ label: 'Categories', items: catMatches });
+    return groups;
+  }
+
+  function buildBrowseWhereSuggestions(query) {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+
+    const seen = new Set();
+    const items = [];
+    allBusinesses.forEach(b => {
+      if (b.city && b.city.toLowerCase().includes(q) && !seen.has(b.city)) {
+        seen.add(b.city);
+        items.push({ text: b.city, sub: regionLabel(b.region), fill: b.city, go: true });
+      }
+    });
+    Object.entries(REGION_LABELS).forEach(([slug, label]) => {
+      if (label.toLowerCase().includes(q) && !seen.has(label)) {
+        seen.add(label);
+        items.push({ text: label, sub: 'Region', fill: label, go: true });
+      }
+    });
+
+    return items.length ? [{ label: 'Locations', items: items.slice(0, 6) }] : [];
+  }
+
+  function wireSuggestDropdown(input, dropdown, buildFn, onPick) {
+    let activeIndex = -1;
+
+    function render2(groups) {
+      const flatItems = [];
+      dropdown.innerHTML = groups.map(g => {
+        const rows = g.items.map(item => {
+          const idx = flatItems.push(item) - 1;
+          return `<div class="search-suggest-item" data-idx="${idx}">${escapeHtml(item.text)}${item.sub ? `<span class="ss-sub">${escapeHtml(item.sub)}</span>` : ''}</div>`;
+        }).join('');
+        return `<div class="search-suggest-group-label">${escapeHtml(g.label)}</div>${rows}`;
+      }).join('');
+      dropdown.__items = flatItems;
+      activeIndex = -1;
+      dropdown.classList.toggle('open', flatItems.length > 0);
+    }
+
+    function updateActive() {
+      Array.from(dropdown.querySelectorAll('.search-suggest-item')).forEach((el, i) => {
+        el.classList.toggle('active', i === activeIndex);
+      });
+    }
+
+    input.addEventListener('input', () => render2(buildFn(input.value)));
+    input.addEventListener('focus', () => render2(buildFn(input.value)));
+
+    input.addEventListener('keydown', (e) => {
+      const items = dropdown.__items || [];
+      if (e.key === 'ArrowDown') {
+        if (items.length) { e.preventDefault(); activeIndex = Math.min(activeIndex + 1, items.length - 1); updateActive(); }
+      } else if (e.key === 'ArrowUp') {
+        if (items.length) { e.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); updateActive(); }
+      } else if (e.key === 'Enter') {
+        if (activeIndex >= 0 && items[activeIndex]) {
+          e.preventDefault();
+          onPick(items[activeIndex]);
+          dropdown.classList.remove('open');
+        }
+      } else if (e.key === 'Escape') {
+        dropdown.classList.remove('open');
+      }
+    });
+
+    dropdown.addEventListener('mousedown', (e) => {
+      const row = e.target.closest('.search-suggest-item');
+      if (!row) return;
+      e.preventDefault();
+      const item = (dropdown.__items || [])[Number(row.dataset.idx)];
+      if (item) onPick(item);
+      dropdown.classList.remove('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target) && e.target !== input) dropdown.classList.remove('open');
+    });
+  }
+
+  function wireBrowseAutocomplete() {
+    const whatInput = document.getElementById('searchInput');
+    const whereInput = document.getElementById('locationInput');
+    const whatDropdown = document.getElementById('browseWhatSuggest');
+    const whereDropdown = document.getElementById('browseWhereSuggest');
+
+    if (whatInput && whatDropdown) {
+      wireSuggestDropdown(whatInput, whatDropdown, buildBrowseWhatSuggestions, (item) => {
+        whatInput.value = item.fill;
+        if (item.go) runSearch();
+      });
+    }
+    if (whereInput && whereDropdown) {
+      wireSuggestDropdown(whereInput, whereDropdown, buildBrowseWhereSuggestions, (item) => {
+        whereInput.value = item.fill;
+        if (item.go) runSearch();
+      });
+    }
+  }
+
+  /* ---------- Filtering ---------- */
+  function ratingTier(r) {
+    if (r >= 4.95) return 5;
+    if (r >= 4) return 4;
+    if (r >= 3) return 3;
+    if (r >= 2) return 2;
+    return 1;
+  }
+
+  function getActiveFilters() {
+    return {
+      search: (document.getElementById('searchInput')?.value || '').trim().toLowerCase(),
+      location: (document.getElementById('locationInput')?.value || '').trim().toLowerCase(),
+      category: document.querySelector('.cat-item.active')?.dataset.cat || null,
+      region: document.querySelector('.region-item.active')?.dataset.region || null,
+      tiers: Array.from(document.querySelectorAll('.rating-opt input:checked')).map(cb => cb.dataset.tier),
+      toggles: {
+        verified: !!document.querySelector('[data-toggle="verified"]')?.checked,
+        open: !!document.querySelector('[data-toggle="open"]')?.checked,
+        photos: !!document.querySelector('[data-toggle="photos"]')?.checked,
+        momo: !!document.querySelector('[data-toggle="momo"]')?.checked,
+        videos: !!document.querySelector('[data-toggle="videos"]')?.checked,
+      },
+    };
+  }
+
+  /* ---------- Search matching: word-order-independent + light typo tolerance ----------
+     Previously a single haystack.includes(fullSearchPhrase) check -- failed on word
+     order ("chop auntie" wouldn't match "Auntie Ama's Chop Bar") and on any typo at
+     all. Now every search word must match somewhere in the card, either as a direct
+     substring or, for words of 4+ letters, within a small edit-distance of some word
+     on the card (so "chpo" still finds "chop"). Still fully client-side -- no
+     server round trip, since every business is already fetched into the DOM. */
+  function normalizeText(s) {
+    return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+
+  /* Damerau-Levenshtein (adjacent transposition counts as one edit, not two) --
+     plain Levenshtein would score a common typo like "chpo"->"chop" as
+     distance 2 (two substitutions) and miss it under a tight threshold. */
+  function levenshtein(a, b) {
+    if (a === b) return 0;
+    const m = a.length, n = b.length;
+    if (!m) return n;
+    if (!n) return m;
+    const d = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    for (let i = 0; i <= m; i++) d[i][0] = i;
+    for (let j = 0; j <= n; j++) d[0][j] = j;
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+        if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+          d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+        }
+      }
+    }
+    return d[m][n];
+  }
+
+  function tokenMatchesHaystack(token, haystackWords, haystack) {
+    if (haystack.includes(token)) return true;
+    if (token.length < 4) return false;
+    const maxDist = token.length <= 6 ? 1 : 2;
+    return haystackWords.some(w => Math.abs(w.length - token.length) <= maxDist && levenshtein(token, w) <= maxDist);
+  }
+
+  function searchMatches(searchTerm, haystack) {
+    const tokens = normalizeText(searchTerm).split(/\s+/).filter(Boolean);
+    if (!tokens.length) return true;
+    const haystackWords = haystack.split(/[^a-z0-9]+/).filter(Boolean);
+    return tokens.every(t => tokenMatchesHaystack(t, haystackWords, haystack));
+  }
+
+  /* Real match-quality ranking for 'Sort: Relevance', used only to break ties
+     among results that already passed the filter -- an exact name match still
+     outranks a result that only matched on a fuzzy category word. */
+  function relevanceScore(card, searchTerm) {
+    const tokens = normalizeText(searchTerm).split(/\s+/).filter(Boolean);
+    if (!tokens.length) return 0;
+
+    const name = normalizeText((card.querySelector('.listing-name, .list-name')?.textContent || '').trim());
+    const termNorm = normalizeText(searchTerm).trim();
+    if (name === termNorm) return 100;
+    if (name.startsWith(termNorm)) return 90;
+    if (name.includes(termNorm)) return 80;
+
+    const nameWords = name.split(/[^a-z0-9]+/).filter(Boolean);
+    const allTokensExactInName = tokens.every(t => nameWords.includes(t));
+    if (allTokensExactInName) return 70;
+
+    const allTokensFuzzyInName = tokens.every(t => tokenMatchesHaystack(t, nameWords, name));
+    if (allTokensFuzzyInName) return 60;
+
+    const restHaystack = normalizeText(card.textContent);
+    const restWords = restHaystack.split(/[^a-z0-9]+/).filter(Boolean);
+    const allTokensExactAnywhere = tokens.every(t => restWords.includes(t));
+    if (allTokensExactAnywhere) return 40;
+
+    return 20; // matched (it passed cardMatches), but only via fuzzy matching outside the name
+  }
+
+  function cardMatches(card, f) {
+    if (f.category && card.dataset.cat !== f.category) return false;
+    if (f.region && f.region !== 'all' && card.dataset.region !== f.region) return false;
+    if (f.tiers.length && !f.tiers.includes(String(ratingTier(parseFloat(card.dataset.rating))))) return false;
+    if (f.toggles.verified && card.dataset.verified !== 'true') return false;
+    if (f.toggles.open && card.dataset.open !== 'true') return false;
+    if (f.toggles.photos && card.dataset.photos !== 'true') return false;
+    if (f.toggles.momo && card.dataset.momo !== 'true') return false;
+    if (f.toggles.videos && card.dataset.videos !== 'true') return false;
+    const haystack = normalizeText(card.textContent);
+    if (f.search && !searchMatches(f.search, haystack)) return false;
+    if (f.location && !haystack.includes(normalizeText(f.location))) return false;
+    return true;
+  }
+
+  /* ---------- Sorting ---------- */
+  function sortComparator(val) {
+    return function (a, b) {
+      switch (val) {
+        case 'distance': {
+          const alat = parseFloat(a.dataset.lat), alng = parseFloat(a.dataset.lng);
+          const blat = parseFloat(b.dataset.lat), blng = parseFloat(b.dataset.lng);
+          const aHas = userGeo && Number.isFinite(alat) && Number.isFinite(alng);
+          const bHas = userGeo && Number.isFinite(blat) && Number.isFinite(blng);
+          if (!aHas && !bHas) return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+          if (!aHas) return 1;
+          if (!bHas) return -1;
+          return haversineKm(userGeo.lat, userGeo.lng, alat, alng) - haversineKm(userGeo.lat, userGeo.lng, blat, blng);
+        }
+        case 'rating':
+          return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+        case 'reviews':
+          return parseInt(b.dataset.reviews, 10) - parseInt(a.dataset.reviews, 10);
+        case 'newest':
+          return parseInt(b.dataset.added, 10) - parseInt(a.dataset.added, 10);
+        case 'az': {
+          const an = (a.querySelector('.listing-name, .list-name')?.textContent || '').trim();
+          const bn = (b.querySelector('.listing-name, .list-name')?.textContent || '').trim();
+          return an.localeCompare(bn);
+        }
+        default: {
+          const featDiff = (b.classList.contains('featured') ? 1 : 0) - (a.classList.contains('featured') ? 1 : 0);
+          if (featDiff !== 0) return featDiff;
+          const searchTerm = (document.getElementById('searchInput')?.value || '').trim();
+          if (searchTerm) {
+            const scoreDiff = relevanceScore(b, searchTerm) - relevanceScore(a, searchTerm);
+            if (scoreDiff !== 0) return scoreDiff;
+          }
+          return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+        }
+      }
+    };
+  }
+
+  /* ---------- Filter chips ---------- */
+  function renderChips(f) {
+    const wrap = document.getElementById('activeFilters');
+    const clearBtn = document.getElementById('clearAllBtn');
+    const chips = [];
+
+    if (f.category) {
+      const el = document.querySelector(`.cat-item[data-cat="${f.category}"]`);
+      chips.push({
+        label: el?.querySelector('.cat-item-label')?.textContent || f.category,
+        onRemove: () => { el?.classList.remove('active'); render(); },
+      });
+    }
+    if (f.region && f.region !== 'all') {
+      const el = document.querySelector(`.region-item[data-region="${f.region}"]`);
+      chips.push({
+        label: el?.querySelector('.region-item-left')?.textContent || f.region,
+        onRemove: () => { el?.classList.remove('active'); render(); },
+      });
+    }
+    const toggleLabels = { verified: 'Verified only', open: 'Open now', photos: 'Has photos', momo: 'Accepts MoMo', videos: 'Has videos' };
+    Object.keys(f.toggles).forEach(key => {
+      if (f.toggles[key]) {
+        chips.push({
+          label: toggleLabels[key],
+          onRemove: () => {
+            const input = document.querySelector(`[data-toggle="${key}"]`);
+            if (input) input.checked = false;
+            render();
+          },
+        });
+      }
+    });
+
+    wrap.innerHTML = '';
+    chips.forEach(chip => {
+      const span = document.createElement('span');
+      span.className = 'filter-chip';
+      span.innerHTML = `${chip.label} <span class="filter-chip-x" aria-hidden="true">×</span>`;
+      span.setAttribute('role', 'button');
+      span.setAttribute('tabindex', '0');
+      span.setAttribute('aria-label', `Remove ${chip.label} filter`);
+      span.addEventListener('click', chip.onRemove);
+      span.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          chip.onRemove();
+        }
+      });
+      wrap.appendChild(span);
+    });
+    if (clearBtn) clearBtn.style.display = chips.length ? '' : 'none';
+  }
+
+  /* ---------- Main render ---------- */
+  function render() {
+    const f = getActiveFilters();
+    const sortVal = document.getElementById('sortSelect')?.value || 'relevance';
+    const cmp = sortComparator(sortVal);
+
+    // Reset to page 1 whenever the filter set or sort order actually changed --
+    // a pagination click or a grid/list toggle calls render() with the same
+    // signature, so currentPage (set just before this call) survives those.
+    const filterSig = JSON.stringify(f) + '|' + sortVal;
+    if (filterSig !== lastFilterSig) {
+      currentPage = 1;
+      lastFilterSig = filterSig;
+    }
+
+    // Pass 1: use the grid cards (same business set/order as list) purely to work
+    // out the full matching, sorted id list -- this is what pagination slices.
+    const gridView = document.getElementById('gridView');
+    const listView = document.getElementById('listView');
+    const refCards = Array.from(gridView.querySelectorAll('.listing-card')).sort(cmp);
+    const allMatchIds = refCards.filter(card => cardMatches(card, f)).map(card => card.dataset.id);
+
+    const visible = allMatchIds.length;
+
+    const distanceNote = document.getElementById('distanceNote');
+    if (distanceNote) {
+      if (sortVal === 'distance' && userGeo && visible > 0) {
+        const matchedCards = refCards.filter(card => allMatchIds.includes(card.dataset.id));
+        const missing = matchedCards.filter(card => card.dataset.lat === '' || card.dataset.lng === '').length;
+        if (missing > 0) {
+          distanceNote.textContent = `${missing} of ${visible} result${visible === 1 ? '' : 's'} ${missing === 1 ? "doesn't" : "don't"} have a saved location yet, so ${missing === 1 ? 'it is' : "they're"} shown last.`;
+          distanceNote.style.display = '';
+        } else {
+          distanceNote.style.display = 'none';
+        }
+      } else {
+        distanceNote.style.display = 'none';
+      }
+    }
+
+    const totalPages = Math.max(1, Math.ceil(visible / PAGE_SIZE));
+    currentPage = Math.min(Math.max(1, currentPage), totalPages);
+    const pageIds = new Set(allMatchIds.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE));
+
+    // Pass 2: sort + show/hide each view's real cards, but only the current page's
+    // matches are actually visible -- the rest of the filtered set stays matched
+    // (counted, included in structured data) just not displayed yet.
+    [
+      { container: gridView, selector: '.listing-card' },
+      { container: listView, selector: '.list-card' },
+    ].forEach(({ container, selector }) => {
+      const cards = Array.from(container.querySelectorAll(selector));
+      cards.sort(cmp);
+      cards.forEach(card => {
+        const match = cardMatches(card, f);
+        card.style.display = (match && pageIds.has(card.dataset.id)) ? '' : 'none';
+        container.appendChild(card);
+      });
+    });
+
+    updateStructuredData(allMatchIds);
+
+    const countEl = document.querySelector('.browse-count');
+    if (countEl) {
+      countEl.textContent = totalPages > 1
+        ? `— ${visible} result${visible === 1 ? '' : 's'} · Page ${currentPage} of ${totalPages}`
+        : `— ${visible} result${visible === 1 ? '' : 's'}`;
+    }
+
+    // Map view shows every matching business with coordinates, not just the
+    // current page -- pagination doesn't apply to a map, so hide that bar there.
+    renderPagination(currentView === 'map' ? 1 : totalPages);
+
+    const bcCat = document.getElementById('breadcrumbCat');
+    if (bcCat) {
+      if (f.category) {
+        bcCat.textContent = document.querySelector(`.cat-item[data-cat="${f.category}"] .cat-item-label`)?.textContent || f.category;
+        bcCat.style.display = '';
+      } else {
+        bcCat.style.display = 'none';
+      }
+    }
+
+    renderChips(f);
+
+    const mapView = document.getElementById('mapView');
+    const emptyState = document.getElementById('emptyState');
+    if (visible === 0) {
+      gridView.style.display = 'none';
+      listView.style.display = 'none';
+      if (mapView) mapView.style.display = 'none';
+      emptyState.style.display = 'flex';
+    } else {
+      emptyState.style.display = 'none';
+      gridView.style.display = currentView === 'grid' ? 'grid' : 'none';
+      listView.style.display = currentView === 'list' ? 'flex' : 'none';
+      if (mapView) mapView.style.display = currentView === 'map' ? 'block' : 'none';
+      if (currentView === 'map') renderMapView(allMatchIds);
+    }
+  }
+
+  /* ---------- Pagination ---------- */
+  function goToPage(p) {
+    currentPage = p;
+    render();
+    document.querySelector('.browse-count')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function paginationPageList(current, total) {
+    // 1 ... current-1, current, current+1 ... total -- collapse the run into
+    // explicit numbers when it's short enough that an ellipsis would save nothing.
+    const pages = new Set([1, total, current, current - 1, current + 1]);
+    return Array.from(pages).filter(p => p >= 1 && p <= total).sort((a, b) => a - b);
+  }
+
+  function renderPagination(totalPages) {
+    const bar = document.getElementById('pagination');
+    if (!bar) return;
+    if (totalPages <= 1) { bar.style.display = 'none'; bar.innerHTML = ''; return; }
+    bar.style.display = 'flex';
+
+    const pageList = paginationPageList(currentPage, totalPages);
+    let html = `<button class="page-btn nav" ${currentPage === 1 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})" aria-label="Previous page">‹</button>`;
+    let prev = 0;
+    pageList.forEach(p => {
+      if (prev && p - prev > 1) html += `<span class="page-dots">…</span>`;
+      html += `<button class="page-btn${p === currentPage ? ' active' : ''}" onclick="goToPage(${p})" aria-current="${p === currentPage ? 'page' : 'false'}">${p}</button>`;
+      prev = p;
+    });
+    html += `<button class="page-btn nav" ${currentPage === totalPages ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})" aria-label="Next page">›</button>`;
+    bar.innerHTML = html;
+  }
+
+  /* ---------- Category + region display metadata (mirrors the sidebar) ---------- */
+  const CATEGORY_META = {
+    'food': { label: 'Food & Drink', emoji: '🍲', color: '#FFF8E1' },
+    'plumbers': { label: 'Plumbers', emoji: '🔧', color: '#E6F0F4' },
+    'electricians': { label: 'Electricians', emoji: '⚡', color: '#FEF6DD' },
+    'pharmacies': { label: 'Pharmacies', emoji: '💊', color: '#E6F4EE' },
+    'salons': { label: 'Salons & Barbering', emoji: '💇🏾', color: '#FDE9E1' },
+    'mobile-money': { label: 'Mobile Money', emoji: '📱', color: '#E6F4EE' },
+    'builders': { label: 'Builders & Masons', emoji: '🏗️', color: '#F0EAE0' },
+    'transport': { label: 'Transport & Taxis', emoji: '🚐', color: '#E6F0F4' },
+    'fashion': { label: 'Fashion & Tailors', emoji: '👗', color: '#FDEAED' },
+    'clinics': { label: 'Clinics & Hospitals', emoji: '🏥', color: '#FDEAED' },
+    'hotel': { label: 'Hotel & Guesthouse', emoji: '🏨', color: '#E6F0F4' },
+    'supermarket': { label: 'Supermarket', emoji: '🛒', color: '#E6F4EE' },
+    'electronics': { label: 'Electronics', emoji: '🔌', color: '#F0EAE0' },
+    'other': { label: 'Other', emoji: '🏪', color: '#F0F0F0' },
+  };
+  const REGION_LABELS = {
+    'greater-accra': 'Greater Accra',
+    'ashanti': 'Ashanti',
+    'western': 'Western',
+    'eastern': 'Eastern',
+    'northern': 'Northern',
+    'volta': 'Volta',
+    'central': 'Central',
+    'upper-east': 'Upper East',
+    'upper-west': 'Upper West',
+    'bono': 'Bono',
+    'oti': 'Oti',
+    'ahafo': 'Ahafo',
+    'bono-east': 'Bono East',
+    'savannah': 'Savannah',
+    'north-east': 'North East',
+    'western-north': 'Western North',
+  };
+
+  function categoryMeta(cat) {
+    return CATEGORY_META[cat] || { label: cat || 'Business', emoji: '🏪', color: '#F0F0F0' };
+  }
+
+  function regionLabel(region) {
+    return REGION_LABELS[region] || region || '';
+  }
+
+  function locationLine(biz) {
+    if (biz.city) return `${biz.city}, ${regionLabel(biz.region)}`;
+    if (biz.address) return biz.address;
+    return regionLabel(biz.region);
+  }
+
+  function escapeHtml(str) {
+    return String(str || '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c]));
+  }
+
+  /* ---------- Build a grid-view card from a `businesses` row ---------- */
+  function buildGridCard(biz) {
+    const meta = categoryMeta(biz.category);
+    const card = document.createElement('div');
+    card.className = biz.is_sponsored ? 'listing-card featured' : 'listing-card';
+    card.dataset.id = biz.id;
+    card.dataset.cat = biz.category || '';
+    card.dataset.region = biz.region || '';
+    card.dataset.rating = biz.rating || '0';
+    card.dataset.reviews = biz.reviews_count || 0;
+    card.dataset.verified = biz.verified ? 'true' : 'false';
+    card.dataset.open = biz.open_now ? 'true' : 'false';
+    card.dataset.momo = biz.accepts_momo ? 'true' : 'false';
+    card.dataset.photos = (biz.image_urls && biz.image_urls.length) ? 'true' : 'false';
+    card.dataset.added = biz.created_at ? new Date(biz.created_at).getTime() : 0;
+    card.dataset.lat = Number.isFinite(biz.latitude) ? biz.latitude : '';
+    card.dataset.lng = Number.isFinite(biz.longitude) ? biz.longitude : '';
+    card.dataset.videos = biz.video_url ? 'true' : 'false';
+
+    const thumb = (biz.image_urls && biz.image_urls[0])
+      ? `<img src="${escapeHtml(biz.image_urls[0])}" alt="${escapeHtml(biz.name)}" style="width:100%;height:100%;object-fit:cover;">`
+      : '';
+    const ratingHtml = biz.rating
+      ? `<span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">${Number(biz.rating).toFixed(1)}</span><span>(${biz.reviews_count || 0})</span>`
+      : `<span class="rnum">New</span>`;
+    const phoneHtml = biz.phone
+      ? `<a href="tel:${escapeHtml(biz.phone.replace(/\s+/g, ''))}" class="l-phone">📞 ${escapeHtml(biz.phone)}</a>`
+      : '<span></span>';
+
+    const gridSaved = savedBusinessIds.has(biz.id);
+
+    card.innerHTML = `
+      <div class="listing-banner">${thumb || `<div class="listing-placeholder" style="background:${meta.color};">${meta.emoji}</div>`}${biz.verified ? '<div class="verified-badge">✓ Verified</div>' : ''}${biz.is_sponsored ? '<div class="sponsored-badge">📈 Sponsored</div>' : ''}
+        <button class="grid-save${gridSaved ? ' is-saved' : ''}" title="Save" aria-label="Save this business" style="position:absolute;top:10px;right:10px;background:${gridSaved ? 'var(--brand-green)' : 'rgba(255,255,255,0.92)'};color:${gridSaved ? '#fff' : 'var(--gray-600)'};border:none;border-radius:50%;width:30px;height:30px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">${gridSaved ? '✅' : '🔖'}</button>
+      </div>
+      <div class="listing-body">
+        <div class="listing-head"><div class="listing-name">${escapeHtml(biz.name)}</div><span class="listing-cat">${escapeHtml(meta.label)}</span></div>
+        <p class="listing-desc">${escapeHtml(biz.description)}</p>
+        <div class="listing-meta"><span class="lm">${ratingHtml}</span><span class="lm">📍 ${escapeHtml(locationLine(biz))}</span></div>
+      </div>
+      <div class="listing-foot">${phoneHtml}<a href="Businesses.html?id=${encodeURIComponent(biz.id)}" class="btn-view">View →</a></div>
+    `;
+    return card;
+  }
+
+  /* ---------- Build a list-view card from a `businesses` row ---------- */
+  function buildListCard(biz) {
+    const meta = categoryMeta(biz.category);
+    const card = document.createElement('div');
+    card.className = biz.is_sponsored ? 'list-card featured' : 'list-card';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `View ${biz.name}`);
+    card.dataset.id = biz.id;
+    card.dataset.cat = biz.category || '';
+    card.dataset.region = biz.region || '';
+    card.dataset.rating = biz.rating || '0';
+    card.dataset.reviews = biz.reviews_count || 0;
+    card.dataset.verified = biz.verified ? 'true' : 'false';
+    card.dataset.open = biz.open_now ? 'true' : 'false';
+    card.dataset.momo = biz.accepts_momo ? 'true' : 'false';
+    card.dataset.photos = (biz.image_urls && biz.image_urls.length) ? 'true' : 'false';
+    card.dataset.added = biz.created_at ? new Date(biz.created_at).getTime() : 0;
+    card.dataset.lat = Number.isFinite(biz.latitude) ? biz.latitude : '';
+    card.dataset.lng = Number.isFinite(biz.longitude) ? biz.longitude : '';
+    card.dataset.videos = biz.video_url ? 'true' : 'false';
+
+    const thumb = (biz.image_urls && biz.image_urls[0])
+      ? `<img src="${escapeHtml(biz.image_urls[0])}" alt="${escapeHtml(biz.name)}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">`
+      : meta.emoji;
+    const listSaved = savedBusinessIds.has(biz.id);
+    const ratingHtml = biz.rating
+      ? `<span class="stars" aria-hidden="true">★★★★★</span><span class="rnum" style="font-size:13px;">${Number(biz.rating).toFixed(1)}</span><span style="font-size:12px;">(${biz.reviews_count || 0} reviews)</span>`
+      : `<span class="rnum" style="font-size:13px;">New listing</span>`;
+    const openLine = biz.is_24_hours
+      ? '<span class="lm">🕐 Open 24 hours</span>'
+      : (biz.open_now ? '<span class="lm">🕐 Open now</span>' : '');
+    const momoLine = biz.accepts_momo ? '<span class="lm">📱 Accepts MoMo</span>' : '';
+    const phoneHtml = biz.phone
+      ? `<a href="tel:${escapeHtml(biz.phone.replace(/\s+/g, ''))}" class="list-phone-btn">📞 Call now</a>`
+      : '';
+
+    card.innerHTML = `
+      <div class="list-thumb" style="background:${meta.color};">${thumb}</div>
+      <div class="list-body">
+        <div class="list-head">
+          <span class="list-name">${escapeHtml(biz.name)}</span>
+          <span class="list-cat">${escapeHtml(meta.label)}</span>
+          ${biz.verified ? '<span class="list-verified">✓ Verified</span>' : ''}
+          ${biz.is_sponsored ? '<span class="list-sponsored">📈 Sponsored</span>' : ''}
+        </div>
+        <p class="list-desc">${escapeHtml(biz.description)}</p>
+        <div class="list-meta">
+          <span class="lm">${ratingHtml}</span>
+          <span class="lm">📍 ${escapeHtml(locationLine(biz))}</span>
+          ${openLine}
+          ${momoLine}
+        </div>
+      </div>
+      <div class="list-actions">
+        ${phoneHtml}
+        <a href="Businesses.html?id=${encodeURIComponent(biz.id)}" class="list-view-btn">View profile →</a>
+        <button class="list-save${listSaved ? ' is-saved' : ''}" title="Save" aria-label="Save this business" style="${listSaved ? 'color:var(--brand-green);border-color:var(--brand-green);background:var(--brand-green-light);' : ''}">${listSaved ? '✅' : '🔖'}</button>
+      </div>
+    `;
+    return card;
+  }
+
+  /* ---------- Map view: Leaflet + OpenStreetMap tiles, no API key needed.
+     Businesses without real coordinates (not yet geocoded, or added before this
+     shipped) are simply skipped -- no fake/placeholder pins -- and a small note
+     says how many of the current matches aren't shown yet. ---------- */
+  let leafletMap = null;
+  let leafletMarkers = [];
+  const GHANA_CENTER = [7.9465, -1.0232];
+
+  function renderMapView(matchIds) {
+    const container = document.getElementById('mapView');
+    if (!container || typeof L === 'undefined') return;
+
+    if (!leafletMap) {
+      leafletMap = L.map(container).setView(GHANA_CENTER, 7);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+      }).addTo(leafletMap);
+    } else {
+      // The container may have just come back from display:none -- Leaflet needs
+      // to re-measure it now that it's visible again.
+      setTimeout(() => leafletMap.invalidateSize(), 0);
+    }
+
+    leafletMarkers.forEach(m => leafletMap.removeLayer(m));
+    leafletMarkers = [];
+
+    const byId = new Map(allBusinesses.map(b => [b.id, b]));
+    const matchedBiz = matchIds.map(id => byId.get(id)).filter(Boolean);
+    const withCoords = matchedBiz.filter(b => Number.isFinite(b.latitude) && Number.isFinite(b.longitude));
+
+    withCoords.forEach(biz => {
+      const meta = categoryMeta(biz.category);
+      const marker = L.marker([biz.latitude, biz.longitude]).addTo(leafletMap);
+      const ratingLine = biz.rating ? `${Number(biz.rating).toFixed(1)} ★ (${biz.reviews_count || 0})` : 'New listing';
+      marker.bindPopup(`
+        <div class="map-popup-name">${meta.emoji} ${escapeHtml(biz.name)}</div>
+        <div class="map-popup-meta">${escapeHtml(ratingLine)} · ${escapeHtml(locationLine(biz))}</div>
+        <a class="map-popup-link" href="Businesses.html?id=${encodeURIComponent(biz.id)}">View profile →</a>
+      `);
+      leafletMarkers.push(marker);
+    });
+
+    let note = container.querySelector('.map-note');
+    const missing = matchedBiz.length - withCoords.length;
+    if (missing > 0) {
+      if (!note) {
+        note = document.createElement('div');
+        note.className = 'map-note';
+        container.appendChild(note);
+      }
+      note.textContent = `${missing} of ${matchedBiz.length} matching business${matchedBiz.length === 1 ? '' : 'es'} ${missing === 1 ? "isn't" : "aren't"} shown on the map yet (no location on file).`;
+    } else if (note) {
+      note.remove();
+    }
+
+    if (withCoords.length) {
+      leafletMap.fitBounds(L.latLngBounds(withCoords.map(b => [b.latitude, b.longitude])).pad(0.2));
+    } else {
+      leafletMap.setView(GHANA_CENTER, 7);
+    }
+  }
+
+  /* ---------- Save toggle: persists to saved_businesses for the signed-in user.
+     Sign-in gated, like reviews and claims elsewhere on the site -- an
+     anonymous visitor is prompted to sign in rather than the state just
+     resetting on reload like it used to. ---------- */
+  async function toggleSaveButton(btn) {
+    const card = btn.closest('[data-id]');
+    const businessId = card ? card.dataset.id : null;
+    if (!businessId) return;
+
+    if (!currentUserId) {
+      if (!(await getCurrentUser())) {
+        alert('Please sign in to save businesses.');
+        return;
+      }
+    }
+
+    const nowSaved = !savedBusinessIds.has(businessId);
+    btn.disabled = true;
+
+    let error;
+    if (nowSaved) {
+      ({ error } = await window.sbClient
+        .from('saved_businesses')
+        .insert({ user_id: currentUserId, business_id: businessId }));
+    } else {
+      ({ error } = await window.sbClient
+        .from('saved_businesses')
+        .delete()
+        .eq('user_id', currentUserId)
+        .eq('business_id', businessId));
+    }
+
+    btn.disabled = false;
+    if (error) { alert('Could not update saved businesses: ' + error.message); return; }
+
+    if (nowSaved) savedBusinessIds.add(businessId); else savedBusinessIds.delete(businessId);
+
+    // Reflect the new state on every card for this business (grid + list views).
+    document.querySelectorAll(`[data-id="${businessId}"] .list-save, [data-id="${businessId}"] .grid-save`).forEach(b => {
+      b.textContent = nowSaved ? '✅' : '🔖';
+      if (b.classList.contains('grid-save')) {
+        b.classList.toggle('is-saved', nowSaved);
+        b.style.background = nowSaved ? 'var(--brand-green)' : 'rgba(255,255,255,0.92)';
+        b.style.color = nowSaved ? '#fff' : 'var(--gray-600)';
+      } else {
+        b.classList.toggle('is-saved', nowSaved);
+        b.style.color = nowSaved ? 'var(--brand-green)' : '';
+        b.style.borderColor = nowSaved ? 'var(--brand-green)' : '';
+        b.style.background = nowSaved ? 'var(--brand-green-light)' : '';
+      }
+    });
+  }
+
+  /* ---------- Card interactions: save toggle + whole-card click ---------- */
+  function wireCardInteractions() {
+    document.querySelectorAll('.list-save, .grid-save').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleSaveButton(this);
+      });
+    });
+
+    document.querySelectorAll('.list-card, .listing-card').forEach(card => {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a') || e.target.closest('button')) return;
+        window.location.href = `Businesses.html?id=${encodeURIComponent(this.dataset.id || '')}`;
+      });
+    });
+  }
+
+  /* ---------- Fetch live businesses from Supabase and populate both views ---------- */
+  async function loadBusinesses() {
+    const gridView = document.getElementById('gridView');
+    const listView = document.getElementById('listView');
+
+    await getCurrentUser();
+    const [bizResult] = await Promise.all([
+      window.sbClient
+        .from('businesses')
+        .select('*')
+        .eq('status', 'active')
+        .order('created_at', { ascending: false }),
+      loadSavedIds(),
+    ]);
+    const { data, error } = bizResult;
+
+    if (error) {
+      console.error('Could not load businesses from Supabase:', error.message);
+      return;
+    }
+
+    gridView.innerHTML = '';
+    listView.innerHTML = '';
+    allBusinesses = data || [];
+
+    allBusinesses.forEach(biz => {
+      gridView.appendChild(buildGridCard(biz));
+      listView.appendChild(buildListCard(biz));
+    });
+  }
+
+  /* ---------- Keep the page's ItemList JSON-LD in sync with whichever
+     businesses are actually visible under the current filters, instead of
+     the fixed sample list this used to ship with. ---------- */
+  function updateStructuredData(visibleIds) {
+    const el = document.getElementById('browseJsonLd');
+    if (!el) return;
+
+    const byId = new Map(allBusinesses.map(b => [b.id, b]));
+    const itemListElement = visibleIds.map((id, i) => {
+      const biz = byId.get(id);
+      if (!biz) return null;
+      const item = {
+        "@type": "LocalBusiness",
+        "name": biz.name,
+        "url": new URL(`Businesses.html?id=${encodeURIComponent(biz.id)}`, window.location.href).href,
+      };
+      if (biz.phone) item.telephone = biz.phone;
+      if (biz.address || biz.city || biz.region) {
+        item.address = {
+          "@type": "PostalAddress",
+          "addressLocality": biz.city || locationLine(biz),
+          "addressCountry": "GH",
+        };
+      }
+      if (biz.rating && biz.reviews_count > 0) {
+        item.aggregateRating = {
+          "@type": "AggregateRating",
+          "ratingValue": String(biz.rating),
+          "reviewCount": String(biz.reviews_count),
+        };
+      }
+      return { "@type": "ListItem", "position": i + 1, "item": item };
+    }).filter(Boolean);
+
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Businesses on SearchGhana",
+      "itemListElement": itemListElement,
+    });
+  }
+
+  /* ---------- Init: load live data, read ?category= / ?search= / ?location= from the URL, then render ---------- */
+  document.addEventListener('DOMContentLoaded', async function () {
+    await loadBusinesses();
+    wireCardInteractions();
+    wireBrowseAutocomplete();
+
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+    const search = params.get('search');
+    const location = params.get('location');
+
+    if (category) {
+      const match = document.querySelector(`.cat-item[data-cat="${category}"]`);
+      document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
+      if (match) match.classList.add('active');
+    }
+    if (search) {
+      const input = document.getElementById('searchInput');
+      if (input) input.value = search;
+    }
+    if (location) {
+      const input = document.getElementById('locationInput');
+      if (input) input.value = location;
+    }
+    updateFilterCounts();
+    render();
+    const skeleton = document.getElementById('skeletonLoader');
+    if (skeleton) skeleton.style.display = 'none';
+  });
+</script>
+
+<script>
+  // Keyboard support for div/span elements marked role="button" with an onclick handler
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const target = e.target.closest('[role="button"]');
+    if (!target) return;
+    const tag = e.target.tagName.toLowerCase();
+    if (tag === 'button' || tag === 'a' || tag === 'input' || tag === 'textarea' || tag === 'select') return;
+    e.preventDefault();
+    target.click();
+  });
+
+  // Mobile nav toggle (hamburger)
+  (function () {
+    var navLinks = document.querySelector('.nav-links');
+    var hamburger = document.getElementById('navHamburger');
+    if (!navLinks || !hamburger) return;
+
+    function closeMobileNav() {
+      navLinks.classList.remove('mobile-open');
+      hamburger.textContent = '☰';
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    window.toggleMobileNav = function () {
+      var isOpen = navLinks.classList.toggle('mobile-open');
+      hamburger.textContent = isOpen ? '✕' : '☰';
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
+    document.addEventListener('click', function (e) {
+      if (navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMobileNav);
+    });
+  })();
+</script>
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-consent-inner">
+    <p class="cookie-consent-text">
+      We use cookies to run SearchGhana.com and improve your experience. By clicking &quot;Accept&quot;, you agree to our use of cookies as described in our
+      <a href="PrivacyPolicy.html">Privacy Policy</a>.
+    </p>
+    <div class="cookie-consent-actions">
+      <button type="button" id="cookieDecline" class="cookie-btn cookie-btn-outline">Decline</button>
+      <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<style>
+  .cookie-consent {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: var(--gray-900, #1A1816);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
+    padding: 16px 20px;
+    transform: translateY(110%);
+    transition: transform 0.35s ease;
+  }
+  .cookie-consent.is-visible { transform: translateY(0); }
+  .cookie-consent-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cookie-consent-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #F2F0EB;
+    flex: 1 1 320px;
+  }
+  .cookie-consent-text a { color: var(--brand-gold, #FCD116); text-decoration: underline; }
+  .cookie-consent-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .cookie-btn-accept {
+    background: var(--brand-gold, #FCD116);
+    color: var(--gray-900, #1A1816);
+  }
+  .cookie-btn-accept:hover { background: var(--brand-gold-dark, #E0B800); }
+  .cookie-btn-outline {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
+  }
+  .cookie-btn-outline:hover { background: rgba(255,255,255,0.1); }
+  @media (max-width: 560px) {
+    .cookie-consent-inner { flex-direction: column; align-items: stretch; }
+    .cookie-consent-actions { justify-content: flex-end; }
+  }
+</style>
+<script>
+(function () {
+  var STORAGE_KEY = 'sg_cookie_consent';
+  function getConsent() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+  function setConsent(value) {
+    try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+  }
+  var banner = document.getElementById('cookieConsent');
+  if (!banner) return;
+  if (!getConsent()) {
+    window.requestAnimationFrame(function () {
+      banner.classList.add('is-visible');
+    });
+  }
+  var acceptBtn = document.getElementById('cookieAccept');
+  var declineBtn = document.getElementById('cookieDecline');
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function () {
+      setConsent('accepted');
+      banner.classList.remove('is-visible');
+    });
+  }
+  if (declineBtn) {
+    declineBtn.addEventListener('click', function () {
+      setConsent('declined');
+      banner.classList.remove('is-visible');
+    });
+  }
+})();
+</script>
+<!-- End Cookie Consent Banner -->
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow"><!-- staging-noindex -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | SearchGhana</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="Icons/Copilot_20260407_222824.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-red: #CE1126; --brand-red-dark: #A50D1E; --brand-red-light: #FDEAED;
+    --brand-gold: #FCD116; --brand-gold-dark: #E0B800; --brand-gold-text: #8A6B00; --brand-gold-light: #FFFBE6;
+    --brand-green: #006B3F; --brand-green-light: #E6F4EE;
+    --white: #ffffff;
+    --gray-50: #FAF9F7; --gray-100: #F2F0EB; --gray-200: #E0DDD5;
+    --gray-400: #74706A; --gray-600: #5A5650; --gray-700: #403D38;
+    --gray-800: #2A2723; --gray-900: #1A1816;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); color: var(--gray-800); background: var(--gray-50); line-height: 1.6; font-size: 15px; }
+  .flag-stripe { height: 5px; background: linear-gradient(to right, var(--brand-red) 33.33%, var(--brand-gold) 33.33%, var(--brand-gold) 66.66%, var(--brand-green) 66.66%); }
+
+  .admin-header { background: var(--white); border-bottom: 1px solid var(--gray-100); }
+  .admin-header-inner { max-width: 900px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  .logo { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--gray-900); text-decoration: none; }
+  .admin-badge { font-size: 12px; font-weight: 700; color: var(--white); background: var(--gray-900); padding: 3px 10px; border-radius: 999px; }
+
+  .admin-main { max-width: 900px; margin: 0 auto; padding: 28px 24px 60px; }
+  .gate-wrap { max-width: 900px; margin: 60px auto; padding: 0 24px; text-align: center; }
+  .gate-wrap p { color: var(--gray-600); margin-bottom: 16px; }
+  .btn-primary { display: inline-block; background: var(--brand-green); color: var(--white); text-decoration: none; padding: 10px 20px; border-radius: var(--radius-md); font-weight: 600; font-size: 14px; }
+
+  .admin-section { margin-bottom: 36px; }
+  .admin-section h2 { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .count-badge { font-size: 12px; font-weight: 700; background: var(--gray-100); color: var(--gray-700); padding: 2px 9px; border-radius: 999px; }
+
+  .admin-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 16px; margin-bottom: 10px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  .admin-card-title { font-weight: 700; font-size: 15px; }
+  .admin-card-meta { font-size: 13px; color: var(--gray-600); margin-top: 2px; }
+  .admin-card-desc { font-size: 13px; color: var(--gray-700); margin-top: 8px; max-width: 480px; }
+  .admin-card-actions { display: flex; gap: 8px; flex-shrink: 0; }
+  .admin-card-actions button { font-family: inherit; font-size: 13px; font-weight: 700; border-radius: var(--radius-md); padding: 8px 14px; cursor: pointer; border: none; }
+  .btn-approve { background: var(--brand-green); color: var(--white); }
+  .btn-approve:hover { opacity: 0.88; }
+  .btn-reject { background: var(--white); color: var(--brand-red); border: 1.5px solid var(--brand-red-light) !important; }
+  .btn-reject:hover { background: var(--brand-red-light); }
+  .btn-verify-on { background: var(--brand-gold); color: var(--gray-900); }
+  .btn-verify-off { background: var(--white); color: var(--gray-600); border: 1.5px solid var(--gray-200) !important; }
+  .btn-sponsor-on { background: var(--brand-green); color: var(--white); }
+  .btn-sponsor-off { background: var(--white); color: var(--gray-600); border: 1.5px solid var(--gray-200) !important; }
+  .status-pill { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+  .status-pill-active { background: var(--brand-green-light); color: var(--brand-green); }
+  .status-pill-pending { background: var(--brand-gold-light); color: #92680A; }
+  .status-pill-rejected { background: var(--gray-100); color: var(--gray-500); }
+  .admin-card-actions button:disabled { opacity: 0.5; cursor: default; }
+
+  .empty-state { font-size: 13px; color: var(--gray-400); padding: 8px 2px; }
+  .admin-error { font-size: 13px; color: var(--brand-red); padding: 8px 2px; }
+
+  .admin-form { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 14px; }
+  .admin-form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .admin-form-row.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .admin-form-label { font-size: 13px; font-weight: 600; color: var(--gray-700); }
+  .admin-form-input, .admin-form-textarea, .admin-form-select { border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 10px 12px; font-family: inherit; font-size: 14px; color: var(--gray-900); background: var(--white); }
+  .admin-form-textarea { resize: vertical; min-height: 100px; }
+  .admin-form-actions { display: flex; gap: 10px; }
+  .btn-neutral { background: var(--gray-50); color: var(--gray-700); border: 1px solid var(--gray-200); }
+  .status-pill-draft { background: var(--gray-100); color: var(--gray-500); }
+  .status-pill-published { background: var(--brand-green-light); color: var(--brand-green); }
+</style>
+</head>
+<body>
+
+<div class="flag-stripe"></div>
+
+<div class="admin-header">
+  <div class="admin-header-inner">
+    <a href="Index.html" class="logo">SearchGhana</a>
+    <span class="admin-badge">Admin</span>
+  </div>
+</div>
+
+<div id="gateMessage" class="gate-wrap" style="display:none;">
+  <p id="gateText"></p>
+  <a href="Login.html" class="btn-primary" id="gateLoginLink" style="display:none;">Sign in</a>
+</div>
+
+<main id="adminMain" class="admin-main" style="display:none;">
+  <section class="admin-section">
+    <h2>Pending business listings <span class="count-badge" id="pendingBizCount">0</span></h2>
+    <div id="pendingBizList"></div>
+  </section>
+  <section class="admin-section">
+    <h2>Flagged reviews <span class="count-badge" id="flaggedReviewCount">0</span></h2>
+    <div id="flaggedReviewList"></div>
+  </section>
+  <section class="admin-section">
+    <h2>Pending claim requests <span class="count-badge" id="pendingClaimCount">0</span></h2>
+    <div id="pendingClaimList"></div>
+  </section>
+  <section class="admin-section">
+    <h2>All businesses <span class="count-badge" id="allBizCount">0</span></h2>
+    <div id="allBizList"></div>
+  </section>
+
+  <section class="admin-section">
+    <h2>Blog posts <span class="count-badge" id="blogPostCount">0</span></h2>
+
+    <div class="admin-form" id="blogPostForm" style="display:none;">
+      <input type="hidden" id="bpEditingId">
+      <div class="admin-form-row">
+        <label class="admin-form-label" for="bpTitle">Title</label>
+        <input class="admin-form-input" id="bpTitle" type="text" maxlength="200">
+      </div>
+      <div class="admin-form-row two-col">
+        <div>
+          <label class="admin-form-label" for="bpSlug">Slug (used in the URL)</label>
+          <input class="admin-form-input" id="bpSlug" type="text" maxlength="200" placeholder="top-10-chop-bars-in-accra">
+        </div>
+        <div>
+          <label class="admin-form-label" for="bpCategory">Category</label>
+          <input class="admin-form-input" id="bpCategory" type="text" maxlength="60" placeholder="Food, Business tips, ...">
+        </div>
+      </div>
+      <div class="admin-form-row">
+        <label class="admin-form-label" for="bpExcerpt">Excerpt (shown on the Blog listing page)</label>
+        <textarea class="admin-form-textarea" id="bpExcerpt" style="min-height:60px;" maxlength="300"></textarea>
+      </div>
+      <div class="admin-form-row">
+        <label class="admin-form-label" for="bpBody">Body (one paragraph per blank line)</label>
+        <textarea class="admin-form-textarea" id="bpBody" style="min-height:220px;"></textarea>
+      </div>
+      <div class="admin-form-row two-col">
+        <div>
+          <label class="admin-form-label" for="bpCoverEmoji">Cover emoji</label>
+          <input class="admin-form-input" id="bpCoverEmoji" type="text" maxlength="8" placeholder="🍲">
+        </div>
+        <div>
+          <label class="admin-form-label" for="bpReadMinutes">Read time (minutes)</label>
+          <input class="admin-form-input" id="bpReadMinutes" type="number" min="1" max="60">
+        </div>
+      </div>
+      <div class="admin-form-row two-col">
+        <div>
+          <label class="admin-form-label" for="bpAuthorName">Author name</label>
+          <input class="admin-form-input" id="bpAuthorName" type="text" maxlength="100" placeholder="SearchGhana Team">
+        </div>
+        <div>
+          <label class="admin-form-label" for="bpStatus">Status (new posts only)</label>
+          <select class="admin-form-select" id="bpStatus">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+          </select>
+        </div>
+      </div>
+      <div class="admin-form-actions">
+        <button type="button" class="btn-approve" id="btnSavePost">Save post</button>
+        <button type="button" class="btn-neutral" id="btnCancelPost" style="border-radius:var(--radius-md);padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;">Cancel</button>
+      </div>
+      <p class="admin-error" id="blogFormError" style="display:none;"></p>
+    </div>
+
+    <button class="btn-approve" id="btnNewPost" type="button" style="border-radius:var(--radius-md);padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;border:none;margin-bottom:14px;">+ New post</button>
+    <div id="blogPostList"></div>
+  </section>
+
+  <section class="admin-section">
+    <h2>Deals <span class="count-badge" id="dealCount">0</span></h2>
+    <p style="font-size:13px;color:var(--gray-600);margin-bottom:12px;">Deals are created by business owners from their dashboard. Deactivating one here hides it from the public Deals page without deleting it.</p>
+    <div id="dealList"></div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/supabase-client.js"></script>
+<script>
+  function escapeHtml(str) {
+    return String(str || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function timeAgo(dateStr) {
+    if (!dateStr) return '';
+    const mins = Math.floor((Date.now() - new Date(dateStr).getTime()) / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return `${mins}m ago`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours}h ago`;
+    return `${Math.floor(hours / 24)}d ago`;
+  }
+
+  async function loadPendingBusinesses() {
+    const list = document.getElementById('pendingBizList');
+    const countEl = document.getElementById('pendingBizCount');
+    const { data, error } = await window.sbClient.from('businesses').select('*').eq('status', 'pending').order('created_at', { ascending: false });
+    if (error) { list.innerHTML = '<p class="admin-error">Could not load pending listings.</p>'; return; }
+    countEl.textContent = (data || []).length;
+    if (!data || !data.length) { list.innerHTML = '<p class="empty-state">No pending listings.</p>'; return; }
+    list.innerHTML = data.map(biz => `
+      <div class="admin-card" data-id="${biz.id}">
+        <div class="admin-card-main">
+          <div class="admin-card-title">${escapeHtml(biz.name)}</div>
+          <div class="admin-card-meta">${escapeHtml(biz.category || '')} · ${escapeHtml(biz.city || biz.region || '')} · ${escapeHtml(biz.phone || 'No phone')} · submitted ${timeAgo(biz.created_at)}</div>
+          ${biz.description ? `<div class="admin-card-desc">${escapeHtml(biz.description)}</div>` : ''}
+        </div>
+        <div class="admin-card-actions">
+          <button class="btn-approve" data-action="approve-biz" data-id="${biz.id}">Approve</button>
+          <button class="btn-reject" data-action="reject-biz" data-id="${biz.id}">Reject</button>
+        </div>
+      </div>`).join('');
+  }
+
+  async function loadFlaggedReviews() {
+    const list = document.getElementById('flaggedReviewList');
+    const countEl = document.getElementById('flaggedReviewCount');
+    const { data, error } = await window.sbClient.from('reviews').select('*, businesses(name)').eq('status', 'flagged').order('updated_at', { ascending: false });
+    if (error) { list.innerHTML = '<p class="admin-error">Could not load flagged reviews.</p>'; return; }
+    countEl.textContent = (data || []).length;
+    if (!data || !data.length) { list.innerHTML = '<p class="empty-state">No flagged reviews.</p>'; return; }
+    list.innerHTML = data.map(r => `
+      <div class="admin-card" data-id="${r.id}">
+        <div class="admin-card-main">
+          <div class="admin-card-title">${escapeHtml(r.reviewer_name)} on ${escapeHtml(r.businesses?.name || 'a business')}</div>
+          <div class="admin-card-meta">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)} · ${r.report_count} report${r.report_count === 1 ? '' : 's'} · ${timeAgo(r.updated_at)}</div>
+          <div class="admin-card-desc">${escapeHtml(r.review_text)}</div>
+        </div>
+        <div class="admin-card-actions">
+          <button class="btn-approve" data-action="publish-review" data-id="${r.id}">Publish</button>
+          <button class="btn-reject" data-action="remove-review" data-id="${r.id}">Remove</button>
+        </div>
+      </div>`).join('');
+  }
+
+  async function loadPendingClaims() {
+    const list = document.getElementById('pendingClaimList');
+    const countEl = document.getElementById('pendingClaimCount');
+    const { data, error } = await window.sbClient.from('claim_requests').select('*, businesses(name)').eq('status', 'pending').order('created_at', { ascending: false });
+    if (error) { list.innerHTML = '<p class="admin-error">Could not load claim requests.</p>'; return; }
+    countEl.textContent = (data || []).length;
+    if (!data || !data.length) { list.innerHTML = '<p class="empty-state">No pending claim requests.</p>'; return; }
+    list.innerHTML = data.map(c => `
+      <div class="admin-card" data-id="${c.id}">
+        <div class="admin-card-main">
+          <div class="admin-card-title">${escapeHtml(c.claimant_name)} (${escapeHtml(c.claimant_role)}) claiming ${escapeHtml(c.businesses?.name || 'a business')}</div>
+          <div class="admin-card-meta">Contact: ${escapeHtml(c.contact_info)} · ${timeAgo(c.created_at)}</div>
+          ${c.message ? `<div class="admin-card-desc">${escapeHtml(c.message)}</div>` : ''}
+        </div>
+        <div class="admin-card-actions">
+          <button class="btn-approve" data-action="approve-claim" data-id="${c.id}">Approve</button>
+          <button class="btn-reject" data-action="reject-claim" data-id="${c.id}">Reject</button>
+        </div>
+      </div>`).join('');
+  }
+
+  async function loadAllBusinesses() {
+    const list = document.getElementById('allBizList');
+    const countEl = document.getElementById('allBizCount');
+    const { data, error } = await window.sbClient.from('businesses').select('*').order('name', { ascending: true });
+    if (error) { list.innerHTML = '<p class="admin-error">Could not load businesses.</p>'; return; }
+    countEl.textContent = (data || []).length;
+    if (!data || !data.length) { list.innerHTML = '<p class="empty-state">No businesses yet.</p>'; return; }
+    const statusPill = { active: ['Active', 'status-pill-active'], pending: ['Pending', 'status-pill-pending'], rejected: ['Rejected', 'status-pill-rejected'] };
+    list.innerHTML = data.map(biz => {
+      const [label, cls] = statusPill[biz.status] || [biz.status || 'Unknown', ''];
+      return `
+      <div class="admin-card" data-id="${biz.id}">
+        <div class="admin-card-main">
+          <div class="admin-card-title">${escapeHtml(biz.name)} <span class="status-pill ${cls}">${label}</span></div>
+          <div class="admin-card-meta">${escapeHtml(biz.category || '')} · ${escapeHtml(biz.city || biz.region || '')}</div>
+        </div>
+        <div class="admin-card-actions">
+          <button class="${biz.verified ? 'btn-verify-on' : 'btn-verify-off'}" data-action="toggle-verified" data-id="${biz.id}" data-verified="${biz.verified ? 'true' : 'false'}">${biz.verified ? '✓ Verified' : '☆ Not verified'}</button>
+          <button class="${biz.is_sponsored ? 'btn-sponsor-on' : 'btn-sponsor-off'}" data-action="toggle-sponsored" data-id="${biz.id}" data-sponsored="${biz.is_sponsored ? 'true' : 'false'}">${biz.is_sponsored ? '📈 Sponsored' : '☆ Not sponsored'}</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  async function loadBlogPosts() {
+    const list = document.getElementById('blogPostList');
+    const countEl = document.getElementById('blogPostCount');
+    const { data, error } = await window.sbClient.from('blog_posts').select('*').order('created_at', { ascending: false });
+    if (error) { list.innerHTML = '<p class="admin-error">Could not load blog posts.</p>'; return; }
+    countEl.textContent = (data || []).length;
+    if (!data || !data.length) { list.innerHTML = '<p class="empty-state">No blog posts yet.</p>'; return; }
+    list.innerHTML = data.map(post => `
+      <div class="admin-card" data-id="${post.id}">
+        <div class="admin-card-main">
+          <div class="admin-card-title">${post.cover_emoji ? escapeHtml(post.cover_emoji) + ' ' : ''}${escapeHtml(post.title)} <span class="status-pill ${post.status === 'published' ? 'status-pill-published' : 'status-pill-draft'}">${post.status === 'published' ? 'Published' : 'Draft'}</span></div>
+          <div class="admin-card-meta">${escapeHtml(post.category || 'Uncategorized')} · ${escapeHtml(post.author_name)} · ${timeAgo(post.created_at)}</div>
+          <div class="admin-card-desc">${escapeHtml(post.excerpt || '')}</div>
+        </div>
+        <div class="admin-card-actions">
+          <button class="btn-neutral" style="border-radius:var(--radius-md);" data-action="edit-post" data-id="${post.id}">Edit</button>
+          <button class="${post.status === 'published' ? 'btn-reject' : 'btn-approve'}" data-action="toggle-post-status" data-id="${post.id}" data-status="${post.status}">${post.status === 'published' ? 'Unpublish' : 'Publish'}</button>
+          <button class="btn-reject" data-action="delete-post" data-id="${post.id}">Delete</button>
+        </div>
+      </div>`).join('');
+  }
+
+  let blogPostsCache = [];
+  async function refreshBlogPostsCache() {
+    const { data } = await window.sbClient.from('blog_posts').select('*').order('created_at', { ascending: false });
+    blogPostsCache = data || [];
+  }
+
+  function openPostForm(post) {
+    document.getElementById('blogPostForm').style.display = 'block';
+    document.getElementById('blogFormError').style.display = 'none';
+    document.getElementById('bpEditingId').value = post ? post.id : '';
+    document.getElementById('bpTitle').value = post ? post.title : '';
+    document.getElementById('bpSlug').value = post ? post.slug : '';
+    document.getElementById('bpCategory').value = post ? (post.category || '') : '';
+    document.getElementById('bpExcerpt').value = post ? (post.excerpt || '') : '';
+    document.getElementById('bpBody').value = post ? post.body : '';
+    document.getElementById('bpCoverEmoji').value = post ? (post.cover_emoji || '') : '';
+    document.getElementById('bpReadMinutes').value = post ? (post.read_minutes || '') : '';
+    document.getElementById('bpAuthorName').value = post ? post.author_name : '';
+    document.getElementById('bpStatus').value = 'draft';
+    // Slug and status only make sense on create -- a live post's URL shouldn't
+    // change from under anyone sharing it, and status has its own Publish/
+    // Unpublish button in the list instead.
+    document.getElementById('bpSlug').disabled = !!post;
+    document.getElementById('bpSlug').parentElement.style.display = post ? 'none' : '';
+    document.getElementById('bpStatus').parentElement.style.display = post ? 'none' : '';
+    document.getElementById('bpTitle').focus();
+  }
+
+  function slugify(title) {
+    return title.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 180);
+  }
+
+  document.getElementById('btnNewPost').addEventListener('click', () => openPostForm(null));
+  document.getElementById('btnCancelPost').addEventListener('click', () => { document.getElementById('blogPostForm').style.display = 'none'; });
+  document.getElementById('bpTitle').addEventListener('input', function () {
+    if (!document.getElementById('bpEditingId').value && !document.getElementById('bpSlug').dataset.manuallyEdited) {
+      document.getElementById('bpSlug').value = slugify(this.value);
+    }
+  });
+  document.getElementById('bpSlug').addEventListener('input', function () { this.dataset.manuallyEdited = 'true'; });
+
+  document.getElementById('btnSavePost').addEventListener('click', async function () {
+    const errEl = document.getElementById('blogFormError');
+    errEl.style.display = 'none';
+    const editingId = document.getElementById('bpEditingId').value;
+    const title = document.getElementById('bpTitle').value.trim();
+    const slug = document.getElementById('bpSlug').value.trim();
+    const body = document.getElementById('bpBody').value.trim();
+    if (!title || !body || (!editingId && !slug)) {
+      errEl.textContent = 'Title and body are required (and a slug, for a new post).';
+      errEl.style.display = 'block';
+      return;
+    }
+    const excerpt = document.getElementById('bpExcerpt').value.trim() || null;
+    const category = document.getElementById('bpCategory').value.trim() || null;
+    const coverEmoji = document.getElementById('bpCoverEmoji').value.trim() || null;
+    const readMinutes = parseInt(document.getElementById('bpReadMinutes').value, 10) || null;
+    const authorName = document.getElementById('bpAuthorName').value.trim() || 'SearchGhana Team';
+
+    this.disabled = true;
+    try {
+      if (editingId) {
+        const { error } = await window.sbClient.rpc('admin_update_blog_post', {
+          p_post_id: editingId, p_title: title, p_excerpt: excerpt, p_body: body,
+          p_cover_emoji: coverEmoji, p_category: category, p_read_minutes: readMinutes, p_author_name: authorName,
+        });
+        if (error) throw error;
+      } else {
+        const status = document.getElementById('bpStatus').value;
+        const { error } = await window.sbClient.rpc('admin_create_blog_post', {
+          p_title: title, p_slug: slug, p_excerpt: excerpt, p_body: body,
+          p_cover_emoji: coverEmoji, p_category: category, p_read_minutes: readMinutes,
+          p_author_name: authorName, p_status: status,
+        });
+        if (error) throw error;
+      }
+      document.getElementById('blogPostForm').style.display = 'none';
+      await loadBlogPosts();
+    } catch (err) {
+      errEl.textContent = err.message || 'Could not save this post.';
+      errEl.style.display = 'block';
+    } finally {
+      this.disabled = false;
+    }
+  });
+
+  async function loadDeals() {
+    const list = document.getElementById('dealList');
+    const countEl = document.getElementById('dealCount');
+    const { data, error } = await window.sbClient
+      .from('deals')
+      .select('*, businesses(name)')
+      .order('created_at', { ascending: false });
+    if (error) { list.innerHTML = '<p class="admin-error">Could not load deals.</p>'; return; }
+    countEl.textContent = (data || []).length;
+    if (!data || !data.length) { list.innerHTML = '<p class="empty-state">No deals yet.</p>'; return; }
+    const now = Date.now();
+    list.innerHTML = data.map(deal => {
+      const expired = deal.expires_at && new Date(deal.expires_at).getTime() < now;
+      const statusLabel = !deal.active ? 'Deactivated' : (expired ? 'Expired' : 'Active');
+      const statusCls = !deal.active ? 'status-pill-draft' : (expired ? 'status-pill-draft' : 'status-pill-published');
+      return `
+      <div class="admin-card" data-id="${deal.id}">
+        <div class="admin-card-main">
+          <div class="admin-card-title">${escapeHtml(deal.title)} <span class="status-pill ${statusCls}">${statusLabel}</span></div>
+          <div class="admin-card-meta">${escapeHtml(deal.businesses?.name || 'Unknown business')}${deal.discount_label ? ' · ' + escapeHtml(deal.discount_label) : ''}${deal.expires_at ? ' · Ends ' + new Date(deal.expires_at).toLocaleDateString() : ''}</div>
+          <div class="admin-card-desc">${escapeHtml(deal.description || '')}</div>
+        </div>
+        <div class="admin-card-actions">
+          <button class="${deal.active ? 'btn-reject' : 'btn-approve'}" data-action="toggle-deal-active" data-id="${deal.id}" data-active="${deal.active ? 'true' : 'false'}">${deal.active ? 'Deactivate' : 'Reactivate'}</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  document.addEventListener('click', async function (e) {
+    const btn = e.target.closest('button[data-action]');
+    if (!btn) return;
+    const action = btn.dataset.action;
+    const id = btn.dataset.id;
+
+    if (action === 'edit-post') {
+      await refreshBlogPostsCache();
+      const post = blogPostsCache.find(p => p.id === id);
+      if (post) openPostForm(post);
+      return;
+    }
+
+    btn.disabled = true;
+    try {
+      if (action === 'approve-biz') await window.sbClient.rpc('admin_set_business_status', { p_business_id: id, p_status: 'active' });
+      else if (action === 'reject-biz') await window.sbClient.rpc('admin_set_business_status', { p_business_id: id, p_status: 'rejected' });
+      else if (action === 'publish-review') await window.sbClient.rpc('admin_resolve_review', { p_review_id: id, p_status: 'published' });
+      else if (action === 'remove-review') await window.sbClient.rpc('admin_resolve_review', { p_review_id: id, p_status: 'removed' });
+      else if (action === 'approve-claim') await window.sbClient.rpc('admin_resolve_claim', { p_claim_id: id, p_approve: true });
+      else if (action === 'reject-claim') await window.sbClient.rpc('admin_resolve_claim', { p_claim_id: id, p_approve: false });
+      else if (action === 'toggle-verified') await window.sbClient.rpc('admin_set_verified', { p_business_id: id, p_verified: btn.dataset.verified !== 'true' });
+      else if (action === 'toggle-sponsored') await window.sbClient.rpc('admin_set_sponsored', { p_business_id: id, p_sponsored: btn.dataset.sponsored !== 'true' });
+      else if (action === 'toggle-post-status') await window.sbClient.rpc('admin_set_blog_post_status', { p_post_id: id, p_status: btn.dataset.status === 'published' ? 'draft' : 'published' });
+      else if (action === 'delete-post') { if (!confirm('Delete this post permanently?')) { btn.disabled = false; return; } await window.sbClient.rpc('admin_delete_blog_post', { p_post_id: id }); }
+      else if (action === 'toggle-deal-active') await window.sbClient.rpc('admin_set_deal_active', { p_deal_id: id, p_active: btn.dataset.active !== 'true' });
+
+      if (action === 'toggle-verified' || action === 'toggle-sponsored') await loadAllBusinesses();
+      else if (action.includes('biz')) await loadPendingBusinesses();
+      else if (action.includes('review')) await loadFlaggedReviews();
+      else if (action.includes('claim')) await loadPendingClaims();
+      else if (action.includes('post')) await loadBlogPosts();
+      else if (action.includes('deal')) await loadDeals();
+    } catch (err) {
+      alert('That action failed: ' + (err.message || err));
+      btn.disabled = false;
+    }
+  });
+
+  async function checkAdminAndLoad() {
+    const gateMessage = document.getElementById('gateMessage');
+    const gateText = document.getElementById('gateText');
+    const gateLoginLink = document.getElementById('gateLoginLink');
+    const adminMain = document.getElementById('adminMain');
+
+    const { data: { session } } = await window.sbClient.auth.getSession();
+    if (!session) {
+      gateMessage.style.display = 'block';
+      gateText.textContent = 'Sign in with an admin account to view this page.';
+      gateLoginLink.style.display = 'inline-block';
+      return;
+    }
+
+    const { data: isAdminResult, error } = await window.sbClient.rpc('is_admin');
+    if (error || !isAdminResult) {
+      gateMessage.style.display = 'block';
+      gateText.textContent = "This account doesn't have admin access.";
+      gateLoginLink.style.display = 'none';
+      return;
+    }
+
+    adminMain.style.display = 'block';
+    await Promise.all([loadPendingBusinesses(), loadFlaggedReviews(), loadPendingClaims(), loadAllBusinesses(), loadBlogPosts(), loadDeals()]);
+  }
+
+  document.addEventListener('DOMContentLoaded', checkAdminAndLoad);
+</script>
+</body>
+</html>
