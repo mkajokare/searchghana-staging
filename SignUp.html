@@ -421,7 +421,9 @@ document.getElementById('signupForm').addEventListener('submit', async function(
       email: email,
       password: password,
       options: {
-        data: { full_name: name }
+        data: { full_name: name },
+        // send the confirmation link back to this site's home page (works under a sub-path like /searchghana-staging/)
+        emailRedirectTo: new URL('Index.html', window.location.href).href
       }
     });
 
