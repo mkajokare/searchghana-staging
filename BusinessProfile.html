@@ -448,13 +448,18 @@
     'upper-west': 'Upper West', 'bono': 'Bono', 'oti': 'Oti', 'ahafo': 'Ahafo',
     'bono-east': 'Bono East', 'savannah': 'Savannah', 'north-east': 'North East', 'western-north': 'Western North',
   };
-  // Same category values AddBusiness.html saves.
+  // Category values exactly as AddBusiness.html stores them (it folds chop-bar/restaurant into 'food', salon into 'salons', etc.)
+  // so Browse.html filters and category icons keep working after an edit.
   const CATEGORY_OPTIONS = [
-    ['chop-bar', 'Chop Bar & Food'], ['restaurant', 'Restaurant'], ['pharmacy', 'Pharmacy'],
-    ['salon', 'Salon & Barbering'], ['plumber', 'Plumber'], ['electrician', 'Electrician'],
-    ['mobile-money', 'Mobile Money'], ['transport', 'Transport & Taxis'], ['hotel', 'Hotel & Guesthouse'],
-    ['supermarket', 'Supermarket'], ['electronics', 'Electronics'], ['other', 'Other'],
+    ['food', 'Chop Bar, Restaurant & Food'], ['pharmacies', 'Pharmacy'], ['salons', 'Salon & Barbering'],
+    ['plumbers', 'Plumber'], ['electricians', 'Electrician'], ['mobile-money', 'Mobile Money'],
+    ['transport', 'Transport & Taxis'], ['hotel', 'Hotel & Guesthouse'], ['supermarket', 'Supermarket'],
+    ['electronics', 'Electronics'], ['builders', 'Builders & Masons'], ['fashion', 'Fashion & Tailors'],
+    ['clinics', 'Clinics & Hospitals'], ['other', 'Other'],
   ];
+  const CATEGORY_ALIASES = { 'salon': 'salons', 'plumber': 'plumbers', 'electrician': 'electricians', 'pharmacy': 'pharmacies',
+    'chop-bar': 'food', 'restaurant': 'food', 'clinic': 'clinics', 'builder': 'builders' };
+  const normCategory = c => CATEGORY_ALIASES[c] || c || '';
   const PAYMENT_OPTIONS = [
     ['cash', '💵 Cash'], ['momo', '📱 Mobile Money'], ['card', '💳 Card'], ['bank_transfer', '🏦 Bank Transfer'],
   ];
@@ -549,7 +554,7 @@
       label: 'Categories', kind: 'category', field: 'category',
       help: 'The category customers browse to find you.',
       done: b => hasText(b.category),
-      hint: b => (CATEGORY_OPTIONS.find(c => c[0] === b.category) || [0, b.category || 'Not set'])[1],
+      hint: b => (CATEGORY_OPTIONS.find(c => c[0] === normCategory(b.category)) || [0, b.category || 'Not set'])[1],
     },
     essentials: {
       label: 'Essential details', kind: 'essentials',
@@ -871,7 +876,7 @@
   /* — category — */
   EDITORS.category = {
     open() {
-      const cur = biz.category || '';
+      const cur = normCategory(biz.category);
       const opts = CATEGORY_OPTIONS.slice();
       if (cur && !opts.some(o => o[0] === cur)) opts.unshift([cur, cur]);
       modalBody().innerHTML = `<div class="bp-field"><label class="bp-label" for="bpCategory">Category</label>

@@ -164,6 +164,20 @@
   .skip-link { position: absolute; left: -9999px; top: 0; background: #fff; color: #111; padding: 10px 18px; z-index: 10000; border-radius: 0 0 8px 0; font-family: system-ui, sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
   .skip-link:focus { left: 0; }
 </style>
+<style id="responsive-footer">
+/* shared small-screen fixes for nav + footer (responsive-footer) */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand p { max-width: none; }
+}
+@media (max-width: 560px) {
+  .nav-inner { padding-left: 16px; padding-right: 16px; gap: 8px; }
+  .footer { padding: 40px 16px 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-links { flex-wrap: wrap; gap: 8px 16px; }
+}
+</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>

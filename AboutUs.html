@@ -205,6 +205,20 @@
   }
 }
 </script>
+<style id="responsive-footer">
+/* shared small-screen fixes for nav + footer (responsive-footer) */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand p { max-width: none; }
+}
+@media (max-width: 560px) {
+  .nav-inner { padding-left: 16px; padding-right: 16px; gap: 8px; }
+  .footer { padding: 40px 16px 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-links { flex-wrap: wrap; gap: 8px 16px; }
+}
+</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -255,7 +269,6 @@
             <a href="Profile.html" class="menu-item">
               <div class="menu-icon gold">🏪</div>
               <span class="menu-label">My Business Listings</span>
-              <span class="menu-badge">2</span>
             </a>
             <a href="Reviews.html" class="menu-item">
               <div class="menu-icon">⭐</div>
@@ -268,7 +281,6 @@
             <a href="#" class="menu-item">
               <div class="menu-icon">🔔</div>
               <span class="menu-label">Notifications</span>
-              <span class="menu-badge">3</span>
             </a>
             <div class="menu-sep"></div>
             <a href="Profile.html" class="menu-item">

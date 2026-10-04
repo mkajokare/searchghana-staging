@@ -340,6 +340,20 @@
     .nav-links.mobile-open .nav-cta { display: block; text-align: center; margin-top: 4px; }
   }
 </style>
+<style id="responsive-footer">
+/* shared small-screen fixes for nav + footer (responsive-footer) */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand p { max-width: none; }
+}
+@media (max-width: 560px) {
+  .nav-inner { padding-left: 16px; padding-right: 16px; gap: 8px; }
+  .footer { padding: 40px 16px 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-links { flex-wrap: wrap; gap: 8px 16px; }
+}
+</style>
 </head>
 <body>
 
@@ -380,10 +394,10 @@
           </div>
           <div class="dropdown-body">
             <a href="Profile.html" class="menu-item"><div class="menu-icon">👤</div><span class="menu-label">My Profile</span></a>
-            <a href="BusinessProfile.html" class="menu-item"><div class="menu-icon gold">🏪</div><span class="menu-label">My Business Listings</span><span class="menu-badge">2</span></a>
+            <a href="BusinessProfile.html" class="menu-item"><div class="menu-icon gold">🏪</div><span class="menu-label">My Business Listings</span></a>
             <a href="#" class="menu-item"><div class="menu-icon">⭐</div><span class="menu-label">My Reviews</span></a>
             <a href="#" class="menu-item"><div class="menu-icon green">🔖</div><span class="menu-label">Saved Businesses</span></a>
-            <a href="#" class="menu-item"><div class="menu-icon">🔔</div><span class="menu-label">Notifications</span><span class="menu-badge">3</span></a>
+            <a href="#" class="menu-item"><div class="menu-icon">🔔</div><span class="menu-label">Notifications</span></a>
             <div class="menu-sep"></div>
             <a href="#" class="menu-item"><div class="menu-icon">⚙️</div><span class="menu-label">Account Settings</span></a>
             <div class="menu-sep"></div>
@@ -467,7 +481,6 @@
       <a class="side-nav-item" id="nav-notifications" onclick="switchSection('notifications')" href="#">
         <span class="side-nav-icon">🔔</span>
         <span class="side-nav-label">Notifications</span>
-        <span class="side-nav-badge">3</span>
       </a>
       <a class="side-nav-item" id="nav-security" onclick="switchSection('security')" href="#">
         <span class="side-nav-icon">🔒</span>
@@ -1259,8 +1272,10 @@
     'electronics': { label: 'Electronics', emoji: '🔌', color: '#F0EAE0' },
     'other': { label: 'Other', emoji: '🏪', color: '#F0F0F0' },
   };
+  // AddBusiness saves broad Browse categories (food, salons, ...); tolerate singular/legacy spellings too.
+  const CATEGORY_ALIASES = { 'salon': 'salons', 'plumber': 'plumbers', 'electrician': 'electricians', 'pharmacy': 'pharmacies', 'chop-bar': 'food', 'restaurant': 'food', 'clinic': 'clinics', 'builder': 'builders' };
   function categoryMeta(cat) {
-    return CATEGORY_META[cat] || { label: cat || 'Business', emoji: '🏪', color: '#F0F0F0' };
+    return CATEGORY_META[CATEGORY_ALIASES[cat] || cat] || { label: cat || 'Business', emoji: '🏪', color: '#F0F0F0' };
   }
 
   function escapeHtml(str) {
