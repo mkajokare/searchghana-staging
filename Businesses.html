@@ -2034,7 +2034,7 @@
 
     // Real profile-view counter feeding the owner dashboard -- fire-and-forget,
     // never blocks rendering and never surfaces an error to the visitor.
-    window.sbClient.rpc('log_business_view', { p_business_id: data.id }).catch(() => {});
+    Promise.resolve(window.sbClient.rpc('log_business_view', { p_business_id: data.id })).catch(() => {});
   });
 </script>
 <script>
@@ -2150,10 +2150,10 @@ document.addEventListener('keydown', function (e) {
 document.addEventListener('click', function (e) {
   if (e.target.closest('#callBtn, #ctaCall')) {
     const id = new URLSearchParams(window.location.search).get('id');
-    if (id) window.sbClient.rpc('log_business_lead', { p_business_id: id, p_lead_type: 'phone' }).catch(() => {});
+    if (id) Promise.resolve(window.sbClient.rpc('log_business_lead', { p_business_id: id, p_lead_type: 'phone' })).catch(() => {});
   } else if (e.target.closest('#waBtn, #ctaWa')) {
     const id = new URLSearchParams(window.location.search).get('id');
-    if (id) window.sbClient.rpc('log_business_lead', { p_business_id: id, p_lead_type: 'whatsapp' }).catch(() => {});
+    if (id) Promise.resolve(window.sbClient.rpc('log_business_lead', { p_business_id: id, p_lead_type: 'whatsapp' })).catch(() => {});
   }
 });
 
