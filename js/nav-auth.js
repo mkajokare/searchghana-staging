@@ -13,6 +13,40 @@
     return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
   }
 
+  /* Email links (confirm sign-up etc.) now arrive as ?token_hash=...&type=...
+     and are verified here by script instead of by a one-time link that mail
+     scanners (Outlook, Brevo link tracking) open first and use up. Recovery
+     links are handled by ResetPassword.html itself. */
+  function showAuthBanner(text, ok) {
+    const el = document.createElement('div');
+    el.setAttribute('role', 'status');
+    el.textContent = text;
+    el.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:99999;padding:12px 16px;text-align:center;font:600 14px/1.4 system-ui,sans-serif;color:#fff;background:' + (ok ? '#006B3F' : '#CE1126') + ';';
+    document.body.appendChild(el);
+    setTimeout(function () { el.remove(); }, 7000);
+  }
+
+  async function handleAuthLink() {
+    if (!window.sbClient) return;
+    let params;
+    try { params = new URLSearchParams(window.location.search); } catch (e) { return; }
+    const tokenHash = params.get('token_hash');
+    const type = params.get('type');
+    if (!tokenHash || !type || type === 'recovery') return;
+    try {
+      const { error } = await window.sbClient.auth.verifyOtp({ token_hash: tokenHash, type: type });
+      if (error) showAuthBanner('That email link is invalid or has expired. Please sign in, or request a new one.', false);
+      else showAuthBanner(type === 'signup' ? 'Email confirmed. You are signed in.' : 'Done. You are signed in.', true);
+    } catch (e) {
+      showAuthBanner('That email link could not be verified. Please try again.', false);
+    }
+    try {
+      params.delete('token_hash'); params.delete('type');
+      const qs = params.toString();
+      window.history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+    } catch (e) { /* cosmetic only */ }
+  }
+
   async function initNavProfile() {
     if (!window.sbClient) return;
     const wrapper = document.querySelector('.profile-wrapper');
@@ -95,7 +129,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    initNavProfile();
+    handleAuthLink().then(initNavProfile, initNavProfile);
     wireDropdownAria();
     injectFocusVisibleStyle();
   });
