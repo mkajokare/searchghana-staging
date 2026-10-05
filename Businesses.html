@@ -1572,6 +1572,7 @@
       .from('businesses')
       .select('*')
       .eq('category', biz.category)
+      .eq('status', 'active')
       .neq('id', biz.id)
       .limit(4);
     if (error || !data || !data.length) { card.style.display = 'none'; return; }

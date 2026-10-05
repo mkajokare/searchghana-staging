@@ -929,8 +929,8 @@ document.addEventListener('DOMContentLoaded', function() {
   (async function loadHomeStats() {
     try {
       const [bizCountRes, rowsRes, reviewCountRes] = await Promise.all([
-        window.sbClient.from('businesses').select('*', { count: 'exact', head: true }),
-        window.sbClient.from('businesses').select('category, view_count'),
+        window.sbClient.from('businesses').select('*', { count: 'exact', head: true }).eq('status', 'active'),
+        window.sbClient.from('businesses').select('category, view_count').eq('status', 'active'),
         window.sbClient.from('reviews').select('*', { count: 'exact', head: true }).eq('status', 'published'),
       ]);
 
