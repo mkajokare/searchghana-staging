@@ -377,6 +377,103 @@
 }
 </style>
 <link rel="stylesheet" href="css/mobile-polish.css">
+<style id="browse-mobile">
+/* Browse page, desktop defaults for the new pieces (they stay hidden or invisible there) */
+.bs-where { position: relative; max-width: 140px; flex-shrink: 0; }
+.bs-where input { max-width: 140px; }
+.filters-btn, .drawer-head, .drawer-foot, .filter-backdrop { display: none; }
+.drawer-body { display: contents; }
+.sort-left[hidden] { display: none !important; }
+.acc-summary { display: none; }
+
+/* ===== Phones and tablets: filters live in a slide-up menu ===== */
+@media (max-width: 960px) {
+  .filter-backdrop { display: block; position: fixed; inset: 0; background: rgba(13,13,13,0.55); opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; z-index: 10000; }
+  body.filters-open { overflow: hidden; }
+  body.filters-open .filter-backdrop { opacity: 1; visibility: visible; }
+
+  .sidebar { position: fixed; left: 0; right: 0; bottom: 0; top: auto; display: flex; flex-direction: column; gap: 0; max-height: 86vh; max-height: 86dvh; background: var(--gray-50); border-radius: 20px 20px 0 0; box-shadow: 0 -10px 40px rgba(0,0,0,0.28); z-index: 10001; transform: translateY(105%); visibility: hidden; transition: transform .28s ease, visibility .28s; }
+  body.filters-open .sidebar { transform: none; visibility: visible; }
+
+  .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 12px; background: var(--white); border-radius: 20px 20px 0 0; border-bottom: 1px solid var(--gray-100); position: relative; flex-shrink: 0; }
+  .drawer-head::before { content: ''; position: absolute; top: 7px; left: 50%; width: 38px; height: 4px; margin-left: -19px; border-radius: 4px; background: var(--gray-200); }
+  .drawer-title { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--gray-900); }
+  .drawer-close { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--gray-100); color: var(--gray-700); font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+  .drawer-body { display: flex; flex-direction: column; gap: 10px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: 12px 16px; flex: 1 1 auto; min-height: 0; }
+  .drawer-foot { display: flex; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: var(--white); border-top: 1px solid var(--gray-100); flex-shrink: 0; }
+  .drawer-clear { flex: 0 0 auto; padding: 13px 18px; border-radius: var(--radius-md); border: 1.5px solid var(--gray-200); background: var(--white); color: var(--gray-700); font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; }
+  .drawer-apply { flex: 1; padding: 13px 18px; border-radius: var(--radius-md); border: none; background: var(--brand-red); color: var(--white); font-family: var(--font-display); font-size: 14px; font-weight: 700; cursor: pointer; }
+  .drawer-apply:active { background: var(--brand-red-dark); }
+
+  /* Each filter group is a tappable row that opens one at a time */
+  .sidebar .promo-banner { display: none; }
+  .sidebar-card { flex-shrink: 0; }
+  .sidebar-card-header { cursor: pointer; padding: 0 16px; min-height: 54px; gap: 10px; border-bottom: 0; user-select: none; }
+  .sidebar-card.acc-open .sidebar-card-header { border-bottom: 1px solid var(--gray-100); }
+  .sidebar-card-title { font-size: 15px; flex-shrink: 0; }
+  .acc-summary { display: block; flex: 1; min-width: 0; text-align: right; font-size: 13px; color: var(--gray-400); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .acc-summary.is-set { color: var(--brand-red); font-weight: 600; }
+  .sidebar-card-header::after { content: ''; width: 8px; height: 8px; border-right: 2px solid var(--gray-400); border-bottom: 2px solid var(--gray-400); transform: rotate(45deg); margin: -3px 4px 0 2px; flex-shrink: 0; transition: transform .2s; }
+  .sidebar-card.acc-open .sidebar-card-header::after { transform: rotate(-135deg); margin-top: 3px; }
+  .sidebar-card:not(.acc-open) .sidebar-card-body { display: none !important; }
+  .sidebar-card:not(.acc-open) .sidebar-clear, .sidebar-card:not(.has-sel) .sidebar-clear { display: none; }
+  .sidebar-clear { font-size: 13px; padding: 8px 4px; }
+  .sidebar-card-body { padding: 12px 14px !important; }
+
+  /* Bigger, easier-to-tap options */
+  .region-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .region-extra-group { display: contents; }
+  .region-item { padding: 12px; border: 1px solid var(--gray-100); border-radius: var(--radius-md); background: var(--white); min-height: 46px; }
+  .region-item.active { border-color: rgba(206,17,38,0.35); }
+  #regionToggleBtn { grid-column: 1 / -1; justify-content: center; border-style: dashed; }
+  .cat-item { padding: 12px; min-height: 46px; }
+  .rating-opt { padding: 12px 8px; min-height: 46px; }
+  .rating-opt input[type="checkbox"] { width: 20px; height: 20px; }
+  .sidebar-card-body .toggle-row { padding: 2px 0; }
+
+  /* Results toolbar: [Filters] [Sort] [view]  then the chosen-filter chips underneath */
+  .sort-row { flex-direction: column-reverse; align-items: stretch; gap: 10px; flex-wrap: nowrap; }
+  .sort-right { width: 100%; gap: 8px; }
+  .sort-left > span:first-child { display: none; }
+  .sort-select { flex: 1; min-width: 0; height: 40px; padding: 0 4px 0 10px; font-size: 13px; text-overflow: ellipsis; }
+  .view-btn { width: 36px; height: 38px; }
+  .filters-btn { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; padding: 0 12px; height: 40px; border: 1px solid var(--gray-200); border-radius: var(--radius-md); background: var(--white); color: var(--gray-800); font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; }
+  .filters-btn.has-filters { border-color: var(--brand-red); color: var(--brand-red); background: var(--brand-red-light); }
+  .filters-badge { display: none; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 100px; background: var(--brand-red); color: var(--white); font-size: 12px; font-weight: 700; align-items: center; justify-content: center; }
+  .filters-badge.show { display: inline-flex; }
+}
+
+/* ===== Phones: smaller header, stacked search, compact cards ===== */
+@media (max-width: 600px) {
+  .browse-header { padding: 0 16px; }
+  .browse-header-inner { padding: 12px 0 14px; gap: 10px; }
+  .breadcrumb { font-size: 12px; white-space: nowrap; overflow: hidden; }
+  .browse-title { font-size: 22px; line-height: 1.2; flex-wrap: wrap; gap: 0 8px; letter-spacing: -0.4px; }
+  .browse-count { flex-basis: 100%; padding-left: 16px; font-size: 13px; }
+
+  .browse-search { flex-direction: column; gap: 8px; }
+  .bs-wrap { flex-wrap: wrap; padding: 0 14px; gap: 0 10px; max-width: none; }
+  .bs-wrap > span:not(.bs-icon):not(.bs-divider) { flex: 1 1 0; min-width: 0; }
+  .bs-divider { flex: 0 0 100%; width: 100%; height: 1px; }
+  .bs-where, .bs-where input { max-width: none; }
+  .bs-wrap input { font-size: 16px; padding: 12px 0; }
+  .browse-search-btn { width: 100%; padding: 12px; }
+
+  .browse-layout { padding: 14px 16px 48px; gap: 16px; }
+  .results-area { gap: 12px; }
+
+  .list-card { padding: 14px; gap: 10px 12px; grid-template-columns: 56px 1fr; }
+  .list-thumb { width: 56px; height: 56px; font-size: 24px; }
+  .list-head { gap: 6px; margin-bottom: 4px; }
+  .list-meta { gap: 4px 12px; }
+  /* keep a Call button and Save on phones (the whole card already opens the profile) */
+  .list-actions { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 8px; grid-column: 1 / -1; }
+  .list-actions .list-view-btn { display: none; }
+  .list-phone-btn { flex: 1; text-align: center; }
+  .filter-chip { padding: 6px 12px; }
+}
+</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -460,13 +557,13 @@
       <div class="bs-wrap">
         <span class="bs-icon">🔍</span>
         <span style="position:relative;flex:1;">
-          <input type="text" placeholder='Search "chop bar", "plumber", "pharmacy"...' id="searchInput" aria-label="Search businesses" autocomplete="off">
+          <input type="text" placeholder='Search "chop bar", "plumber"…' id="searchInput" aria-label="Search businesses" autocomplete="off">
           <div class="search-suggest" id="browseWhatSuggest"></div>
         </span>
         <span class="bs-divider"></span>
         <span class="bs-icon bs-icon-action" id="useLocationBtn" role="button" tabindex="0" aria-label="Use my location" title="Use my location" onclick="useMyLocation()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();useMyLocation();}">📍</span>
-        <span style="position:relative;max-width:140px;flex-shrink:0;">
-          <input type="text" placeholder="Accra, Kumasi, Tamale..." style="max-width:140px;" id="locationInput" aria-label="Location" autocomplete="off">
+        <span class="bs-where">
+          <input type="text" placeholder="Accra, Kumasi, Tamale..." id="locationInput" aria-label="Location" autocomplete="off">
           <div class="search-suggest" id="browseWhereSuggest"></div>
         </span>
       </div>
@@ -479,6 +576,10 @@
         <button onclick="clearAllFilters()" style="font-size:12px;color:var(--gray-400);background:none;border:none;cursor:pointer;font-family:var(--font-body);padding:2px 4px;display:none;" id="clearAllBtn">Clear all</button>
       </div>
       <div class="sort-right">
+        <button type="button" class="filters-btn" id="openFiltersBtn" aria-haspopup="dialog" aria-controls="filterSidebar" aria-expanded="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2.2" fill="#fff"/><circle cx="15" cy="12" r="2.2" fill="#fff"/><circle cx="8" cy="18" r="2.2" fill="#fff"/></svg>
+          <span>Filters</span><span class="filters-badge" id="filtersBadge" aria-hidden="true"></span>
+        </button>
         <select class="sort-select" id="sortSelect" onchange="render()">
           <option value="relevance">Sort: Relevance</option>
           <option value="rating">Highest rated</option>
@@ -500,8 +601,15 @@
 <!-- MAIN LAYOUT -->
 <div class="browse-layout">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
+  <div class="filter-backdrop" id="filterBackdrop"></div>
+
+  <!-- SIDEBAR (a slide-up Filters menu on phones and tablets) -->
+  <aside class="sidebar" id="filterSidebar">
+    <div class="drawer-head">
+      <span class="drawer-title">Filters</span>
+      <button type="button" class="drawer-close" id="closeFiltersBtn" aria-label="Close filters">✕</button>
+    </div>
+    <div class="drawer-body">
 
     <!-- Region filter -->
     <div class="sidebar-card">
@@ -661,6 +769,11 @@
       <a href="#" class="promo-btn">Boost listing →</a>
     </div>
 
+    </div>
+    <div class="drawer-foot">
+      <button type="button" class="drawer-clear" id="drawerClearBtn">Clear filters</button>
+      <button type="button" class="drawer-apply" id="drawerApplyBtn">Show results</button>
+    </div>
   </aside>
 
   <!-- RESULTS -->
@@ -1437,6 +1550,7 @@
     }
 
     renderChips(f);
+    if (window.updateFilterMenu) window.updateFilterMenu(f, visible);
 
     const mapView = document.getElementById('mapView');
     const emptyState = document.getElementById('emptyState');
@@ -1889,6 +2003,163 @@
   });
 </script>
 
+<script>
+/* Filters menu for phones/tablets: opens the sidebar as a slide-up sheet, one group open at a time.
+   All the filtering itself is the page's existing code; this only shows/hides the panel and keeps
+   the badge, the group summaries and the "Show N results" button up to date. */
+(function () {
+  var mq = window.matchMedia('(max-width: 960px)');
+  var sidebar = document.getElementById('filterSidebar');
+  var openBtn = document.getElementById('openFiltersBtn');
+  var closeBtn = document.getElementById('closeFiltersBtn');
+  var applyBtn = document.getElementById('drawerApplyBtn');
+  var clearBtn = document.getElementById('drawerClearBtn');
+  var backdrop = document.getElementById('filterBackdrop');
+  var badge = document.getElementById('filtersBadge');
+  var sortLeft = document.querySelector('.sort-left');
+  if (!sidebar || !openBtn) return;
+  var lastFocus = null, last = { f: null, visible: 0 };
+
+  function isOpen() { return document.body.classList.contains('filters-open'); }
+
+  function openMenu() {
+    if (!mq.matches) return;
+    lastFocus = document.activeElement;
+    document.body.classList.add('filters-open');
+    sidebar.setAttribute('role', 'dialog');
+    sidebar.setAttribute('aria-modal', 'true');
+    sidebar.setAttribute('aria-label', 'Filters');
+    openBtn.setAttribute('aria-expanded', 'true');
+    setTimeout(function () { closeBtn.focus(); }, 60);
+  }
+  function closeMenu() {
+    document.body.classList.remove('filters-open');
+    sidebar.removeAttribute('role');
+    sidebar.removeAttribute('aria-modal');
+    sidebar.removeAttribute('aria-label');
+    openBtn.setAttribute('aria-expanded', 'false');
+    if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
+    lastFocus = null;
+  }
+
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  applyBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+
+  // Clear only the filter choices (not what the person typed in the search boxes).
+  clearBtn.addEventListener('click', function () {
+    document.querySelectorAll('.cat-item, .region-item').forEach(function (el) { el.classList.remove('active'); });
+    document.querySelectorAll('[data-toggle], .rating-opt input').forEach(function (cb) { cb.checked = false; });
+    render();
+  });
+
+  // Keyboard: Escape closes; Tab stays inside the open sheet.
+  document.addEventListener('keydown', function (e) {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { closeMenu(); return; }
+    if (e.key !== 'Tab') return;
+    var items = Array.prototype.filter.call(
+      sidebar.querySelectorAll('button, [href], input, select, [tabindex]:not([tabindex="-1"])'),
+      function (el) { return !el.disabled && el.offsetParent !== null; });
+    if (!items.length) return;
+    var first = items[0], lastEl = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
+    else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); first.focus(); }
+  });
+
+  // Filter groups: tap a header to open it (and close the others).
+  var cards = Array.prototype.slice.call(sidebar.querySelectorAll('.sidebar-card'));
+  var kinds = ['region', 'category', 'rating', 'more'];
+  cards.forEach(function (card, i) {
+    var head = card.querySelector('.sidebar-card-header');
+    if (!head) return;
+    card.dataset.kind = kinds[i] || '';
+    var summary = document.createElement('span');
+    summary.className = 'acc-summary';
+    var title = head.querySelector('.sidebar-card-title');
+    if (title && title.nextSibling) head.insertBefore(summary, title.nextSibling); else head.appendChild(summary);
+    function toggle(e) {
+      if (!mq.matches) return;
+      if (e && e.target.closest && e.target.closest('.sidebar-clear')) return;
+      var willOpen = !card.classList.contains('acc-open');
+      cards.forEach(function (c) { c.classList.remove('acc-open'); var h = c.querySelector('.sidebar-card-header'); if (h) h.setAttribute('aria-expanded', 'false'); });
+      if (willOpen) {
+        card.classList.add('acc-open');
+        head.setAttribute('aria-expanded', 'true');
+        setTimeout(function () { card.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }, 30);
+      }
+    }
+    head.addEventListener('click', toggle);
+    head.addEventListener('keydown', function (e) {
+      if (!mq.matches || e.target !== head) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+    });
+  });
+
+  function syncRoles() {
+    cards.forEach(function (card) {
+      var head = card.querySelector('.sidebar-card-header');
+      if (!head) return;
+      if (mq.matches) { head.setAttribute('role', 'button'); head.setAttribute('tabindex', '0'); head.setAttribute('aria-expanded', card.classList.contains('acc-open') ? 'true' : 'false'); }
+      else { head.removeAttribute('role'); head.removeAttribute('tabindex'); head.removeAttribute('aria-expanded'); card.classList.remove('acc-open'); }
+    });
+    if (!mq.matches && isOpen()) closeMenu();
+    if (last.f) window.updateFilterMenu(last.f, last.visible);
+  }
+  if (mq.addEventListener) mq.addEventListener('change', syncRoles); else if (mq.addListener) mq.addListener(syncRoles);
+
+  function setSummary(kind, text, isSet) {
+    var card = sidebar.querySelector('.sidebar-card[data-kind="' + kind + '"] .acc-summary');
+    if (!card) return;
+    card.textContent = text;
+    card.classList.toggle('is-set', !!isSet);
+    var owner = card.closest('.sidebar-card');
+    if (owner) owner.classList.toggle('has-sel', !!isSet);
+  }
+
+  // Called from render() every time the filters or results change.
+  window.updateFilterMenu = function (f, visible) {
+    last = { f: f, visible: visible };
+    var regionEl = f.region && f.region !== 'all' ? document.querySelector('.region-item[data-region="' + f.region + '"] .region-item-left') : null;
+    var catEl = f.category ? document.querySelector('.cat-item[data-cat="' + f.category + '"] .cat-item-label') : null;
+    var tiers = (f.tiers || []).slice().sort(function (a, b) { return b - a; });
+    var togglesOn = Object.keys(f.toggles || {}).filter(function (k) { return f.toggles[k]; }).length;
+
+    setSummary('region', regionEl ? regionEl.textContent.trim() : 'Any', !!regionEl);
+    setSummary('category', catEl ? catEl.textContent.trim() : 'Any', !!catEl);
+    setSummary('rating', tiers.length ? tiers.map(function (t) { return t === '5' ? '5 stars' : t + '+ stars'; }).join(', ') : 'Any', tiers.length > 0);
+    setSummary('more', togglesOn ? togglesOn + ' on' : 'None', togglesOn > 0);
+
+    var count = (regionEl ? 1 : 0) + (catEl ? 1 : 0) + (tiers.length ? 1 : 0) + togglesOn;
+    badge.textContent = count;
+    badge.classList.toggle('show', count > 0);
+    openBtn.classList.toggle('has-filters', count > 0);
+    openBtn.setAttribute('aria-label', count ? 'Filters, ' + count + ' selected' : 'Filters');
+    clearBtn.disabled = count === 0;
+    clearBtn.style.opacity = count === 0 ? '0.45' : '';
+
+    applyBtn.textContent = visible === 0 ? 'No matches. Change filters' : 'Show ' + visible + ' result' + (visible === 1 ? '' : 's');
+
+    // On phones, hide the chips row when there is nothing in it.
+    if (sortLeft) {
+      var hasChips = !!document.querySelector('#activeFilters .filter-chip');
+      sortLeft.hidden = mq.matches && !hasChips;
+    }
+  };
+
+  // On a narrow phone the sort box is short, so use a shorter first label there.
+  var mqPhone = window.matchMedia('(max-width: 600px)');
+  var sortSel = document.getElementById('sortSelect');
+  function syncSortLabel() {
+    if (sortSel && sortSel.options.length) sortSel.options[0].textContent = mqPhone.matches ? 'Best match' : 'Sort: Relevance';
+  }
+  if (sortSel) { sortSel.setAttribute('aria-label', 'Sort results'); syncSortLabel(); }
+  if (mqPhone.addEventListener) mqPhone.addEventListener('change', syncSortLabel); else if (mqPhone.addListener) mqPhone.addListener(syncSortLabel);
+
+  syncRoles();
+})();
+</script>
 <script>
   // Keyboard support for div/span elements marked role="button" with an onclick handler
   document.addEventListener('keydown', function (e) {
