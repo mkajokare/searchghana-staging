@@ -378,70 +378,87 @@
 </style>
 <link rel="stylesheet" href="css/mobile-polish.css">
 <style id="browse-mobile">
-/* Browse page, desktop defaults for the new pieces (they stay hidden or invisible there) */
+/* Browse page: filters live in a Filters menu on every screen size.
+   Phones: slides up from the bottom. Tablets and computers: slides in from the right.
+   Results use the full page width. */
 .bs-where { position: relative; max-width: 140px; flex-shrink: 0; }
 .bs-where input { max-width: 140px; }
-.filters-btn, .drawer-head, .drawer-foot, .filter-backdrop { display: none; }
-.drawer-body { display: contents; }
 .sort-left[hidden] { display: none !important; }
-.acc-summary { display: none; }
+.browse-layout { grid-template-columns: 1fr; }
 
-/* ===== Phones and tablets: filters live in a slide-up menu ===== */
+.filter-backdrop { display: block; position: fixed; inset: 0; background: rgba(13,13,13,0.55); opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; z-index: 10000; }
+body.filters-open { overflow: hidden; }
+body.filters-open .filter-backdrop { opacity: 1; visibility: visible; }
+
+.sidebar { position: fixed; left: 0; right: 0; bottom: 0; top: auto; display: flex; flex-direction: column; gap: 0; max-height: 86vh; max-height: 86dvh; background: var(--gray-50); border-radius: 20px 20px 0 0; box-shadow: 0 -10px 40px rgba(0,0,0,0.28); z-index: 10001; transform: translateY(105%); visibility: hidden; transition: transform .28s ease, visibility .28s; }
+body.filters-open .sidebar { transform: none; visibility: visible; }
+
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 12px; background: var(--white); border-radius: 20px 20px 0 0; border-bottom: 1px solid var(--gray-100); position: relative; flex-shrink: 0; }
+.drawer-head::before { content: ''; position: absolute; top: 7px; left: 50%; width: 38px; height: 4px; margin-left: -19px; border-radius: 4px; background: var(--gray-200); }
+.drawer-title { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--gray-900); }
+.drawer-close { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--gray-100); color: var(--gray-700); font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.drawer-close:hover { background: var(--gray-200); }
+
+.drawer-body { display: flex; flex-direction: column; gap: 10px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: 12px 16px; flex: 1 1 auto; min-height: 0; }
+.drawer-foot { display: flex; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: var(--white); border-top: 1px solid var(--gray-100); flex-shrink: 0; }
+.drawer-clear { flex: 0 0 auto; padding: 13px 18px; border-radius: var(--radius-md); border: 1.5px solid var(--gray-200); background: var(--white); color: var(--gray-700); font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; }
+.drawer-apply { flex: 1; padding: 13px 18px; border-radius: var(--radius-md); border: none; background: var(--brand-red); color: var(--white); font-family: var(--font-display); font-size: 14px; font-weight: 700; cursor: pointer; }
+.drawer-apply:hover, .drawer-apply:active { background: var(--brand-red-dark); }
+
+/* Each filter group is a tappable row that opens one at a time */
+.sidebar .promo-banner { display: none; }
+.sidebar-card { flex-shrink: 0; }
+.sidebar-card-header { cursor: pointer; padding: 0 16px; min-height: 54px; gap: 10px; border-bottom: 0; user-select: none; }
+.sidebar-card-header:hover { background: var(--gray-50); }
+.sidebar-card.acc-open .sidebar-card-header { border-bottom: 1px solid var(--gray-100); }
+.sidebar-card-title { font-size: 15px; flex-shrink: 0; }
+.acc-summary { display: block; flex: 1; min-width: 0; text-align: right; font-size: 13px; color: var(--gray-400); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.acc-summary.is-set { color: var(--brand-red); font-weight: 600; }
+.sidebar-card-header::after { content: ''; width: 8px; height: 8px; border-right: 2px solid var(--gray-400); border-bottom: 2px solid var(--gray-400); transform: rotate(45deg); margin: -3px 4px 0 2px; flex-shrink: 0; transition: transform .2s; }
+.sidebar-card.acc-open .sidebar-card-header::after { transform: rotate(-135deg); margin-top: 3px; }
+.sidebar-card:not(.acc-open) .sidebar-card-body { display: none !important; }
+.sidebar-card:not(.acc-open) .sidebar-clear, .sidebar-card:not(.has-sel) .sidebar-clear { display: none; }
+.sidebar-clear { font-size: 13px; padding: 8px 4px; }
+.sidebar-card-body { padding: 12px 14px !important; }
+
+/* Bigger, easier-to-tap options */
+.region-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.region-extra-group { display: contents; }
+.region-item { padding: 12px; border: 1px solid var(--gray-100); border-radius: var(--radius-md); background: var(--white); min-height: 46px; }
+.region-item.active { border-color: rgba(206,17,38,0.35); }
+#regionToggleBtn { grid-column: 1 / -1; justify-content: center; border-style: dashed; }
+.cat-item { padding: 12px; min-height: 46px; }
+.rating-opt { padding: 12px 8px; min-height: 46px; }
+.rating-opt input[type="checkbox"] { width: 20px; height: 20px; }
+.sidebar-card-body .toggle-row { padding: 2px 0; }
+
+/* Results toolbar: chosen-filter chips on the left, [Filters] [Sort] [view] on the right */
+.sort-left > span:first-child { display: none; }
+.filters-btn { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; padding: 0 12px; height: 40px; border: 1px solid var(--gray-200); border-radius: var(--radius-md); background: var(--white); color: var(--gray-800); font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; transition: all .15s; }
+.filters-btn:hover { border-color: var(--gray-400); }
+.filters-btn.has-filters { border-color: var(--brand-red); color: var(--brand-red); background: var(--brand-red-light); }
+.filters-badge { display: none; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 100px; background: var(--brand-red); color: var(--white); font-size: 12px; font-weight: 700; align-items: center; justify-content: center; }
+.filters-badge.show { display: inline-flex; }
+.sort-right { margin-left: auto; }
+.sort-select, .view-btn { height: 40px; }
+.view-btn { height: 38px; }
+
+/* Tablets and computers: a panel that slides in from the right */
+@media (min-width: 601px) {
+  .sidebar { top: 0; left: auto; right: 0; bottom: 0; width: min(420px, 92vw); max-height: none; height: 100vh; height: 100dvh; border-radius: 0; box-shadow: -10px 0 40px rgba(0,0,0,0.28); transform: translateX(105%); }
+  body.filters-open .sidebar { transform: none; }
+  .drawer-head { border-radius: 0; padding: 20px 22px 16px; }
+  .drawer-head::before { display: none; }
+  .drawer-body { padding: 16px 22px; }
+  .drawer-foot { padding: 14px 22px; }
+}
+
+/* Phones and tablets: the toolbar stacks, filter chips go underneath */
 @media (max-width: 960px) {
-  .filter-backdrop { display: block; position: fixed; inset: 0; background: rgba(13,13,13,0.55); opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; z-index: 10000; }
-  body.filters-open { overflow: hidden; }
-  body.filters-open .filter-backdrop { opacity: 1; visibility: visible; }
-
-  .sidebar { position: fixed; left: 0; right: 0; bottom: 0; top: auto; display: flex; flex-direction: column; gap: 0; max-height: 86vh; max-height: 86dvh; background: var(--gray-50); border-radius: 20px 20px 0 0; box-shadow: 0 -10px 40px rgba(0,0,0,0.28); z-index: 10001; transform: translateY(105%); visibility: hidden; transition: transform .28s ease, visibility .28s; }
-  body.filters-open .sidebar { transform: none; visibility: visible; }
-
-  .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 12px; background: var(--white); border-radius: 20px 20px 0 0; border-bottom: 1px solid var(--gray-100); position: relative; flex-shrink: 0; }
-  .drawer-head::before { content: ''; position: absolute; top: 7px; left: 50%; width: 38px; height: 4px; margin-left: -19px; border-radius: 4px; background: var(--gray-200); }
-  .drawer-title { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--gray-900); }
-  .drawer-close { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--gray-100); color: var(--gray-700); font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-
-  .drawer-body { display: flex; flex-direction: column; gap: 10px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: 12px 16px; flex: 1 1 auto; min-height: 0; }
-  .drawer-foot { display: flex; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: var(--white); border-top: 1px solid var(--gray-100); flex-shrink: 0; }
-  .drawer-clear { flex: 0 0 auto; padding: 13px 18px; border-radius: var(--radius-md); border: 1.5px solid var(--gray-200); background: var(--white); color: var(--gray-700); font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; }
-  .drawer-apply { flex: 1; padding: 13px 18px; border-radius: var(--radius-md); border: none; background: var(--brand-red); color: var(--white); font-family: var(--font-display); font-size: 14px; font-weight: 700; cursor: pointer; }
-  .drawer-apply:active { background: var(--brand-red-dark); }
-
-  /* Each filter group is a tappable row that opens one at a time */
-  .sidebar .promo-banner { display: none; }
-  .sidebar-card { flex-shrink: 0; }
-  .sidebar-card-header { cursor: pointer; padding: 0 16px; min-height: 54px; gap: 10px; border-bottom: 0; user-select: none; }
-  .sidebar-card.acc-open .sidebar-card-header { border-bottom: 1px solid var(--gray-100); }
-  .sidebar-card-title { font-size: 15px; flex-shrink: 0; }
-  .acc-summary { display: block; flex: 1; min-width: 0; text-align: right; font-size: 13px; color: var(--gray-400); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .acc-summary.is-set { color: var(--brand-red); font-weight: 600; }
-  .sidebar-card-header::after { content: ''; width: 8px; height: 8px; border-right: 2px solid var(--gray-400); border-bottom: 2px solid var(--gray-400); transform: rotate(45deg); margin: -3px 4px 0 2px; flex-shrink: 0; transition: transform .2s; }
-  .sidebar-card.acc-open .sidebar-card-header::after { transform: rotate(-135deg); margin-top: 3px; }
-  .sidebar-card:not(.acc-open) .sidebar-card-body { display: none !important; }
-  .sidebar-card:not(.acc-open) .sidebar-clear, .sidebar-card:not(.has-sel) .sidebar-clear { display: none; }
-  .sidebar-clear { font-size: 13px; padding: 8px 4px; }
-  .sidebar-card-body { padding: 12px 14px !important; }
-
-  /* Bigger, easier-to-tap options */
-  .region-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .region-extra-group { display: contents; }
-  .region-item { padding: 12px; border: 1px solid var(--gray-100); border-radius: var(--radius-md); background: var(--white); min-height: 46px; }
-  .region-item.active { border-color: rgba(206,17,38,0.35); }
-  #regionToggleBtn { grid-column: 1 / -1; justify-content: center; border-style: dashed; }
-  .cat-item { padding: 12px; min-height: 46px; }
-  .rating-opt { padding: 12px 8px; min-height: 46px; }
-  .rating-opt input[type="checkbox"] { width: 20px; height: 20px; }
-  .sidebar-card-body .toggle-row { padding: 2px 0; }
-
-  /* Results toolbar: [Filters] [Sort] [view]  then the chosen-filter chips underneath */
   .sort-row { flex-direction: column-reverse; align-items: stretch; gap: 10px; flex-wrap: nowrap; }
   .sort-right { width: 100%; gap: 8px; }
-  .sort-left > span:first-child { display: none; }
-  .sort-select { flex: 1; min-width: 0; height: 40px; padding: 0 4px 0 10px; font-size: 13px; text-overflow: ellipsis; }
-  .view-btn { width: 36px; height: 38px; }
-  .filters-btn { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; padding: 0 12px; height: 40px; border: 1px solid var(--gray-200); border-radius: var(--radius-md); background: var(--white); color: var(--gray-800); font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; }
-  .filters-btn.has-filters { border-color: var(--brand-red); color: var(--brand-red); background: var(--brand-red-light); }
-  .filters-badge { display: none; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 100px; background: var(--brand-red); color: var(--white); font-size: 12px; font-weight: 700; align-items: center; justify-content: center; }
-  .filters-badge.show { display: inline-flex; }
+  .sort-select { flex: 1; min-width: 0; padding: 0 4px 0 10px; font-size: 13px; text-overflow: ellipsis; }
+  .view-btn { width: 36px; }
 }
 
 /* ===== Phones: smaller header, stacked search, compact cards ===== */
@@ -2008,7 +2025,7 @@
    All the filtering itself is the page's existing code; this only shows/hides the panel and keeps
    the badge, the group summaries and the "Show N results" button up to date. */
 (function () {
-  var mq = window.matchMedia('(max-width: 960px)');
+  var mq = window.matchMedia('all'); // the Filters menu is used at every screen size
   var sidebar = document.getElementById('filterSidebar');
   var openBtn = document.getElementById('openFiltersBtn');
   var closeBtn = document.getElementById('closeFiltersBtn');
