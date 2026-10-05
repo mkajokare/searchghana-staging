@@ -74,6 +74,14 @@
   .btn-neutral { background: var(--gray-50); color: var(--gray-700); border: 1px solid var(--gray-200); }
   .status-pill-draft { background: var(--gray-100); color: var(--gray-500); }
   .status-pill-published { background: var(--brand-green-light); color: var(--brand-green); }
+  .admin-note { font-size: 13px; color: var(--gray-600); margin-bottom: 12px; max-width: 640px; }
+  .admin-inline-form { display: flex; gap: 10px; flex-wrap: wrap; align-items: stretch; }
+  .admin-inline-form .admin-form-input { flex: 1; min-width: 220px; }
+  .admin-inline-form button { font-family: inherit; font-size: 14px; font-weight: 700; border-radius: var(--radius-md); padding: 10px 18px; cursor: pointer; border: none; }
+  .admin-inline-form button:disabled { opacity: 0.5; cursor: default; }
+  .admin-msg { font-size: 13px; margin-top: 10px; min-height: 18px; }
+  .admin-msg.ok { color: var(--brand-green); }
+  .admin-msg.err { color: var(--brand-red); }
 </style>
 </head>
 <body>
@@ -175,6 +183,20 @@
     <h2>Deals <span class="count-badge" id="dealCount">0</span></h2>
     <p style="font-size:13px;color:var(--gray-600);margin-bottom:12px;">Deals are created by business owners from their dashboard. Deactivating one here hides it from the public Deals page without deleting it.</p>
     <div id="dealList"></div>
+  </section>
+
+  <section class="admin-section" id="adminsSection">
+    <h2>Admins <span class="count-badge" id="adminCount">0</span></h2>
+    <p class="admin-note">Admins can approve listings, remove reviews, publish blog posts and manage other admins. To add someone, enter the email address they sign in with. They get access the next time they sign in with that email (they must have confirmed it). You cannot remove yourself, so there is always at least one admin.</p>
+    <form class="admin-form" id="addAdminForm" novalidate>
+      <label class="admin-form-label" for="newAdminEmail">Email address</label>
+      <div class="admin-inline-form">
+        <input class="admin-form-input" id="newAdminEmail" type="email" autocomplete="off" maxlength="254" placeholder="name@example.com">
+        <button type="submit" class="btn-approve" id="btnAddAdmin">Add admin</button>
+      </div>
+      <p class="admin-msg" id="adminMsg" role="status" aria-live="polite"></p>
+    </form>
+    <div id="adminList"></div>
   </section>
 </main>
 
@@ -419,6 +441,57 @@
     }).join('');
   }
 
+  function adminMsg(text, ok) {
+    const el = document.getElementById('adminMsg');
+    el.textContent = text || '';
+    el.className = 'admin-msg' + (text ? (ok ? ' ok' : ' err') : '');
+  }
+
+  function adminErrorText(error) {
+    const m = (error && error.message) || String(error || '');
+    if (error && (error.code === 'PGRST202' || /could not find the function/i.test(m))) {
+      return 'Admin management is not set up yet. Run migration 010 in the Supabase SQL Editor, then reload this page.';
+    }
+    return m || 'Something went wrong. Please try again.';
+  }
+
+  async function loadAdmins() {
+    const list = document.getElementById('adminList');
+    const countEl = document.getElementById('adminCount');
+    const { data, error } = await window.sbClient.rpc('admin_list_admins');
+    if (error) { list.innerHTML = '<p class="admin-error">' + escapeHtml(adminErrorText(error)) + '</p>'; return; }
+    countEl.textContent = (data || []).length;
+    if (!data || !data.length) { list.innerHTML = '<p class="empty-state">No admins found.</p>'; return; }
+    list.innerHTML = data.map(a => `
+      <div class="admin-card">
+        <div class="admin-card-main">
+          <div class="admin-card-title">${escapeHtml(a.email)}${a.is_you ? ' <span class="status-pill status-pill-published">You</span>' : ''}${a.has_account ? '' : ' <span class="status-pill status-pill-draft">Has not signed up yet</span>'}</div>
+          <div class="admin-card-meta">${a.added_by ? 'Added by ' + escapeHtml(a.added_by) + ' · ' + timeAgo(a.added_at) : 'Original admin'}</div>
+        </div>
+        <div class="admin-card-actions">
+          ${a.is_you ? '' : `<button class="btn-reject" data-action="remove-admin" data-email="${escapeHtml(a.email)}">Remove admin</button>`}
+        </div>
+      </div>`).join('');
+  }
+
+  document.getElementById('addAdminForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const input = document.getElementById('newAdminEmail');
+    const btn = document.getElementById('btnAddAdmin');
+    const email = input.value.trim();
+    if (!email) { adminMsg('Enter an email address.', false); input.focus(); return; }
+    btn.disabled = true;
+    adminMsg('Adding…', true);
+    try {
+      const { error } = await window.sbClient.rpc('admin_add_admin', { p_email: email });
+      if (error) { adminMsg(adminErrorText(error), false); }
+      else { input.value = ''; adminMsg(email.toLowerCase() + ' can now sign in as an admin.', true); await loadAdmins(); }
+    } catch (err) {
+      adminMsg(adminErrorText(err), false);
+    }
+    btn.disabled = false;
+  });
+
   document.addEventListener('click', async function (e) {
     const btn = e.target.closest('button[data-action]');
     if (!btn) return;
@@ -429,6 +502,22 @@
       await refreshBlogPostsCache();
       const post = blogPostsCache.find(p => p.id === id);
       if (post) openPostForm(post);
+      return;
+    }
+
+    if (action === 'remove-admin') {
+      const email = btn.dataset.email;
+      if (!confirm('Remove admin access for ' + email + '? They will no longer be able to open this page or use admin tools.')) return;
+      btn.disabled = true;
+      adminMsg('', true);
+      try {
+        const { error } = await window.sbClient.rpc('admin_remove_admin', { p_email: email });
+        if (error) { adminMsg(adminErrorText(error), false); btn.disabled = false; }
+        else { adminMsg(email + ' is no longer an admin.', true); await loadAdmins(); }
+      } catch (err) {
+        adminMsg(adminErrorText(err), false);
+        btn.disabled = false;
+      }
       return;
     }
 
@@ -481,7 +570,7 @@
     }
 
     adminMain.style.display = 'block';
-    await Promise.all([loadPendingBusinesses(), loadFlaggedReviews(), loadPendingClaims(), loadAllBusinesses(), loadBlogPosts(), loadDeals()]);
+    await Promise.all([loadPendingBusinesses(), loadFlaggedReviews(), loadPendingClaims(), loadAllBusinesses(), loadBlogPosts(), loadDeals(), loadAdmins()]);
   }
 
   document.addEventListener('DOMContentLoaded', checkAdminAndLoad);
