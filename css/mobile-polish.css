@@ -1,0 +1,79 @@
+/* Phone layout fixes (screens 560px wide and under).
+   Loaded last in <head> on every page so it can override the page's own CSS.
+   Fixes: the header was wider than a phone screen (pushing the whole page sideways),
+   the cookie banner's buttons were pushed off-screen, the logo letters were spread
+   apart, and the home page's search box and stats strip were cramped. */
+@media (max-width: 560px) {
+
+  /* ---- Header: fit logo + account button + menu button on one row ---- */
+  .nav-inner { padding-left: 12px; padding-right: 12px; gap: 6px; }
+  .nav-inner { justify-content: flex-start; }
+  .nav-inner .logo { font-size: 18px; gap: 1px; letter-spacing: -0.3px; }
+  .nav-inner .logo .search { margin-right: 4px; }
+  .nav-inner .nav-right { gap: 6px; min-width: 0; margin-left: auto; }
+  .nav-inner .profile-btn { padding: 4px 10px 4px 4px; gap: 6px; }
+  /* Keep the name for screen readers, but show just the avatar on a phone. */
+  .nav-inner .profile-btn > span:not(.profile-chevron) {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .nav-inner .nav-hamburger { padding: 6px 4px; }
+
+  /* ---- Cookie banner: stack text, then two equal buttons, all on screen ---- */
+  .cookie-consent { padding: 14px 16px; }
+  .cookie-consent .cookie-consent-inner { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 12px; }
+  .cookie-consent .cookie-consent-text { flex: 0 0 auto; font-size: 13px; }
+  .cookie-consent .cookie-consent-actions { width: 100%; }
+  .cookie-consent .cookie-consent-actions .cookie-btn { flex: 1; }
+
+  /* ---- Home page ---- */
+  .hero { padding: 44px 20px 52px; }
+  .hero-tag { font-size: 11px; letter-spacing: 1px; padding: 5px 12px; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(28px, 8.2vw, 36px); letter-spacing: -1px; margin-bottom: 12px; }
+  .hero-sub { font-size: 15px; margin-bottom: 28px; }
+
+  /* Search box: fields fill the box (they were shrinking to a narrow column and
+     cutting the placeholder text off). 16px stops iPhones zooming in on tap. */
+  .search-bar .search-fields { align-items: stretch; }
+  .search-bar .search-field { align-items: flex-start; text-align: left; flex: 0 0 auto; padding: 2px 4px; }
+  .search-bar .search-field input { font-size: 16px; padding: 2px 0; }
+  .search-hints { line-height: 2; margin-top: 14px; }
+  .search-hints a { margin: 0 4px; }
+
+  /* Numbers strip: tidy 2 x 2 grid */
+  .stats-strip { padding: 22px 16px; }
+  .stats-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 12px; }
+
+  /* Call-to-action banner: stacked, equal-width buttons */
+  .cta-banner { padding: 48px 20px; }
+  .cta-banner h2 { font-size: 28px; }
+  .cta-banner p { font-size: 15px; margin-bottom: 24px; }
+  .cta-btns { flex-direction: column; align-items: stretch; }
+  .cta-btns .btn-gold, .cta-btns .btn-outline { display: block; text-align: center; }
+
+  /* Footer logo: same tight lettering as the header */
+  .footer-brand .logo { gap: 1px; }
+  .footer-brand .logo .search { margin-right: 4px; }
+
+  /* Tighter space between page sections */
+  .section { padding-top: 48px; padding-bottom: 48px; }
+
+  /* ---- Sign-in / sign-up / reset cards: less padding so the title and fields fit ---- */
+  .auth-container { padding: 16px; }
+  .auth-card { padding: 32px 20px; }
+  .auth-title { font-size: 24px; }
+
+  /* ---- Browse: business-owner promo banner wraps instead of running off-screen ---- */
+  .promo-banner { flex-wrap: wrap; padding: 20px; }
+  .promo-banner .promo-btn { width: 100%; text-align: center; }
+
+  /* ---- Profile: let the section menu shrink to the screen ---- */
+  .page-layout { grid-template-columns: minmax(0, 1fr); }
+  .page-layout .side-nav { grid-template-columns: repeat(auto-fill, minmax(min(140px, 100%), 1fr)); }
+}
+
+/* Very small phones (360px and under, e.g. older iPhones) */
+@media (max-width: 360px) {
+  .nav-inner { padding-left: 10px; padding-right: 10px; }
+  .nav-inner .logo { font-size: 16px; }
+}
