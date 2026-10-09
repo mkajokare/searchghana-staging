@@ -195,6 +195,14 @@
   .btn-view { font-size: 12px; font-weight: 600; color: var(--brand-green); background: var(--brand-green-light); border: none; border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; transition: all 0.15s; text-decoration: none; }
   .btn-view:hover { background: var(--brand-green); color: var(--white); }
 
+  #featuredSection[hidden], #homeReviewsSection[hidden] { display: none; }
+  .listing-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .listing-name a { color: inherit; text-decoration: none; }
+  .listing-name a:hover { text-decoration: underline; }
+  .review-biz-link { color: inherit; text-decoration: none; }
+  .review-biz-link:hover { text-decoration: underline; }
+  .review-text { white-space: pre-line; overflow-wrap: anywhere; }
+
   /* HOW IT WORKS */
   .how-section { background: var(--gray-50); padding: 64px 24px; }
   .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 40px; }
@@ -365,24 +373,24 @@
               <div class="menu-icon">👤</div>
               <span class="menu-label">My Profile</span>
             </a>
-            <a href="Profile.html" class="menu-item">
+            <a href="Profile.html#listings" class="menu-item">
               <div class="menu-icon gold">🏪</div>
               <span class="menu-label">My Business Listings</span>
             </a>
-            <a href="Reviews.html" class="menu-item">
+            <a href="Profile.html#reviews" class="menu-item">
               <div class="menu-icon">⭐</div>
               <span class="menu-label">My Reviews</span>
             </a>
-            <a href="Profile.html" class="menu-item">
+            <a href="Profile.html#saved" class="menu-item">
               <div class="menu-icon green">🔖</div>
               <span class="menu-label">Saved Businesses</span>
             </a>
-            <a href="#" class="menu-item">
+            <a href="Profile.html#notifications" class="menu-item">
               <div class="menu-icon">🔔</div>
-              <span class="menu-label">Notifications</span>
+              <span class="menu-label">Notification settings</span>
             </a>
             <div class="menu-sep"></div>
-            <a href="Profile.html" class="menu-item">
+            <a href="Profile.html#personal" class="menu-item">
               <div class="menu-icon">⚙️</div>
               <span class="menu-label">Account Settings</span>
             </a>
@@ -467,76 +475,14 @@
   </div>
 </section>
 
-<!-- FEATURED LISTINGS -->
-<section class="section" style="background:var(--gray-50);">
+<!-- FEATURED LISTINGS (filled from the live directory; stays hidden until there is at least one active business) -->
+<section class="section" id="featuredSection" style="background:var(--gray-50);" hidden>
   <div class="section-inner">
     <div class="section-header">
-      <h2><span class="hdot"></span> Featured listings</h2>
-      <p>Top-rated businesses across Ghana's cities</p>
+      <h2><span class="hdot"></span> <span id="featuredTitle">Featured listings</span></h2>
+      <p id="featuredSub"></p>
     </div>
-    <div class="listings-grid">
-
-      <div class="listing-card featured">
-        <div class="listing-banner"><div class="listing-placeholder" style="background:#FFF8E1;">🍲</div><div class="feat-badge">Featured</div></div>
-        <div class="listing-body">
-          <div class="listing-head"><div class="listing-name">Auntie Ama's Chop Bar</div><span class="listing-cat">Food &amp; Drink</span></div>
-          <p class="listing-desc">Authentic Ghanaian home cooking — fufu, banku, jollof and light soup. Open daily from 7am. Event catering available.</p>
-          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">4.9</span><span>(408 reviews)</span></span><span class="lm">📍 Osu, Accra</span></div>
-        </div>
-        <div class="listing-foot"><a href="tel:+233245678901" class="l-phone">+233 24 567 8901</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
-      </div>
-
-      <div class="listing-card featured">
-        <div class="listing-banner"><div class="listing-placeholder" style="background:#E8F4FD;">⚡</div><div class="feat-badge">Featured</div></div>
-        <div class="listing-body">
-          <div class="listing-head"><div class="listing-name">Kofi Power Electrical</div><span class="listing-cat">Electrician</span></div>
-          <p class="listing-desc">ECG-certified electricians. Residential wiring, solar installations, generator servicing. 24/7 emergency callouts across Ashanti.</p>
-          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">4.8</span><span>(201 reviews)</span></span><span class="lm">📍 Kumasi, Ashanti</span></div>
-        </div>
-        <div class="listing-foot"><a href="tel:+233201234567" class="l-phone">+233 20 123 4567</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-banner"><div class="listing-placeholder" style="background:#F5F0FD;">👗</div></div>
-        <div class="listing-body">
-          <div class="listing-head"><div class="listing-name">Adwoa Kente &amp; Fashion</div><span class="listing-cat">Fashion</span></div>
-          <p class="listing-desc">Bespoke kente weaving and contemporary African fashion. Bridal, traditional and casual wear. Custom orders and ready-to-wear.</p>
-          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★☆</span><span class="rnum">4.7</span><span>(133 reviews)</span></span><span class="lm">📍 Madina, Accra</span></div>
-        </div>
-        <div class="listing-foot"><a href="tel:+233543210987" class="l-phone">+233 54 321 0987</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-banner"><div class="listing-placeholder" style="background:#E6F4EE;">💊</div></div>
-        <div class="listing-body">
-          <div class="listing-head"><div class="listing-name">Mensah Family Pharmacy</div><span class="listing-cat">Pharmacy</span></div>
-          <p class="listing-desc">FDA-registered community pharmacy. Prescriptions, health screening, over-the-counter medicines. Same-day delivery available.</p>
-          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">4.8</span><span>(87 reviews)</span></span><span class="lm">📍 Takoradi, Western</span></div>
-        </div>
-        <div class="listing-foot"><a href="tel:+233312098765" class="l-phone">+233 31 209 8765</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-banner"><div class="listing-placeholder" style="background:#FDEAED;">🏗️</div></div>
-        <div class="listing-body">
-          <div class="listing-head"><div class="listing-name">Boateng Construction Co.</div><span class="listing-cat">Builder</span></div>
-          <p class="listing-desc">Residential and commercial construction across the Northern Region. Foundations, roofing, tiling. Free site assessments.</p>
-          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★☆</span><span class="rnum">4.5</span><span>(62 reviews)</span></span><span class="lm">📍 Tamale, Northern</span></div>
-        </div>
-        <div class="listing-foot"><a href="tel:+233371123456" class="l-phone">+233 37 112 3456</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-banner"><div class="listing-placeholder" style="background:#FFF8E1;">💇🏾</div></div>
-        <div class="listing-body">
-          <div class="listing-head"><div class="listing-name">Efua's Beauty Lounge</div><span class="listing-cat">Hair &amp; Beauty</span></div>
-          <p class="listing-desc">Natural hair care, braiding, loc maintenance and skin treatments. Appointments and walk-ins welcome. Premium products only.</p>
-          <div class="listing-meta"><span class="lm"><span class="stars" aria-hidden="true">★★★★★</span><span class="rnum">4.9</span><span>(276 reviews)</span></span><span class="lm">📍 East Legon, Accra</span></div>
-        </div>
-        <div class="listing-foot"><a href="tel:+233506789012" class="l-phone">+233 50 678 9012</a><a href="Businesses.html" class="btn-view">View profile →</a></div>
-      </div>
-
-    </div>
+    <div class="listings-grid" id="featuredGrid"></div>
   </div>
 </section>
 
@@ -556,30 +502,14 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="section">
+<!-- REVIEWS (filled from published reviews; stays hidden until there is at least one) -->
+<section class="section" id="homeReviewsSection" hidden>
   <div class="section-inner">
     <div class="section-header">
-      <h2><span class="hdot"></span> What customers are saying</h2>
-      <p>Genuine reviews from across Ghana</p>
+      <h2><span class="hdot"></span> Recent reviews</h2>
+      <p>What people are saying about businesses on SearchGhana</p>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars" aria-hidden="true">★★★★★</div>
-        <p class="review-text">"Found a reliable electrician in Kumasi through SearchGhana within minutes. He came the same day, fixed my wiring properly and charged a fair price. I will always use this site!"</p>
-        <div class="review-author"><div class="r-avatar">AO</div><div><div class="r-name">Abena Osei</div><div class="r-biz">Re: Kofi Power Electrical</div></div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars" aria-hidden="true">★★★★★</div>
-        <p class="review-text">"I used SearchGhana to find a tailor for my sister's wedding outfit. The reviews helped me choose and the result was beautiful. Medaase paa!"</p>
-        <div class="review-author"><div class="r-avatar">EK</div><div><div class="r-name">Esi Koomson</div><div class="r-biz">Re: Adwoa Kente &amp; Fashion</div></div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars" aria-hidden="true">★★★★★</div>
-        <p class="review-text">"As a chop bar owner in Osu, listing my business here brought so many new customers. My orders doubled in just 6 weeks. Every Ghanaian business should be here!"</p>
-        <div class="review-author"><div class="r-avatar">AA</div><div><div class="r-name">Auntie Ama</div><div class="r-biz">Auntie Ama's Chop Bar (owner)</div></div></div>
-      </div>
-    </div>
+    <div class="reviews-grid" id="homeReviewsGrid"></div>
   </div>
 </section>
 
@@ -616,9 +546,7 @@
         <h4>For businesses</h4>
         <ul>
           <li><a href="AddBusiness.html">Add your business</a></li>
-          <li><a href="#">Advertising</a></li>
-          <li><a href="#">Premium listings</a></li>
-          <li><a href="Profile.html">Business dashboard</a></li>
+          <li><a href="Profile.html#listings">Business dashboard</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1152,6 +1080,94 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+</script>
+<script>
+  /* ---------- Featured listings and reviews: real records only ---------- */
+  (function () {
+    const CAT_EMOJI = { 'food': '🍲', 'plumbers': '🔧', 'electricians': '⚡', 'pharmacies': '💊', 'salons': '💇🏾', 'mobile-money': '📱', 'builders': '🏗️', 'transport': '🚐', 'clinics': '🏥', 'fashion': '👗', 'tutors': '🎓', 'printing': '🖨️', 'hotel': '🏨', 'supermarket': '🛒', 'electronics': '💻', 'other': '🏪' };
+    const PLACEHOLDER_BG = ['#FFF8E1', '#E8F4FD', '#F5F0FD', '#E6F4EE', '#FDEAED'];
+    const esc = (v) => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const httpUrl = (u) => (/^https?:\/\/[^\s]+$/i.test(String(u || '').trim()) ? String(u).trim() : '');
+    const telHref = (ph) => String(ph || '').replace(/[^\d+]/g, '');
+    const regionLabel = (r) => (typeof REGION_LABELS !== 'undefined' && REGION_LABELS[r]) || String(r || '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    const catLabel = (c) => (typeof CATEGORY_LABELS !== 'undefined' && CATEGORY_LABELS[c]) || c || '';
+
+    function starsHtml(r) {
+      const n = Math.max(0, Math.min(5, Math.round(Number(r) || 0)));
+      return '★'.repeat(n) + '☆'.repeat(5 - n);
+    }
+
+    function listingCard(b, i) {
+      const href = 'Businesses.html?id=' + encodeURIComponent(b.id);
+      const img = httpUrl(b.logo_url) || httpUrl(Array.isArray(b.image_urls) && b.image_urls[0]);
+      const banner = img
+        ? `<img src="${esc(img)}" alt="" loading="lazy">`
+        : `<div class="listing-placeholder" style="background:${PLACEHOLDER_BG[i % PLACEHOLDER_BG.length]};">${CAT_EMOJI[b.category] || '🏪'}</div>`;
+      const loc = [b.city, regionLabel(b.region)].filter(Boolean).join(', ');
+      const hasReviews = Number(b.reviews_count) > 0;
+      const rating = hasReviews
+        ? `<span class="lm"><span class="stars" aria-hidden="true">${starsHtml(b.rating)}</span><span class="rnum">${esc(Number(b.rating).toFixed(1))}</span><span>(${esc(b.reviews_count)} review${Number(b.reviews_count) === 1 ? '' : 's'})</span></span>`
+        : '<span class="lm">No reviews yet</span>';
+      const phone = telHref(b.phone) ? `<a href="tel:${esc(telHref(b.phone))}" class="l-phone">${esc(b.phone)}</a>` : '<span></span>';
+      return `<div class="listing-card${b.is_sponsored ? ' featured' : ''}">
+        <div class="listing-banner">${banner}${b.is_sponsored ? '<div class="feat-badge">Featured</div>' : ''}</div>
+        <div class="listing-body">
+          <div class="listing-head"><div class="listing-name"><a href="${esc(href)}">${esc(b.name)}</a></div><span class="listing-cat">${esc(catLabel(b.category))}</span></div>
+          ${b.description ? `<p class="listing-desc">${esc(b.description)}</p>` : ''}
+          <div class="listing-meta">${rating}${loc ? `<span class="lm">📍 ${esc(loc)}</span>` : ''}</div>
+        </div>
+        <div class="listing-foot">${phone}<a href="${esc(href)}" class="btn-view">View profile →</a></div>
+      </div>`;
+    }
+
+    async function loadFeatured() {
+      const section = document.getElementById('featuredSection');
+      try {
+        const { data, error } = await window.sbClient.from('businesses')
+          .select('id,name,category,region,city,description,phone,rating,reviews_count,is_sponsored,logo_url,image_urls,created_at')
+          .eq('status', 'active')
+          .order('is_sponsored', { ascending: false })
+          .order('rating', { ascending: false, nullsFirst: false })
+          .order('created_at', { ascending: false })
+          .limit(6);
+        if (error || !data || !data.length) return;
+        const anySponsored = data.some(b => b.is_sponsored);
+        document.getElementById('featuredTitle').textContent = anySponsored ? 'Featured listings' : 'Latest businesses';
+        document.getElementById('featuredSub').textContent = anySponsored ? "Businesses on SearchGhana, with sponsored listings first" : 'Businesses recently listed on SearchGhana';
+        document.getElementById('featuredGrid').innerHTML = data.map(listingCard).join('');
+        section.hidden = false;
+      } catch (e) { /* leave the section hidden */ }
+    }
+
+    async function loadHomeReviews() {
+      const section = document.getElementById('homeReviewsSection');
+      try {
+        const { data, error } = await window.sbClient.from('reviews')
+          .select('id,business_id,reviewer_name,rating,review_text,created_at,businesses(id,name,status)')
+          .eq('status', 'published')
+          .order('created_at', { ascending: false })
+          .limit(3);
+        if (error || !data || !data.length) return;
+        document.getElementById('homeReviewsGrid').innerHTML = data.map(r => {
+          const name = String(r.reviewer_name || 'A customer').trim();
+          const initials = name.split(/\s+/).slice(0, 2).map(w => w.charAt(0).toUpperCase()).join('') || '?';
+          const biz = r.businesses && r.businesses.name
+            ? `<a class="review-biz-link" href="Businesses.html?id=${encodeURIComponent(r.business_id)}">Re: ${esc(r.businesses.name)}</a>` : '';
+          const text = String(r.review_text || '');
+          const short = text.length > 280 ? text.slice(0, 277).trimEnd() + '…' : text;
+          return `<div class="review-card">
+            <div class="review-stars" role="img" aria-label="${esc(r.rating)} out of 5 stars">${starsHtml(r.rating)}</div>
+            <p class="review-text">"${esc(short)}"</p>
+            <div class="review-author"><div class="r-avatar" aria-hidden="true">${esc(initials)}</div><div><div class="r-name">${esc(name)}</div><div class="r-biz">${biz}</div></div></div>
+          </div>`;
+        }).join('');
+        section.hidden = false;
+      } catch (e) { /* leave the section hidden */ }
+    }
+
+    function start() { if (window.sbClient) { loadFeatured(); loadHomeReviews(); } }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+  })();
 </script>
 </body>
 </html>

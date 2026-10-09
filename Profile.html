@@ -388,25 +388,25 @@
       <div class="profile-wrapper">
         <button class="profile-btn open" id="profileBtn" onclick="toggleProfile()">
           <div class="profile-avatar-sm" id="profileAvatarSm">KA</div>
-          <span id="profileNameSm">Kwame A.</span>
+          <span id="profileNameSm"></span>
           <span class="profile-chevron">▼</span>
         </button>
         <div class="profile-dropdown" id="profileDropdown">
           <div class="dropdown-header">
             <div class="dropdown-avatar-lg" id="dropdownAvatarLg">KA</div>
             <div>
-              <div class="dropdown-name" id="dropdownName">Kwame Asante</div>
-              <div class="dropdown-email" id="dropdownEmail">kwame.asante@gmail.com</div>
+              <div class="dropdown-name" id="dropdownName"></div>
+              <div class="dropdown-email" id="dropdownEmail"></div>
             </div>
           </div>
           <div class="dropdown-body">
             <a href="Profile.html" class="menu-item"><div class="menu-icon">👤</div><span class="menu-label">My Profile</span></a>
-            <a href="BusinessProfile.html" class="menu-item"><div class="menu-icon gold">🏪</div><span class="menu-label">My Business Listings</span></a>
-            <a href="#" class="menu-item"><div class="menu-icon">⭐</div><span class="menu-label">My Reviews</span></a>
-            <a href="#" class="menu-item"><div class="menu-icon green">🔖</div><span class="menu-label">Saved Businesses</span></a>
-            <a href="#" class="menu-item"><div class="menu-icon">🔔</div><span class="menu-label">Notifications</span></a>
+            <a href="Profile.html#listings" class="menu-item"><div class="menu-icon gold">🏪</div><span class="menu-label">My Business Listings</span></a>
+            <a href="Profile.html#reviews" class="menu-item"><div class="menu-icon">⭐</div><span class="menu-label">My Reviews</span></a>
+            <a href="Profile.html#saved" class="menu-item"><div class="menu-icon green">🔖</div><span class="menu-label">Saved Businesses</span></a>
+            <a href="Profile.html#notifications" class="menu-item"><div class="menu-icon">🔔</div><span class="menu-label">Notification settings</span></a>
             <div class="menu-sep"></div>
-            <a href="#" class="menu-item"><div class="menu-icon">⚙️</div><span class="menu-label">Account Settings</span></a>
+            <a href="Profile.html#personal" class="menu-item"><div class="menu-icon">⚙️</div><span class="menu-label">Account Settings</span></a>
             <div class="menu-sep"></div>
             <a href="#" class="menu-item danger" onclick="signOutUser(); return false;"><div class="menu-icon red">🚪</div><span class="menu-label">Sign Out</span></a>
           </div>
@@ -434,7 +434,7 @@
       <button class="avatar-edit-btn" title="Change photo" aria-label="Change profile photo">✏️</button>
     </div>
     <div class="account-hero-info">
-      <div class="account-hero-name" id="heroName">Kwame Asante</div>
+      <div class="account-hero-name" id="heroName"></div>
       <div class="account-hero-meta">
         <span id="heroLocationLine" style="display:none;">📍 <strong id="heroLocation"></strong></span>
         <span>📅 Member since <strong id="heroMemberSince">—</strong></span>
@@ -443,7 +443,7 @@
       </div>
       <div class="account-hero-badges">
         <span class="hero-badge hero-badge-member">★ Member</span>
-        <span class="hero-badge hero-badge-verified">✓ Email verified</span>
+        <span class="hero-badge hero-badge-verified" id="heroEmailBadge" style="display:none;"></span>
       </div>
     </div>
     <div class="account-hero-actions">
@@ -548,25 +548,25 @@
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label">First name</label>
-              <input type="text" class="form-input" id="firstName" value="Kwame">
+              <input type="text" class="form-input" id="firstName" value="">
             </div>
             <div class="form-group">
               <label class="form-label">Last name</label>
-              <input type="text" class="form-input" id="lastName" value="Asante">
+              <input type="text" class="form-input" id="lastName" value="">
             </div>
             <div class="form-group">
               <label class="form-label">Display name</label>
-              <input type="text" class="form-input" id="displayName" value="Kwame A.">
+              <input type="text" class="form-input" id="displayName" value="">
               <span class="form-hint">Shown next to your reviews and profile</span>
             </div>
             <div class="form-group">
               <label class="form-label">Phone number</label>
-              <input type="tel" class="form-input" id="phoneNumber" value="+233 24 567 8901">
+              <input type="tel" class="form-input" id="phoneNumber" value="">
             </div>
             <div class="form-group span2">
               <label class="form-label">Email address</label>
-              <input type="email" class="form-input" id="emailAddress" value="kwame.asante@gmail.com" readonly style="background:var(--gray-50);cursor:not-allowed;">
-              <span class="form-hint">✓ Email verified — <a href="#" style="color:var(--brand-red);">change email</a></span>
+              <input type="email" class="form-input" id="emailAddress" value="" readonly style="background:var(--gray-50);cursor:not-allowed;">
+              <span class="form-hint" id="emailHint"></span>
             </div>
             <div class="form-group">
               <label class="form-label">Region</label>
@@ -758,24 +758,23 @@
             </div>
             <div class="security-row">
               <div class="security-info">
-                <div class="security-title">Email verification <span class="security-status status-on">✓ Verified</span></div>
-                <div class="security-sub">kwame.asante@gmail.com is confirmed</div>
+                <div class="security-title">Email verification <span class="security-status" id="emailVerBadge"></span></div>
+                <div class="security-sub" id="emailVerSub"></div>
               </div>
-              <button class="btn-security" onclick="showToast('Verification email sent!')">Resend email</button>
+              <button class="btn-security" id="btnResendEmail" onclick="resendVerificationEmail()" style="display:none;">Resend email</button>
             </div>
             <div class="security-row">
               <div class="security-info">
-                <div class="security-title">Phone number <span class="security-status status-warn">⚠ Not verified</span></div>
-                <div class="security-sub">+233 24 567 8901 — verify to enable SMS notifications</div>
+                <div class="security-title">Phone number</div>
+                <div class="security-sub" id="phoneSecSub"></div>
               </div>
-              <button class="btn-security">Verify phone</button>
             </div>
             <div class="security-row">
               <div class="security-info">
-                <div class="security-title">Login activity</div>
-                <div class="security-sub">Last login: Today at 9:14am from Accra, Ghana · Chrome on Windows</div>
+                <div class="security-title">Sign-in activity</div>
+                <div class="security-sub" id="lastSignInSub"></div>
               </div>
-              <button class="btn-security">View all sessions</button>
+              <button class="btn-security" id="btnSignOutOthers" onclick="signOutOtherDevices()" title="Signs you out everywhere except this browser">Sign out other devices</button>
             </div>
           </div>
         </div>
@@ -789,23 +788,16 @@
         <div class="danger-row">
           <div class="danger-info">
             <h4>Download my data</h4>
-            <p>Export all your reviews, saved businesses and account information as a CSV file</p>
+            <p>Save a copy of your account details, reviews, saved businesses and business listings as a file</p>
           </div>
-          <button class="btn-security">Download data</button>
-        </div>
-        <div class="danger-row">
-          <div class="danger-info">
-            <h4>Deactivate account</h4>
-            <p>Temporarily hide your profile and reviews. You can reactivate at any time.</p>
-          </div>
-          <button class="btn-security">Deactivate</button>
+          <button class="btn-security" id="btnDownloadData" onclick="downloadMyData()">Download data</button>
         </div>
         <div class="danger-row">
           <div class="danger-info">
             <h4>Delete account permanently</h4>
-            <p>This will remove all your reviews, saved businesses and profile data. This cannot be undone.</p>
+            <p>This removes your account, your reviews and your saved businesses. Business listings you manage stay in the directory but are no longer linked to you. This cannot be undone.</p>
           </div>
-          <button class="btn-security red">Delete account</button>
+          <button class="btn-security red" id="btnDeleteAccount" onclick="deleteMyAccount()">Delete account</button>
         </div>
       </div>
     </div>
@@ -888,9 +880,7 @@
         <h4>For businesses</h4>
         <ul>
           <li><a href="AddBusiness.html">Add your business</a></li>
-          <li><a href="#">Advertising</a></li>
-          <li><a href="#">Premium listings</a></li>
-          <li><a href="Profile.html">Business dashboard</a></li>
+          <li><a href="Profile.html#listings">Business dashboard</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -939,6 +929,153 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/supabase-client.js"></script>
 <script src="js/admin-link.js"></script>
+<script>
+  /* ── Account facts and account actions: everything here comes from the real account ── */
+  function renderAccountFacts() {
+    if (!currentUser) return;
+    const meta = currentUser.user_metadata || {};
+    const confirmed = !!currentUser.email_confirmed_at;
+
+    const badge = document.getElementById('heroEmailBadge');
+    if (badge) {
+      badge.textContent = confirmed ? '✓ Email verified' : 'Email not verified';
+      badge.className = 'hero-badge' + (confirmed ? ' hero-badge-verified' : '');
+      badge.style.display = '';
+    }
+    const hint = document.getElementById('emailHint');
+    if (hint) hint.textContent = confirmed ? '✓ Email verified' : 'Email not verified yet. Use "Resend email" in the Security tab.';
+
+    const evb = document.getElementById('emailVerBadge');
+    if (evb) {
+      evb.className = 'security-status ' + (confirmed ? 'status-on' : 'status-warn');
+      evb.textContent = confirmed ? '✓ Verified' : '⚠ Not verified';
+    }
+    const evs = document.getElementById('emailVerSub');
+    if (evs) evs.textContent = (currentUser.email || '') + (confirmed ? ' is confirmed' : ' has not been confirmed yet');
+    const rb = document.getElementById('btnResendEmail');
+    if (rb) rb.style.display = confirmed ? 'none' : '';
+
+    const ps = document.getElementById('phoneSecSub');
+    if (ps) ps.textContent = meta.phone ? meta.phone + ' (saved on your account; phone numbers are not verified yet)' : 'No phone number added. You can add one in Personal details.';
+
+    const ls = document.getElementById('lastSignInSub');
+    if (ls) {
+      const t = currentUser.last_sign_in_at ? new Date(currentUser.last_sign_in_at) : null;
+      ls.textContent = t && !isNaN(t.getTime())
+        ? 'Last sign-in: ' + t.toLocaleString(undefined, { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+        : 'Last sign-in time is not available.';
+    }
+  }
+
+  async function resendVerificationEmail() {
+    if (!currentUser || !currentUser.email) return;
+    const btn = document.getElementById('btnResendEmail');
+    btn.disabled = true;
+    try {
+      const { error } = await window.sbClient.auth.resend({ type: 'signup', email: currentUser.email });
+      if (error) alert('Sorry, the email could not be sent: ' + error.message);
+      else showToast('Verification email sent to ' + currentUser.email);
+    } catch (e) {
+      alert('Sorry, the email could not be sent. Please try again.');
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  async function signOutOtherDevices() {
+    if (!confirm('Sign out of every other device and browser? You will stay signed in here.')) return;
+    const btn = document.getElementById('btnSignOutOthers');
+    btn.disabled = true;
+    try {
+      const { error } = await window.sbClient.auth.signOut({ scope: 'others' });
+      if (error) alert('Sorry, that did not work: ' + error.message);
+      else showToast('Signed out of your other devices');
+    } catch (e) {
+      alert('Sorry, that did not work. Please try again.');
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  async function downloadMyData() {
+    if (!currentUser) return;
+    const btn = document.getElementById('btnDownloadData');
+    btn.disabled = true;
+    const original = btn.textContent;
+    btn.textContent = 'Preparing…';
+    try {
+      const uid = currentUser.id;
+      const [saved, listings, reviews, claims] = await Promise.all([
+        window.sbClient.from('saved_businesses').select('created_at, businesses(id, name)').eq('user_id', uid),
+        window.sbClient.from('businesses').select('*').eq('claimed_by', uid),
+        window.sbClient.from('reviews').select('id, business_id, rating, review_text, status, created_at, businesses(name)').eq('user_id', uid),
+        window.sbClient.from('claim_requests').select('id, business_id, claimant_name, claimant_role, contact_info, message, status, created_at, businesses(name)').eq('user_id', uid),
+      ]);
+      const failed = [saved, listings, reviews, claims].find(r => r.error);
+      if (failed) throw new Error(failed.error.message);
+      const meta = currentUser.user_metadata || {};
+      const out = {
+        exported_at: new Date().toISOString(),
+        account: {
+          id: uid,
+          email: currentUser.email,
+          email_verified: !!currentUser.email_confirmed_at,
+          created_at: currentUser.created_at,
+          last_sign_in_at: currentUser.last_sign_in_at || null,
+          profile: meta,
+        },
+        saved_businesses: saved.data || [],
+        reviews: reviews.data || [],
+        business_listings: listings.data || [],
+        claim_requests: claims.data || [],
+      };
+      const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'searchghana-my-data-' + new Date().toISOString().slice(0, 10) + '.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+      showToast('Your data has been downloaded');
+    } catch (e) {
+      alert('Sorry, your data could not be prepared: ' + (e.message || e));
+    } finally {
+      btn.disabled = false;
+      btn.textContent = original;
+    }
+  }
+
+  async function deleteMyAccount() {
+    if (!currentUser) return;
+    if (!confirm('Delete your account permanently?\n\nYour reviews and saved businesses will be removed. Business listings you manage will stay in the directory but will no longer be linked to you. This cannot be undone.')) return;
+    const typed = prompt('To confirm, type DELETE in capital letters:');
+    if (typed === null) return;
+    if (typed.trim() !== 'DELETE') { alert('That did not match, so nothing was deleted.'); return; }
+    const btn = document.getElementById('btnDeleteAccount');
+    btn.disabled = true;
+    try {
+      const { error } = await window.sbClient.rpc('delete_my_account');
+      if (error) {
+        const m = error.message || '';
+        if (error.code === 'PGRST202' || /could not find the function/i.test(m)) {
+          alert('Account deletion is not available right now. Please try again later or contact us.');
+        } else {
+          alert('Your account was not deleted: ' + m);
+        }
+        btn.disabled = false;
+        return;
+      }
+      try { await window.sbClient.auth.signOut(); } catch (e) { /* already gone */ }
+      alert('Your account has been deleted.');
+      window.location.href = 'index.html';
+    } catch (e) {
+      alert('Your account was not deleted. Please try again.');
+      btn.disabled = false;
+    }
+  }
+</script>
 <script>
   /* ── Region label <-> slug (matches Browse.html's sidebar regions, plus the
      newer ones AddBusiness.html offers that Browse.html doesn't filter on yet) ── */
@@ -1002,6 +1139,7 @@
     document.getElementById('profileNameSm').textContent = shortName;
     document.getElementById('dropdownName').textContent = displayName;
     document.getElementById('dropdownEmail').textContent = currentUser.email || '';
+    if (typeof renderAccountFacts === 'function') renderAccountFacts();
   }
 
   /* ── Notification preferences: stored under user_metadata.notif_prefs, same
@@ -2025,5 +2163,19 @@
 })();
 </script>
 <!-- End Cookie Consent Banner -->
+<script>
+  /* Open the section named in the web address (e.g. Profile.html#saved), also when the account menu is used on this page */
+  (function () {
+    function applyHash() {
+      var h = (location.hash || '').slice(1);
+      if (!h || typeof sections === 'undefined' || sections.indexOf(h) === -1) return;
+      switchSection(h);
+      var dd = document.getElementById('profileDropdown'); if (dd) dd.classList.remove('open');
+      var b = document.getElementById('profileBtn'); if (b) b.classList.remove('open');
+    }
+    window.addEventListener('hashchange', applyHash);
+    applyHash();
+  })();
+</script>
 </body>
 </html>
