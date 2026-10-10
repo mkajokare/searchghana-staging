@@ -1,5 +1,5 @@
-// Shared Supabase client for SearchGhana.com
-// Project: SearchGhana (https://supabase.com/dashboard/project/goohnjcxbupbgpivqmok)
+// Shared Supabase client for MenimGhana.com
+// Project: Menim Ghana (https://supabase.com/dashboard/project/goohnjcxbupbgpivqmok)
 //
 // The URL and key below are the "Publishable key" -- Supabase's own docs say this
 // key is safe to ship in client-side code as long as Row Level Security (RLS) is

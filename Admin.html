@@ -4,9 +4,9 @@
 <meta name="robots" content="noindex, nofollow"><!-- staging-noindex -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin | SearchGhana</title>
+<title>Admin | Menim Ghana</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" type="image/png" href="Icons/searchghana-favicon.png">
+<link rel="icon" type="image/png" href="Icons/menim-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -129,6 +129,16 @@
     .dm-foot > * { flex: 1 1 auto; text-align: center; white-space: nowrap; }
   }
 </style>
+<style id="brand-logo">
+.logo{display:inline-flex}
+.logo{align-items:center;gap:0}
+.logo .logo-mark{height:30px;width:auto;display:block;flex:none;margin-right:7px}
+.logo .brand-gh{margin-left:.26em}
+.logo .brand-menim{color:#1A1A1A}
+.logo .brand-gh{color:#0A8A45}
+.footer-brand .logo .brand-menim{color:#fff}
+.footer-brand .logo .brand-gh{color:#3ED16B}
+</style>
 </head>
 <body>
 
@@ -136,7 +146,7 @@
 
 <div class="admin-header">
   <div class="admin-header-inner">
-    <a href="index.html" class="logo">SearchGhana</a>
+    <a href="index.html" class="logo" aria-label="Menim Ghana"><img class="logo-mark" src="Icons/menim-icon.png" alt="" width="40" height="30"><span class="brand-menim">Menim</span><span class="brand-gh">Ghana</span></a>
     <span class="admin-badge">Admin</span>
   </div>
 </div>
@@ -204,7 +214,7 @@
       <div class="admin-form-row two-col">
         <div>
           <label class="admin-form-label" for="bpAuthorName">Author name</label>
-          <input class="admin-form-input" id="bpAuthorName" type="text" maxlength="100" placeholder="SearchGhana Team">
+          <input class="admin-form-input" id="bpAuthorName" type="text" maxlength="100" placeholder="Menim Ghana Team">
         </div>
         <div>
           <label class="admin-form-label" for="bpStatus">Status (new posts only)</label>
@@ -684,7 +694,7 @@
     const category = document.getElementById('bpCategory').value.trim() || null;
     const coverEmoji = document.getElementById('bpCoverEmoji').value.trim() || null;
     const readMinutes = parseInt(document.getElementById('bpReadMinutes').value, 10) || null;
-    const authorName = document.getElementById('bpAuthorName').value.trim() || 'SearchGhana Team';
+    const authorName = document.getElementById('bpAuthorName').value.trim() || 'Menim Ghana Team';
 
     this.disabled = true;
     try {

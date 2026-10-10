@@ -8,4 +8,4 @@ Disallow: /Profile.html
 Disallow: /BusinessProfile.html
 Disallow: /Admin.html
 
-Sitemap: https://www.searchghana.com/sitemap.xml
+Sitemap: https://www.menimghana.com/sitemap.xml

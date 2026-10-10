@@ -9,7 +9,7 @@
   .nav-inner { padding-left: 12px; padding-right: 12px; gap: 6px; }
   .nav-inner { justify-content: flex-start; }
   .nav-inner .logo { font-size: 18px; gap: 1px; letter-spacing: -0.3px; }
-  .nav-inner .logo .search { margin-right: 4px; }
+  .nav-inner .logo .logo-mark { height: 26px; margin-right: 5px; }
   .nav-inner .nav-right { gap: 6px; min-width: 0; margin-left: auto; }
   .nav-inner .profile-btn { padding: 4px 10px 4px 4px; gap: 6px; }
   /* Keep the name for screen readers, but show just the avatar on a phone. */
@@ -53,7 +53,6 @@
 
   /* Footer logo: same tight lettering as the header */
   .footer-brand .logo { gap: 1px; }
-  .footer-brand .logo .search { margin-right: 4px; }
 
   /* Tighter space between page sections */
   .section { padding-top: 48px; padding-bottom: 48px; }
@@ -75,5 +74,6 @@
 /* Very small phones (360px and under, e.g. older iPhones) */
 @media (max-width: 360px) {
   .nav-inner { padding-left: 10px; padding-right: 10px; }
-  .nav-inner .logo { font-size: 16px; }
+  .nav-inner .logo { font-size: 15px; letter-spacing: -0.4px; }
+  .nav-inner .logo .logo-mark { height: 20px; margin-right: 4px; }
 }
